@@ -1,12 +1,5 @@
 <template>
-  <div>
-   
-    <main>
-      <h1>{{ message[0] }}</h1>
-      <p v-for="(msg, index) in message" :key="index">{{ msg }}</p>
-    </main>
-   
-  </div>
+  <NuxtPage/>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
@@ -14,7 +7,5 @@ const message = ref(['Welcome to My Application', 'This is the main content area
 
 </script>
 <style>
-main{
-  text-align: center;
-}
+
 </style>
