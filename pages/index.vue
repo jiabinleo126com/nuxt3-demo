@@ -1,11 +1,11 @@
 <template>
-    <Header/>
+    <Header />
     hello
-    <Footer/>
+    <Footer />
 </template>
 <script setup>
 
 </script>
 <style>
-  
+
 </style>

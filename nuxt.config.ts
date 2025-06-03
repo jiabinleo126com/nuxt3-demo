@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     baseURL: './', // 应用根路径
     buildAssetsDir: 'static/', // 构建资源目录
   },
-  css:[`./node_modules/reset.less`],
+  css:[`./assets/css/reset.less`],
   nitro: {
     preset: 'static', // 使用静态部署模式
   },

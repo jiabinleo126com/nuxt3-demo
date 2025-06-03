@@ -254,7 +254,52 @@
 </template>
 
 <script setup>
-
+    import {onMounted} from "vue";
+onMounted(()=>{
+console.log(1)
+ $('.search-hover').on('click', 'li', function () {
+            $('#searchContent').text($(this).text());
+            $('#searchid').val($(this).attr('value'));
+            $('.search-hover').find('.submenu').hide();
+        });
+        $("#searchbtn").click(function () {
+            var txt = $("#q").val().replace(/(^\s*)|(\s*$)/g, '');
+            if (txt == "输入搜索内容" || txt == "请输入搜索内容" || txt == "") {
+                return false;
+            }
+        });
+        function isShowMenu() {
+            var ad_height = $('#pc_ad_top').height() || 0;
+            var top = $(window).scrollTop();
+            var position = top > ($('.bar-header').height() + $('.bar-title').height() + ad_height) ? 'fixed' : 'initial';
+            $('.iedu-menu-box').css({
+                position: position
+            });
+        }
+        $(document).on('scroll', function () {
+            isShowMenu();
+        });
+        isShowMenu();
+        $('.parentMenu').hover(function () {
+            $(this).find('.submenu').show();
+        }, function () {
+            $(this).find('.submenu').hide();
+        });
+        function getcookieval(objname) {
+            var arrstr = document.cookie.split("; ");
+            for (var i = 0; i < arrstr.length; i++) {
+                var temp = arrstr[i].split("=");
+                if (temp[0] == objname)
+                    return decodeURI(unescape(temp[1]));
+            }
+        }
+        var live_username = getcookieval("live_username");
+        if (live_username) {
+            var userUrl = '//www.ieduchina.com/usercenter/index/index.html';
+            var html = "<p class='logout'><span><a rel='nofollow' target='_blank' href='" + userUrl + "'> " + live_username + " </a></span><span> | </span><a href='//www.ieduchina.com/logout.html'>退出</a></p>";
+            $("#login-before").html(html);
+        }
+        })
 </script>
 
 <style lang="less">
