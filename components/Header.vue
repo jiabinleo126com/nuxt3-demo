@@ -255,9 +255,9 @@
 
 <script setup>
     import {onMounted} from "vue";
-onMounted(()=>{
-console.log(1)
- $('.search-hover').on('click', 'li', function () {
+    onMounted(()=>{
+        console.log(1)
+        $('.search-hover').on('click', 'li', function () {
             $('#searchContent').text($(this).text());
             $('#searchid').val($(this).attr('value'));
             $('.search-hover').find('.submenu').hide();
@@ -299,7 +299,7 @@ console.log(1)
             var html = "<p class='logout'><span><a rel='nofollow' target='_blank' href='" + userUrl + "'> " + live_username + " </a></span><span> | </span><a href='//www.ieduchina.com/logout.html'>退出</a></p>";
             $("#login-before").html(html);
         }
-        })
+    })
 </script>
 
 <style lang="less">
@@ -372,7 +372,7 @@ console.log(1)
         top: 9px;
         width: 10px;
         height: 18px;
-        background: url(../img/a91b75e0.png) center/contain no-repeat
+        background: url(https://www.ieduchina.com/statics/pcc/img/a91b75e0.png) center/contain no-repeat
     }
 
     body .bar .bar-title .bar-title-con .left>li.nav .nav_box {
@@ -729,7 +729,7 @@ console.log(1)
         z-index: 10;
         width: 22px;
         height: 24px;
-        background-image: url(../img/cc9595ab.png);
+        background-image: url(https://www.ieduchina.com/statics/pcc/img/cc9595ab.png);
         background-size: 22px 24px;
     }
 
@@ -791,7 +791,7 @@ console.log(1)
         top: 4px;
         width: 14px;
         height: 8px;
-        background-image: url(../img/511880fa.png);
+        background-image: url(https://www.ieduchina.com/statics/pcc/img/511880fa.png);
         background-repeat: no-repeat;
         background-size: 14px 8px;
     }
