@@ -55,6 +55,13 @@ export default defineNuxtConfig({
     css: [`./assets/css/reset.less`],
     nitro: {
         preset: 'static', // 使用静态部署模式
+        devProxy: {
+            '/font': {
+                target: 'https://www.ieduchina.com/statics/font',
+                changeOrigin: true,
+                prependPath: true
+            }
+        }
     },
     vite: {
         base: './' // ✅ 设置资源和入口文件的基础路径为相对路径
