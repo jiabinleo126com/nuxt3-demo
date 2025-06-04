@@ -256,7 +256,8 @@
 <script setup>
     import {onMounted} from "vue";
     onMounted(()=>{
-        console.log(1)
+        $(function(){
+            console.log(1)
         $('.search-hover').on('click', 'li', function () {
             $('#searchContent').text($(this).text());
             $('#searchid').val($(this).attr('value'));
@@ -299,6 +300,7 @@
             var html = "<p class='logout'><span><a rel='nofollow' target='_blank' href='" + userUrl + "'> " + live_username + " </a></span><span> | </span><a href='//www.ieduchina.com/logout.html'>退出</a></p>";
             $("#login-before").html(html);
         }
+        })
     })
 </script>
 
