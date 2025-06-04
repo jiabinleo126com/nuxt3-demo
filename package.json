@@ -6,6 +6,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "fix-paths": "node scripts/fix-paths.js",
+    "build:static": "npm run generate && npm run fix-paths",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -17,6 +19,7 @@
   },
   "devDependencies": {
     "less": "^4.3.0",
-    "less-loader": "^12.3.0"
+    "less-loader": "^12.3.0",
+    "replace-in-file": "^8.3.0"
   }
 }

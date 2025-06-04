@@ -2,8 +2,8 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-05-15',
     devtools: { enabled: true },
     app: {
-        baseURL: './', // 应用根路径
-        buildAssetsDir: 'static/', // 构建资源目录
+        baseURL: '/', // 应用根路径
+        buildAssetsDir: 'static/js', // 构建资源目录
         head: {
             script: [
                 {
@@ -52,18 +52,30 @@ export default defineNuxtConfig({
             ]
         },
     },
+    vite: {
+        base: '',// ✅ 设置资源和入口文件的基础路径为相对路径
+        plugins: [
+        ]
+    },
     css: [`./assets/css/reset.less`],
     nitro: {
-        preset: 'static', // 使用静态部署模式
+        preset: 'static',
+        prerender: {
+            crawlLinks: true, // 爬取链接进行预渲染
+            routes: ['/hk13'], // 预渲染首页
+            ignore: ['/index','200','404'] // 不忽略任何路由
+        },
         devProxy: {
             '/font': {
                 target: 'https://www.ieduchina.com/statics/font',
                 changeOrigin: true,
                 prependPath: true
             }
-        }
+        },
+        // 缩小捆绑包
+        minify: true,
+        // 关闭源映射生成
+        sourceMap: false,
     },
-    vite: {
-        base: './' // ✅ 设置资源和入口文件的基础路径为相对路径
-    }
+
 })
