@@ -60,12 +60,12 @@
             <div class="iedu-menu-box">
                 <ul class="iedu-menu">
                     <li>
-                        <a href="//www.ieduchina.com"><span>首页</span></a>
+                        <a href="/"><span>首页</span></a>
                     </li>
                     <li class="parentMenu">
                         <a href="//www.ieduchina.com/school/index.html"><span>教育资讯</span></a>
                         <ul class="submenu">
-                            <li><a href="//www.ieduchina.com/school/index.html"><span>校园资讯</span></a></li>
+                            <li><a href="/school"><span>校园资讯</span></a></li>
                             <li><a href="//www.ieduchina.com/abroad/index.html"><span>留学资讯</span></a></li>
                             <li><a href="//www.ieduchina.com/parents/"><span>家庭教育</span></a></li>
                             <li><a href="//www.ieduchina.com/zt/"><span>教育综合</span></a></li>

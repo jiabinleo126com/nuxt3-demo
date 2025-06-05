@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     },
     app: {
         baseURL: '/', // 应用根路径
-        buildAssetsDir: 'static/js', // 构建资源目录
+        buildAssetsDir: 'static', // 构建资源目录
         head: {
             script: [
                 {
@@ -97,7 +97,7 @@ export default defineNuxtConfig({
         preset: 'static',
         prerender: {
             crawlLinks: false, // 爬取链接进行预渲染
-            routes: ['/'], // 预渲染首页
+            routes: ["/school"], // 预渲染首页
             // ignore: ['/index','200','404'] // 不忽略任何路由
         },
         devProxy: {
