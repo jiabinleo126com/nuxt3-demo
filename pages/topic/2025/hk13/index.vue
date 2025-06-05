@@ -20,7 +20,6 @@
                 </P>
             </div>
         </div>
-        <LiangDian />
         <component :is="LiangDian" />
     </section>
     <section class="gray">

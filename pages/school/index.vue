@@ -2,21 +2,7 @@
     <Header />
     <section class="abroad">
         <div class="abroad-con">
-            <div class="abroad-banner">
-                <a href="//www.ieduchina.com/guangzhou/education/202506/128981.html">
-                    <img :src="imgUrl" alt="2025广州市香江中学国际部学费及课程介绍">
-                    <p>2025广州市香江中学国际部学费及课程介绍</p>
-                </a>
-                <a href="//www.ieduchina.com/hongkong/education/202506/128980.html"
-                    style="background-image: url(https://www.ieduchina.com/statics/js/editor/php/upload/image/20250604/1749022604528822.png)">
-                    <p>香港沪江维多利亚学校2025年招生政策</p>
-                </a>
-                <a href="//www.ieduchina.com/school/education/202506/128978.html"
-                    style="background-image: url(https://www.ieduchina.com/statics/js/editor/php/upload/image/20250604/1749018847190467.png)">
-                    <p>哈罗横琴资优学生奖学金-中考成绩优秀者可冲全额奖学金！</p>
-                </a>
-            </div>
-
+            <component :is="Banner" />
             <div class="abroad-news">
                 <h3><span>校园最新资讯</span></h3>
                 <ul>
@@ -885,12 +871,16 @@
     <Footer />
 </template>
 <script setup>
-import imgUrl from './1749024013359745.png'
+import { defineAsyncComponent } from 'vue';
+const Banner = defineAsyncComponent(() => import("~/components/school/Banner.vue"))
 </script>
-<style>
+<style lang="less">
+body {
+    background-color: #f3f3f7;
+}
+
 #side {
     width: 360px;
-    /* å³ä¾§è¡¨å• */
 }
 
 #side>div:first-of-type.activity-recommendation {
@@ -1726,52 +1716,6 @@ body .abroad .abroad-con {
     width: 900px;
 }
 
-body .abroad .abroad-con .abroad-banner {
-    overflow: hidden;
-}
-
-body .abroad .abroad-con .abroad-banner a {
-    position: relative;
-    float: left;
-    width: 268px;
-    height: 163px;
-    overflow: hidden;
-    border-radius: 12px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-body .abroad .abroad-con .abroad-banner a p {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 40px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #FFFFFF;
-    line-height: 40px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0 16px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-body .abroad .abroad-con .abroad-banner a:first-of-type {
-    width: 622px;
-    height: 342px;
-    margin-right: 10px;
-}
-
-body .abroad .abroad-con .abroad-banner a:last-of-type {
-    margin-top: 15px;
-}
-
 body .abroad .abroad-con .abroad-news {
     margin-top: 10px;
     font-size: 20px;
@@ -1853,8 +1797,8 @@ body .abroad .abroad-con .abroad-news ul li .abroad-article a h2 {
     color: #333333;
     line-height: 24px;
     display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+    box-orient: vertical;
+    line-clamp: 1;
     text-overflow: ellipsis;
     overflow: hidden;
     text-align: justify;
