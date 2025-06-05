@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "generate:one": "nuxt generate && node scripts/clean-static-html.cjs && node scripts/move-page-to-root.cjs && node scripts/fix-paths.js && node scripts/remove-style-tags.cjs",
     "fix-paths": "node scripts/fix-paths.js",
     "build:static": "npm run generate && npm run fix-paths",
     "preview": "nuxt preview",

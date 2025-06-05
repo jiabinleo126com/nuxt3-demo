@@ -1,6 +1,20 @@
 export default defineNuxtConfig({
     compatibilityDate: '2025-05-15',
     devtools: { enabled: true },
+    postcss: {
+        plugins: {
+            autoprefixer: {
+                overrideBrowserslist: [
+                    'last 2 versions',
+                    '> 1%',
+                    'not dead'
+                ]
+            }
+        }
+    },
+    experimental: {
+        payloadExtraction: false//关闭 payload 预取
+    },
     app: {
         baseURL: '/', // 应用根路径
         buildAssetsDir: 'static/js', // 构建资源目录
@@ -55,15 +69,36 @@ export default defineNuxtConfig({
     vite: {
         base: '',// ✅ 设置资源和入口文件的基础路径为相对路径
         plugins: [
-        ]
+        ],
+        // css: {
+        //     // 强制提取所有 CSS
+        //     devSourcemap: true
+        // },
+        build: {
+            minify: false // 关闭 JS 压缩和混淆
+            //     cssCodeSplit: true,
+            //     rollupOptions: {
+            //         output: {
+            //             manualChunks: () => 'everything', // 禁用分包，所有 JS 合并
+            //             entryFileNames: 'app.js', // JS 合并为 app.js
+            //             chunkFileNames: 'app.js', // JS 合并为 app.js
+            //             assetFileNames: (assetInfo) => {
+            //                 if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            //                     return 'style.css';
+            //                 }
+            //                 return '[name][extname]';
+            //             }
+            //         }
+            //     }
+        }
     },
     css: [`./assets/css/reset.less`],
     nitro: {
         preset: 'static',
         prerender: {
-            crawlLinks: true, // 爬取链接进行预渲染
-            routes: ['/hk13'], // 预渲染首页
-            ignore: ['/index','200','404'] // 不忽略任何路由
+            crawlLinks: false, // 爬取链接进行预渲染
+            routes: ['/'], // 预渲染首页
+            // ignore: ['/index','200','404'] // 不忽略任何路由
         },
         devProxy: {
             '/font': {

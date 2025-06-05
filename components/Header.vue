@@ -104,7 +104,7 @@
                                 <div class="box">
                                     <div class="box_lis">
                                         <div class="box_con">
-                                            <a href="//www.ieduchina.com/topic/2025/hk13/" title="香港教育文化之旅"
+                                            <a href="/topic/2025/hk13/" title="香港教育文化之旅"
                                                 target="_blank">25年05月:可风中学、世界龙冈学校刘皇发中学等10所学校</a>
                                             <a href="//www.ieduchina.com/topic/2025/hk12/" title="香港教育文化之旅"
                                                 target="_blank">25年01月:中华基金中学、迦密爱礼信中学等7所学校</a>
