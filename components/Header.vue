@@ -40,16 +40,17 @@
         <div class="bar-header">
             <div class="logo">
                 <a href="//www.ieduchina.com">
-                    <img src="//www.ieduchina.com/statics/pcc/img/logo_header.png?v=1" alt="国际教育网"  />
+                    <img src="//www.ieduchina.com/statics/pcc/img/logo_header.png?v=1" alt="国际教育网" />
                 </a>
             </div>
             <div class="search-box">
                 <form action="//www.ieduchina.com/search/index.html" method="get" id="search">
-                    <input id="q" class="search-content" name="searchkey"  placeholder="搜索 学校/文章/机构" type="text" value="">
+                    <input id="q" class="search-content" name="searchkey" placeholder="搜索 学校/文章/机构" type="text"
+                        value="">
                     <button id="searchbtn" class="search-submit" type="submit">
-                    <img src="//www.ieduchina.com/statics/pcc/img/search1.png?v=1">
-                    搜索
-                </button>
+                        <img src="//www.ieduchina.com/statics/pcc/img/search1.png?v=1">
+                        搜索
+                    </button>
                 </form>
             </div>
             <div class="tel">
@@ -99,8 +100,9 @@
                             <!-- <li><a href="//www.ieduchina.com/huodong/?type=9"><span>家长学院</span></a></li> -->
                             <li><a href="//www.ieduchina.com/huodong/?type=6"><span>学校开放日</span></a></li>
                             <li>
-                                <a href="//www.ieduchina.com/topic/2025/hk13/"
-                                    target="_blank"><span><img src="//www.ieduchina.com/statics/pcc/img/11d86433.png" style="vertical-align: -1px;">访校团</span></a>
+                                <a href="//www.ieduchina.com/topic/2025/hk13/" target="_blank"><span><img
+                                            src="//www.ieduchina.com/statics/pcc/img/11d86433.png"
+                                            style="vertical-align: -1px;">访校团</span></a>
                                 <div class="box">
                                     <div class="box_lis">
                                         <div class="box_con">
@@ -254,10 +256,9 @@
 </template>
 
 <script setup>
-    import {onMounted} from "vue";
-    onMounted(()=>{
-        $(function(){
-            console.log(1)
+import { onMounted } from "vue";
+onMounted(() => {
+    $(function () {
         $('.search-hover').on('click', 'li', function () {
             $('#searchContent').text($(this).text());
             $('#searchid').val($(this).attr('value'));
@@ -300,645 +301,645 @@
             var html = "<p class='logout'><span><a rel='nofollow' target='_blank' href='" + userUrl + "'> " + live_username + " </a></span><span> | </span><a href='//www.ieduchina.com/logout.html'>退出</a></p>";
             $("#login-before").html(html);
         }
-        })
     })
+})
 </script>
 
 <style lang="less">
-    body .bar {
-        width: 100%;
-        min-width: 1280px;
-        background-color: #ffffff;
+body .bar {
+    width: 100%;
+    min-width: 1280px;
+    background-color: #ffffff;
+}
+
+body .bar .bar-title {
+    border-bottom: solid 1px #e5e5e5
+}
+
+body .bar .bar-title .bar-title-con {
+    width: 1280px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 37px;
+    line-height: 37px;
+    font-size: 14px;
+    color: #333
+}
+
+body .bar .bar-title .bar-title-con .left {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+body .bar .bar-title .bar-title-con .left>li {
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+    margin-right: 30px
+}
+
+body .bar .bar-title .bar-title-con .left>li a {
+    font-weight: 400;
+    font-size: 14px;
+    color: #333
+}
+
+body .bar .bar-title .bar-title-con .left>li a.home {
+    color: #0770d1
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav {
+    position: relative;
+    padding-right: 15px;
+    cursor: pointer
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav:hover .nav_box {
+    display: block
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 9px;
+    width: 10px;
+    height: 18px;
+    background: url(https://www.ieduchina.com/statics/pcc/img/a91b75e0.png) center/contain no-repeat
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav .nav_box {
+    display: none;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    z-index: 100;
+    padding-top: 4px;
+    -webkit-animation: an .3s ease-in-out;
+    animation: an .3s ease-in-out
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in {
+    padding: 10px 20px 13px;
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, .1608);
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, .1608)
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li:first-of-type::after {
+    content: "|";
+    margin-left: 20px;
+    color: #bebebe
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li a {
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+    padding: 0 20px
+}
+
+body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li a.active,
+body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li a:hover {
+    width: 56px;
+    color: #0770d1
+}
+
+body .bar .bar-title .bar-title-con .right {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+body .bar .bar-title .bar-title-con .right li {
+    padding-left: 30px
+}
+
+body .bar .bar-title .bar-title-con .right li.free {
+    position: relative
+}
+
+body .bar .bar-title .bar-title-con .right li.free:hover {
+    cursor: pointer;
+    color: #0770d1
+}
+
+body .bar .bar-title .bar-title-con .right li.free:hover .card {
+    display: block;
+    opacity: 1;
+    -webkit-animation: vip .3s ease-in-out;
+    animation: vip .3s ease-in-out
+}
+
+body .bar .bar-title .bar-title-con .right li.free i {
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    width: 20px;
+    height: 26px;
+    background: url(/statics/vips/images/91796bc7.png) center/contain no-repeat
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    top: 24px;
+    right: 0;
+    z-index: 12;
+    padding-top: 12px;
+    -webkit-transform: translateX(44%);
+    transform: translateX(44%)
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content {
+    padding: 10px 20px 14px;
+    width: 344px;
+    -webkit-box-shadow: 0px 3px 20px 1px rgba(0, 0, 0, .2);
+    box-shadow: 0px 3px 20px 1px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    background: #fff url(/statics/vips/images/d42be359.png) left top/contain no-repeat
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content i {
+    position: initial;
+    display: inline-block;
+    vertical-align: -8px;
+    margin-right: 5px
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content span {
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+    margin-right: 14px
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content span.recharge {
+    display: inline-block;
+    width: 66px;
+    height: 20px;
+    background: -webkit-gradient(linear, left top, right top, from(#393737), to(#494848));
+    background: linear-gradient(90deg, #393737 0%, #494848 100%);
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #f9e7be;
+    text-align: left;
+    line-height: 20px;
+    text-align: center
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content>p {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    letter-spacing: -1px
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content>p:nth-of-type(2) {
+    margin-top: -4px
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content ol {
+    padding-top: 16px
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content ol li {
+    padding-left: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+    line-height: 27px
+}
+
+body .bar .bar-title .bar-title-con .right li.free .card .content ol li::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: url(/statics/vips/images/e659043d.png) left center/contain no-repeat;
+    vertical-align: 1px;
+    margin-right: 5px
+}
+
+body .bar .bar-title .bar-title-con .right li.free.vip i {
+    background-image: url(/statics/vips/images/f21e7f40.png)
+}
+
+body .bar .bar-title .bar-title-con .right li.free.vip .card .content {
+    background-image: url(/statics/vips/images/5a1e2a12.png)
+}
+
+body .bar .bar-title .bar-title-con .right li.free.vip .card .content p i {
+    background-image: url(/statics/vips/images/f21e7f40.png)
+}
+
+body .bar .bar-title .bar-title-con .right li.free.vip .card .content ol li {
+    color: #5e3318
+}
+
+body .bar .bar-title .bar-title-con .right li.free.vip .card .content ol li::before {
+    background-image: url(/statics/vips/images/f2c68241.png)
+}
+
+body .bar .bar-title .bar-title-con .right li.login {
+    color: #0770d1
+}
+
+body .bar .bar-title .bar-title-con .right li.login a {
+    color: #0770d1;
+    margin: 0 4px
+}
+
+body .bar .bar-title .bar-title-con .right li a {
+    font-weight: 400;
+    font-size: 14px;
+    color: #333
+}
+
+body .bar .bar-header {
+    width: 1280px;
+    margin: 0 auto;
+    height: 96px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+body .bar .bar-header .logo {
+    width: 200px;
+    height: 44px;
+    margin-top: 26px;
+}
+
+body .bar .bar-header .logo h1 {
+    height: 44px;
+}
+
+body .bar .bar-header .logo h1 img {
+    height: 44px;
+}
+
+body .bar .bar-header .search-box {
+    margin-top: 28px;
+    width: 521px;
+    height: 42px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    line-height: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+body .bar .bar-header .search-box form {
+    width: 540px;
+    height: 40px;
+}
+
+body .bar .bar-header .search-box form input.search-content {
+    padding: 0 108px 0 10px;
+    height: 40px;
+    width: 520px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    background: #fff;
+    -webkit-appearance: none;
+    outline: none;
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+body .bar .bar-header .search-box form input.search-content::-webkit-input-placeholder {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+body .bar .bar-header .search-box form input.search-content::-moz-placeholder {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+body .bar .bar-header .search-box form input.search-content:-ms-input-placeholder {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+body .bar .bar-header .search-box form input.search-content::-ms-input-placeholder {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+body .bar .bar-header .search-box form input.search-content::placeholder {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+body .bar .bar-header .search-box form button.search-submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 97px;
+    height: 40px;
+    background-color: #0770d1;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 40px;
+}
+
+body .bar .bar-header .search-box form button.search-submit img {
+    vertical-align: -3px;
+    padding-right: 6px;
+}
+
+body .bar .bar-header .search-box form a {
+    position: absolute;
+    right: 110px;
+    top: 0;
+    z-index: 10;
+    font-weight: 400;
+    font-size: 14px;
+    color: #0770d1;
+    letter-spacing: 1px;
+    cursor: pointer;
+    line-height: 40px;
+    text-decoration: underline
+}
+
+body .bar .bar-header .tel {
+    line-height: 31px;
+    margin-right: 0;
+    width: 200px;
+    text-align: left;
+    margin-top: 18px;
+}
+
+body .bar .bar-header .tel a {
+    position: relative;
+    font-size: 18px;
+    font-weight: initial;
+    color: #333333;
+}
+
+body .bar .bar-header .tel a::before {
+    position: absolute;
+    content: '';
+    left: -37px;
+    top: 15px;
+    z-index: 10;
+    width: 22px;
+    height: 24px;
+    background-image: url(https://www.ieduchina.com/statics/pcc/img/cc9595ab.png);
+    background-size: 22px 24px;
+}
+
+body .iedu-menu-wrap {
+    width: 1280px;
+    margin: 0 auto;
+    height: 48px;
+}
+
+body .iedu-menu-wrap .iedu-menu-box {
+    background-color: #ffffff;
+    width: 100%;
+    height: 48px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu {
+    width: 1280px;
+    height: 48px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li {
+    cursor: pointer;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    line-height: 48px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li a {
+    color: #303030;
+    width: 100%;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu {
+    position: relative;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span {
+    position: relative;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
+    content: '';
+    position: absolute;
+    right: -16px;
+    top: 4px;
+    width: 14px;
+    height: 8px;
+    background-image: url(https://www.ieduchina.com/statics/pcc/img/511880fa.png);
+    background-repeat: no-repeat;
+    background-size: 14px 8px;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 48px;
+    z-index: 800;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
+    box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li {
+    line-height: 48px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li:hover .box {
+    display: block;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li a {
+    width: 100%;
+    height: 100%;
+    color: #212121;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li:hover a {
+    color: #338eff;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box {
+    display: none;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: absolute;
+    left: 142px;
+    top: 0;
+    background: #fff;
+    -webkit-box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, .302);
+    box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, .302);
+    border-radius: 0px 0px 0px 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 16px 0
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis {
+    border-bottom: solid 1px #cecece
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis:last-of-type {
+    border-bottom: none;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_title {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+    line-height: 1;
+    padding-top: 14px
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_title::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 18px;
+    background-color: #338eff;
+    vertical-align: -3px;
+    margin-right: 6px;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 12px;
+    padding-top: 10px
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+    display: block;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 38px;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con.center a {
+    text-align: center;
+    width: 100% !important;
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a:nth-of-type(3n) {
+    width: 30%
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a.ing {
+    width: 100%
+}
+
+body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a:hover {
+    color: #338eff
+}
+
+@-webkit-keyframes an {
+    0% {
+        top: 40px;
+        opacity: 0
     }
 
-    body .bar .bar-title {
-        border-bottom: solid 1px #e5e5e5
-    }
-
-    body .bar .bar-title .bar-title-con {
-        width: 1280px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        margin: 0 auto;
-        height: 37px;
-        line-height: 37px;
-        font-size: 14px;
-        color: #333
-    }
-
-    body .bar .bar-title .bar-title-con .left {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex
-    }
-
-    body .bar .bar-title .bar-title-con .left>li {
-        font-weight: 400;
-        font-size: 14px;
-        color: #333;
-        margin-right: 30px
-    }
-
-    body .bar .bar-title .bar-title-con .left>li a {
-        font-weight: 400;
-        font-size: 14px;
-        color: #333
-    }
-
-    body .bar .bar-title .bar-title-con .left>li a.home {
-        color: #0770d1
-    }
-
-    body .bar .bar-title .bar-title-con .left>li.nav {
-        position: relative;
-        padding-right: 15px;
-        cursor: pointer
-    }
-
-    body .bar .bar-title .bar-title-con .left>li.nav:hover .nav_box {
-        display: block
-    }
-
-    body .bar .bar-title .bar-title-con .left>li.nav::after {
-        pointer-events: none;
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 9px;
-        width: 10px;
-        height: 18px;
-        background: url(https://www.ieduchina.com/statics/pcc/img/a91b75e0.png) center/contain no-repeat
-    }
-
-    body .bar .bar-title .bar-title-con .left>li.nav .nav_box {
-        display: none;
-        position: absolute;
+    100% {
         top: 36px;
-        left: 0;
-        z-index: 100;
-        padding-top: 4px;
-        -webkit-animation: an .3s ease-in-out;
-        animation: an .3s ease-in-out
+        opacity: 1
     }
+}
 
-    body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in {
-        padding: 10px 20px 13px;
-        background: #fff;
-        -webkit-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, .1608);
-        box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, .1608)
+@keyframes an {
+    0% {
+        top: 40px;
+        opacity: 0
     }
 
-    body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex
+    100% {
+        top: 36px;
+        opacity: 1
     }
-
-    body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li {
-        font-weight: bold;
-        font-size: 14px;
-        color: #333;
-        white-space: nowrap
-    }
-
-    body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li:first-of-type::after {
-        content: "|";
-        margin-left: 20px;
-        color: #bebebe
-    }
-
-    body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li a {
-        font-weight: 400;
-        font-size: 14px;
-        color: #666;
-        padding: 0 20px
-    }
-
-    body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li a.active,
-    body .bar .bar-title .bar-title-con .left>li.nav .nav_box .nav_box_in ol li a:hover {
-        width: 56px;
-        color: #0770d1
-    }
-
-    body .bar .bar-title .bar-title-con .right {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex
-    }
-
-    body .bar .bar-title .bar-title-con .right li {
-        padding-left: 30px
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free {
-        position: relative
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free:hover {
-        cursor: pointer;
-        color: #0770d1
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free:hover .card {
-        display: block;
-        opacity: 1;
-        -webkit-animation: vip .3s ease-in-out;
-        animation: vip .3s ease-in-out
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free i {
-        position: absolute;
-        left: 5px;
-        top: 6px;
-        width: 20px;
-        height: 26px;
-        background: url(/statics/vips/images/91796bc7.png) center/contain no-repeat
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card {
-        display: none;
-        opacity: 0;
-        position: absolute;
-        top: 24px;
-        right: 0;
-        z-index: 12;
-        padding-top: 12px;
-        -webkit-transform: translateX(44%);
-        transform: translateX(44%)
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content {
-        padding: 10px 20px 14px;
-        width: 344px;
-        -webkit-box-shadow: 0px 3px 20px 1px rgba(0, 0, 0, .2);
-        box-shadow: 0px 3px 20px 1px rgba(0, 0, 0, .2);
-        border-radius: 10px;
-        background: #fff url(/statics/vips/images/d42be359.png) left top/contain no-repeat
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content i {
-        position: initial;
-        display: inline-block;
-        vertical-align: -8px;
-        margin-right: 5px
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content span {
-        font-weight: 400;
-        font-size: 14px;
-        color: #666;
-        margin-right: 14px
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content span.recharge {
-        display: inline-block;
-        width: 66px;
-        height: 20px;
-        background: -webkit-gradient(linear, left top, right top, from(#393737), to(#494848));
-        background: linear-gradient(90deg, #393737 0%, #494848 100%);
-        border-radius: 4px;
-        font-weight: 400;
-        font-size: 12px;
-        color: #f9e7be;
-        text-align: left;
-        line-height: 20px;
-        text-align: center
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content>p {
-        font-weight: bold;
-        font-size: 16px;
-        color: #333;
-        letter-spacing: -1px
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content>p:nth-of-type(2) {
-        margin-top: -4px
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content ol {
-        padding-top: 16px
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content ol li {
-        padding-left: 0;
-        font-weight: 400;
-        font-size: 14px;
-        color: #333;
-        line-height: 27px
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free .card .content ol li::before {
-        content: "";
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        background: url(/statics/vips/images/e659043d.png) left center/contain no-repeat;
-        vertical-align: 1px;
-        margin-right: 5px
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free.vip i {
-        background-image: url(/statics/vips/images/f21e7f40.png)
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free.vip .card .content {
-        background-image: url(/statics/vips/images/5a1e2a12.png)
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free.vip .card .content p i {
-        background-image: url(/statics/vips/images/f21e7f40.png)
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free.vip .card .content ol li {
-        color: #5e3318
-    }
-
-    body .bar .bar-title .bar-title-con .right li.free.vip .card .content ol li::before {
-        background-image: url(/statics/vips/images/f2c68241.png)
-    }
-
-    body .bar .bar-title .bar-title-con .right li.login {
-        color: #0770d1
-    }
-
-    body .bar .bar-title .bar-title-con .right li.login a {
-        color: #0770d1;
-        margin: 0 4px
-    }
-
-    body .bar .bar-title .bar-title-con .right li a {
-        font-weight: 400;
-        font-size: 14px;
-        color: #333
-    }
-
-    body .bar .bar-header {
-        width: 1280px;
-        margin: 0 auto;
-        height: 96px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-    }
-
-    body .bar .bar-header .logo {
-        width: 200px;
-        height: 44px;
-        margin-top: 26px;
-    }
-
-    body .bar .bar-header .logo h1 {
-        height: 44px;
-    }
-
-    body .bar .bar-header .logo h1 img {
-        height: 44px;
-    }
-
-    body .bar .bar-header .search-box {
-        margin-top: 28px;
-        width: 521px;
-        height: 42px;
-        background: #ffffff;
-        border: 1px solid #e5e5e5;
-        border-radius: 5px;
-        line-height: 40px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    body .bar .bar-header .search-box form {
-        width: 540px;
-        height: 40px;
-    }
-
-    body .bar .bar-header .search-box form input.search-content {
-        padding: 0 108px 0 10px;
-        height: 40px;
-        width: 520px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        font-size: 14px;
-        font-weight: 400;
-        color: #333;
-        background: #fff;
-        -webkit-appearance: none;
-        outline: none;
-        -webkit-box-shadow: 0 0 0 1000px white inset;
-    }
-
-    body .bar .bar-header .search-box form input.search-content::-webkit-input-placeholder {
-        color: #999999;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    body .bar .bar-header .search-box form input.search-content::-moz-placeholder {
-        color: #999999;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    body .bar .bar-header .search-box form input.search-content:-ms-input-placeholder {
-        color: #999999;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    body .bar .bar-header .search-box form input.search-content::-ms-input-placeholder {
-        color: #999999;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    body .bar .bar-header .search-box form input.search-content::placeholder {
-        color: #999999;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    body .bar .bar-header .search-box form button.search-submit {
-        position: absolute;
-        right: 0;
-        top: 0;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        width: 97px;
-        height: 40px;
-        background-color: #0770d1;
-        border-radius: 5px;
-        font-size: 16px;
-        font-weight: 400;
-        color: #ffffff;
-        line-height: 40px;
-    }
-
-    body .bar .bar-header .search-box form button.search-submit img {
-        vertical-align: -3px;
-        padding-right: 6px;
-    }
-
-    body .bar .bar-header .search-box form a {
-        position: absolute;
-        right: 110px;
-        top: 0;
-        z-index: 10;
-        font-weight: 400;
-        font-size: 14px;
-        color: #0770d1;
-        letter-spacing: 1px;
-        cursor: pointer;
-        line-height: 40px;
-        text-decoration: underline
-    }
-
-    body .bar .bar-header .tel {
-        line-height: 31px;
-        margin-right: 0;
-        width: 200px;
-        text-align: left;
-        margin-top: 18px;
-    }
-
-    body .bar .bar-header .tel a {
-        position: relative;
-        font-size: 18px;
-        font-weight: initial;
-        color: #333333;
-    }
-
-    body .bar .bar-header .tel a::before {
-        position: absolute;
-        content: '';
-        left: -37px;
-        top: 15px;
-        z-index: 10;
-        width: 22px;
-        height: 24px;
-        background-image: url(https://www.ieduchina.com/statics/pcc/img/cc9595ab.png);
-        background-size: 22px 24px;
-    }
-
-    body .iedu-menu-wrap {
-        width: 1280px;
-        margin: 0 auto;
-        height: 48px;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box {
-        background-color: #ffffff;
-        width: 100%;
-        height: 48px;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu {
-        width: 1280px;
-        height: 48px;
-        margin: 0 auto;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li {
-        cursor: pointer;
-        -webkit-box-flex: 1;
-        -webkit-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        line-height: 48px;
-        text-align: center;
-        font-size: 16px;
-        font-weight: 400;
-        color: #ffffff;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li a {
-        color: #303030;
-        width: 100%;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu {
-        position: relative;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span {
-        position: relative;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
-        content: '';
-        position: absolute;
-        right: -16px;
-        top: 4px;
-        width: 14px;
-        height: 8px;
-        background-image: url(https://www.ieduchina.com/statics/pcc/img/511880fa.png);
-        background-repeat: no-repeat;
-        background-size: 14px 8px;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu {
-        display: none;
-        position: absolute;
-        left: 0;
-        width: 100%;
-        top: 48px;
-        z-index: 800;
-        background: #ffffff;
-        -webkit-box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
-        box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li {
-        line-height: 48px;
-        text-align: center;
-        font-size: 16px;
-        font-weight: 400;
-        position: relative;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li:hover .box {
-        display: block;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li a {
-        width: 100%;
-        height: 100%;
-        color: #212121;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li:hover a {
-        color: #338eff;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box {
-        display: none;
-        max-height: 80vh;
-        overflow-y: auto;
-        position: absolute;
-        left: 142px;
-        top: 0;
-        background: #fff;
-        -webkit-box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, .302);
-        box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, .302);
-        border-radius: 0px 0px 0px 0px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        padding: 0 16px 0
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis {
-        border-bottom: solid 1px #cecece
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis:last-of-type {
-        border-bottom: none;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_title {
-        text-align: left;
-        font-size: 16px;
-        font-weight: 500;
-        color: #333333;
-        line-height: 1;
-        padding-top: 14px
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_title::before {
-        content: "";
-        display: inline-block;
-        width: 5px;
-        height: 18px;
-        background-color: #338eff;
-        vertical-align: -3px;
-        margin-right: 6px;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        padding-bottom: 12px;
-        padding-top: 10px
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a {
-        font-size: 16px;
-        font-weight: 400;
-        color: #666666;
-        display: block;
-        text-align: left;
-        white-space: nowrap;
-        line-height: 38px;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con.center a {
-        text-align: center;
-        width: 100% !important;
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a:nth-of-type(3n) {
-        width: 30%
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a.ing {
-        width: 100%
-    }
-
-    body .iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a:hover {
-        color: #338eff
-    }
-
-    @-webkit-keyframes an {
-        0% {
-            top: 40px;
-            opacity: 0
-        }
-
-        100% {
-            top: 36px;
-            opacity: 1
-        }
-    }
-
-    @keyframes an {
-        0% {
-            top: 40px;
-            opacity: 0
-        }
-
-        100% {
-            top: 36px;
-            opacity: 1
-        }
-    }
+}
 </style>

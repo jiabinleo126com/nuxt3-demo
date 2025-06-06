@@ -47,6 +47,17 @@
 import { reactive, onMounted } from 'vue';
 declare const $: any;
 declare const Swiper: any;
+let BannerImg2:any = ref(null);
+
+const data:any = await useFetch('/api/scrape', {
+    query: {
+        url: encodeURI('https://www.ieduchina.com/')
+    }
+}).then((res) => {
+    console.log(res)
+    BannerImg2 = res
+})
+console.log(data)
 
 const BannerImg = reactive([
     {
@@ -376,7 +387,7 @@ body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-sli
     display: -webkit-box;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     overflow: hidden;
 }
 
