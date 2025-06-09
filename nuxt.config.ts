@@ -18,53 +18,6 @@ export default defineNuxtConfig({
     app: {
         baseURL: '/', // 应用根路径
         buildAssetsDir: 'static', // 构建资源目录
-        head: {
-            script: [
-                {
-                    src: "https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js",
-                    type: "text/javascript",
-                    defer: true
-                },
-                {
-                    src: "https://www.ieduchina.com/statics/pcc/js/swiper.min.js",
-                    type: "text/javascript",
-                    defer: true
-                }, {
-                    src: "https://cloudcache.tencentcs.com/qcloud/video/dist/tcadapter.1.0.0.min.js",
-                    type: "text/javascript",
-                    defer: true
-                }, {
-                    src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/TXLivePlayer-1.2.3.min.js",
-                    type: "text/javascript",
-                    defer: true
-                }, {
-                    src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/hls.min.1.1.5.js",
-                    type: "text/javascript",
-                    defer: true
-                }, {
-                    src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/flv.min.1.6.3.js",
-                    type: "text/javascript",
-                    defer: true
-                }, {
-                    src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/dash.all.min.4.4.1.js",
-                    type: "text/javascript",
-                    defer: true
-                }, {
-                    src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.v4.5.4.min.js",
-                    type: "text/javascript",
-                    defer: true
-                }
-            ],
-            link: [
-                {
-                    rel: "stylesheet",
-                    href: "https://www.ieduchina.com/statics/pc/css/swiper.min.css"
-                }, {
-                    rel: "stylesheet",
-                    href: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.min.css"
-                }
-            ]
-        },
     },
     vite: {
         base: '',// ✅ 设置资源和入口文件的基础路径为相对路径
@@ -114,7 +67,7 @@ export default defineNuxtConfig({
         prerender: {
             assets: true, // 关键配置
             crawlLinks: false, // 爬取链接进行预渲染
-            routes: ["/"], // 预渲染首页
+            // routes: ["/topic/2025/hk13"], // 预渲染首页
             // ignore: ['/index','200','404'] // 不忽略任何路由
         } as any,
         devProxy: {
@@ -125,6 +78,16 @@ export default defineNuxtConfig({
             // },
             '/statics': {
                 target: 'https://www.ieduchina.com/statics',
+                changeOrigin: true,
+                prependPath: true
+            },
+            '/tencent-cdn': {
+                target: 'https://cloudcache.tencentcs.com',
+                changeOrigin: true,
+                prependPath: true
+            },
+            '/indexPhp': {
+                target: 'https://www.ieduchina.com',
                 changeOrigin: true,
                 prependPath: true
             }

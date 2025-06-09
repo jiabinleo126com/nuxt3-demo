@@ -304,6 +304,59 @@ const LiangDian = defineAsyncComponent(() => import('~/components/topic/2025/hk1
 const XingCheng = defineAsyncComponent(() => import('~/components/topic/2025/hk13/XingCheng.vue'))
 
 import { onMounted } from "vue";
+useHead({
+    script: [
+        {
+            src: "https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js",
+            type: "text/javascript",
+            defer: true
+        },
+        {
+            src: "https://www.ieduchina.com/statics/pcc/js/swiper.min.js",
+            type: "text/javascript",
+            defer: true
+        },
+        {
+            src: "/tencent-cdn/qcloud/video/dist/tcadapter.1.0.0.min.js",
+            defer: true,
+            crossorigin: 'anonymous'
+        }, {
+            src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/TXLivePlayer-1.2.3.min.js",
+            defer: true,
+            crossorigin: 'anonymous'
+        }, {
+            src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/hls.min.1.1.5.js",
+            defer: true,
+            crossorigin: 'anonymous'
+        }, {
+            src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/flv.min.1.6.3.js",
+            defer: true,
+            crossorigin: 'anonymous'
+        }, {
+            src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/dash.all.min.4.4.1.js",
+            defer: true,
+            crossorigin: 'anonymous'
+        }, {
+            src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.v4.5.4.min.js",
+            defer: true,
+            crossorigin: 'anonymous'
+            // }, {
+            //     src: "/statics/video/js/videolist.js",
+            //     defer: true,
+            //     crossorigin: 'anonymous'
+        }
+    ],
+    link: [
+        {
+            rel: "stylesheet",
+            href: "https://www.ieduchina.com/statics/pc/css/swiper.min.css"
+        },
+        {
+            rel: 'stylesheet',
+            href: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.min.css'
+        }
+    ]
+})
 onMounted(() => {
     $(".title").on("click", "button", function () {
         var flag = $(this).hasClass("s");

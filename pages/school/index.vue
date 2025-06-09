@@ -873,6 +873,27 @@
 <script setup>
 import { defineAsyncComponent } from 'vue';
 const Banner = defineAsyncComponent(() => import("~/components/school/Banner.vue"))
+
+useHead({
+    script: [
+        {
+            src: "https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js",
+            type: "text/javascript",
+            defer: true
+        },
+        {
+            src: "https://www.ieduchina.com/statics/pcc/js/swiper.min.js",
+            type: "text/javascript",
+            defer: true
+        }
+    ],
+    link: [
+        {
+            rel: "stylesheet",
+            href: "https://www.ieduchina.com/statics/pc/css/swiper.min.css"
+        }
+    ]
+})
 </script>
 <style lang="less">
 body {
