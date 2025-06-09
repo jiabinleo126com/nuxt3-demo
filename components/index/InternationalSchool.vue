@@ -692,7 +692,7 @@
 </template>
 <script>
 </script>
-<style lang="less">
+<style lang="less" scoped>
 body .school {
     background-color: #f2f4f6;
     padding-top: 84px;

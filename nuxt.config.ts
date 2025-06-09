@@ -19,6 +19,10 @@ export default defineNuxtConfig({
         baseURL: '/', // 应用根路径
         buildAssetsDir: 'static', // 构建资源目录
     },
+    devServer: {
+        host: '0.0.0.0', // Listen on all network interfaces
+        port: 3000,      // Optional: Change port if needed
+    },
     vite: {
         base: '',// ✅ 设置资源和入口文件的基础路径为相对路径
         plugins: [
@@ -66,7 +70,7 @@ export default defineNuxtConfig({
         preset: 'static',
         prerender: {
             assets: true, // 关键配置
-            crawlLinks: false, // 爬取链接进行预渲染
+            crawlLinks: true, // 爬取链接进行预渲染
             // routes: ["/topic/2025/hk13"], // 预渲染首页
             // ignore: ['/index','200','404'] // 不忽略任何路由
         } as any,
