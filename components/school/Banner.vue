@@ -1,30 +1,19 @@
 <template>
     <div class="abroad-banner">
-        <a v-for="(item, index) in data" :href="item.href">
+        <a v-for="(item, index) in data" :href="item.path">
             <img :src="item.image" :alt="item.title">
             <p>{{ item.title }}</p>
         </a>
     </div>
 </template>
 <script setup>
-import { reactive } from 'vue';
-const data = reactive([
-    {
-        title: "2025广州市香江中学国际部学费及课程介绍",
-        href: "//www.ieduchina.com/guangzhou/education/202506/128981.html",
-        image: (await import("~/assets/school/683555cdb508d.png")).default
-    },
-    {
-        title: "2025广州市香江中学国际部学费及课程介绍",
-        href: "//www.ieduchina.com/hongkong/education/202506/128980.html",
-        image: (await import("~/assets/school/683555cdb508d.png")).default
-    },
-    {
-        title: "2025广州市香江中学国际部学费及课程介绍",
-        href: "//www.ieduchina.com/school/education/202506/128978.html",
-        image: (await import("~/assets/school/683555cdb508d.png")).default
+import { reactive, ref } from 'vue';
+const props = defineProps({
+    data: {
+        type: Array,
+        default: () => []
     }
-])
+})
 </script>
 <style lang="less" scoped>
 .abroad-banner {
