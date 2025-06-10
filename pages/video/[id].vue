@@ -2,41 +2,41 @@
     <Header />
     <div class="container-video">
         <div class="return">
-            <a href="/">首页</a>><a href="/videos/index.html">视频></a>香港国际学校竞教小学生开公司？香港威雅杨副校长：学生18岁前玩转跨国商业项目！
+            <a href="/">首页</a>><a href="/videos/">视频></a>{{ videoMsg.title }}
         </div>
         <div class="videos">
             <div class="video-wrap">
                 <div class="video-play">
                     <video id="player-container-id" width="520" height="405" preload="auto" playsinline
-                        webkit-playsinline
-                        poster="https://www.ieduchina.com/uploadfile/toutiao/202505/1748326396640534.png"
-                        value="https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/706aa8e73560136621664118878/7OqIAwQNQvIA.mp4"></video>
+                        webkit-playsinline :poster="videoMsg.cover" :src="videoMsg.videoUrl">
+                    </video>
                 </div>
                 <div class="oper">
-                    <input type="hidden" name="shipin_id" value="438">
-                    <input type="hidden" name="shipin_user_id" value="4920">
+                    <input type="hidden" name="shipin_id" :value="videoMsg.id">
+                    <input type="hidden" name="shipin_user_id" :value="videoMsg.author_id">
                     <input type="hidden" name="user_id" value="0">
                     <input type="hidden" name="is_like" value="">
-                    <span class="time">发布时间：2025-05-27 14:14</span>
+                    <span class="time">发布时间：{{ videoMsg.time }}</span>
                     <div class="right">
                         <span>
-
                             <i class='thumbs' value="3"></i><span id="likes_count">3</span>
-
-
                         </span>
                         <span id="share">分享到：</span>
                     </div>
                 </div>
-                <p class="video-title">香港国际学校竞教小学生开公司？香港威雅杨副校长：学生18岁前玩转跨国商业项目！</p>
+                <p class="video-title">{{ videoMsg.title }}</p>
                 <div class="box">
                     <div class="upmsg">
-                        <a href="https://www.ieduchina.com/home/4920.html">
-                            <img src="https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg" alt="选校砖家">
-                        </a>
+                        <NuxtLink :to="`/home/${videoMsg.author_id}`">
+                            <img :src="videoMsg.authorImg" :alt="videoMsg.author">
+                        </NuxtLink>
                         <div class="desc">
-                            <p><a href="https://www.ieduchina.com/home/4920.html">选校砖家</a></p>
-                            <p>视频：106</p>
+                            <p>
+                                <NuxtLink :to="`/home/${videoMsg.author_id}`">
+                                    {{ videoMsg.author }}
+                                </NuxtLink>
+                            </p>
+                            <p>视频：{{ videoMsg.num }}</p>
                         </div>
                     </div>
                     <button>
@@ -49,7 +49,7 @@
                         <span><i></i>1年名校升学备考托管服务</span>
                     </div>
                     <div class="inputs">
-                        <input type="hidden" name="shipin_id" value="438">
+                        <input type="hidden" name="shipin_id" :value="videoMsg.id">
                         <div class="input"><input name="name" placeholder="您的孩子姓名" lay-verify="name"></div>
                         <div class="input"><input name="want_school" placeholder="您的意向学校" lay-verify="want_school">
                         </div>
@@ -61,124 +61,20 @@
             <div class="video-list">
                 <h3>推荐播放</h3>
                 <ul>
-                    <li>
-                        <a href="/video/437.html">
-                            <img src="https://www.ieduchina.com/uploadfile/toutiao/202505/1748326343856177.png"
-                                alt="港八大录取率83.3%！沙田培英校长亲曝，内地生转香港名校真能“躺赢”">
+                    <li v-for="item in list" :key="item.id">
+                        <NuxtLink :to="`/video/${item.id}`">
+                            <img :src="item.cover" :alt="item.title">
                             <div class="text">
                                 <div class="list-title">
-                                    <p>港八大录取率83.3%！沙田培英校长亲曝，内地生转香港名校真能“躺赢”</p>
+                                    <p>{{ item.title }}</p>
                                 </div>
                                 <div class="nums">
                                     <span>
-                                        <i
-                                            style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg)"></i>选校砖家
+                                        <i :style="`background-image: url(${item.authorImg})`"></i>{{ item.author }}
                                     </span>
                                 </div>
                             </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/video/436.html">
-                            <img src="https://www.ieduchina.com/uploadfile/toutiao/202505/1748326324524434.png"
-                                alt="港八大录取率高达9成！元朗信义校长亲授 内地生选科别抄作业，这样选才稳">
-                            <div class="text">
-                                <div class="list-title">
-                                    <p>港八大录取率高达9成！元朗信义校长亲授 内地生选科别抄作业，这样选才稳</p>
-                                </div>
-                                <div class="nums">
-                                    <span>
-                                        <i
-                                            style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg)"></i>选校砖家
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/video/435.html">
-                            <img src="https://www.ieduchina.com/uploadfile/toutiao/202505/1747721905393845.png"
-                                alt="DSE与考校vs内地校？张校长揭秘：港澳子弟学校的3大碾压级优势">
-                            <div class="text">
-                                <div class="list-title">
-                                    <p>DSE与考校vs内地校？张校长揭秘：港澳子弟学校的3大碾压级优势</p>
-                                </div>
-                                <div class="nums">
-                                    <span>
-                                        <i
-                                            style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg)"></i>选校砖家
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/video/434.html">
-                            <img src="https://www.ieduchina.com/uploadfile/toutiao/202505/1747721548641991.png"
-                                alt="DSE vs A-Level终极快择！香港双轨名校校长亲曝，选错课程恐无缘港大医科？">
-                            <div class="text">
-                                <div class="list-title">
-                                    <p>DSE vs A-Level终极快择！香港双轨名校校长亲曝，选错课程恐无缘港大医科？</p>
-                                </div>
-                                <div class="nums">
-                                    <span>
-                                        <i
-                                            style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg)"></i>选校砖家
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/video/433.html">
-                            <img src="https://www.ieduchina.com/uploadfile/toutiao/202505/1747721035875998.png"
-                                alt="选错课程=耽误孩子？听刘宇校长谈国际课程的“精准匹配”法则">
-                            <div class="text">
-                                <div class="list-title">
-                                    <p>选错课程=耽误孩子？听刘宇校长谈国际课程的“精准匹配”法则</p>
-                                </div>
-                                <div class="nums">
-                                    <span>
-                                        <i
-                                            style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg)"></i>选校砖家
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/video/432.html">
-                            <img src="https://www.ieduchina.com/uploadfile/toutiao/202505/1746673701393143.png"
-                                alt="普娃逆袭×藤校直通车｜用DSE撬动全球顶尖学府金钥匙">
-                            <div class="text">
-                                <div class="list-title">
-                                    <p>普娃逆袭×藤校直通车｜用DSE撬动全球顶尖学府金钥匙</p>
-                                </div>
-                                <div class="nums">
-                                    <span>
-                                        <i
-                                            style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg)"></i>选校砖家
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/video/431.html">
-                            <img src="https://www.ieduchina.com/uploadfile/toutiao/202505/1746673665582541.png"
-                                alt="香港一条龙学校才是升学的香饽饽？">
-                            <div class="text">
-                                <div class="list-title">
-                                    <p>香港一条龙学校才是升学的香饽饽？</p>
-                                </div>
-                                <div class="nums">
-                                    <span>
-                                        <i
-                                            style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg)"></i>选校砖家
-                                    </span>
-                                </div>
-                            </div>
-                        </a>
+                        </NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -219,10 +115,10 @@ useHead({
             src: "https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.v4.5.4.min.js",
             defer: true,
             crossorigin: 'anonymous'
-        // }, {
-        //     src: "/statics/video/js/videolist.js",
-        //     defer: true,
-        //     crossorigin: 'anonymous'
+            // }, {
+            //     src: "/statics/video/js/videolist.js",
+            //     defer: true,
+            //     crossorigin: 'anonymous'
         }, {
             src: "/statics/share/jquery.share.min.js",
             defer: true,
@@ -242,75 +138,78 @@ useHead({
 })
 
 const route = useRoute()
-console.log(route.params.id)
+const { data: { value: { videoMsg, list } } } = await useFetch(`/api/video/${route.params.id}`)
+console.log(videoMsg)
 
 onMounted(() => {
-    $(function () {
-        var player = TCPlayer('player-container-id', {});
-        var url = $("#player-container-id").attr('value');
-        player.src(url); // url 播放地址
-        setTimeout(() => {
-            $('#share').share({
-                sites: ['wechat', 'qq', 'qzone', 'weibo']
+    nextTick(() => {
+        $(function () {
+            var player = TCPlayer('player-container-id', {});
+            var src = $("#player-container-id").attr('src');
+            player.src(src); // src 播放地址
+            setTimeout(() => {
+                $('#share').share({
+                    sites: ['wechat', 'qq', 'qzone', 'weibo']
+                });
+            }, 1000);
+            // 统计浏览量
+            var shipinid = $('input[name=shipin_id]').val();
+            var url = "/indexPhp/index.php?m=video&c=index&a=ajaxAddViews&shipinid=" + shipinid + "&t=" + Math.random();
+            $.post(url, { 'do': 1 }, function (res) {
+                var res = JSON.parse(res);
+                console.log(res);
             });
-        }, 1000);
-        // 统计浏览量
-        var shipinid = $('input[name=shipin_id]').val();
-        var url = "/indexPhp/index.php?m=video&c=index&a=ajaxAddViews&shipinid=" + shipinid + "&t=" + Math.random();
-        $.post(url, { 'do': 1 }, function (res) {
-            var res = JSON.parse(res);
-            console.log(res);
-        });
-        $(".container-video").on("click", ".thumbs", function () {
-            var flag = $(this).hasClass("active");
-            var id = $('input[name=shipin_id]').val();
-            var user_id = $('input[name=user_id]').val();
-            var like_count = $(this).attr('value');
-            var is_like = $('input[name=is_like]').val();
-            var video_likes_id = '#video_likes_' + id;
-            var video_likes_active_id = '#video_likes_active_' + id;
+            $(".container-video").on("click", ".thumbs", function () {
+                var flag = $(this).hasClass("active");
+                var id = $('input[name=shipin_id]').val();
+                var user_id = $('input[name=user_id]').val();
+                var like_count = $(this).attr('value');
+                var is_like = $('input[name=is_like]').val();
+                var video_likes_id = '#video_likes_' + id;
+                var video_likes_active_id = '#video_likes_active_' + id;
 
-            $.ajax({
-                type: 'post',
-                url: '/index.php?m=video&c=index&a=like',
-                data: { 'id': id, 'user_id': user_id, 'like_count': like_count },
-                dataType: 'json',
-                success: function (res) {
-                    if (res == 1) {
-                        like_count = Number(like_count) + 1;
-                        $("#likes_count").html(like_count);
-                        $(".container-video .thumbs").attr("value", like_count);
-                        $(".container-video .thumbs").addClass("active");
-                        $(video_likes_active_id).addClass("active");
+                $.ajax({
+                    type: 'post',
+                    url: '/indexPhp/index.php?m=video&c=index&a=like',
+                    data: { 'id': id, 'user_id': user_id, 'like_count': like_count },
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res == 1) {
+                            like_count = Number(like_count) + 1;
+                            $("#likes_count").html(like_count);
+                            $(".container-video .thumbs").attr("value", like_count);
+                            $(".container-video .thumbs").addClass("active");
+                            $(video_likes_active_id).addClass("active");
+                        }
                     }
-                }
-            })
-        });
-        $(".container-video .box").on("click", "button", function () {
-            var flag = $(this).hasClass("active");
-            var id = $('input[name=shipin_id]').val();
-            var user_id = $('input[name=user_id]').val();
-            var shipin_user_id = $('input[name=shipin_user_id]').val();
-            $.ajax({
-                type: 'post',
-                url: "/index.php?m=video&c=index&a=follow",
-                data: { 'id': id, 'user_id': user_id, 'shipin_user_id': shipin_user_id },
-                dataType: 'json',
-                success: function (res) {
-                    if (res == 1) {
-                        $(".container-video .box button").addClass("active");
-                        $(".container-video .box button").html("已关注");
-                    } else if (res == 2) {
-                        $(".container-video .box button").removeClass("active");
-                        $(".container-video .box button").html("<i></i>关注");
+                })
+            });
+            $(".container-video .box").on("click", "button", function () {
+                var flag = $(this).hasClass("active");
+                var id = $('input[name=shipin_id]').val();
+                var user_id = $('input[name=user_id]').val();
+                var shipin_user_id = $('input[name=shipin_user_id]').val();
+                $.ajax({
+                    type: 'post',
+                    url: "/indexPhp/index.php?m=video&c=index&a=follow",
+                    data: { 'id': id, 'user_id': user_id, 'shipin_user_id': shipin_user_id },
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res == 1) {
+                            $(".container-video .box button").addClass("active");
+                            $(".container-video .box button").html("已关注");
+                        } else if (res == 2) {
+                            $(".container-video .box button").removeClass("active");
+                            $(".container-video .box button").html("<i></i>关注");
 
-                    } else if (res == 3) {
-                        window.location = 'https://www.ieduchina.com/login.html';
+                        } else if (res == 3) {
+                            window.location = '/login.html';
+                        }
                     }
-                }
-            })
+                })
+            });
         });
-    });
+    })
 })
 
 </script>

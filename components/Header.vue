@@ -127,9 +127,12 @@
                                     <div class="box_lis">
                                         <div class="box_con">
                                             <template v-for="(item, index) in hkTopic" :key="index">
-                                                <NuxtLink :to="item.path" :title="item.title">
+                                                <!-- <NuxtLink :to="item.path" :title="item.title">
                                                     {{ item.title }}
-                                                </NuxtLink>
+                                                </NuxtLink> -->
+                                                <a :href="`https://www.ieduchina.com/${item.path}`" :title="item.title">
+                                                    {{ item.title }}
+                                                </a>
                                             </template>
                                         </div>
                                     </div>

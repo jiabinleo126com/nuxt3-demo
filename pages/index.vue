@@ -2,7 +2,7 @@
     <Header />
     <component :is="Activity" :activity="activity" :bannerList="bannerList" />
     <component :is="FocusToday" />
-    <component :is="VideoList" />
+    <component :is="VideoList" :verticalVideos="verticalVideos" :horizontalVideos="horizontalVideos" />
     <component :is="RealTimeInfo" />
     <component :is="InternationalSchool" />
     <component :is="HotSchool" />
@@ -21,7 +21,7 @@ const InternationalSchool = defineAsyncComponent(() => import(`~/components/inde
 const FocusToday = defineAsyncComponent(() => import(`~/components/index/FocusToday.vue`))
 const RealTimeInfo = defineAsyncComponent(() => import(`~/components/index/RealTimeInfo.vue`))
 
-const { data: { value: { activity, bannerList } } } = await useFetch(`/api/`)
+const { data: { value: { activity, bannerList, verticalVideos, horizontalVideos } } } = await useFetch(`/api/`)
 
 useHead({
     script: [

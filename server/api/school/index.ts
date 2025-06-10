@@ -6,11 +6,9 @@ export default defineEventHandler(async () => {
     try {
         const { data } = await axios.get(String("https://www.ieduchina.com/school/index.html"))
         const $ = cheerio.load(data)
-        console.log($)
         const banner: any = [],
             news: any = [];
         $(".abroad-banner>a").each((index, item) => {
-            console.log(item)
             banner.push({
                 path: $(item).attr("href"),
                 image: $(item).attr("style")?.replace("background-image: url(", "").replace(")", ""),

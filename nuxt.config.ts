@@ -70,9 +70,9 @@ export default defineNuxtConfig({
         preset: 'static',
         prerender: {
             assets: true, // 关键配置
-            crawlLinks: true, // 爬取链接进行预渲染
-            // routes: ["/topic/2025/hk13"], // 预渲染首页
-            // ignore: ['/index','200','404'] // 不忽略任何路由
+            crawlLinks: false, // 爬取链接进行预渲染
+            routes: ["/"], // 预渲染首页
+            ignore: ['200','404'] // 不忽略任何路由
         } as any,
         devProxy: {
             // '/font': {
