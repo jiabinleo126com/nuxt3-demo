@@ -4,8 +4,8 @@
             <div class="banner-img">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div v-for="(item, index) in BannerImg" class="swiper-slide">
-                            <a :href="item.href">
+                        <div v-for="(item, index) in activity" class="swiper-slide">
+                            <a :href="item.path">
                                 <img :src="item.image">
                             </a>
                         </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="swiper-banner-list">
                     <div class="swiper-wrapper">
-                        <div v-for="(item, index) in BannerList" class="swiper-slide">
+                        <div v-for="item in bannerList" class="swiper-slide">
                             <a :href="item.href" target="_blank">
                                 <div class="icon">
                                     <img :src="`//www.ieduchina.com/statics/pcc/img/t${item.state}.png`">
@@ -44,107 +44,30 @@
     </div>
 </template>
 <script setup lang="ts">
-import { reactive, onMounted } from 'vue';
+import { onMounted } from 'vue';
 declare const $: any;
 declare const Swiper: any;
-let BannerImg2:any = ref(null);
 
-const data:any = await useFetch('/api/scrape', {
-    query: {
-        url: encodeURI('https://www.ieduchina.com/')
-    }
-}).then((res) => {
-    console.log(res)
-    BannerImg2 = res
-})
-console.log(data)
+interface ActivityItem {
+    path: string;
+    image: string;
+}
+interface BannerListItem {
+    href: string;
+    date: string;
+    title: string;
+    grade: string;
+    month: number;
+    year: number;
+    state: number;
+}
 
-const BannerImg = reactive([
-    {
-        image: "https://zhaosheng.ieduchina.com/Upload/File/202505/682d32c6cec02.jpg",
-        href: ""
-    },
-    {
-        image: "https://zhaosheng.ieduchina.com/Upload/File/202505/682be7320a1af.jpg",
-        href: "https://www.ieduchina.com/huodong/202505/2758.html"
-    }, {
-        image: "https://zhaosheng.ieduchina.com/Upload/File/202406/667bd10c372dc.png",
-        href: ""
-    }, {
-        image: "https://zhaosheng.ieduchina.com/Upload/File/202406/667bd11a9ecad.png",
-        href: ""
-    }, {
-        image: "https://zhaosheng.ieduchina.com/Upload/File/202311/654da55c539ad.png",
-        href: "https://www.ieduchina.com/hk/index.html"
-    }
-])
-const BannerList = reactive([
-    {
-        href: "//www.ieduchina.com/camp/1527.html",
-        state: 3,
-        year: 2025,
-        month: 6,
-        date: 9,
-        title: "Stanford Institutes of Medicine Summer Research Program",
-        grade: "11-12年级学生"
-    }, {
-        href: "//www.ieduchina.com/camp/1526.html",
-        state: 3,
-        year: 2025,
-        month: 6,
-        date: 15,
-        title: "Research In The Biological Sciences (RIBS)",
-        grade: "10-11年级学生"
-    }, {
-        href: "//www.ieduchina.com/camp/1517.html",
-        state: 3,
-        year: 2025,
-        month: 6,
-        date: 15,
-        title: "Summer Science Program (SSP)",
-        grade: "15-18岁"
-    }, {
-        href: "//www.ieduchina.com/camp/1552.html",
-        state: 3,
-        year: 2025,
-        month: 6,
-        date: 16,
-        title: "香港科技大学2025年暑期学校",
-        grade: "18岁以上"
-    }, {
-        href: "//www.ieduchina.com/camp/1533.html",
-        state: 3,
-        year: 2025,
-        month: 6,
-        date: 16,
-        title: "Berkeley Summer Computer Science Academy",
-        grade: "当年6月年满16-17岁学生"
-    }, {
-        href: "//www.ieduchina.com/camp/1530.html",
-        state: 3,
-        year: 2025,
-        month: 6,
-        date: 16,
-        title: "High School Honors Science, Math and Engineering Program (HSHSP) ",
-        grade: "11年级在读学生"
-    }, {
-        href: "//www.ieduchina.com/camp/1528.html",
-        state: 3,
-        year: 2025,
-        month: 6,
-        date: 16,
-        title: "Ross Mathematics Program-数学类 ",
-        grade: "15-18岁学生"
-    }, {
-        href: "//www.ieduchina.com/camp/1553.html",
-        state: 3,
-        year: 2025,
-        month: 6,
-        date: 22,
-        title: "2025香港中文大学国际暑期学校",
-        grade: ""
-    }
-])
+const props = defineProps<{
+    activity: ActivityItem[],
+    bannerList: BannerListItem[]
+}>();
+console.log(props.bannerList)
+
 onMounted(() => {
     var mySwiper1 = new Swiper('.swiper-container', {
         direction: 'horizontal',
