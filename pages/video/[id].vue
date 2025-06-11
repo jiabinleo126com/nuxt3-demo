@@ -139,7 +139,6 @@ useHead({
 
 const route = useRoute()
 const { data: { value: { videoMsg, list } } } = await useFetch(`/api/video/${route.params.id}`)
-console.log(videoMsg)
 
 onMounted(() => {
     nextTick(() => {
@@ -157,7 +156,6 @@ onMounted(() => {
             var url = "/indexPhp/index.php?m=video&c=index&a=ajaxAddViews&shipinid=" + shipinid + "&t=" + Math.random();
             $.post(url, { 'do': 1 }, function (res) {
                 var res = JSON.parse(res);
-                console.log(res);
             });
             $(".container-video").on("click", ".thumbs", function () {
                 var flag = $(this).hasClass("active");

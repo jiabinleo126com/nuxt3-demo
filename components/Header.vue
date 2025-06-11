@@ -127,12 +127,12 @@
                                     <div class="box_lis">
                                         <div class="box_con">
                                             <template v-for="(item, index) in hkTopic" :key="index">
-                                                <!-- <NuxtLink :to="item.path" :title="item.title">
+                                                <NuxtLink :to="item.path" :title="item.title">
                                                     {{ item.title }}
-                                                </NuxtLink> -->
-                                                <a :href="`https://www.ieduchina.com/${item.path}`" :title="item.title">
+                                                </NuxtLink>
+                                                <!-- <a :href="item.path" :title="item.title">
                                                     {{ item.title }}
-                                                </a>
+                                                </a> -->
                                             </template>
                                         </div>
                                     </div>
@@ -238,47 +238,47 @@ const hkTopic = reactive([
     },
     {
         title: "25年01月:中华基金中学、迦密爱礼信中学等7所学校",
-        path: "/topic/2025/hk12"
+        path: "https://www.ieduchina.com/topic/2025/hk12"
     },
     {
         title: "24年12月:元朗公立中学校友会邓英业小学等5所学校",
-        path: "/topic/2024/hk11/"
+        path: "https://www.ieduchina.com/topic/2024/hk11/"
     },
     {
         title: "24年12月:中华基督教会铭基书院等4所学校",
-        path: "/topic/2024/hk8/"
+        path: "https://www.ieduchina.com/topic/2024/hk8/"
     },
     {
         title: "24年10月:香岛中学、新会商会陈白沙纪念中学等9所学校",
-        path: "/topic/2024/hk7/"
+        path: "https://www.ieduchina.com/topic/2024/hk7/"
     },
     {
         title: "24年07月:孔圣堂礼仁书院等5所本地学校(访校研学)",
-        path: "/topic/2024/hkyx1/"
+        path: "https://www.ieduchina.com/topic/2024/hkyx1/"
     },
     {
         title: "24年07月:汇基书院（东九龙）、播道书院等4所学校",
-        path: "/topic/2024/hk6/"
+        path: "https://www.ieduchina.com/topic/2024/hk6/"
     },
     {
         title: "24年05月:沙田培英、保良局罗杰承(一九八三)等15所学校",
-        path: "/topic/2024/hk5/"
+        path: "https://www.ieduchina.com/topic/2024/hk5/"
     },
     {
         title: "24年01月:香港UWC、播道书院等8所学校",
-        path: "/topic/2024/hk4/"
+        path: "https://www.ieduchina.com/topic/2024/hk4/"
     },
     {
         title: "23年12月:中华基督教会协和书院等6所学校+教育展",
-        path: "/topic/2023/hk3/"
+        path: "https://www.ieduchina.com/topic/2023/hk3/"
     },
     {
         title: "23年10月:保良局百周年李兆忠纪念中学等6所学校",
-        path: "/topic/2023/xg/"
+        path: "https://www.ieduchina.com/topic/2023/xg/"
     },
     {
         title: "23年07月:圣保禄学校、英华书院、九龙真光等10所学校 ",
-        path: "/topic/2023/hk/"
+        path: "https://www.ieduchina.com/topic/2023/hk/"
     }
 ])
 

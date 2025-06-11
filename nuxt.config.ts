@@ -13,11 +13,12 @@ export default defineNuxtConfig({
         }
     },
     experimental: {
-        payloadExtraction: false//关闭 payload 预取
+        payloadExtraction: false,//关闭 payload 预取
+        // inlineSSRStyles: false// 关闭默认的样式内联
     },
     app: {
         baseURL: '/', // 应用根路径
-        buildAssetsDir: 'static', // 构建资源目录
+        buildAssetsDir: 'js', // 构建资源目录
     },
     devServer: {
         host: '0.0.0.0', // Listen on all network interfaces
@@ -44,9 +45,10 @@ export default defineNuxtConfig({
         // },
         build: {
             minify: false,// 关闭 JS 压缩和混淆
-            //     cssCodeSplit: true,
+            cssCodeSplit: false,// 禁止 CSS 分割
             rollupOptions: {
                 output: {
+                    // manualChunks: () => "all-in-one",// JS 文件合并策略
                     // manualChunks: () => 'everything', // 禁用分包，所有 JS 合并
                     // entryFileNames: 'app.js', // JS 合并为 app.js
                     // chunkFileNames: 'app.js', // JS 合并为 app.js
@@ -57,9 +59,16 @@ export default defineNuxtConfig({
                         // 只处理图片
                         if (/\.(png|jpe?g|gif|svg|webp|avif)$/.test(assetInfo.name || '')) {
                             // 只保留hash，扩展名小写
-                            return '[hash][extname]'.toLowerCase();
+                            return 'image/[hash][extname]'.toLowerCase();
                         }
-                        return '[name][extname]'.toLowerCase();
+                        // console.log(assetInfo.names[0]?.endsWith(".css"))
+                        // console.log("assetInfo", assetInfo)
+                        // if (assetInfo.names[0]?.endsWith(".css")) {
+                        //     return "style/[hash].css";
+                        // }
+                        return "[name].[ext]";
+
+                        // return '[name][extname]'.toLowerCase();
                     }
                 }
             }
@@ -71,8 +80,8 @@ export default defineNuxtConfig({
         prerender: {
             assets: true, // 关键配置
             crawlLinks: false, // 爬取链接进行预渲染
-            routes: ["/"], // 预渲染首页
-            ignore: ['200','404'] // 不忽略任何路由
+            routes: ["/topic/2025/hk13/"], // 预渲染首页
+            ignore: ['200', '404'] // 忽略路由
         } as any,
         devProxy: {
             // '/font': {
