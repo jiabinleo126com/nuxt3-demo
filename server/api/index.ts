@@ -6,28 +6,57 @@ export default defineEventHandler(async () => {
     try {
         const { data } = await axios.get(String("https://www.ieduchina.com/"))
         const $ = cheerio.load(data)
-        const activity: any = [],
-            bannerList: any = [],
-            verticalVideos: any = [],
-            horizontalVideos: any = [];
-        $(".banner-img .swiper-slide").each((index, item) => {
+
+        interface Activity {
+            path?: string,
+            image?: string
+        }
+
+        interface BannerList {
+            href?: string,
+            state?: number,
+            year?: string,
+            month?: string,
+            date?: string,
+            title?: string,
+            grade?: string
+        }
+
+        interface Video {
+            id?: string,
+            image?: string,
+            title?: string,
+            author?: string,
+            authorImage?: string
+        }
+
+        const activity: Activity[] = [],
+            bannerList: BannerList[] = [],
+            verticalVideos: Video[] = [],
+            horizontalVideos: Video[] = [];
+
+        $(".banner-img .swiper-slide").each((_, item) => {
+            const path = $(item).find("a").attr("href") || "";
+            const style = $(item).find("div").attr("style") || "";
+            const imageMatch = style.match(/background-image:\s*url\((['"]?)(.*?)\1\)/);
             activity.push({
-                path: $(item).find("a").attr("href"),
-                image: $(item).find("div").attr("style")?.replace("background-image: url(", "").replace(");", "")
-            })
-        })
-        $(".banner-list .swiper-slide").each((index, item) => {
-            const stateImg: any = $(item).find("img").attr("src");
+                path,
+                image: imageMatch ? imageMatch[2] : ""
+            });
+        });
+        $(".banner-list .swiper-slide").each((_, item) => {
+            const stateImg = $(item).find("img").attr("src") || "";
+            const dateText = $(item).find(".box>p").text().split(".");
             bannerList.push({
-                href: $(item).find("a").attr("href"),
-                state: Number(/\/(t\d+)\.png\?v=1/.exec(stateImg)?.[1]?.replace("t", "")) || 3,
-                year: $(item).find(".box>p").text().split(".")[0],
-                month: $(item).find(".box>p").text().split(".")[1],
-                date: $(item).find(".box>h3").text(),
-                title: $(item).find(".text>p").eq(0).text(),
-                grade: $(item).find(".text>p").eq(1).text().replace("适用年级:", ""),
-            })
-        })
+                href: $(item).find("a").attr("href") || "",
+                state: Number(stateImg.match(/\/t(\d+)\.png\?v=1/)?.[1]) || 3,
+                year: dateText[0] || "",
+                month: dateText[1] || "",
+                date: $(item).find(".box>h3").text() || "",
+                title: $(item).find(".text>p").eq(0).text() || "",
+                grade: $(item).find(".text>p").eq(1).text().replace("适用年级:", "") || "",
+            });
+        });
         $(".video-con").find("ul").eq(0).find("li").each((index, item) => {
             verticalVideos.push({
                 id: $(item).find("a").attr("href")?.split("/video/")[1].replace(".html", ""),
@@ -54,6 +83,6 @@ export default defineEventHandler(async () => {
             horizontalVideos
         }
     } catch (error) {
-        return 2
+        return error
     }
 })
