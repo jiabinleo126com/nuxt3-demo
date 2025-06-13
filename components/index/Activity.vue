@@ -69,6 +69,7 @@ const props = defineProps<{
 console.log(props.bannerList)
 
 onMounted(() => {
+    "onMountedStart"
     var mySwiper1 = new Swiper('.swiper-container', {
         direction: 'horizontal',
         loop: true, // 循环模式选项
@@ -102,6 +103,7 @@ onMounted(() => {
     else {
         $(".swiper-banner-list").addClass("noswiper");
     }
+    "onMountedEnd"
 })
 </script>
 

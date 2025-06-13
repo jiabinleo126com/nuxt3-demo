@@ -359,6 +359,7 @@ const InternationalEducationForum = reactive([
 
 
 onMounted(() => {
+    "onMountedStart"
     $(function () {
         $('.search-hover').on('click', 'li', function () {
             $('#searchContent').text($(this).text());
@@ -403,6 +404,7 @@ onMounted(() => {
             $("#login-before").html(html);
         }
     })
+    "onMountedEnd"
 })
 </script>
 
