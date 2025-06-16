@@ -3,12 +3,15 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     postcss: {
         plugins: {
-            autoprefixer: {
-                overrideBrowserslist: [
-                    'last 2 versions',
-                    '> 1%',
-                    'not dead'
-                ]
+            "postcss-preset-env": {
+                autoprefixer: {
+                    overrideBrowserslist: [
+                        'last 2 versions',
+                        '> 1%',
+                        'not dead'
+                    ],
+                    grid: true // 确保支持旧版浏览器的网格布局
+                }
             }
         }
     },
@@ -71,6 +74,13 @@ export default defineNuxtConfig({
                         // return '[name][extname]'.toLowerCase();
                     }
                 }
+            },
+            loaders: {
+                less: {
+                    lessOptions: {
+                        javascriptEnabled: true
+                    }
+                }
             }
         }
     },
@@ -80,7 +90,7 @@ export default defineNuxtConfig({
         prerender: {
             assets: true, // 关键配置
             crawlLinks: false, // 爬取链接进行预渲染
-            routes: ["/topic/2025/hk13/"], // 预渲染首页
+            routes: ["/", "/school", "/video/333", ""], // 预渲染首页
             ignore: ['200', '404'] // 忽略路由
         } as any,
         devProxy: {
