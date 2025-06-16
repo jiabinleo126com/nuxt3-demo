@@ -90,7 +90,7 @@ export default defineNuxtConfig({
         prerender: {
             assets: true, // 关键配置
             crawlLinks: false, // 爬取链接进行预渲染
-            routes: ["/", "/school", "/video/333", ""], // 预渲染首页
+            routes: ["/", "/school", "/video/333"], // 预渲染首页
             ignore: ['200', '404'] // 忽略路由
         } as any,
         devProxy: {
