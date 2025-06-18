@@ -267,7 +267,6 @@ onMounted(() => {
         $(".img-mask img").attr("src", "");
     });
     $(".img-mask").on("click", function (e) {
-        console.log(e.target);
         if (e.target == this) {
             $(this).removeClass("show");
             $(".img-mask img").attr("src", "");

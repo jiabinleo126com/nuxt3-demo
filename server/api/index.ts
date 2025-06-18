@@ -7,33 +7,25 @@ export default defineEventHandler(async () => {
         const { data } = await axios.get(String("https://www.ieduchina.com/"))
         const $ = cheerio.load(data)
 
-        interface Activity {
-            path?: string,
-            image?: string
-        }
 
-        interface BannerList {
+        interface IndexData {
+            path?: string,
+            image?: string,
             href?: string,
             state?: number,
             year?: string,
             month?: string,
             date?: string,
             title?: string,
-            grade?: string
-        }
-
-        interface Video {
+            grade?: string,
             id?: string,
-            image?: string,
-            title?: string,
             author?: string,
             authorImage?: string
         }
-
-        const activity: Activity[] = [],
-            bannerList: BannerList[] = [],
-            verticalVideos: Video[] = [],
-            horizontalVideos: Video[] = [];
+        const activity: IndexData[] = [],
+            bannerList: IndexData[] = [],
+            verticalVideos: IndexData[] = [],
+            horizontalVideos: IndexData[] = [];
 
         $(".banner-img .swiper-slide").each((_, item) => {
             const path = $(item).find("a").attr("href") || "";

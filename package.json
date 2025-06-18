@@ -6,6 +6,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "generates": "nuxt generate",
+    "generate:html": "nuxt generate && node scripts/clean-static-html.cjs && node scripts/move-statics.cjs",
     "generate:one": "nuxt generate && node scripts/clean-static-html.cjs && node scripts/move-page-to-root.cjs && node scripts/fix-paths.js && node scripts/remove-style-tags.cjs",
     "fix-paths": "node scripts/fix-paths.js",
     "build:static": "npm run generate && npm run fix-paths",
@@ -23,9 +25,17 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
     "cpx": "^1.5.0",
     "less": "^4.3.0",
     "less-loader": "^12.3.0",
+    "postcss-preset-env": "^10.2.3",
     "replace-in-file": "^8.3.0"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+     "ie 10",
+    "not dead"
+  ]
 }
