@@ -74,13 +74,6 @@ export default defineNuxtConfig({
                         // return '[name][extname]'.toLowerCase();
                     }
                 }
-            },
-            loaders: {
-                less: {
-                    lessOptions: {
-                        javascriptEnabled: true
-                    }
-                }
             }
         }
     },
