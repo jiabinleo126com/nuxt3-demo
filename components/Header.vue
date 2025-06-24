@@ -115,7 +115,9 @@
                         </ul>
                     </li>
                     <li class="parentMenu">
-                        <a href="//www.ieduchina.com/huodong/"><span>学校活动</span></a>
+                        <NuxtLink to="/huodong">
+                            <span>学校活动</span>
+                        </NuxtLink>
                         <ul class="submenu">
                             <!-- <li><a href="//www.ieduchina.com/huodong/?type=9"><span>家长学院</span></a></li> -->
                             <li><a href="//www.ieduchina.com/huodong/?type=6"><span>学校开放日</span></a></li>
@@ -565,7 +567,7 @@ body .bar .bar-title .bar-title-con .right li.free i {
     top: 6px;
     width: 20px;
     height: 26px;
-    background: url(/statics/vips/images/91796bc7.png) center/contain no-repeat
+    background: url(https://www.ieduchina.com/statics/vips/images/91796bc7.png) center/contain no-repeat
 }
 
 body .bar .bar-title .bar-title-con .right li.free .card {

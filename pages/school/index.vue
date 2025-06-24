@@ -884,15 +884,9 @@ body {
 }
 
 #side .hot-news li {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     margin: 0 40px 0 15px;
     padding: 14px 0;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     border-bottom: solid #eeeeee 1px;
 }

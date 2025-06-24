@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     },
     app: {
         baseURL: '/', // 应用根路径
-        buildAssetsDir: 'js', // 构建资源目录
+        buildAssetsDir: 'statics', // 构建资源目录
     },
     devServer: {
         host: '0.0.0.0', // Listen on all network interfaces
@@ -90,7 +90,7 @@ export default defineNuxtConfig({
         prerender: {
             assets: true, // 关键配置
             crawlLinks: false, // 爬取链接进行预渲染
-            routes: ["/", "/school", "/video/333"], // 预渲染首页
+            routes: ["/huodong"], // 预渲染首页
             ignore: ['200', '404'] // 忽略路由
         } as any,
         devProxy: {

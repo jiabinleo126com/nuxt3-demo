@@ -35,7 +35,7 @@
   "browserslist": [
     "last 2 versions",
     "> 1%",
-     "ie 10",
-    "not dead"
+    "iOS 7",
+    "last 3 iOS versions"
   ]
 }
