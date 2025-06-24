@@ -269,9 +269,10 @@
 import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router'
 const route = useRoute();
+const pageThis = route.query.page || 1;
 const List = defineAsyncComponent(() => import('~/components/huodong/List.vue'));
 const Page = defineAsyncComponent(() => import('~/components/huodong/Page.vue'));
-const { data: { value: { activily, page } } } = await useFetch(`/api/huodong?page=${route.query.page}`, {}, {
+const { data: { value: { activily, page } } } = await useFetch(`/api/huodong?page=${pageThis}`, {}, {
     query: {
         page: 1
     }
@@ -282,11 +283,25 @@ watch(() => route.query.page,
     (newVal) => {
         useFetch(`/api/huodong?page=${newVal}`).then((res) => {
             activilyData.value = res.data.value.activily;
+            const ipdata = res.data.value.activily.filter(item => item.image.indexOf("zhaosheng") != -1);
+            console.log(ipdata)
         });
     }
 )
 
 useHead({
+    title: "国际学校开放日_夏令营_择校展_国际教育网",
+    meta: [
+        {
+            name: "description",
+            content: "国际教育网活动专栏提供最新国际学校活动信息，包括国际学校开放日、夏令营、冬令营，国际学校择校展会、培训讲座、名校直播等。"
+        },
+        {
+            name: "keywords",
+            content: "国际学校开放日,夏令营,国际教育展"
+        }
+    ],
+    charset: "utf-8",
     script: [
         {
             src: "https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js",
@@ -300,6 +315,11 @@ useHead({
         }
     ],
     link: [
+        {
+            rel: "icon",
+            href: "https://www.ieduchina.com/favicon.ico"
+        }
+        ,
         {
             rel: "stylesheet",
             href: "https://www.ieduchina.com/statics/layui/css/layui.css"

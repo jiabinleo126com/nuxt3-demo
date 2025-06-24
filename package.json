@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "generates": "nuxt generate",
-    "generate:html": "nuxt generate && node scripts/clean-static-html.cjs && node scripts/move-statics.cjs",
+    "generate:build": "webpack",
+    "generate:html": "nuxt generate && node scripts/clean-static-html.cjs && node scripts/clean-js-onmounted.cjs",
     "generate:one": "nuxt generate && node scripts/clean-static-html.cjs && node scripts/move-page-to-root.cjs && node scripts/fix-paths.js && node scripts/remove-style-tags.cjs",
     "fix-paths": "node scripts/fix-paths.js",
     "build:static": "npm run generate && npm run fix-paths",
@@ -22,15 +23,23 @@
     "nuxt": "^3.17.4",
     "reset.less": "^1.0.5",
     "vue": "^3.5.14",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "cpx": "^1.5.0",
+    "css-loader": "^7.1.2",
+    "ejs-loader": "^0.5.0",
+    "html-webpack-plugin": "^5.6.3",
     "less": "^4.3.0",
     "less-loader": "^12.3.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^10.2.3",
-    "replace-in-file": "^8.3.0"
+    "replace-in-file": "^8.3.0",
+    "ts-loader": "^9.5.2"
   },
   "browserslist": [
     "last 2 versions",

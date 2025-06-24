@@ -52,36 +52,37 @@ export default defineNuxtConfig({
             rollupOptions: {
                 output: {
                     // manualChunks: () => "all-in-one",// JS 文件合并策略
-                    // manualChunks: () => 'everything', // 禁用分包，所有 JS 合并
+                    // manualChunks: () => 'everything.js', // 禁用分包，所有 JS 合并
                     // entryFileNames: 'app.js', // JS 合并为 app.js
                     // chunkFileNames: 'app.js', // JS 合并为 app.js
-                    assetFileNames: (assetInfo) => {
-                        // if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-                        //     return 'style.css';
-                        // }
-                        // 只处理图片
-                        if (/\.(png|jpe?g|gif|svg|webp|avif)$/.test(assetInfo.name || '')) {
-                            // 只保留hash，扩展名小写
-                            return 'image/[hash][extname]'.toLowerCase();
-                        }
-                        // console.log(assetInfo.names[0]?.endsWith(".css"))
-                        // console.log("assetInfo", assetInfo)
-                        // if (assetInfo.names[0]?.endsWith(".css")) {
-                        //     return "style/[hash].css";
-                        // }
-                        return "[name].[ext]";
+                    // assetFileNames: 'assets/css/[name]-[hash].css',
+                    // assetFileNames: (assetInfo) => {
+                    // if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+                    //     return 'style.css';
+                    // }
+                    // 只处理图片
+                    // if (/\.(png|jpe?g|gif|svg|webp|avif)$/.test(assetInfo.name || '')) {
+                    //     // 只保留hash，扩展名小写
+                    //     return 'image/[hash][extname]'.toLowerCase();
+                    // }
+                    // console.log(assetInfo.names[0]?.endsWith(".css"))
+                    // console.log("assetInfo", assetInfo)
+                    // if (assetInfo.names[0]?.endsWith(".css")) {
+                    //     return "style/[hash].css";
+                    // }
+                    // return "[name].[ext]";
 
-                        // return '[name][extname]'.toLowerCase();
-                    }
+                    // return '[name][extname]'.toLowerCase();
+                    // }
                 }
             },
-            loaders: {
-                less: {
-                    lessOptions: {
-                        javascriptEnabled: true
-                    }
-                }
-            }
+            // loaders: {
+            //     less: {
+            //         lessOptions: {
+            //             javascriptEnabled: true
+            //         }
+            //     }
+            // }
         }
     },
     css: [`./assets/css/reset.less`],
