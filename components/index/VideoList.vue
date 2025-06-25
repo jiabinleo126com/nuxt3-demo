@@ -154,18 +154,6 @@ body .video-list .video-con ul li .nums span i {
     border-radius: 50%;
 }
 
-body .video-list .video-con ul li .nums span:nth-of-type(1) i {
-    background-image: url(../img/f7299d4c.png);
-}
-
-body .video-list .video-con ul li .nums span:nth-of-type(2) {
-    margin-left: 20px;
-}
-
-body .video-list .video-con ul li .nums span:nth-of-type(2) i {
-    background-image: url(../img/525f804a.png);
-}
-
 body .video-list .video-con ul li:first-of-type {
     margin-left: 0;
 }

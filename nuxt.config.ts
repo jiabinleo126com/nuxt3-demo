@@ -29,19 +29,19 @@ export default defineNuxtConfig({
     },
     vite: {
         base: '',// ✅ 设置资源和入口文件的基础路径为相对路径
-        plugins: [
-            {
-                name: 'force-lowercase-assets',
-                generateBundle(_, bundle) {
-                    for (const fileName in bundle) {
-                        const asset = bundle[fileName];
-                        if (asset.fileName && /\.(png|jpe?g|gif|svg|webp|avif)$/.test(asset.fileName)) {
-                            asset.fileName = asset.fileName.toLowerCase(); // 强制文件名转为小写
-                        }
-                    }
-                }
-            }
-        ],
+        // plugins: [
+        //     {
+        //         name: 'force-lowercase-assets',
+        //         generateBundle(_, bundle) {
+        //             for (const fileName in bundle) {
+        //                 const asset = bundle[fileName];
+        //                 if (asset.fileName && /\.(png|jpe?g|gif|svg|webp|avif)$/.test(asset.fileName)) {
+        //                     asset.fileName = asset.fileName; // 强制文件名转为小写
+        //                 }
+        //             }
+        //         }
+        //     }
+        // ],
         // css: {
         //     // 强制提取所有 CSS
         //     devSourcemap: true
