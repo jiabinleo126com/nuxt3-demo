@@ -3,10 +3,10 @@
         <h2><i></i>专题回顾</h2>
         <ul>
             <li v-for="(item, index) in data" :key="index">
-                <NUXTLink :to="item.path">
+                <NuxtLink :to="item.path">
                     <div :style="{ backgroundImage: `url(${item.image})` }"></div>
                     <p>{{ item.title }}</p>
-                </NUXTLink>
+                </NuxtLink>
             </li>
         </ul>
     </div>
