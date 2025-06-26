@@ -146,6 +146,7 @@
                 <td colspan="7" class="right-border">Payment Methods</td>
                 <td colspan="3" rowspan="2" class="table-wrap">
                     <div class="others-in">
+                        <component :is="YinZhang" left="1cm" top="0.2cm" />
                         <table>
                             <tr>
                                 <td>Individual Less on : $</td>
@@ -173,9 +174,6 @@
             </tr>
             <tr>
                 <td colspan="7" class="text-left right-border">
-                    <div class="yz">
-                        <div class="move move1"></div>
-                    </div>
                     -Cash<br>
                     -Cheque （Payable to:<br>
                     -Bank Transfer:<br>
@@ -241,6 +239,8 @@
 </template>
 <script setup lang="ts">
 
+const YinZhang = defineAsyncComponent(() => import('~/components/zhaosheng/YinZhang.vue'))
+
 
 useHead({
     link: [
@@ -266,7 +266,6 @@ useHead({
 
 </script>
 <style lang="less">
-@import "~/assets/css/yinzhang.less";
 @media print {
     @page {
         margin: 0.5cm;
@@ -458,23 +457,6 @@ useHead({
                 }
             }
         }
-    }
-}
-
-.yz {
-    position: relative;
-    width: 0;
-    height: 0;
-
-    .move {
-        position: absolute;
-        left: 2cm;
-        z-index: -1;
-        width: 3cm;
-        height: 3cm;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: contain;
     }
 }
 </style>
