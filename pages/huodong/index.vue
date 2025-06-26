@@ -3,71 +3,8 @@
     <section class="x-content">
         <div class="container">
             <div class="left">
-                <div class="top">
-                    <h2 class="title">活动专区</h2>
-                    <div class="form-search">
-                        <form action="https://www.ieduchina.com/huodong/" method="get" class="layui-form">
-                            <div class="layui-inline">
-                                <div class="layui-input-inline">
-                                    <select id="prov" name="provinceid" lay-filter="provinceid">
-                                        <option value="">省份</option>
-                                        <option value="2">北京</option>
-                                        <option value="3">上海</option>
-                                        <option value="34">香港</option>
-                                        <option value="21">广东</option>
-                                        <option value="4">天津</option>
-                                        <option value="12">江苏</option>
-                                        <option value="13">浙江</option>
-                                        <option value="14">安徽</option>
-                                        <option value="15">福建</option>
-                                        <option value="19">湖北</option>
-                                        <option value="20">湖南</option>
-                                        <option value="24">四川</option>
-                                        <option value="9">辽宁</option>
-                                        <option value="10">吉林</option>
-                                        <option value="17">山东</option>
-                                        <option value="18">河南</option>
-                                        <option value="22">广西</option>
-                                        <option value="23">海南</option>
-                                        <option value="26">云南</option>
-                                        <option value="5">重庆</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="layui-inline">
-                                <div class="layui-input-inline">
-                                    <select id="city" name="cityid">
-                                        <option value="">城市</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="layui-inline">
-                                <div class="layui-input-inline">
-                                    <input name="date" type="text" value="" id="date" class="layui-input"
-                                        placeholder="年月" readonly="readonly">
-                                </div>
-                            </div>
-                            <div class="layui-inline">
-                                <div class="layui-input-inline">
-                                    <input class="layui-input" name="keyword" value="" placeholder="主办单位" type="text">
-                                </div>
-                            </div>
-                            <button type="submit" lay-filter="submit" lay-submit="">
-                                <img src="https://www.ieduchina.com/statics/pcc/img/search.png" alt="">
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div class="menu"><span>活动类别</span>
-                    <div class="links">
-                        <a href="//www.ieduchina.com/huodong/" class="active">全部</a>
-                        <a href="//www.ieduchina.com/huodong/?type=6">校园开放日</a>
-                        <a href="//www.ieduchina.com/huodong/?type=2">夏/冬令营</a>
-                        <a href="//www.ieduchina.com/huodong/?type=5">直播</a>
-                        <a href="//www.ieduchina.com/huodong/?type=3">分享会</a>
-                        <a href="//www.ieduchina.com/huodong/?type=7">其他活动</a>
-                    </div>
-                </div>
+                <component :is="Search" />
+                <component :is="Class" />
                 <component :is="List" :data="activilyData" />
                 <component :is="Page" :data="page" />
             </div>
@@ -266,12 +203,14 @@
     <Footer />
 </template>
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { defineAsyncComponent, onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router'
 const route = useRoute();
 const pageThis = route.query.page || 1;
 const List = defineAsyncComponent(() => import('~/components/huodong/List.vue'));
 const Page = defineAsyncComponent(() => import('~/components/huodong/Page.vue'));
+const Search = defineAsyncComponent(() => import('~/components/huodong/Search.vue'));
+const Class = defineAsyncComponent(() => import('~/components/huodong/Class.vue'));
 const { data: { value: { activily, page } } } = await useFetch(`/api/huodong?page=${pageThis}`, {}, {
     query: {
         page: 1
@@ -599,123 +538,6 @@ body .x-content .container {
 body .x-content .container .left {
     width: 900px;
     height: 100%
-}
-
-body .x-content .container .left h2.title {
-    position: relative;
-    font-size: 24px;
-    font-family: Source Han Sans CN;
-    font-weight: bold;
-    color: #076fcb;
-    padding-left: 28px;
-    margin: 30px 0 30px;
-    height: 32px
-}
-
-body .x-content .container .left h2.title::before {
-    position: absolute;
-    top: -2px;
-    left: 7px;
-    content: "";
-    width: 8px;
-    height: 32px;
-    background: #076fcb;
-    border-radius: 4px
-}
-
-.form-search {
-    width: 900px
-}
-
-.form-search .layui-form {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between
-}
-
-.form-search .layui-form .layui-inline {
-    margin-right: 10px;
-}
-
-.form-search .layui-form .layui-inline .layui-form-select dl dd.layui-this {
-    background-color: #076fcb
-}
-
-.form-search .layui-form .layui-inline .layui-input-inline .layui-input {
-    cursor: pointer
-}
-
-.form-search .layui-form button {
-    border: none;
-    outline: none;
-    background-color: rgba(0, 0, 0, 0)
-}
-
-.form-search .layui-form button img {
-    cursor: pointer;
-    width: 38px;
-    height: 38px;
-    -o-object-fit: contain;
-    object-fit: contain;
-    -o-object-position: center;
-    object-position: center;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px 0
-}
-
-.menu {
-    width: 100%;
-    height: 50px;
-    background: #f8f8f8;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-top: 10px
-}
-
-.menu span {
-    padding: 0 20px;
-    border-right: solid 1px #d2d2d2;
-    font-size: 18px;
-    font-weight: 400;
-    color: #333
-}
-
-.menu .links {
-    padding-left: 20px
-}
-
-.menu .links a {
-    margin-right: 40px;
-    font-size: 18px;
-    font-weight: 400;
-    color: #666
-}
-
-.menu .links a.active {
-    position: relative;
-    color: #076fcb
-}
-
-.menu .links a.active::after {
-    position: absolute;
-    content: "";
-    left: 0;
-    bottom: -12px;
-    width: 100%;
-    height: 4px;
-    background-color: #076fcb
 }
 
 body .x-content .container .left .crumbs {
