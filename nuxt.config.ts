@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     },
     app: {
         baseURL: '/', // 应用根路径
-        buildAssetsDir: 'js', // 构建资源目录
+        buildAssetsDir: 'statics', // 构建资源目录
     },
     devServer: {
         host: '0.0.0.0', // Listen on all network interfaces
@@ -29,19 +29,19 @@ export default defineNuxtConfig({
     },
     vite: {
         base: '',// ✅ 设置资源和入口文件的基础路径为相对路径
-        plugins: [
-            {
-                name: 'force-lowercase-assets',
-                generateBundle(_, bundle) {
-                    for (const fileName in bundle) {
-                        const asset = bundle[fileName];
-                        if (asset.fileName && /\.(png|jpe?g|gif|svg|webp|avif)$/.test(asset.fileName)) {
-                            asset.fileName = asset.fileName.toLowerCase(); // 强制文件名转为小写
-                        }
-                    }
-                }
-            }
-        ],
+        // plugins: [
+        //     {
+        //         name: 'force-lowercase-assets',
+        //         generateBundle(_, bundle) {
+        //             for (const fileName in bundle) {
+        //                 const asset = bundle[fileName];
+        //                 if (asset.fileName && /\.(png|jpe?g|gif|svg|webp|avif)$/.test(asset.fileName)) {
+        //                     asset.fileName = asset.fileName; // 强制文件名转为小写
+        //                 }
+        //             }
+        //         }
+        //     }
+        // ],
         // css: {
         //     // 强制提取所有 CSS
         //     devSourcemap: true
@@ -52,29 +52,37 @@ export default defineNuxtConfig({
             rollupOptions: {
                 output: {
                     // manualChunks: () => "all-in-one",// JS 文件合并策略
-                    // manualChunks: () => 'everything', // 禁用分包，所有 JS 合并
+                    // manualChunks: () => 'everything.js', // 禁用分包，所有 JS 合并
                     // entryFileNames: 'app.js', // JS 合并为 app.js
                     // chunkFileNames: 'app.js', // JS 合并为 app.js
-                    assetFileNames: (assetInfo) => {
-                        // if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-                        //     return 'style.css';
-                        // }
-                        // 只处理图片
-                        if (/\.(png|jpe?g|gif|svg|webp|avif)$/.test(assetInfo.name || '')) {
-                            // 只保留hash，扩展名小写
-                            return 'image/[hash][extname]'.toLowerCase();
-                        }
-                        // console.log(assetInfo.names[0]?.endsWith(".css"))
-                        // console.log("assetInfo", assetInfo)
-                        // if (assetInfo.names[0]?.endsWith(".css")) {
-                        //     return "style/[hash].css";
-                        // }
-                        return "[name].[ext]";
+                    // assetFileNames: 'assets/css/[name]-[hash].css',
+                    // assetFileNames: (assetInfo) => {
+                    // if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+                    //     return 'style.css';
+                    // }
+                    // 只处理图片
+                    // if (/\.(png|jpe?g|gif|svg|webp|avif)$/.test(assetInfo.name || '')) {
+                    //     // 只保留hash，扩展名小写
+                    //     return 'image/[hash][extname]'.toLowerCase();
+                    // }
+                    // console.log(assetInfo.names[0]?.endsWith(".css"))
+                    // console.log("assetInfo", assetInfo)
+                    // if (assetInfo.names[0]?.endsWith(".css")) {
+                    //     return "style/[hash].css";
+                    // }
+                    // return "[name].[ext]";
 
-                        // return '[name][extname]'.toLowerCase();
-                    }
+                    // return '[name][extname]'.toLowerCase();
+                    // }
                 }
-            }
+            },
+            // loaders: {
+            //     less: {
+            //         lessOptions: {
+            //             javascriptEnabled: true
+            //         }
+            //     }
+            // }
         }
     },
     css: [`./assets/css/reset.less`],
@@ -83,7 +91,7 @@ export default defineNuxtConfig({
         prerender: {
             assets: true, // 关键配置
             crawlLinks: false, // 爬取链接进行预渲染
-            routes: ["/zhaosheng/hkshouju","/zhaosheng/shouju"], // 预渲染首页
+            routes: ["/huodong"], // 预渲染首页
             ignore: ['200', '404'] // 忽略路由
         } as any,
         devProxy: {

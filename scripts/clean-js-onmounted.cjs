@@ -1,46 +1,40 @@
+
+const str = `
+        <link rel="modulepreload" as="script" crossorigin href="/statics/BjMc_dpO.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/B2nxbcr0.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/CMwx5ZQn.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/CTT0ojD3.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/BIkg7Gxa.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/DAJ8V5CI.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/DVeotA7P.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/CZtcLXhU.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/B6gFKAUK.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/Bir2QqeQ.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/Bo-jdRwm.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/CoamDGnz.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/WCC0iDTe.js">
+        <link rel="modulepreload" as="script" crossorigin href="/statics/C6Miu_Cd.js">
+`
+
+
 const fs = require('fs');
 const path = require('path');
 
-const jsDir = path.resolve(__dirname, '../dist/static');
+const dir = path.resolve(__dirname, '../dist/statics');
 
-// 检查目录是否存在
-if (!fs.existsSync(jsDir)) {
-    console.error(`目录不存在: ${jsDir}`);
-    process.exit(1);
-}
-
-// 提取 `onMountedStart` 和 `onMountedEnd` 之间的代码
-function extractOnMountedRange(code) {
-    const startIndex = code.indexOf('onMountedStart');
-    const endIndex = code.indexOf('onMountedEnd');
-
-    // 如果没有找到 `onMountedStart` 或 `onMountedEnd`，返回 null
-    if (startIndex === -1 || endIndex === -1 || endIndex <= startIndex) {
-        console.error('未找到完整的 onMountedStart 和 onMountedEnd 范围');
-        return null;
-    }
-
-    // 提取 `onMountedStart` 和 `onMountedEnd` 之间的代码
-    const extractedCode = code.slice(startIndex + 'onMountedStart'.length, endIndex).trim();
-    console.log('提取的代码:', extractedCode); // 调试输出
-    return extractedCode;
-}
-
-fs.readdirSync(jsDir).forEach(file => {
-    if (!file.endsWith('.js')) return;
-    const filePath = path.join(jsDir, file);
-    const code = fs.readFileSync(filePath, 'utf-8');
-
-    // 提取 `onMountedStart` 和 `onMountedEnd` 之间的代码
-    const onMountedContent = extractOnMountedRange(code);
-
-    if (!onMountedContent) {
-        // 删除没有 `onMountedStart` 和 `onMountedEnd` 的文件
-        fs.unlinkSync(filePath);
-        console.log(`未找到 onMountedStart 和 onMountedEnd 范围，已删除文件: ${file}`);
-    } else {
-        // 写入提取的内容到文件
-        fs.writeFileSync(filePath, onMountedContent, 'utf-8');
-        console.log('已保留 onMounted 范围代码:', file);
+fs.readdirSync(dir).forEach(file => {
+    const filePath = path.join(dir, file);
+    console.log(file);
+    if (fs.statSync(filePath).isFile() && file.endsWith('.js')) {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        if (!content.includes('onMounted')) {
+            fs.unlinkSync(filePath);
+            console.log(`已删除不包含 onMounted: ${file}`);
+        } else if (!str.includes(file)) {
+            fs.unlinkSync(filePath);
+            console.log(`已删除不包含预加载: ${file}`);
+        } else {
+            console.log(`保留: ${file}`);
+        }
     }
 });

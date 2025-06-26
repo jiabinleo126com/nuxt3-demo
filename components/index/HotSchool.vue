@@ -15,46 +15,46 @@
 </template>
 <script setup>
 import { reactive } from 'vue';
-import heroImage1 from '~/assets/images/index/HotSchool/hot1.png';
-import heroImage2 from '~/assets/images/index/HotSchool/hot2.png';
-import heroImage3 from '~/assets/images/index/HotSchool/hot3.png';
-import heroImage4 from '~/assets/images/index/HotSchool/hot4.png';
-import heroImage5 from '~/assets/images/index/HotSchool/hot5.png';
-import heroImage6 from '~/assets/images/index/HotSchool/hot6.png';
+import image1 from '~/assets/index/hot1.png';
+import image2 from '~/assets/index/hot2.png';
+import image3 from '~/assets/index/hot3.png';
+import image4 from '~/assets/index/hot4.png';
+import image5 from '~/assets/index/hot5.png';
+import image6 from '~/assets/index/hot6.png';
 const data = reactive([
     {
         id: 1,
         href: "//schoollist.ieduchina.com/schlist/c2-p34-c0-g0-s0/",
         title: "香港",
-        image: heroImage1
+        image: image1
     },
     {
         id: 2,
         href: "//schoollist.ieduchina.com/schlist/c1-g1-t0-z0/",
         title: "美国",
-        image: heroImage2
+        image: image2
     },
     {
         id: 3,
         href: "//schoollist.ieduchina.com/schlist/c1-g2-t0-z0/",
         title: "英国",
-        image: heroImage3
+        image: image3
     },
     {
         id: 4,
         href: "//schoollist.ieduchina.com/schlist/c1-g4-t0-z0/",
         title: "加拿大",
-        image: heroImage4
+        image: image4
     }, {
         id: 5,
         href: "//schoollist.ieduchina.com/schlist/c1-g15-t0-z0/",
         title: "新加坡",
-        image: heroImage5
+        image: image5
     }, {
         id: 6,
         href: "//schoollist.ieduchina.com/schlist/c2-p21-c328-g0-s0/",
         title: "深圳",
-        image: heroImage6
+        image: image6
     }
 ])
 </script>
