@@ -25,7 +25,7 @@
                         </div>
                         <div class="desc-right">
                             收款单位（盖章）
-                            <span class="move move1"></span>
+                            <component :is="YinZhang" right="-4cm" bottom="-1.2cm" />
                         </div>
                     </div>
                 </div>
@@ -47,6 +47,7 @@
 </template>
 <script setup lang="ts">
 import { onMounted, reactive, computed } from 'vue';
+const YinZhang = defineAsyncComponent(() => import('~/components/zhaosheng/YinZhang.vue'))
 
 interface DataType {
     name: string;
@@ -126,7 +127,6 @@ onMounted(() => {
 })
 </script>
 <style lang="less">
-@import "~/assets/css/yinzhang.less";
 @media print {
     @page {
         size: landscape;
@@ -291,18 +291,6 @@ onMounted(() => {
                         font-size: 0.5cm;
                         margin-left: 1cm;
                         position: relative;
-
-                        .move {
-                            position: absolute;
-                            left: 3.6cm;
-                            top: -1.2cm;
-                            width: 3cm;
-                            height: 3cm;
-                            z-index: -1;
-                            background-position: center center;
-                            background-repeat: no-repeat;
-                            background-size: contain;
-                        }
                     }
                 }
             }
