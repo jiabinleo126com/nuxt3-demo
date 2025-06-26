@@ -10,193 +10,8 @@
             </div>
 
             <div id="side">
-
-                <div class="x-news side-title2">
-                    <h2><i></i>新闻资讯</h2>
-                    <ul>
-                        <li>
-                            <a href="//www.ieduchina.com/school/education/202506/129701.html">
-                                <div class="image"
-                                    style="background-image:url(//www.ieduchina.com/uploadfile/202506/f70520250620085554.jpg)">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <a href="//www.ieduchina.com/school/education/202506/129701.html">
-                                    <p class="title">2026QS排名大洗牌！港大飙升！这次排名真的很颠...</p>
-                                </a>
-                                <p class="bottom">
-                                    <a href="">
-                                        <span title="选校砖家"><i
-                                                style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg)"></i>选校砖家</span>
-                                    </a>
-                                    <span>2025-06-20</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="//www.ieduchina.com/school/education/202506/129697.html">
-                                <div class="image"
-                                    style="background-image:url(//www.ieduchina.com/uploadfile/202506/f32620250620084634.jpg)">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <a href="//www.ieduchina.com/school/education/202506/129697.html">
-                                    <p class="title">港大跃居2026QS排名Top 11！今夏「雅思集训+DSE冲刺营」抢占录取窗口期！</p>
-                                </a>
-                                <p class="bottom">
-                                    <a href="">
-                                        <span title="香港名校通"><i
-                                                style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202210/166718280294136.jpg)"></i>香港名校通</span>
-                                    </a>
-                                    <span>2025-06-20</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="//www.ieduchina.com/school/dynamics/202506/129706.html">
-                                <div class="image"
-                                    style="background-image:url(//www.ieduchina.com/uploadfile/202506/f66320250620085817.jpg)">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <a href="//www.ieduchina.com/school/dynamics/202506/129706.html">
-                                    <p class="title">昆明世青学校2025年高中招生简章</p>
-                                </a>
-                                <p class="bottom">
-                                    <a href="">
-                                        <span title="昆明世青学校"><i
-                                                style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202303/167775046912446.jpg)"></i>昆明世青学校</span>
-                                    </a>
-                                    <span>2025-06-20</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="//www.ieduchina.com/school/education/202506/129684.html">
-                                <div class="image"
-                                    style="background-image:url(//www.ieduchina.com/uploadfile/202506/f19520250620083440.jpg)">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <a href="//www.ieduchina.com/school/education/202506/129684.html">
-                                    <p class="title">2025毕业生何滨江：05后转轨生的教育突围与治愈成长 | 圆梦银滩</p>
-                                </a>
-                                <p class="bottom">
-                                    <a href="">
-                                        <span title="碧桂园十里银滩学校"><i
-                                                style="background-image: url(https://www.ieduchina.com/uploadfile/toutiao/202205/1652840031.png)"></i>碧桂园十里银滩学校</span>
-                                    </a>
-                                    <span>2025-06-20</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="//www.ieduchina.com/school/education/202506/129700.html">
-                                <div class="image"
-                                    style="background-image:url(//www.ieduchina.com/uploadfile/202506/f38320250620085505.jpg)">
-                                </div>
-                            </a>
-                            <div class="news-text">
-                                <a href="//www.ieduchina.com/school/education/202506/129700.html">
-                                    <p class="title">Students’ Speech | 在学生会，遇见更好的自己</p>
-                                </a>
-                                <p class="bottom">
-                                    <a href="">
-                                        <span title="广州暨大港澳子弟学校"><i
-                                                style="background-image: url(https://www.ieduchina.com/uploadfile/gzh/202110/163512691354531.jpg)"></i>广州暨大港澳子弟学校</span>
-                                    </a>
-                                    <span>2025-06-20</span>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="x-special side-title2">
-                    <h2><i></i>专题回顾</h2>
-                    <ul>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2024/sz/index.html">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202410/67208079bbbc8.png);">
-                                </div>
-                                <p>2024全球多元化升学论坛大湾区国际教育名校升学展</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2024/shenzhen/index.html">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202407/66850ffb90b87.png);">
-                                </div>
-                                <p>2024全球多元化升学论坛暨内地香港教育展</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2023/shenzhen/index.html">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202407/66850fcc2a1d8.png);">
-                                </div>
-                                <p>2023大湾区国际教育顶峰论坛</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2022/423_SZ/">
-                                <div
-                                    style="background-image: url(https://www.ieduchina.com/uploadfile/activity/202302/1676856756.png);">
-                                </div>
-                                <p>2022大湾区国际教育名校论坛</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2020/1017_SZ/">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202410/672080f6c2fad.png);">
-                                </div>
-                                <p>2020年10月17日大湾区国际教育高端名校论坛</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2020/711_SZ/">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202410/6720817337c0b.png);">
-                                </div>
-                                <p>2020年7月11日大湾区国际名校论坛</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2020/3_BJ/">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202410/672081e3ad6e2.jpg);">
-                                </div>
-                                <p>2020年3月28日京津冀华北区线上论坛</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2020/3_SZ/">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202411/672877bcb4e25.jpg);">
-                                </div>
-                                <p>粤港澳大湾区线上论坛暨第二十七届国际教育择校展</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2019/11_SZ/">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202411/672877daae35e.png);">
-                                </div>
-                                <p>第26届国际教育择校展</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.ieduchina.com/topic/2019/07_SZ/">
-                                <div
-                                    style="background-image: url(https://zhaosheng.ieduchina.com/Upload/File/202411/67287801999e1.png);">
-                                </div>
-                                <p>IEEF预见未来|2019深圳国际教育展活动</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
+                <component :is="NewsSlide" />
+                <component :is="SpecialSide" />
             </div>
         </div>
     </section>
@@ -211,11 +26,9 @@ const List = defineAsyncComponent(() => import('~/components/huodong/List.vue'))
 const Page = defineAsyncComponent(() => import('~/components/huodong/Page.vue'));
 const Search = defineAsyncComponent(() => import('~/components/huodong/Search.vue'));
 const Class = defineAsyncComponent(() => import('~/components/huodong/Class.vue'));
-const { data: { value: { activily, page } } } = await useFetch(`/api/huodong?page=${pageThis}`, {}, {
-    query: {
-        page: 1
-    }
-});
+const SpecialSide = defineAsyncComponent(() => import('~/components/huodong/SpecialSide.vue'));
+const NewsSlide = defineAsyncComponent(() => import('~/components/huodong/NewsSlide.vue'));
+const { data: { value: { activily, page } } } = await useFetch(`/api/huodong?page=${pageThis}`);
 const activilyData = ref(activily);
 
 watch(() => route.query.page,
@@ -223,7 +36,6 @@ watch(() => route.query.page,
         useFetch(`/api/huodong?page=${newVal}`).then((res) => {
             activilyData.value = res.data.value.activily;
             const ipdata = res.data.value.activily.filter(item => item.image.indexOf("zhaosheng") != -1);
-            console.log(ipdata)
         });
     }
 )
@@ -1186,98 +998,6 @@ body .x-content .container .left .x-school-msg .con #share-2 {
     margin-right: 14px
 }
 
-#side .x-news {
-    background-color: #f7fafc
-}
-
-#side .x-news li {
-    display: flex;
-    margin: 0 15px 0 15px;
-    padding: 14px 0;
-    justify-content: space-between;
-    border-bottom: solid #eee 1px
-}
-
-#side .x-news li:first-of-type {
-    padding-top: 0
-}
-
-#side .x-news li:last-of-type {
-    border-bottom: none
-}
-
-#side .x-news li .image {
-    width: 102px;
-    height: 64px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-right: 14px;
-    border-radius: 4px
-}
-
-#side .x-news li .news-text {
-    flex: 1
-}
-
-#side .x-news li .news-text a {
-    text-decoration: none
-}
-
-#side .x-news li .news-text p.title {
-    font-size: 14px;
-    font-family: Microsoft YaHei;
-    font-weight: 400;
-    color: #1a1919;
-    line-height: 18px;
-    height: 36px;
-    text-align: justify;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin-bottom: 10px
-}
-
-#side .x-news li .news-text p.bottom {
-    display: flex;
-    justify-content: space-between;
-    line-height: 18px
-}
-
-#side .x-news li .news-text p.bottom span {
-    font-size: 12px;
-    font-family: Microsoft YaHei;
-    font-weight: 300;
-    color: #424242
-}
-
-#side .x-news li .news-text p.bottom span:first-of-type {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden
-}
-
-#side .x-news li .news-text p.bottom a span {
-    width: 151px;
-    display: inline-block
-}
-
-#side .x-news li .news-text p.bottom span i {
-    vertical-align: -4px;
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background: #facd89;
-    border-radius: 50%;
-    margin-right: 5px;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat
-}
-
 #side .x-video {
     background-color: #f7fafc
 }
@@ -1371,75 +1091,6 @@ body .x-content .container .left .x-school-msg .con #share-2 {
     text-overflow: ellipsis;
     overflow: hidden;
     line-height: 27px
-}
-
-#side .x-special {
-    background-color: #f7fafc
-}
-
-#side .x-special li div {
-    cursor: pointer;
-    position: relative;
-    width: 332px;
-    height: 186px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    overflow: hidden;
-    margin: 0 auto
-}
-
-#side .x-special li.enter div {
-    position: relative
-}
-
-#side .x-special li.enter div::before {
-    position: absolute;
-    content: "姝ｅ湪鎶ュ悕";
-    text-align: center;
-    line-height: 28px;
-    font-size: 15px;
-    font-family: Source Han Sans CN;
-    font-weight: bold;
-    color: #fff;
-    width: 86px;
-    height: 29px;
-    background-color: #fc6607;
-    left: 0;
-    top: 10px
-}
-
-#side .x-special li.over div {
-    position: relative
-}
-
-#side .x-special li.over div::before {
-    position: absolute;
-    content: "娲诲姩缁撴潫";
-    text-align: center;
-    line-height: 28px;
-    font-size: 15px;
-    font-family: Source Han Sans CN;
-    font-weight: bold;
-    color: #fff;
-    width: 86px;
-    height: 29px;
-    background-color: #a0a0a0;
-    left: 0;
-    top: 10px
-}
-
-#side .x-special li p {
-    font-size: 18px;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 6px 12px 26px;
-    line-height: 31px;
-    color: #272727
 }
 
 .activity-recommendation .swiper-wrap {
