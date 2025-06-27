@@ -7,19 +7,7 @@
             <img src="//www.ieduchina.com/topic/2025/hk13/images/b01ba60e.jpg" alt="2025年香港名校探校之旅" height="420"
                 width="1280">
         </div>
-        <div class="about">
-            <h3 en="Active review">探校营回顾</h3>
-            <div class="text">
-                <P>5月2日-5月3日，【香港教育文化之旅】第13期圆满收官。此次活动如教育盛宴，为参访家庭带来难忘探索体验。</P>
-                <P>当下教育资源优质且丰富，香港凭借独特地理位置与深厚教育底蕴，成为众多学子求学圣地，其顶尖中学以先进教育理念和卓越教学成果吸引众多目光。为助大家深入了解香港中学教育，国际教育网精心策划此次独家定制的香港名校探访团活动。
-                </P>
-                <P>行程丰富紧凑，探访团深入走访香港十所顶尖中学，路线涵盖DSE课程学校与国际课程学校，让参访家庭一站式领略不同名校风采。</P>
-                <P>国际教育网专家团队全程相伴，每到一所学校，便如知识引路人，凭借专业造诣和行业经验，深度解析学校特色与教学理念，详细讲解课程设置、师资力量，还分享教育发展趋势，让家长全方位了解学校。</P>
-                <P>校长和老师全程导览，带领大家参观校园各处，从现代化教学楼到实验室、艺术教室、运动场，展示校园文化魅力，热情解答疑问，分享学校发展历程、办学理念与成果，让家长和学生深入了解学校。</P>
-                <P>校长们亲授的普通话升学讲座是探访团亮点。校长们以专业素养和对教育体系的把握，介绍DSE与国际课程学校的升学途径、招生政策及升学准备，用案例和建议为家长学生拨开迷雾。家长们称讲座如及时雨，让他们对升学之路方向清晰，收获颇丰。
-                </P>
-            </div>
-        </div>
+        <component :is="About" :data="about" />
         <component :is="LiangDian" />
     </section>
     <section class="gray">
@@ -118,56 +106,7 @@
             </li>
         </ul>
     </div>
-    <div class="mask_form">
-        <div class="inner">
-            <div class="form">
-                <h2 class="title">
-                    <span>下一期探校预约</span>
-                </h2>
-                <form action="/index.php?m=college&c=index&a=collegereg&dopost=reg" method="post">
-                    <div>
-                        <input name="name" type="text" class="username" placeholder="请输入学生姓名" autocomplete="off">
-                    </div>
-                    <div>
-                        <input name="mobile" type="text" class="telphone" placeholder="请输入家长手机号" autocomplete="off"
-                            datatype="m" maxlength="11">
-                    </div>
-                    <div class="select">
-                        <select class="grateClass" name="grade">
-                            <option style="display:none" value="">请选择就读年级</option>
-                            <option style="color:#333" value="幼儿园">幼儿园</option>
-                            <option style="color:#333" value="一年级">一年级</option>
-                            <option style="color:#333" value="二年级">二年级</option>
-                            <option style="color:#333" value="三年级">三年级</option>
-                            <option style="color:#333" value="四年级">四年级</option>
-                            <option style="color:#333" value="五年级">五年级</option>
-                            <option style="color:#333" value="六年级">六年级</option>
-                            <option style="color:#333" value="初一">初一</option>
-                            <option style="color:#333" value="初二">初二</option>
-                            <option style="color:#333" value="初三">初三</option>
-                            <option style="color:#333" value="高一">高一</option>
-                            <option style="color:#333" value="高二">高二</option>
-                            <option style="color:#333" value="高三">高三</option>
-                            <option style="color:#333" value="其他">其他</option>
-                        </select>
-                    </div>
-                    <div>
-                        <input name="want_school" type="text" class="username" placeholder="请输入您的意向学校"
-                            autocomplete="off">
-                    </div>
-                    <div>
-                        <input name="email" type="text" class="username" placeholder="请输入您的邮箱" autocomplete="off">
-                    </div>
-                    <input name="mark" type="hidden" value="香港教育文化之旅第13期_国际教育网PC版">
-                    <p class="error-tips"></p>
-                    <button class="submit" type="submit">立即报名</button>
-                </form>
-            </div>
-            <div class="bottom">
-                <img src="//www.ieduchina.com/topic/2024/hk7/images/a4ba9f2a.png" class="close">
-            </div>
-        </div>
-    </div>
+    <component :is="MaskForm" mark="香港教育文化之旅第13期_国际教育网PC版" />
     <div class="img-mask">
         <img src="" alt="">
         <div class="close-img-mask"></div>
@@ -184,8 +123,15 @@ const LiangDian = defineAsyncComponent(() => import('~/components/topic/2025/hk1
 const XingCheng = defineAsyncComponent(() => import('~/components/topic/2025/hk13/XingCheng.vue'))
 const School = defineAsyncComponent(() => import('~/components/topic/2025/hk13/School.vue'))
 const Footer = defineAsyncComponent(() => import('~/components/topic/HK-Footer.vue'))
+const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.vue'))
+const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
 
-import { onMounted } from "vue";
+
+import { onMounted, ref } from "vue";
+
+const about = ref([
+    "5月2日-5月3日，【香港教育文化之旅】第13期圆满收官。此次活动如教育盛宴，为参访家庭带来难忘探索体验。", "当下教育资源优质且丰富，香港凭借独特地理位置与深厚教育底蕴，成为众多学子求学圣地，其顶尖中学以先进教育理念和卓越教学成果吸引众多目光。为助大家深入了解香港中学教育，国际教育网精心策划此次独家定制的香港名校探访团活动。", "行程丰富紧凑，探访团深入走访香港十所顶尖中学，路线涵盖DSE课程学校与国际课程学校，让参访家庭一站式领略不同名校风采。", "国际教育网专家团队全程相伴，每到一所学校，便如知识引路人，凭借专业造诣和行业经验，深度解析学校特色与教学理念，详细讲解课程设置、师资力量，还分享教育发展趋势，让家长全方位了解学校。", "校长和老师全程导览，带领大家参观校园各处，从现代化教学楼到实验室、艺术教室、运动场，展示校园文化魅力，热情解答疑问，分享学校发展历程、办学理念与成果，让家长和学生深入了解学校。", "校长们亲授的普通话升学讲座是探访团亮点。校长们以专业素养和对教育体系的把握，介绍DSE与国际课程学校的升学途径、招生政策及升学准备，用案例和建议为家长学生拨开迷雾。家长们称讲座如及时雨，让他们对升学之路方向清晰，收获颇丰。"
+]);
 useHead({
     script: [
         {
@@ -588,59 +534,6 @@ section .banner img {
     object-position: center;
 }
 
-section .about {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    font-size: 0;
-    width: 1280px;
-    margin: 80px auto 0;
-}
-
-section .about h3 {
-    font-size: 42px;
-    font-weight: bold;
-    color: #000;
-}
-
-section .about h3::after {
-    content: attr(en);
-    font-size: 28px;
-    font-weight: 500;
-    color: #ccc;
-    text-transform: uppercase;
-    display: block;
-    margin-top: 10px;
-}
-
-section .about .text {
-    width: 954px;
-}
-
-section .about .text p {
-    font-size: 16px;
-    font-weight: 500;
-    color: #666;
-    line-height: 30px;
-    padding-top: 20px;
-    text-align: justify;
-    letter-spacing: -1px;
-}
-
-section .about .text p:first-of-type {
-    padding-top: 0;
-    margin-top: -6px;
-}
-
-section .about .text p span {
-    color: var(--primary-color);
-}
-
 section .jc {
     width: 1280px;
     margin: 0 auto;
@@ -913,195 +806,6 @@ section .sp .box .swiper_wrap .swiper-button-next {
     color: #333;
     line-height: 18px;
     padding: 5px 0;
-}
-
-.mask_form {
-    display: none;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1200;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-}
-
-.mask_form.show {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-.mask_form .inner .form {
-    width: 436px;
-    padding-bottom: 30px;
-    background: #fff;
-    border-radius: 10px 10px 10px 10px;
-    opacity: 1;
-}
-
-.mask_form .inner .form h2.title {
-    padding: 37px 0 11px;
-    text-align: center;
-}
-
-.mask_form .inner .form h2.title span {
-    font-size: 28px;
-}
-
-.mask_form .inner .form h2.title span::after,
-.mask_form .inner .form h2.title span::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    width: 29px;
-    height: 34px;
-}
-
-.mask_form .inner .form h2.title span::before {
-    left: -46px;
-}
-
-.mask_form .inner .form h2.title span::after {
-    right: -46px;
-}
-
-.mask_form .inner .form form div {
-    overflow: hidden;
-    width: 368px;
-    height: 50px;
-    background: #fff;
-    border-radius: 4px;
-    border: 1px solid #ebebeb;
-    margin: 20px auto 0;
-}
-
-.mask_form .inner .form form div.select {
-    position: relative;
-}
-
-.mask_form .inner .form form div.select::after {
-    position: absolute;
-    right: 18px;
-    top: 20px;
-    content: "";
-    z-index: 10;
-    width: 16px;
-    height: 10px;
-    -o-object-position: center;
-    object-position: center;
-    -o-object-fit: contain;
-    object-fit: contain;
-    pointer-events: none;
-    background: url(https://www.ieduchina.com/topic/2024/hk7/images/06d922bf.png) center / contain no-repeat;
-}
-
-.mask_form .inner .form form div input {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0 20px;
-    width: 368px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 400;
-    color: #333;
-    outline: none;
-}
-
-.mask_form .inner .form form div input::-webkit-input-placeholder {
-    font-size: 18px;
-    font-weight: 400;
-    color: #999;
-}
-
-.mask_form .inner .form form div input::-moz-placeholder {
-    font-size: 18px;
-    font-weight: 400;
-    color: #999;
-}
-
-.mask_form .inner .form form div input:-ms-input-placeholder {
-    font-size: 18px;
-    font-weight: 400;
-    color: #999;
-}
-
-.mask_form .inner .form form div input::-ms-input-placeholder {
-    font-size: 18px;
-    font-weight: 400;
-    color: #999;
-}
-
-.mask_form .inner .form form div input::placeholder {
-    font-size: 18px;
-    font-weight: 400;
-    color: #999;
-}
-
-.mask_form .inner .form form div select {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0 20px;
-    width: 368px;
-    height: 50px;
-    font-size: 18px;
-    font-weight: 400;
-    color: #999;
-    border: none;
-    outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.mask_form .inner .form form div select:-internal-autofill-previewed,
-.mask_form .inner .form form div select:-internal-autofill-selected {
-    -webkit-text-fill-color: #000;
-    -webkit-transition: background-color 5000s ease-out 0.5s;
-    transition: background-color 5000s ease-out 0.5s;
-}
-
-.mask_form .inner .form form p.error-tips {
-    font-size: 16px;
-    color: red;
-    height: 0;
-    line-height: 60px;
-    text-align: center;
-}
-
-.mask_form .inner .form form button[type=submit] {
-    display: block;
-    width: 368px;
-    height: 56px;
-    background: var(--primary-color);
-    border-radius: 4px;
-    margin: 30px auto 0;
-    font-size: 26px;
-    font-weight: 400;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    outline: none;
-}
-
-.mask_form .inner .bottom {
-    text-align: center;
-}
-
-.mask_form .inner .bottom img {
-    width: 48px;
-    height: 48px;
-    margin-top: 40px;
-    cursor: pointer;
 }
 
 img[preview] {
