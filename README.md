@@ -73,3 +73,20 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
+<!-- git分支操作 -->
+# 删除本地分支（以 feature/xxx 为例）
+git branch -d feature/xxx
+
+# 强制删除本地分支（如未合并）
+git branch -D feature/xxx
+
+# 清理本地已被远程删除的分支引用
+git fetch -p
+
+# 查看远程所有分支
+git branch -r
+
+# 同时查看本地和远程所有分支
+git branch -a
