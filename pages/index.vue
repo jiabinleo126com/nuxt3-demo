@@ -21,11 +21,7 @@ const InternationalSchool = defineAsyncComponent(() => import(`~/components/inde
 const FocusToday = defineAsyncComponent(() => import(`~/components/index/FocusToday.vue`))
 const RealTimeInfo = defineAsyncComponent(() => import(`~/components/index/RealTimeInfo.vue`))
 
-const { data: { value: { activity = null, bannerList = [], verticalVideos = [], horizontalVideos = [] } } } = await useFetch(`/api/`, {
-  onResponseError({ response }) {
-    console.error('API request failed:', response._data)
-  }
-})
+const { data: { value: { activity, bannerList, verticalVideos, horizontalVideos } } } = await useFetch(`/api/`)
 
 useHead({
     script: [
