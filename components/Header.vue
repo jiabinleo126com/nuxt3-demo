@@ -240,7 +240,7 @@ const hkTopic = reactive([
     },
     {
         title: "25年01月:中华基金中学、迦密爱礼信中学等7所学校",
-        path: "https://www.ieduchina.com/topic/2025/hk12"
+        path: "/topic/2025/hk12"
     },
     {
         title: "24年12月:元朗公立中学校友会邓英业小学等5所学校",
