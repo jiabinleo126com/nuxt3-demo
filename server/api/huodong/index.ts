@@ -4,9 +4,7 @@ import { getQuery } from 'h3'
 
 export default defineEventHandler(async (e) => {
     const query = getQuery(e);
-    console.log("query", JSON.stringify(query))
     const pageNumber = query.page ? Number(query.page) : 1;
-    console.log("pageNumber", pageNumber)
     try {
         const { data } = await axios.get(String("https://www.ieduchina.com/huodong?page=" + pageNumber))
         const $ = cheerio.load(data)

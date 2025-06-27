@@ -19,7 +19,7 @@
   "dependencies": {
     "axios": "^1.9.0",
     "cheerio": "^1.0.0",
-    "nuxt": "^3.17.4",
+    "nuxt": "^3.17.5",
     "reset.less": "^1.0.5",
     "vue": "^3.5.14",
     "vue-router": "^4.5.1",
