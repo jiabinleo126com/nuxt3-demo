@@ -1,7 +1,7 @@
 <template>
     <div class="activity">
         <div class="con">
-            <div class="banner-img">
+            <div v-if="bannerList" class="banner-img">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div v-for="(item, index) in activity" class="swiper-slide">
@@ -13,7 +13,7 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-            <div class="banner-list">
+            <div v-if="bannerList" class="banner-list">
                 <div class="banner-title">
                     <h2>夏/冬令营</h2>
                     <a href="//www.ieduchina.com/camps/index.html" target="_blank">更多>></a>
