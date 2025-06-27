@@ -158,65 +158,63 @@
                         </ul>
                     </li>
                     <li class="parentMenu">
-                        <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                            rel="nofollow"><span>备考学习</span></a>
+                        <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>备考学习</span></NuxtLink>
                         <ul class="submenu">
                             <li>
-                                <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                    rel="nofollow"><span>官方考试</span></a>
+                                <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>官方考试</span></NuxtLink>
                                 <div class="box">
                                     <div class="box_lis">
                                         <div class="box_title">入学考试</div>
                                         <div class="box_con">
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">MAP</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">CAT4</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">中数</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">英数</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">新加坡</a>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>MAP</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>CAT4</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>中数</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>英数</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>新加坡</span>
+                                            </NuxtLink>
                                         </div>
                                     </div>
                                     <div class="box_lis">
                                         <div class="box_title">语言考试</div>
                                         <div class="box_con">
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">雅思</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">托福</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">多邻国</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">SAT</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">GRE</a>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>雅思</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>托福</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>多邻国</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>SAT</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>GRE</span>
+                                            </NuxtLink>
                                         </div>
                                     </div>
                                     <div class="box_lis">
                                         <div class="box_title">国际考试</div>
                                         <div class="box_con">
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">A-LEVEL</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">IB考试</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">AP考试</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">DSE考试</a>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>A-LEVEL</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>IB考试</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>AP考试</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>DSE考试</span>
+                                            </NuxtLink>
                                         </div>
                                     </div>
                                     <div class="box_lis">
                                         <div class="box_title">数学竞赛</div>
                                         <div class="box_con">
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">美国AMC</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">澳洲AMC</a>
-                                            <a href="//www.ieduchina.com/xuexi/index.html?tgfrom=guanwang"
-                                                rel="nofollow">袋鼠数学竞赛</a>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>美国AMC</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>澳洲AMC</span>
+                                            </NuxtLink>
+                                            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>袋鼠数学竞赛</span>
+                                            </NuxtLink>
                                         </div>
                                     </div>
                                 </div>
