@@ -66,7 +66,6 @@ const props = defineProps<{
     activity: ActivityItem[],
     bannerList: BannerListItem[]
 }>();
-console.log(props.bannerList)
 
 onMounted(() => {
     "onMountedStart"
