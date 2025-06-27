@@ -2,7 +2,7 @@
     <div class="activity">
         <div class="con">
             <div class="banner-img">
-                <div class="swiper-container">
+                <div class="swiper-container" v-if="activity.length > 0">
                     <div class="swiper-wrapper">
                         <div v-for="(item, index) in activity" class="swiper-slide">
                             <a :href="item.path">
@@ -11,6 +11,9 @@
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
+                </div>
+                <div v-else class="empty-banner">
+                    <p>暂无活动数据</p>
                 </div>
             </div>
             <div class="banner-list">
