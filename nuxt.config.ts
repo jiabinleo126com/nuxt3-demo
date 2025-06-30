@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
+const routes = ["/"]
 export default defineNuxtConfig({
     compatibilityDate: '2025-05-15',
     devtools: { enabled: true },
@@ -92,7 +93,7 @@ export default defineNuxtConfig({
         prerender: {
             assets: true, // 关键配置
             crawlLinks: false, // 爬取链接进行预渲染
-            routes: ["/huodong"], // 预渲染首页
+            routes, // 预渲染首页
             ignore: ['200', '404'] // 忽略路由
         } as any,
         devProxy: {
