@@ -2,6 +2,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { fileURLToPath } from 'url';
 import path from 'path';
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,11 +20,11 @@ const _loader = MiniCssExtractPlugin.loader;
 
 // const smp = new SpeedMeasurePlugin();
 // import TerserPlugin, { swcMinify } from "terser-webpack-plugin";
-import TerserPlugin from "terser-webpack-plugin";
+// import TerserPlugin from "terser-webpack-plugin";
 // import CopyPlugin from "copy-webpack-plugin";
 const isdev = process.env.NODE_ENV == "development";
 // import { htmlTemplate, entry } from './webpack.pages.js';
-const defaultTemplate = process.env.npm_package_config_project;
+// const defaultTemplate = process.env.npm_package_config_project;
 // if (isdev) {
 //   require(`./serves/ajax`)
 // }
@@ -173,12 +174,13 @@ const moduleConfig = {
     }]
   },
   optimization: {
-    minimize: false,
+    minimize: true,
     minimizer: [
-      new TerserPlugin({
-        // minify: swcMinify,
-        terserOptions: {},
-      })
+      // new TerserPlugin({
+      //   // minify: swcMinify,
+      //   terserOptions: {},
+      // }),
+      new CssMinimizerPlugin(),
     ],
     concatenateModules: true,
     splitChunks: {
@@ -302,7 +304,7 @@ const moduleConfig = {
         trimCustomFragments: true
       },
       inject: "body",
-      filename:"index.html",
+      filename: "index.html",
       xhtml: true,
       showErrors: true,
       chunks: "index"
