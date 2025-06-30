@@ -14,7 +14,7 @@
         <component :is="XingCheng" />
     </section>
     <section class="green">
-        <component :is="School" />
+        <component :is="School" :data="school"/>
     </section>
     <component :is="Footer" />
     <div class="mask">
@@ -42,7 +42,7 @@
 import { defineAsyncComponent } from "vue";
 const LiangDian = defineAsyncComponent(() => import('~/components/topic/2025/hk13/LiangDian.vue'))
 const XingCheng = defineAsyncComponent(() => import('~/components/topic/2025/hk13/XingCheng.vue'))
-const School = defineAsyncComponent(() => import('~/components/topic/2025/hk13/School.vue'))
+const School = defineAsyncComponent(() => import('~/components/topic/hkfxy/School.vue'))
 const Footer = defineAsyncComponent(() => import('~/components/topic/HK-Footer.vue'))
 const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.vue'))
 const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
@@ -54,6 +54,56 @@ import { onMounted, ref } from "vue";
 const about = ref([
     "5月2日-5月3日，【香港教育文化之旅】第13期圆满收官。此次活动如教育盛宴，为参访家庭带来难忘探索体验。", "当下教育资源优质且丰富，香港凭借独特地理位置与深厚教育底蕴，成为众多学子求学圣地，其顶尖中学以先进教育理念和卓越教学成果吸引众多目光。为助大家深入了解香港中学教育，国际教育网精心策划此次独家定制的香港名校探访团活动。", "行程丰富紧凑，探访团深入走访香港十所顶尖中学，路线涵盖DSE课程学校与国际课程学校，让参访家庭一站式领略不同名校风采。", "国际教育网专家团队全程相伴，每到一所学校，便如知识引路人，凭借专业造诣和行业经验，深度解析学校特色与教学理念，详细讲解课程设置、师资力量，还分享教育发展趋势，让家长全方位了解学校。", "校长和老师全程导览，带领大家参观校园各处，从现代化教学楼到实验室、艺术教室、运动场，展示校园文化魅力，热情解答疑问，分享学校发展历程、办学理念与成果，让家长和学生深入了解学校。", "校长们亲授的普通话升学讲座是探访团亮点。校长们以专业素养和对教育体系的把握，介绍DSE与国际课程学校的升学途径、招生政策及升学准备，用案例和建议为家长学生拨开迷雾。家长们称讲座如及时雨，让他们对升学之路方向清晰，收获颇丰。"
 ]);
+const school = [
+    {
+        path:"https://schoollist.ieduchina.com/school/hofung/",
+        name:"可风中学(啬色园主办)",
+        logo:"//www.ieduchina.com/topic/2025/hk13/images/59f653cd.png"
+    },{
+        path:"https://schoollist.ieduchina.com/school/lwfsshk/",
+        name:"世界龙冈学校刘皇发中学",
+        logo:"//www.ieduchina.com/topic/2025/hk13/images/d5191299.png"
+    },{
+        path:"https://schoollist.ieduchina.com/school/tmcss/",
+        name:"屯门天主教中学",
+        logo:"https://zhaosheng.ieduchina.com/Upload/File/202402/65c1cbccbbee0.jpg"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/yllhk/",
+        name:"基督教香港信义会元朗信义中学",
+        logo:"https://www.ieduchina.com/topic/2024/hk8/images/af6a1a94.png"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/ktssshk/",
+        name:"九龙塘学校(中学部)",
+        logo:"//www.ieduchina.com/topic/2025/hk13/images/389a7674.png"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/ccckeitohk/",
+        name:"中华基督教会基道中学",
+        logo:"//www.ieduchina.com/topic/2025/hk13/images/9a4d802d.png"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/xgdlyjnd/",
+        name:"香港德思齐加拿大国际学校",
+        logo:"//www.ieduchina.com/topic/2025/hk13/images/ccfb325f.png"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/evangel/",
+        name:"播道书院",
+        logo:"//www.ieduchina.com/topic/2025/hk13/images/1cc1684a.png"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/szgxgjb/",
+        name:"香港苏浙公学国际部",
+        logo:"//www.ieduchina.com/topic/2025/hk13/images/77922d59.png"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/lpcuwc/",
+        name:"UWC李宝椿联合世界书院",
+        logo:"//www.ieduchina.com/topic/2025/hk13/images/cec9b52f.png"
+    }
+]
 useHead({
     script: [
         {

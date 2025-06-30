@@ -14,7 +14,7 @@
         <component :is="XingCheng" />
     </section>
     <section class="green">
-        <component :is="School" />
+        <component :is="School" :data="school" width="25%"/>
     </section>
     <component :is="Footer" />
     <div class="mask">
@@ -42,7 +42,7 @@
 import { defineAsyncComponent } from "vue";
 const LiangDian = defineAsyncComponent(() => import('~/components/topic/2025/hk12/LiangDian.vue'))
 const XingCheng = defineAsyncComponent(() => import('~/components/topic/2025/hk12/XingCheng.vue'))
-const School = defineAsyncComponent(() => import('~/components/topic/2025/hk12/School.vue'))
+const School = defineAsyncComponent(() => import('~/components/topic/hkfxy/School.vue'))
 const Footer = defineAsyncComponent(() => import('~/components/topic/HK-Footer.vue'))
 const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.vue'))
 const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
@@ -57,6 +57,43 @@ const about = ref([
     "校长和老师们的全程相伴导览，更是让来访家庭有机会近距离探索校园细节，饱览校园风光。从现代化的教学楼到设施完备的实验室，从充满艺术氛围的艺术教室到活力四射的运动场，大家亲身感受着每所学校独特的校园文化。校长和老师们热情地解答大家的疑问，分享学校的历史故事和办学成果，让家长和学生对学校的了解不再停留在表面。",
     "校长亲授的普通话升学讲座，无疑是本次探访团的重头戏。在讲座中，校长们精准对接香港教育体系，详细介绍了香港中学的升学途径、招生政策以及如何做好升学准备。他们用丰富的案例和实用的建议，为家长们和学生们答疑解惑，帮助大家前瞻布局择校规划蓝图，量身定做个性化升学路径。许多家长表示，这场讲座让他们对孩子的升学之路有了清晰的方向，收获颇丰。"
 ]);
+const school = ref([
+    {
+        path:"https://schoollist.ieduchina.com/school/cfss/",
+        name:"中华基金中学",
+        logo:"https://www.ieduchina.com/uploadfile/college/202309/1695808686.jpg"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/calfsshk/",
+        name:"迦密爱礼信中学",
+        logo:"https://zhaosheng.ieduchina.com/Upload/File/202402/65c325d6557ee.jpg"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/tmcss/",
+        name:"屯门天主教中学",
+        logo:"https://zhaosheng.ieduchina.com/Upload/File/202402/65c1cbccbbee0.jpg"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/pyc/",
+        name:"沙田培英中学",
+        logo:"https://www.ieduchina.com/uploadfile/college/202310/1698053489.jpg"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/evangel/",
+        name:"播道书院",
+        logo:"https://www.ieduchina.com/uploadfile/college/202401/1704353550.jpg"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/cccsshk/",
+        name:"新界西贡坑口区郑植之中学",
+        logo:"https://zhaosheng.ieduchina.com/Upload/File/202402/65d1a9a706b6e.jpg"
+    },
+    {
+        path:"https://schoollist.ieduchina.com/school/uccke/",
+        name:"汇基书院(东九龙)",
+        logo:"https://www.ieduchina.com/uploadfile/college/202310/1697439246.jpg"
+    }
+])
 
 useHead({
     script: [
