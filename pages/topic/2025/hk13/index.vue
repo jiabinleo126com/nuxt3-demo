@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <component :is="RightFixedNav" />
+    <component :is="RightFixedNav" bgColor="#003d96"/>
     <component :is="MaskForm" mark="香港教育文化之旅第13期_国际教育网PC版" />
     <div class="img-mask">
         <img src="" alt="">
@@ -366,8 +366,6 @@ onMounted(() => {
 :root {
     --primary-color: #003d96;
 }
-
-
 
 .date-card {
     width: 125px;

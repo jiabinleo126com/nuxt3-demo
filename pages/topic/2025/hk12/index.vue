@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <component :is="RightFixedNav" />
+    <component :is="RightFixedNav" bgColor="#273770"/>
     <component :is="MaskForm" mark="香港教育文化之旅第12期_国际教育网PC版" />
     <div class="img-mask">
         <img src="" alt="">

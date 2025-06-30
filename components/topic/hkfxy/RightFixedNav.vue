@@ -1,5 +1,5 @@
 <template>
-    <div class="right-fixed-nav">
+    <div class="right-fixed-nav" :style="'background-color: '+bgColor">
         <ul>
             <li class="right-nav">
                 <img src="//www.ieduchina.com/topic/2024/hk7/images/f361907d.png" alt=""
@@ -51,7 +51,13 @@
     </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from "vue"
+import { ref, onMounted } from "vue";
+defineProps({
+    bgColor:{
+        type:String,
+        default:"#273770"
+    }
+})
 declare const $: any;
 declare const Swiper: any;
 const menu = ref([
@@ -117,7 +123,6 @@ onMounted(() => {
     top: 35%;
     width: 98px;
     z-index: 100;
-    background-color: var(--primary-color);
     -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
 }
