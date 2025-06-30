@@ -90,3 +90,6 @@ git branch -r
 
 # 同时查看本地和远程所有分支
 git branch -a
+
+# 强制覆盖远程
+git push --force
