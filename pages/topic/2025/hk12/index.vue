@@ -1,10 +1,10 @@
 <template>
-    <img src="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" alt="" height="0" width="0"
-        img="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" style="display:none">
+    <img src="https://www.ieduchina.com/topic/2025/hk12/images/dd2d5130.jpg" alt="" height="0" width="0"
+        img="https://www.ieduchina.com/topic/2025/hk12/images/dd2d5130.jpg" style="display:none">
     <Header />
     <section>
         <div class="banner">
-            <img src="//www.ieduchina.com/topic/2025/hk13/images/b01ba60e.jpg" alt="2025年香港名校探校之旅" height="420"
+            <img src="https://www.ieduchina.com/topic/2025/hk12/images/427ffc66.png" alt="2025年香港名校探校之旅" height="420"
                 width="1280">
         </div>
         <component :is="About" :data="about" />
@@ -27,7 +27,7 @@
         </div>
     </div>
     <component :is="RightFixedNav" />
-    <component :is="MaskForm" mark="香港教育文化之旅第13期_国际教育网PC版" />
+    <component :is="MaskForm" mark="香港教育文化之旅第12期_国际教育网PC版" />
     <div class="img-mask">
         <img src="" alt="">
         <div class="close-img-mask"></div>
@@ -40,20 +40,24 @@
 
 <script setup>
 import { defineAsyncComponent } from "vue";
-const LiangDian = defineAsyncComponent(() => import('~/components/topic/2025/hk13/LiangDian.vue'))
-const XingCheng = defineAsyncComponent(() => import('~/components/topic/2025/hk13/XingCheng.vue'))
-const School = defineAsyncComponent(() => import('~/components/topic/2025/hk13/School.vue'))
+const LiangDian = defineAsyncComponent(() => import('~/components/topic/2025/hk12/LiangDian.vue'))
+const XingCheng = defineAsyncComponent(() => import('~/components/topic/2025/hk12/XingCheng.vue'))
+const School = defineAsyncComponent(() => import('~/components/topic/2025/hk12/School.vue'))
 const Footer = defineAsyncComponent(() => import('~/components/topic/HK-Footer.vue'))
 const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.vue'))
 const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
 const RightFixedNav = defineAsyncComponent(() => import('~/components/topic/hkfxy/RightFixedNav.vue'))
 
-
 import { onMounted, ref } from "vue";
 
 const about = ref([
-    "5月2日-5月3日，【香港教育文化之旅】第13期圆满收官。此次活动如教育盛宴，为参访家庭带来难忘探索体验。", "当下教育资源优质且丰富，香港凭借独特地理位置与深厚教育底蕴，成为众多学子求学圣地，其顶尖中学以先进教育理念和卓越教学成果吸引众多目光。为助大家深入了解香港中学教育，国际教育网精心策划此次独家定制的香港名校探访团活动。", "行程丰富紧凑，探访团深入走访香港十所顶尖中学，路线涵盖DSE课程学校与国际课程学校，让参访家庭一站式领略不同名校风采。", "国际教育网专家团队全程相伴，每到一所学校，便如知识引路人，凭借专业造诣和行业经验，深度解析学校特色与教学理念，详细讲解课程设置、师资力量，还分享教育发展趋势，让家长全方位了解学校。", "校长和老师全程导览，带领大家参观校园各处，从现代化教学楼到实验室、艺术教室、运动场，展示校园文化魅力，热情解答疑问，分享学校发展历程、办学理念与成果，让家长和学生深入了解学校。", "校长们亲授的普通话升学讲座是探访团亮点。校长们以专业素养和对教育体系的把握，介绍DSE与国际课程学校的升学途径、招生政策及升学准备，用案例和建议为家长学生拨开迷雾。家长们称讲座如及时雨，让他们对升学之路方向清晰，收获颇丰。"
+    "【香港教育文化之旅】第12期在1月21日落下帷幕，为参访家庭带来了一场难忘的教育探索之旅。在教育资源多元且优质的当下，香港的顶尖中学以其独特的教育理念和卓越的教学成果吸引着众多家长和学生的目光。为了让大家深入了解香港的中学教育，国际教育网精心策划并圆满完成了这次独家定制的香港名校探访团活动。",
+    "此次探访团深入体验了香港七所顶尖中学，路线巧妙地覆盖了香港核心教育区，真正做到了一站式领略名校风采。在2天的行程中家长们体验了一场充实又震撼的教育探索之旅。",
+    "国际教育网专家团队的全程陪伴，是这次探访团的一大亮点。在每一所学校，专家们都凭借着深厚的专业知识和丰富的行业经验，为家长们深度解析学校特色与教学理念。他们不仅讲解了学校的课程设置、师资力量，还分享了国际教育的发展趋势，让家长们对每所学校有了全方位、深层次的认识。",
+    "校长和老师们的全程相伴导览，更是让来访家庭有机会近距离探索校园细节，饱览校园风光。从现代化的教学楼到设施完备的实验室，从充满艺术氛围的艺术教室到活力四射的运动场，大家亲身感受着每所学校独特的校园文化。校长和老师们热情地解答大家的疑问，分享学校的历史故事和办学成果，让家长和学生对学校的了解不再停留在表面。",
+    "校长亲授的普通话升学讲座，无疑是本次探访团的重头戏。在讲座中，校长们精准对接香港教育体系，详细介绍了香港中学的升学途径、招生政策以及如何做好升学准备。他们用丰富的案例和实用的建议，为家长们和学生们答疑解惑，帮助大家前瞻布局择校规划蓝图，量身定做个性化升学路径。许多家长表示，这场讲座让他们对孩子的升学之路有了清晰的方向，收获颇丰。"
 ]);
+
 useHead({
     script: [
         {
@@ -111,15 +115,15 @@ useHead({
             href: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.min.css'
         }
     ],
-    title: "香港教育文化之旅第13期-香港探校 - 国际教育网",
+    title: "香港教育文化之旅第12期-香港探校 - 国际教育网",
     meta: [
         {
             name: "keywords",
-            content: "香港教育文化之旅"
+            content: "香港探校"
         },
         {
             name: "description",
-            content: "5月2日-5月3日,香港教育文化之旅第13期圆满收官.此次活动如教育盛宴,为参访家庭带来难忘探索体验.行程丰富紧凑,探访团深入走访香港十所顶尖中学,路线涵盖DSE课程学校与国际课程学校,让参访家庭一站式领略不同名校风采."
+            content: "【香港教育文化之旅】第12期在1月21日落下帷幕，为参访家庭带来了一场难忘的教育探索之旅。在教育资源多元且优质的当下，香港的顶尖中学以其独特的教育理念和卓越的教学成果吸引着众多家长和学生的目光。为了让大家深入了解香港的中学教育，国际教育网精心策划并圆满完成了这次独家定制的香港名校探访团活动。"
         }
     ]
 })
@@ -236,6 +240,7 @@ onMounted(() => {
         $('.error-tips').html('');
         $(this).parents('.mask_form').find('form')[0].reset();
     });
+    
     var flag = true;
     if ($(".school").length) {
         $(window).on('scroll', function () {
@@ -314,9 +319,8 @@ onMounted(() => {
 </script>
 <style lang="less">
 :root {
-    --primary-color: #003d96;
+    --primary-color: #273770;
 }
-
 
 
 .date-card {
