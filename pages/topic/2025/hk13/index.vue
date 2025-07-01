@@ -3,19 +3,13 @@
         img="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" style="display:none">
     <Header />
     <section>
-        <div class="banner">
-            <img src="//www.ieduchina.com/topic/2025/hk13/images/b01ba60e.jpg" alt="2025年香港名校探校之旅" height="420"
-                width="1280">
-        </div>
+        <component :is="Banner" src="https://www.ieduchina.com/topic/2025/hk13/images/b01ba60e.jpg" height=420
+            alt="2025年香港名校探校之旅" />
         <component :is="About" :data="about" />
-        <component :is="LiangDian" :data="liangdian" color1="#f99501" color2="#003d96"/>
+        <component :is="LiangDian" :data="liangdian" className="c003d96" />
     </section>
-    <section class="gray">
-        <component :is="XingCheng" :data="xingcheng" />
-    </section>
-    <section class="green">
-        <component :is="School" :data="school" />
-    </section>
+    <component :is="XingCheng" className="c003d96" :data="xingcheng" :arrImg="arrImg" />
+    <component :is="School" className="c003d96" :data="school" />
     <component :is="Footer" />
     <div class="mask">
         <div class="wrap">
@@ -26,20 +20,14 @@
             </div>
         </div>
     </div>
-    <component :is="RightFixedNav" bgColor="#003d96" />
-    <component :is="MaskForm" mark="香港教育文化之旅第13期_国际教育网PC版" />
-    <div class="img-mask">
-        <img src="" alt="">
-        <div class="close-img-mask"></div>
-        <div class="arr">
-            <span class="left"></span>
-            <span class="right"></span>
-        </div>
-    </div>
+    <component :is="RightFixedNav" className="c003d96" />
+    <component :is="MaskForm" className="c003d96" mark="香港教育文化之旅第13期_国际教育网PC版" />
+    <component :is="ImgMask" />
 </template>
 
 <script setup>
 import { defineAsyncComponent, reactive } from "vue";
+const Banner = defineAsyncComponent(() => import('~/components/topic/hkfxy/Banner.vue'))
 const LiangDian = defineAsyncComponent(() => import('~/components/topic/hkfxy/LiangDian.vue'))
 const XingCheng = defineAsyncComponent(() => import('~/components/topic/hkfxy/XingCheng.vue'))
 const School = defineAsyncComponent(() => import('~/components/topic/hkfxy/School.vue'))
@@ -47,6 +35,7 @@ const Footer = defineAsyncComponent(() => import('~/components/topic/HK-Footer.v
 const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.vue'))
 const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
 const RightFixedNav = defineAsyncComponent(() => import('~/components/topic/hkfxy/RightFixedNav.vue'))
+const ImgMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/ImgMask.vue'))
 
 
 import { onMounted, ref } from "vue";
@@ -144,7 +133,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/3152d110.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/8d6040c6.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/b2afd974.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/b2afd974.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/c36a5b21.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/e0923d56.jpg"
@@ -175,7 +164,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/457f28ab.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/6305e1c9.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/e4980fd5.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/e4980fd5.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/d2731704.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/b8619a07.jpg"
@@ -214,7 +203,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/0b516689.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/6db3c163.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/3f29a2cf.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/3f29a2cf.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/acfe4e19.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/77f680a4.jpg"
@@ -247,7 +236,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/a761586a.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/588bdd4d.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/46b39026.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/46b39026.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/4968c851.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/0cd0b5cf.jpg"
@@ -295,7 +284,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/61bd8da4.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/0a52f6f6.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/147d71d8.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/147d71d8.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/b9ad6639.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/c1a0b1e7.jpg"
@@ -332,7 +321,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/b1beb5d1.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/85f8a55c.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/1c6a0911.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/1c6a0911.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/dabb6865.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/6f72d931.jpg"
@@ -382,13 +371,12 @@ const xingcheng = reactive([
                             {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/49e76cb7.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/f640d613.jpg"
-                            },
-                            {
+                            }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/635336a2.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/43d9d989.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/f4e51f7f.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/ef7bfab6.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/ef7bfab6.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/1a9b5b93.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/84f9c408.jpg"
@@ -419,7 +407,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/a16df448.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/b55b172e.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/df87c5d4.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/df87c5d4.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/8b96da93.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/444f352e.jpg"
@@ -458,7 +446,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/d6926f25.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/a717707e.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/2d743aaf.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/2d743aaf.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/89d98c5d.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/7051b828.jpg"
@@ -492,7 +480,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/c56a1d27.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/abe78eaf.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/5b837c7a.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/5b837c7a.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/d30d6c28.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/c477a6e8.jpg"
@@ -540,7 +528,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/61bd8da4.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/0a52f6f6.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/147d71d8.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/147d71d8.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/b9ad6639.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/c1a0b1e7.jpg"
@@ -577,7 +565,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/b1beb5d1.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/85f8a55c.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/1c6a0911.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/1c6a0911.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/dabb6865.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/6f72d931.jpg"
@@ -616,7 +604,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/d6926f25.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/a717707e.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/2d743aaf.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/2d743aaf.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/89d98c5d.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/7051b828.jpg"
@@ -650,7 +638,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/c56a1d27.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/abe78eaf.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/5b837c7a.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/5b837c7a.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/d30d6c28.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/c477a6e8.jpg"
@@ -666,6 +654,7 @@ const xingcheng = reactive([
         ]
     }
 ])
+const arrImg = ref("https://www.ieduchina.com/topic/2025/hk13/images/70084d28.png")
 useHead({
     script: [
         {
@@ -736,72 +725,6 @@ useHead({
     ]
 })
 onMounted(() => {
-    $(".title").on("click", "button", function () {
-        var flag = $(this).hasClass("s");
-        if (flag) {
-            $(this).removeClass("s").find("span").text($(this).find("a.c").text());
-            $(this).closest("li").find(".list").animate({ "height": 0 }, 800);
-        }
-        else {
-            $(this).addClass("s").find("span").text($(this).find("a.g").text());
-            $(this).closest("li").find(".list").animate({ "height": $(this).closest("li").find(".wrap").height() }, 800);
-        }
-    });
-    var previewLength = $("img[preview]").length;
-    $.each($("img[preview]"), function (index, item) {
-        $(item).attr("index", index);
-    });
-    var previewIndex = 0;
-    $(document).on("click", "img[preview]", function () {
-        var src = $(this).attr("preview");
-        $(".img-mask img").attr("src", src);
-        $(".img-mask").addClass("show");
-        previewIndex = Number($(this).attr("index"));
-    });
-    $(document).on("click", ".close-img-mask", function () {
-        $(".img-mask").removeClass("show");
-        $(".img-mask img").attr("src", "");
-    });
-    $(".img-mask").on("click", function (e) {
-        if (e.target == this) {
-            $(this).removeClass("show");
-            $(".img-mask img").attr("src", "");
-        }
-    });
-    $(".arr").on("click", "span", function () {
-        var img = "";
-        $(".img-mask img").attr("src", "");
-        if ($(this).hasClass("left")) {
-            previewIndex = previewIndex - 1;
-        }
-        else if ($(this).hasClass("right")) {
-            previewIndex = previewIndex + 1;
-        }
-        if (previewIndex < 0) {
-            previewIndex = previewLength - 1;
-        }
-        else if (previewIndex > previewLength - 1) {
-            previewIndex = 0;
-        }
-        img = $("img[preview][index='" + previewIndex + "']");
-        $(".img-mask img").attr("src", img.attr("preview"));
-    });
-    $("#fullyear").text(new Date().getFullYear());
-    new Swiper('.case_swiper', {
-        effect: 'coverflow',
-        centeredSlides: true,
-        spaceBetween: -80,
-        slidesPerView: 2,
-        loop: true,
-        autoplay: 500,
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 60.8,
-            depth: 80,
-            modifier: 3,
-            slideShadows: true,
-        }
-    });
     if ($(".video_swiper").find(".swiper-slide").length > 4) {
         new Swiper('.video_swiper', {
             loop: true,
@@ -929,42 +852,6 @@ onMounted(() => {
     --primary-color: #003d96;
 }
 
-.date-card {
-    width: 125px;
-    height: 42px;
-}
-
-.date-card .card {
-    width: 53px;
-    height: 42px;
-    background-color: #fff;
-    border: solid 5px var(--primary-color);
-    margin: 0 auto;
-}
-
-.date-card .card p {
-    text-align: center;
-    margin-left: 0 !important;
-}
-
-.date-card .card p:first-of-type {
-    background-color: var(--primary-color);
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 19px;
-    margin-top: -5px;
-    letter-spacing: 1px;
-}
-
-.date-card .card p:nth-of-type(2) {
-    font-weight: bold;
-    color: var(--primary-color);
-    font-size: 15px;
-    padding-top: 2px;
-    letter-spacing: 1px;
-}
-
 .images {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1061,20 +948,6 @@ section h3.title::after {
     color: #ccc;
     text-transform: uppercase;
     margin-left: 20px;
-}
-
-section .banner {
-    width: 1280px;
-    margin: 0 auto;
-}
-
-section .banner img {
-    width: 100%;
-    height: 420px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
 }
 
 section .jc {

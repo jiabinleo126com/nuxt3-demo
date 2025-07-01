@@ -1,5 +1,5 @@
 <template>
-    <div class="ld">
+    <div :class="['ld', className]">
         <h3 en="characteristic" class="title">亮点特色</h3>
         <ul>
             <li v-for="(str, index) in data">
@@ -15,10 +15,7 @@ defineProps({
         type: Array,
         default: []
     },
-    color1: {
-        type: String
-    },
-    color2: {
+    className: {
         type: String
     }
 })
@@ -28,6 +25,52 @@ defineProps({
     width: 1280px;
     margin: 80px auto 0;
     padding-bottom: 64px;
+
+    &.cf3ad25 {
+        ul {
+            li {
+                span {
+                    background-color: #f3ad25;
+                }
+
+                &:nth-of-type(even) {
+                    span {
+                        background-color: #873b03;
+                    }
+                }
+            }
+        }
+    }
+    &.c273770 {
+        ul {
+            li {
+                span {
+                    background-color: #273770;
+                }
+
+                &:nth-of-type(even) {
+                    span {
+                        background-color: #A13424;
+                    }
+                }
+            }
+        }
+    }
+    &.c003d96 {
+        ul {
+            li {
+                span {
+                    background-color: #f99501;
+                }
+
+                &:nth-of-type(even) {
+                    span {
+                        background-color: #003d96;
+                    }
+                }
+            }
+        }
+    }
 
     ul {
         margin-top: 50px;

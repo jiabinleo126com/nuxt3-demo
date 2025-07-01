@@ -58,6 +58,13 @@
         </div>
     </footer>
 </template>
+<script setup>
+import { onMounted } from 'vue';
+onMounted(() => {
+    $("#fullyear").text(new Date().getFullYear());
+})
+
+</script>
 
 <style lang="less">
 footer .con {

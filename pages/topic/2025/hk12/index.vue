@@ -3,19 +3,13 @@
         img="https://www.ieduchina.com/topic/2025/hk12/images/dd2d5130.jpg" style="display:none">
     <Header />
     <section>
-        <div class="banner">
-            <img src="https://www.ieduchina.com/topic/2025/hk12/images/427ffc66.png" alt="2025年香港名校探校之旅" height="420"
-                width="1280">
-        </div>
+        <component :is="Banner" src="https://www.ieduchina.com/topic/2025/hk12/images/427ffc66.png" height=420
+            alt="2025年香港名校探校之旅" />
         <component :is="About" :data="about" />
-        <component :is="LiangDian" :data="liangdian" color1="#273770" color2="#A13424" />
+        <component :is="LiangDian" :data="liangdian" className="c273770" />
     </section>
-    <section class="gray">
-        <component :is="XingCheng" :data="xingcheng" />
-    </section>
-    <section class="green">
-        <component :is="School" :data="school" width="25%" />
-    </section>
+    <component :is="XingCheng" className="c273770" :data="xingcheng" :arrImg="arrImg" />
+    <component :is="School" className="c273770" :data="school" width="25%" />
     <component :is="Footer" />
     <div class="mask">
         <div class="wrap">
@@ -26,20 +20,14 @@
             </div>
         </div>
     </div>
-    <component :is="RightFixedNav" bgColor="#273770" />
-    <component :is="MaskForm" mark="香港教育文化之旅第12期_国际教育网PC版" />
-    <div class="img-mask">
-        <img src="" alt="">
-        <div class="close-img-mask"></div>
-        <div class="arr">
-            <span class="left"></span>
-            <span class="right"></span>
-        </div>
-    </div>
+    <component :is="RightFixedNav" className="c273770" />
+    <component :is="MaskForm" className="c273770" mark="香港教育文化之旅第12期_国际教育网PC版" />
+    <component :is="ImgMask" />
 </template>
 
 <script setup>
 import { defineAsyncComponent } from "vue";
+const Banner = defineAsyncComponent(() => import('~/components/topic/hkfxy/Banner.vue'))
 const LiangDian = defineAsyncComponent(() => import('~/components/topic/hkfxy/LiangDian.vue'))
 const XingCheng = defineAsyncComponent(() => import('~/components/topic/hkfxy/XingCheng.vue'))
 const School = defineAsyncComponent(() => import('~/components/topic/hkfxy/School.vue'))
@@ -47,6 +35,7 @@ const Footer = defineAsyncComponent(() => import('~/components/topic/HK-Footer.v
 const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.vue'))
 const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
 const RightFixedNav = defineAsyncComponent(() => import('~/components/topic/hkfxy/RightFixedNav.vue'))
+const ImgMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/ImgMask.vue'))
 
 import { onMounted, ref } from "vue";
 
@@ -127,18 +116,18 @@ const xingcheng = reactive([
                         ],
                         images: [
                             {
-                                image: "//www.ieduchina.com/topic/2025/hk13/images/1c1d3e7f.jpg",
-                                preview: "//www.ieduchina.com/topic/2025/hk13/images/b82e27d0.jpg"
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/1c1d3e7f.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/b82e27d0.jpg"
                             },
                             {
-                                image: "//www.ieduchina.com/topic/2025/hk13/images/ba8c9875.jpg",
-                                preview: "//www.ieduchina.com/topic/2025/hk13/images/fe1a699a.jpg"
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/ba8c9875.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/fe1a699a.jpg"
                             }, {
-                                image: "//www.ieduchina.com/topic/2025/hk13/images/e5a5136b.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/1b2bf54e.jpg"
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/e5a5136b.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/1b2bf54e.jpg"
                             }, {
-                                image: "//www.ieduchina.com/topic/2025/hk13/images/3fe49dea.jpg",
-                                preview: "//www.ieduchina.com/topic/2025/hk13/images/cc0bb275.jpg"
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/3fe49dea.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/cc0bb275.jpg"
                             }
                         ]
                     },
@@ -174,7 +163,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/8fcae8c2.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/ea629427.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/c067b113.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/c067b113.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/e0b4e0ac.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/0960f590.jpg"
@@ -209,7 +198,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/36167d1e.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/963ba2cd.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/82858a5d.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/82858a5d.jpg"
                             }
                         ]
                     },
@@ -254,7 +243,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/a5bd2b98.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/e2102044.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/347a2401.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/347a2401.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/6cd5b9b6.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/15bba9a1.jpg"
@@ -288,7 +277,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/45f1df96.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/5d3d2563.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/9b6bf56d.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/9b6bf56d.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/7d164a5c.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/8fff513b.jpg"
@@ -326,7 +315,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/92c894a0.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/3b44c525.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/319f6e32.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/319f6e32.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/9b864659.jpg",
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/8e98d67a.jpg"
@@ -361,7 +350,7 @@ const xingcheng = reactive([
                                 preview: "//www.ieduchina.com/topic/2025/hk13/images/bfc3de59.jpg"
                             }, {
                                 image: "//www.ieduchina.com/topic/2025/hk13/images/5d7eebf7.jpg",
-                                preveiw: "//www.ieduchina.com/topic/2025/hk13/images/7e2e218d.jpg"
+                                preview: "//www.ieduchina.com/topic/2025/hk13/images/7e2e218d.jpg"
                             }
                         ]
                     },
@@ -378,6 +367,7 @@ const xingcheng = reactive([
         ]
     }
 ])
+const arrImg = ref("//www.ieduchina.com/topic/2025/hk13/images/70084d28.png")
 useHead({
     script: [
         {
@@ -448,72 +438,6 @@ useHead({
     ]
 })
 onMounted(() => {
-    $(".title").on("click", "button", function () {
-        var flag = $(this).hasClass("s");
-        if (flag) {
-            $(this).removeClass("s").find("span").text($(this).find("a.c").text());
-            $(this).closest("li").find(".list").animate({ "height": 0 }, 800);
-        }
-        else {
-            $(this).addClass("s").find("span").text($(this).find("a.g").text());
-            $(this).closest("li").find(".list").animate({ "height": $(this).closest("li").find(".wrap").height() }, 800);
-        }
-    });
-    var previewLength = $("img[preview]").length;
-    $.each($("img[preview]"), function (index, item) {
-        $(item).attr("index", index);
-    });
-    var previewIndex = 0;
-    $(document).on("click", "img[preview]", function () {
-        var src = $(this).attr("preview");
-        $(".img-mask img").attr("src", src);
-        $(".img-mask").addClass("show");
-        previewIndex = Number($(this).attr("index"));
-    });
-    $(document).on("click", ".close-img-mask", function () {
-        $(".img-mask").removeClass("show");
-        $(".img-mask img").attr("src", "");
-    });
-    $(".img-mask").on("click", function (e) {
-        if (e.target == this) {
-            $(this).removeClass("show");
-            $(".img-mask img").attr("src", "");
-        }
-    });
-    $(".arr").on("click", "span", function () {
-        var img = "";
-        $(".img-mask img").attr("src", "");
-        if ($(this).hasClass("left")) {
-            previewIndex = previewIndex - 1;
-        }
-        else if ($(this).hasClass("right")) {
-            previewIndex = previewIndex + 1;
-        }
-        if (previewIndex < 0) {
-            previewIndex = previewLength - 1;
-        }
-        else if (previewIndex > previewLength - 1) {
-            previewIndex = 0;
-        }
-        img = $("img[preview][index='" + previewIndex + "']");
-        $(".img-mask img").attr("src", img.attr("preview"));
-    });
-    $("#fullyear").text(new Date().getFullYear());
-    new Swiper('.case_swiper', {
-        effect: 'coverflow',
-        centeredSlides: true,
-        spaceBetween: -80,
-        slidesPerView: 2,
-        loop: true,
-        autoplay: 500,
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 60.8,
-            depth: 80,
-            modifier: 3,
-            slideShadows: true,
-        }
-    });
     if ($(".video_swiper").find(".swiper-slide").length > 4) {
         new Swiper('.video_swiper', {
             loop: true,
@@ -642,43 +566,6 @@ onMounted(() => {
     --primary-color: #273770;
 }
 
-
-.date-card {
-    width: 125px;
-    height: 42px;
-}
-
-.date-card .card {
-    width: 53px;
-    height: 42px;
-    background-color: #fff;
-    border: solid 5px var(--primary-color);
-    margin: 0 auto;
-}
-
-.date-card .card p {
-    text-align: center;
-    margin-left: 0 !important;
-}
-
-.date-card .card p:first-of-type {
-    background-color: var(--primary-color);
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 19px;
-    margin-top: -5px;
-    letter-spacing: 1px;
-}
-
-.date-card .card p:nth-of-type(2) {
-    font-weight: bold;
-    color: var(--primary-color);
-    font-size: 15px;
-    padding-top: 2px;
-    letter-spacing: 1px;
-}
-
 .images {
     display: -webkit-box;
     display: -webkit-flex;
@@ -775,20 +662,6 @@ section h3.title::after {
     color: #ccc;
     text-transform: uppercase;
     margin-left: 20px;
-}
-
-section .banner {
-    width: 1280px;
-    margin: 0 auto;
-}
-
-section .banner img {
-    width: 100%;
-    height: 420px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
 }
 
 section .jc {
