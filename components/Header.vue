@@ -229,6 +229,7 @@
 </template>
 
 <script setup>
+import { useHead } from "nuxt/app";
 import { onMounted, reactive } from "vue";
 
 const hkTopic = reactive([
@@ -356,6 +357,15 @@ const InternationalEducationForum = reactive([
         title: "2017年10月"
     }
 ])
+useHead({
+    script: [
+        {
+            src: "/s2hk.js",
+            type: "text/javascript",
+            defer: true
+        }
+    ]
+})
 
 
 onMounted(() => {
