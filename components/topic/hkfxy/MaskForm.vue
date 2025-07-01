@@ -59,13 +59,7 @@ defineProps({
 <style lang="less" scoped>
 .mask_form {
     display: none;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.4);
@@ -74,13 +68,10 @@ defineProps({
     bottom: 0;
     right: 0;
     top: 0;
-}
 
-.mask_form.show {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    &.show {
+        display: flex;
+    }
 }
 
 .mask_form .inner .form {
@@ -139,16 +130,13 @@ defineProps({
     z-index: 10;
     width: 16px;
     height: 10px;
-    -o-object-position: center;
     object-position: center;
-    -o-object-fit: contain;
     object-fit: contain;
     pointer-events: none;
     background: url(https://www.ieduchina.com/topic/2024/hk7/images/06d922bf.png) center / contain no-repeat;
 }
 
 .mask_form .inner .form form div input {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 20px;
     width: 368px;
@@ -190,7 +178,6 @@ defineProps({
 }
 
 .mask_form .inner .form form div select {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 20px;
     width: 368px;
@@ -200,15 +187,12 @@ defineProps({
     color: #999;
     border: none;
     outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
 }
 
 .mask_form .inner .form form div select:-internal-autofill-previewed,
 .mask_form .inner .form form div select:-internal-autofill-selected {
     -webkit-text-fill-color: #000;
-    -webkit-transition: background-color 5000s ease-out 0.5s;
     transition: background-color 5000s ease-out 0.5s;
 }
 

@@ -46,7 +46,6 @@
     </div>
 </template>
 <script setup>
-import { onMounted } from 'vue';
 
 defineProps({
     data: {
@@ -54,243 +53,228 @@ defineProps({
     }
 })
 </script>
-<style>
+<style lang="less">
 .xc {
     width: 1280px;
     margin: 0 auto;
     padding: 80px 0 57px;
-}
 
-.xc:nth-of-type(2) {
-    padding-top: 0;
-}
+    &:nth-of-type(2) {
+        padding-top: 0;
+    }
 
-.xc ul {
-    margin-top: 50px;
-}
+    ul {
+        margin-top: 50px;
 
-.xc ul li {
-    border-radius: 10px;
-    margin-bottom: 30px;
-    background-color: #fff;
-}
+        li {
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: #fff;
 
-.xc ul li .title {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    height: 100px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
+            .title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 100px;
 
-.xc ul li .title>img {
-    width: 125px;
-    height: 42px;
-    -o-object-fit: contain;
-    object-fit: contain;
-    -o-object-position: center;
-    object-position: center;
-}
+                &>img {
+                    width: 125px;
+                    height: 42px;
+                    object-fit: contain;
+                    object-position: center;
+                }
 
-.xc ul li .title p {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    margin-left: 5px;
-}
+                p {
+                    flex: 1;
+                    margin-left: 5px;
+                }
 
-.xc ul li .title button {
-    width: 105px;
-    height: 32px;
-    background: rgba(0, 0, 0, 0);
-    border-radius: 17px;
-    border: 1px solid var(--primary-color);
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--primary-color);
-    cursor: pointer;
-    margin-right: 64px;
-}
+                button {
+                    width: 105px;
+                    height: 32px;
+                    background: rgba(0, 0, 0, 0);
+                    border-radius: 17px;
+                    border: 1px solid var(--primary-color);
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: var(--primary-color);
+                    cursor: pointer;
+                    margin-right: 64px;
 
-.xc ul li .title button img {
-    width: 9px;
-    height: 8px;
-    -o-object-fit: contain;
-    object-fit: contain;
-    -o-object-position: center;
-    object-position: center;
-    margin-left: 5px;
-    margin-bottom: 2px;
-    -webkit-transform: rotateZ(180deg);
-    transform: rotateZ(180deg);
-    -webkit-transition: all 1s;
-    transition: all 1s;
-}
+                    &.s {
+                        img {
+                            -webkit-transform: rotateZ(0);
+                            transform: rotateZ(0);
+                            -webkit-transition: all 1s;
+                            transition: all 1s;
+                        }
+                    }
 
-.xc ul li .title button.s img {
-    -webkit-transform: rotateZ(0);
-    transform: rotateZ(0);
-    -webkit-transition: all 1s;
-    transition: all 1s;
-}
+                    img {
+                        width: 9px;
+                        height: 8px;
+                        -o-object-fit: contain;
+                        object-fit: contain;
+                        -o-object-position: center;
+                        object-position: center;
+                        margin-left: 5px;
+                        margin-bottom: 2px;
+                        -webkit-transform: rotateZ(180deg);
+                        transform: rotateZ(180deg);
+                        -webkit-transition: all 1s;
+                        transition: all 1s;
+                    }
 
-.xc ul li .title button a {
-    display: none;
-}
+                    a {
+                        display: none;
+                    }
+                }
+            }
 
-.xc ul li .list {
-    height: 0;
-    overflow: hidden;
-}
+            .list {
+                height: 0;
+                overflow: hidden;
 
-.xc ul li .list .wrap .con {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
+                .wrap {
+                    .con {
+                        display: flex;
+                        justify-content: space-between;
 
-.xc ul li .list .wrap .con:last-of-type .time::after {
-    content: normal;
-    content: initial;
-}
 
-.xc ul li .list .wrap .con .time {
-    font-size: 16px;
-    font-weight: 400;
-    color: #333;
-    width: 125px;
-    text-align: center;
-    position: relative;
-}
+                        &:last-of-type {
+                            .time {
+                                &::after {
+                                    content: initial;
+                                }
+                            }
+                        }
 
-.xc ul li .list .wrap .con .time::after {
-    position: absolute;
-    content: "";
-    left: 50%;
-    top: 26px;
-    width: 1px;
-    bottom: 10px;
-    border-left: 1px #b8b8b8 dashed;
-}
+                        .time {
+                            font-size: 16px;
+                            font-weight: 400;
+                            color: #333;
+                            width: 125px;
+                            text-align: center;
+                            position: relative;
 
-.xc ul li .list .wrap .con .desc {
-    margin-left: 5px;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    margin-bottom: 20px;
-}
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                left: 50%;
+                                top: 26px;
+                                width: 1px;
+                                bottom: 10px;
+                                border-left: 1px #b8b8b8 dashed;
+                            }
+                        }
 
-.xc ul li .list .wrap .con .desc p {
-    font-size: 14px;
-    font-weight: 400;
-    color: #999;
-    margin-top: 15px;
-    padding-right: 60px;
-    line-height: 16px;
-}
+                        .desc {
+                            margin-left: 5px;
+                            -webkit-box-flex: 1;
+                            -webkit-flex: 1;
+                            -ms-flex: 1;
+                            flex: 1;
+                            margin-bottom: 20px;
 
-.xc ul li .list .wrap .con .desc p.bold {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-top: 15px;
-}
+                            p {
+                                font-size: 14px;
+                                font-weight: 400;
+                                color: #999;
+                                margin-top: 15px;
+                                padding-right: 60px;
+                                line-height: 16px;
 
-.xc ul li .list .wrap .con .desc p.bold:first-of-type {
-    margin-top: 0;
-}
+                                &.bold {
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    color: #333;
+                                    margin-top: 15px;
 
-.xc ul li .list .wrap .con .desc p.bold a {
-    color: #333;
-}
+                                    &:first-of-type {
+                                        margin-top: 0;
+                                    }
 
-.xc ul li .list .wrap .con .desc p.bold a:hover {
-    color: var(--primary-color);
-}
+                                    a {
+                                        color: #333;
 
-.xc ul li .list .wrap .con .desc p i {
-    font-style: normal;
-    font-style: initial;
-}
+                                        &:hover {
+                                            color: var(--primary-color);
+                                        }
+                                    }
+                                }
 
-.xc ul li .list .wrap .con .desc .image {
-    margin-top: 15px;
-    width: 1080px;
-    font-size: 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-}
+                                i {
+                                    font-style: normal;
+                                    font-style: initial;
+                                }
+                            }
 
-.xc ul li .list .wrap .con .desc .image.contain img {
-    width: 255px;
-    height: 300px;
-    -o-object-fit: contain;
-    object-fit: contain;
-    -o-object-position: center;
-    object-position: center;
-    margin-right: 20px;
-}
+                            .image {
+                                margin-top: 15px;
+                                width: 1080px;
+                                font-size: 0;
+                                display: flex;
 
-.xc ul li .list .wrap .con .desc .image.contain img:last-of-type {
-    margin-right: 0;
-}
+                                &.contain {
+                                    img {
+                                        width: 255px;
+                                        height: 300px;
+                                        object-fit: contain;
+                                        object-position: center;
+                                        margin-right: 20px;
 
-.xc ul li .list .wrap .con .desc .image .video {
-    position: relative;
-    margin-right: 20px;
-    cursor: pointer;
-}
+                                        &:last-of-type {
+                                            margin-right: 0;
+                                        }
+                                    }
+                                }
 
-.xc ul li .list .wrap .con .desc .image .video img {
-    -webkit-filter: brightness(0.5);
-    filter: brightness(0.5);
-    -o-object-position: center -24px;
-    object-position: center -24px;
-}
+                                .video {
+                                    position: relative;
+                                    margin-right: 20px;
+                                    cursor: pointer;
 
-.xc ul li .list .wrap .con .desc .image .video::after {
-    position: absolute;
-    pointer-events: none;
-    content: "";
-    width: 43px;
-    height: 43px;
-    left: 50%;
-    top: 50%;
-    z-index: 10;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background: url(https://www.ieduchina.com/topic/2024/hk7/images/815ba699.png) center / contain no-repeat;
-}
+                                    img {
+                                        -webkit-filter: brightness(0.5);
+                                        filter: brightness(0.5);
+                                        -o-object-position: center -24px;
+                                        object-position: center -24px;
+                                    }
 
-.xc ul li .list .wrap .con .desc .image img {
-    width: 255px;
-    height: 130px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: left center;
-    object-position: left center;
-    margin-right: 20px;
-}
+                                    &::after {
+                                        position: absolute;
+                                        pointer-events: none;
+                                        content: "";
+                                        width: 43px;
+                                        height: 43px;
+                                        left: 50%;
+                                        top: 50%;
+                                        z-index: 10;
+                                        -webkit-transform: translate(-50%, -50%);
+                                        transform: translate(-50%, -50%);
+                                        background: url(https://www.ieduchina.com/topic/2024/hk7/images/815ba699.png) center / contain no-repeat;
+                                    }
+                                }
 
-.xc ul li .list .wrap .con .desc .image img:last-of-type {
-    margin-right: 0;
+                                img {
+                                    width: 255px;
+                                    height: 130px;
+                                    -o-object-fit: cover;
+                                    object-fit: cover;
+                                    -o-object-position: left center;
+                                    object-position: left center;
+                                    margin-right: 20px;
+
+                                    &:last-of-type {
+                                        margin-right: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 </style>
