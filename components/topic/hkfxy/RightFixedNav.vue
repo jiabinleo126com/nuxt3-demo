@@ -51,7 +51,13 @@
     </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from "vue"
+import { ref, onMounted } from "vue";
+defineProps({
+    bgColor: {
+        type: String,
+        default: "#273770"
+    }
+})
 declare const $: any;
 declare const Swiper: any;
 const menu = ref([
@@ -107,6 +113,20 @@ onMounted(() => {
                 scrollTop: 0
             }, 500);
         });
+        $(document).on('click', '.showTk', function () {
+            $('.mask_form').addClass('show');
+        });
+        var flag = true;
+        if ($(".school").length) {
+            $(window).on('scroll', function () {
+                var st = $(window).scrollTop();
+                var wh = $(".school").offset().top;
+                if (st > (wh - 48) && flag && !$(".img-mask").hasClass("show")) {
+                    $(".showTk").click();
+                    flag = false;
+                }
+            });
+        }
     })
 })
 </script>
@@ -117,9 +137,9 @@ onMounted(() => {
     top: 35%;
     width: 98px;
     z-index: 100;
-    background-color: var(--primary-color);
     -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary);
 }
 
 .right-fixed-nav ul li {
@@ -161,11 +181,13 @@ onMounted(() => {
     line-height: 36px;
     font-size: 14px;
     color: #333;
+
+    &:hover {
+        color: var(--primary)
+    }
 }
 
-.right-fixed-nav ul li .right-nav-list-wq ul li a:hover {
-    color: var(--primary-color);
-}
+
 
 .right-fixed-nav ul li:hover .right-nav-list-wq {
     -webkit-transform: scale(1);
