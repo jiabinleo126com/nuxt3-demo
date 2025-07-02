@@ -1,28 +1,22 @@
 <template>
-    <img src="https://www.ieduchina.com/topic/2024/hk11/images/8bec04d6.jpg" alt="" height="0" width="0"
-        img="https://www.ieduchina.com/topic/2024/hk11/images/8bec04d6.jpg" style="display:none">
-    <Header />
-    <section>
-        <component :is="Banner" src="https://www.ieduchina.com/topic/2024/hk11/images/1389f4ff.png" height=420
-            alt="2024年香港名校探校之旅" />
-        <component :is="About" :data="about" />
-        <component :is="LiangDian" :data="liangdian" className="cf3ad25" />
-    </section>
-    <component :is="XingCheng" className="cf3ad25" :data="xingcheng" :arrImg="arrImg" />
-    <component :is="School" className="cf3ad25" :data="school" width="20%" />
-    <component :is="Footer" />
-    <div class="mask">
-        <div class="wrap">
-            <img src="//www.ieduchina.com/topic/2024/hk7/images/a4ba9f2a.png" alt="">
-            <div class="video-play">
-                <video height="405" id="mask_video" playsinline poster="" preload="auto" value="" webkit-playsinline
-                    width="520"></video>
-            </div>
-        </div>
+    <div class="hk11">
+        <img src="https://www.ieduchina.com/topic/2024/hk11/images/8bec04d6.jpg" alt="" height="0" width="0"
+            img="https://www.ieduchina.com/topic/2024/hk11/images/8bec04d6.jpg" style="display:none">
+        <Header />
+        <section>
+            <component :is="Banner" src="https://www.ieduchina.com/topic/2024/hk11/images/1389f4ff.png" height=420
+                alt="2024年香港名校探校之旅" />
+            <component :is="About" :data="about" />
+            <component :is="LiangDian" :data="liangdian" />
+        </section>
+        <component :is="XingCheng" :data="xingcheng" :arrImg="arrImg" />
+        <component :is="School" :data="school" width="20%" />
+        <component :is="Footer" />
+        <component :is="VideoMask" />
+        <component :is="RightFixedNav"/>
+        <component :is="MaskForm" mark="香港教育文化之旅第12期_国际教育网PC版" />
+        <component :is="ImgMask" />
     </div>
-    <component :is="RightFixedNav" className="cf3ad25" />
-    <component :is="MaskForm" className="cf3ad25" mark="香港教育文化之旅第12期_国际教育网PC版" />
-    <component :is="ImgMask" />
 </template>
 
 <script setup>
@@ -36,6 +30,7 @@ const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.
 const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
 const RightFixedNav = defineAsyncComponent(() => import('~/components/topic/hkfxy/RightFixedNav.vue'))
 const ImgMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/ImgMask.vue'))
+const VideoMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/VideoMask.vue'))
 
 import { onMounted, ref } from "vue";
 
@@ -460,101 +455,10 @@ onMounted(() => {
     });
 })
 </script>
-<style lang="less">
-:root {
-    --primary-color: #273770;
-}
-
-
-.date-card {
-    width: 125px;
-    height: 42px;
-}
-
-.date-card .card {
-    width: 53px;
-    height: 42px;
-    background-color: #fff;
-    border: solid 5px var(--primary-color);
-    margin: 0 auto;
-}
-
-.date-card .card p {
-    text-align: center;
-    margin-left: 0 !important;
-}
-
-.date-card .card p:first-of-type {
-    background-color: var(--primary-color);
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 19px;
-    margin-top: -5px;
-    letter-spacing: 1px;
-}
-
-.date-card .card p:nth-of-type(2) {
-    font-weight: bold;
-    color: var(--primary-color);
-    font-size: 15px;
-    padding-top: 2px;
-    letter-spacing: 1px;
-}
-
-.images {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    font-size: 0;
-    width: 1280px;
-    margin: 50px auto 0;
-}
-
-.images .left img {
-    width: 560px;
-    height: 305px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: left center;
-    object-position: left center;
-}
-
-.images .right {
-    width: 705px;
-    height: 305px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-
-.images .right img {
-    width: 225px;
-    height: 145px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
-}
-
-.images .right img:nth-of-type(n+4) {
-    margin-top: 15px;
+<style lang="less" scoped>
+.hk11 {
+    --primary: #f3ad25;
+    --next: #873b03;
 }
 
 body {
@@ -583,166 +487,5 @@ section.green {
 
 section.green>div>h3 {
     color: #fff;
-}
-
-section h3.title {
-    font-size: 42px;
-    font-weight: bold;
-    color: #000;
-}
-
-section h3.title::after {
-    content: attr(en);
-    font-size: 28px;
-    font-weight: 500;
-    color: attr(color);
-    text-transform: uppercase;
-    margin-left: 20px;
-}
-
-section .jc {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 80px 0 80px;
-}
-
-section .jc .swiper-container {
-    height: 360px;
-    margin-top: 80px;
-}
-
-section .jc .swiper-container img {
-    -o-object-position: center;
-    object-position: center;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
-
-section .jc .swiper-container .swiper-slide-next,
-section .jc .swiper-container .swiper-slide-prev {
-    -webkit-filter: brightness(0.5);
-    filter: brightness(0.5);
-}
-
-section .sp {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 80px 0;
-}
-
-section .sp .box {
-    width: 1034px;
-    height: 707px;
-    margin: 80px auto 0;
-}
-
-section .sp .box .video-wrap {
-    width: 1034px;
-    height: 520px;
-}
-
-section .sp .box .video-wrap .tcplayer {
-    width: 100%;
-    height: 100%;
-}
-
-section .sp .box p {
-    height: 50px;
-    width: 100%;
-    line-height: 50px;
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff;
-    text-align: center;
-    background-color: #000;
-}
-
-section .sp .box .swiper_wrap {
-    background-color: #656565;
-    position: relative;
-    padding-top: 18px;
-}
-
-section .sp .box .swiper_wrap .video_swiper {
-    width: 820px;
-    height: 122px;
-    margin: 0 auto;
-}
-
-section .sp .box .swiper_wrap .video_swiper .swiper-wrapper .swiper-slide img {
-    width: 190px;
-    height: 104px;
-    -o-object-position: center -19px;
-    object-position: center -19px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-section .sp .box .swiper_wrap .swiper-button-prev {
-    position: absolute;
-    left: 50px;
-    top: 80px;
-    width: 14px;
-    height: 30px;
-    background: url(https://www.ieduchina.com/topic/2024/hk7/images/10552782.png) center / contain no-repeat;
-}
-
-section .sp .box .swiper_wrap .swiper-button-next {
-    position: absolute;
-    right: 50px;
-    top: 80px;
-    width: 14px;
-    height: 30px;
-    background: url(https://www.ieduchina.com/topic/2024/hk7/images/10552782.png) center / contain no-repeat;
-    -webkit-transform: rotateZ(180deg);
-    transform: rotateZ(180deg);
-}
-
-.mask {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 111;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.mask .wrap {
-    position: absolute;
-    background-color: #000;
-    width: 1200px;
-    height: 600px;
-    left: 50%;
-    top: 50%;
-    z-index: 100;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.mask .wrap>img {
-    width: 32px;
-    height: 32px;
-    -o-object-position: center;
-    object-position: center;
-    -o-object-fit: contain;
-    object-fit: contain;
-    position: absolute;
-    right: -30px;
-    top: -30px;
-    z-index: 100;
-    cursor: pointer;
-}
-
-.mask .wrap .video-play {
-    width: 100%;
-    height: 100%;
-}
-
-.mask .wrap .video-play .tcplayer {
-    width: 100%;
-    height: 100%;
 }
 </style>

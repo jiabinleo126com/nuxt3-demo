@@ -1,28 +1,22 @@
 <template>
-    <img src="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" alt="" height="0" width="0"
-        img="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" style="display:none">
-    <Header />
-    <section>
-        <component :is="Banner" src="https://www.ieduchina.com/topic/2025/hk13/images/b01ba60e.jpg" height=420
-            alt="2025年香港名校探校之旅" />
-        <component :is="About" :data="about" />
-        <component :is="LiangDian" :data="liangdian" className="c003d96" />
-    </section>
-    <component :is="XingCheng" className="c003d96" :data="xingcheng" :arrImg="arrImg" />
-    <component :is="School" className="c003d96" :data="school" />
-    <component :is="Footer" />
-    <div class="mask">
-        <div class="wrap">
-            <img src="//www.ieduchina.com/topic/2024/hk7/images/a4ba9f2a.png" alt="">
-            <div class="video-play">
-                <video height="405" id="mask_video" playsinline poster="" preload="auto" value="" webkit-playsinline
-                    width="520"></video>
-            </div>
-        </div>
+    <div class="hk13">
+        <img src="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" alt="" height="0" width="0"
+            img="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" style="display:none">
+        <Header />
+        <section>
+            <component :is="Banner" src="https://www.ieduchina.com/topic/2025/hk13/images/b01ba60e.jpg" height=420
+                alt="2025年香港名校探校之旅" />
+            <component :is="About" :data="about" />
+            <component :is="LiangDian" :data="liangdian" />
+        </section>
+        <component :is="XingCheng" :data="xingcheng" :arrImg="arrImg" />
+        <component :is="School" :data="school" />
+        <component :is="Footer" />
+        <component :is="VideoMask" />
+        <component :is="RightFixedNav" />
+        <component :is="MaskForm" mark="香港教育文化之旅第13期_国际教育网PC版" />
+        <component :is="ImgMask" />
     </div>
-    <component :is="RightFixedNav" className="c003d96" />
-    <component :is="MaskForm" className="c003d96" mark="香港教育文化之旅第13期_国际教育网PC版" />
-    <component :is="ImgMask" />
 </template>
 
 <script setup>
@@ -36,6 +30,7 @@ const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.
 const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
 const RightFixedNav = defineAsyncComponent(() => import('~/components/topic/hkfxy/RightFixedNav.vue'))
 const ImgMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/ImgMask.vue'))
+const VideoMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/VideoMask.vue'))
 
 
 import { onMounted, ref } from "vue";
@@ -724,187 +719,11 @@ useHead({
         }
     ]
 })
-onMounted(() => {
-    if ($(".video_swiper").find(".swiper-slide").length > 4) {
-        new Swiper('.video_swiper', {
-            loop: true,
-            slidesPerView: 4,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        });
-    }
-    try {
-        var player = TCPlayer('swipervideo', {});
-        player.src($("#swipervideo").attr("value"));
-        player.poster($("#swipervideo").attr("poster2"));
-    }
-    catch (err) {
-    }
-    $("#videos").on("click", "img[value]", function () {
-        var img = $(this).attr("src");
-        var value = $(this).attr("value");
-        var name = $(this).attr("alt");
-        player.src(value);
-        player.poster(img);
-        $(this).closest("#videos").siblings("p").text(name);
-        setTimeout(function () {
-            player.play();
-        }, 300);
-    });
-    var player2 = TCPlayer('mask_video', {});
-    $("select").change(function () {
-        $(this).css("color", "#333");
-    });
-    $(".mask .wrap>img").on("click", function () {
-        $(".mask").hide();
-        player2.pause();
-    });
-    $(document).on('click', '.showTk', function () {
-        $('.mask_form').addClass('show');
-        //$("body").addClass("noscroll");
-    });
-    $(document).on('click', '.close', function () {
-        $('.mask_form').removeClass('show');
-        //$("body").removeClass("noscroll");
-        $('.error-tips').html('');
-        $(this).parents('.mask_form').find('form')[0].reset();
-    });
-    var flag = true;
-    if ($(".school").length) {
-        $(window).on('scroll', function () {
-            var st = $(window).scrollTop();
-            var wh = $(".school").offset().top;
-            if (st > (wh - 48) && flag && !$(".img-mask").hasClass("show")) {
-                $(".showTk").click();
-                flag = false;
-            }
-        });
-    }
-    var inputs = [
-        {
-            name: "name",
-            message: "请输入学生姓名"
-        },
-        {
-            name: "mobile",
-            message: "请输入家长手机号"
-        },
-        {
-            name: "grade",
-            message: "请选择就读年级"
-        },
-        {
-            name: "want_school",
-            message: "意向学校"
-        }, {
-            name: "email",
-            message: "您的邮箱"
-        }
-    ];
-    $(".submit").on("click", function () {
-        var form = $(this).closest("form");
-        var errors = [];
-        var msg = inputs.reduce(function (acc, input) {
-            var val = form.find("[name=\"".concat(input.name, "\"]")).val();
-            if (!val) {
-                errors.push(input.message);
-            }
-            return errors[0];
-        }, "");
-        if (msg) {
-            layer.msg(msg);
-        }
-        else {
-            $.ajax({
-                url: "".concat(form[0].action, "&t=").concat(Math.random().toString()),
-                type: form[0].method,
-                dataType: "JSON",
-                data: form.serialize(),
-                success: function (res) {
-                    if (res.status == 1) {
-                        $('.mask_form').removeClass('show');
-                        //$("body").removeClass("noscroll");
-                        layer.msg("您已报名成功，谢谢您的参与！");
-                        form[0].reset();
-                    }
-                    else {
-                        layer.msg(res.info);
-                    }
-                },
-                error: function () {
-                    layer.msg("报名失败，请稍后再试");
-                }
-            });
-        }
-        return false;
-    });
-    $(".contact ul").hover(function () {
-        $(".right-fixed-nav").hide();
-    }, function () {
-        $(".right-fixed-nav").show();
-    });
-})
 </script>
-<style lang="less">
-:root {
-    --primary-color: #003d96;
-}
-
-.images {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    font-size: 0;
-    width: 1280px;
-    margin: 50px auto 0;
-}
-
-.images .left img {
-    width: 560px;
-    height: 305px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: left center;
-    object-position: left center;
-}
-
-.images .right {
-    width: 705px;
-    height: 305px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-
-.images .right img {
-    width: 225px;
-    height: 145px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
-}
-
-.images .right img:nth-of-type(n+4) {
-    margin-top: 15px;
+<style lang="less" scoped>
+.hk13 {
+    --primary: #003d96;
+    --next: #f99501;
 }
 
 body {
@@ -928,248 +747,10 @@ section.gray {
 }
 
 section.green {
-    background-color: var(--primary-color);
+    background-color: #003d96;
 }
 
 section.green>div>h3 {
     color: #fff;
-}
-
-section h3.title {
-    font-size: 42px;
-    font-weight: bold;
-    color: #000;
-}
-
-section h3.title::after {
-    content: attr(en);
-    font-size: 28px;
-    font-weight: 500;
-    color: #ccc;
-    text-transform: uppercase;
-    margin-left: 20px;
-}
-
-section .jc {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 80px 0 80px;
-}
-
-section .jc .swiper-container {
-    height: 360px;
-    margin-top: 80px;
-}
-
-section .jc .swiper-container img {
-    -o-object-position: center;
-    object-position: center;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
-
-section .jc .swiper-container .swiper-slide-next,
-section .jc .swiper-container .swiper-slide-prev {
-    -webkit-filter: brightness(0.5);
-    filter: brightness(0.5);
-}
-
-section .sp {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 80px 0;
-}
-
-section .sp .box {
-    width: 1034px;
-    height: 707px;
-    margin: 80px auto 0;
-}
-
-section .sp .box .video-wrap {
-    width: 1034px;
-    height: 520px;
-}
-
-section .sp .box .video-wrap .tcplayer {
-    width: 100%;
-    height: 100%;
-}
-
-section .sp .box p {
-    height: 50px;
-    width: 100%;
-    line-height: 50px;
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff;
-    text-align: center;
-    background-color: #000;
-}
-
-section .sp .box .swiper_wrap {
-    background-color: #656565;
-    position: relative;
-    padding-top: 18px;
-}
-
-section .sp .box .swiper_wrap .video_swiper {
-    width: 820px;
-    height: 122px;
-    margin: 0 auto;
-}
-
-section .sp .box .swiper_wrap .video_swiper .swiper-wrapper .swiper-slide img {
-    width: 190px;
-    height: 104px;
-    -o-object-position: center -19px;
-    object-position: center -19px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-section .sp .box .swiper_wrap .swiper-button-prev {
-    position: absolute;
-    left: 50px;
-    top: 80px;
-    width: 14px;
-    height: 30px;
-    background: url(https://www.ieduchina.com/topic/2024/hk7/images/10552782.png) center / contain no-repeat;
-}
-
-section .sp .box .swiper_wrap .swiper-button-next {
-    position: absolute;
-    right: 50px;
-    top: 80px;
-    width: 14px;
-    height: 30px;
-    background: url(https://www.ieduchina.com/topic/2024/hk7/images/10552782.png) center / contain no-repeat;
-    -webkit-transform: rotateZ(180deg);
-    transform: rotateZ(180deg);
-}
-
-.mask {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 111;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.mask .wrap {
-    position: absolute;
-    background-color: #000;
-    width: 1200px;
-    height: 600px;
-    left: 50%;
-    top: 50%;
-    z-index: 100;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.mask .wrap>img {
-    width: 32px;
-    height: 32px;
-    -o-object-position: center;
-    object-position: center;
-    -o-object-fit: contain;
-    object-fit: contain;
-    position: absolute;
-    right: -30px;
-    top: -30px;
-    z-index: 100;
-    cursor: pointer;
-}
-
-.mask .wrap .video-play {
-    width: 100%;
-    height: 100%;
-}
-
-.mask .wrap .video-play .tcplayer {
-    width: 100%;
-    height: 100%;
-}
-
-img[preview] {
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-}
-
-.img-mask {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1100;
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.img-mask.show {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.img-mask.show img {
-    height: 80vh;
-    -o-object-fit: contain;
-    object-fit: contain;
-    -o-object-position: center;
-    object-position: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.img-mask.show .close-img-mask {
-    position: absolute;
-    left: 50%;
-    bottom: 4vh;
-    margin-left: 24px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 20px;
-    cursor: pointer;
-    background: url("//www.ieduchina.com/topic/2024/hk7/images/a4ba9f2a.png") center / contain no-repeat;
-}
-
-.img-mask.show .arr span {
-    position: absolute;
-    top: 50%;
-    margin-top: -30px;
-    width: 60px;
-    height: 60px;
-    background: url(//www.ieduchina.com/topic/2025/hk13/images/e113f82e.png) center / contain no-repeat;
-    cursor: pointer;
-}
-
-.img-mask.show .arr span.left {
-    left: 5vw;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
-.img-mask.show .arr span.right {
-    right: 5vw;
 }
 </style>

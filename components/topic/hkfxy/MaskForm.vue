@@ -1,5 +1,5 @@
 <template>
-    <div :class="['mask_form', className]">
+    <div class="mask_form">
         <div class="inner">
             <div class="form">
                 <h2 class="title">
@@ -51,13 +51,85 @@
     </div>
 </template>
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
+declare const $: any;
+declare const layer: any;
 defineProps({
     mark: {
         type: String
-    },
-    className: {
-        type: String
     }
+})
+onMounted(() => {
+    $(function () {
+        $("select").change(function () {
+            $(this).css("color", "#333");
+        });
+        $(document).on('click', '.close', function () {
+            $('.mask_form').removeClass('show');
+            //$("body").removeClass("noscroll");
+            $('.error-tips').html('');
+            $(this).parents('.mask_form').find('form')[0].reset();
+        });
+        var inputs = [
+            {
+                name: "name",
+                message: "请输入学生姓名"
+            },
+            {
+                name: "mobile",
+                message: "请输入家长手机号"
+            },
+            {
+                name: "grade",
+                message: "请选择就读年级"
+            },
+            {
+                name: "want_school",
+                message: "意向学校"
+            }, {
+                name: "email",
+                message: "您的邮箱"
+            }
+        ];
+        $(".submit").on("click", function () {
+            var form = $(this).closest("form");
+            var errors = [];
+            var msg = inputs.reduce(function (acc, input) {
+                var val = form.find("[name=\"".concat(input.name, "\"]")).val();
+                if (!val) {
+                    errors.push(input.message);
+                }
+                return errors[0];
+            }, "");
+            if (msg) {
+                layer.msg(msg);
+            }
+            else {
+                $.ajax({
+                    url: "".concat(form[0].action, "&t=").concat(Math.random().toString()),
+                    type: form[0].method,
+                    dataType: "JSON",
+                    data: form.serialize(),
+                    success: function (res) {
+                        if (res.status == 1) {
+                            $('.mask_form').removeClass('show');
+                            //$("body").removeClass("noscroll");
+                            layer.msg("您已报名成功，谢谢您的参与！");
+                            form[0].reset();
+                        }
+                        else {
+                            layer.msg(res.info);
+                        }
+                    },
+                    error: function () {
+                        layer.msg("报名失败，请稍后再试");
+                    }
+                });
+            }
+            return false;
+        });
+    })
 })
 </script>
 
@@ -73,24 +145,6 @@ defineProps({
     bottom: 0;
     right: 0;
     top: 0;
-
-    &.c003d96 {
-        .inner .form form button[type=submit] {
-            background: #003d96;
-        }
-    }
-
-    &.c273770 {
-        .inner .form form button[type=submit] {
-            background: #273770;
-        }
-    }
-
-    &.cf3ad25 {
-        .inner .form form button[type=submit] {
-            background: #f3ad25;
-        }
-    }
 
     &.show {
         display: flex;
@@ -230,7 +284,7 @@ defineProps({
         display: block;
         width: 368px;
         height: 56px;
-        background: var(--primary-color);
+        background: var(--primary);
         border-radius: 4px;
         margin: 30px auto 0;
         font-size: 26px;

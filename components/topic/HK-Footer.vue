@@ -61,7 +61,14 @@
 <script setup>
 import { onMounted } from 'vue';
 onMounted(() => {
-    $("#fullyear").text(new Date().getFullYear());
+    $(function () {
+        $("#fullyear").text(new Date().getFullYear());
+        $(".contact ul").hover(function () {
+            $(".right-fixed-nav").hide();
+        }, function () {
+            $(".right-fixed-nav").show();
+        });
+    })
 })
 
 </script>

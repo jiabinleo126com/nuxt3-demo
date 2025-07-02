@@ -1,5 +1,5 @@
 <template>
-    <div :class="['right-fixed-nav', className]">
+    <div class="right-fixed-nav">
         <ul>
             <li class="right-nav">
                 <img src="//www.ieduchina.com/topic/2024/hk7/images/f361907d.png" alt=""
@@ -56,9 +56,6 @@ defineProps({
     bgColor: {
         type: String,
         default: "#273770"
-    },
-    className: {
-        type: String,
     }
 })
 declare const $: any;
@@ -116,6 +113,20 @@ onMounted(() => {
                 scrollTop: 0
             }, 500);
         });
+        $(document).on('click', '.showTk', function () {
+            $('.mask_form').addClass('show');
+        });
+        var flag = true;
+        if ($(".school").length) {
+            $(window).on('scroll', function () {
+                var st = $(window).scrollTop();
+                var wh = $(".school").offset().top;
+                if (st > (wh - 48) && flag && !$(".img-mask").hasClass("show")) {
+                    $(".showTk").click();
+                    flag = false;
+                }
+            });
+        }
     })
 })
 </script>
@@ -128,30 +139,7 @@ onMounted(() => {
     z-index: 100;
     -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
-
-    &.cf3ad25 {
-        background-color: #f3ad25;
-
-        ul li .right-nav-list-wq ul li a:hover {
-            color: #f3ad25;
-        }
-    }
-
-    &.c003d96 {
-        background-color: #003d96;
-
-        ul li .right-nav-list-wq ul li a:hover {
-            color: #003d96;
-        }
-    }
-
-    &.c273770 {
-        background-color: #273770;
-
-        ul li .right-nav-list-wq ul li a:hover {
-            color: #273770;
-        }
-    }
+    background-color: var(--primary);
 }
 
 .right-fixed-nav ul li {
@@ -193,6 +181,10 @@ onMounted(() => {
     line-height: 36px;
     font-size: 14px;
     color: #333;
+
+    &:hover {
+        color: var(--primary)
+    }
 }
 
 

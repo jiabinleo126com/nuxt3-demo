@@ -1,6 +1,6 @@
 <template>
-    <div :class="['ld', className]">
-        <h3 en="characteristic" class="title">亮点特色</h3>
+    <div class="ld">
+        <component :is="Title" en="characteristic" cn="亮点特色" />
         <ul>
             <li v-for="(str, index) in data">
                 <span :style="'background-color:' + (index % 2 == 0 ? color1 : color2)">亮点{{ index + 1 }}</span>
@@ -14,63 +14,16 @@ defineProps({
     data: {
         type: Array,
         default: []
-    },
-    className: {
-        type: String
     }
 })
+import { defineAsyncComponent } from 'vue';
+const Title = defineAsyncComponent(() => import('./Title.vue'))
 </script>
 <style lang="less">
 .ld {
     width: 1280px;
     margin: 80px auto 0;
     padding-bottom: 64px;
-
-    &.cf3ad25 {
-        ul {
-            li {
-                span {
-                    background-color: #f3ad25;
-                }
-
-                &:nth-of-type(even) {
-                    span {
-                        background-color: #873b03;
-                    }
-                }
-            }
-        }
-    }
-    &.c273770 {
-        ul {
-            li {
-                span {
-                    background-color: #273770;
-                }
-
-                &:nth-of-type(even) {
-                    span {
-                        background-color: #A13424;
-                    }
-                }
-            }
-        }
-    }
-    &.c003d96 {
-        ul {
-            li {
-                span {
-                    background-color: #f99501;
-                }
-
-                &:nth-of-type(even) {
-                    span {
-                        background-color: #003d96;
-                    }
-                }
-            }
-        }
-    }
 
     ul {
         margin-top: 50px;
@@ -84,7 +37,7 @@ defineProps({
             clip-path: polygon(74px -118px, 200% 100%, 200% 100%, 0px 50px);
 
             span {
-                // background-color: var(--primary-color);
+                background-color: var(--primary);
                 margin-right: 47px;
                 font-size: 22px;
                 font-weight: 500;
@@ -96,18 +49,12 @@ defineProps({
                 clip-path: polygon(74px -118px, 166px -55px, 100px 100px, 0px 50px);
             }
 
-            // &:nth-of-type(even) {
-            //     span {
-            //         background-color: #f99501;
-            //     }
-            // }
+            &:nth-of-type(even) {
+                span {
+                    background-color: var(--next);
+                }
+            }
         }
     }
 }
-
-// .ld ul li:nth-of-type(even) span {
-// background-color: #A13424;
-// <!-- } -->
-
-// .ld ul li span {
-// background-color: var(--primary-color);</style>
+</style>

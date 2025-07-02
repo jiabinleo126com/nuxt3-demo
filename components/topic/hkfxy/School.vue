@@ -1,7 +1,7 @@
 <template>
-    <section :class="['school-wrap', className]">
+    <section class="school-wrap">
         <div class="school" v-if="data.length">
-            <h3 en="SCHOOLS" class="title">参与院校</h3>
+            <component :is="Title" en="SCHOOLS" cn="参与院校" />
             <ul>
                 <li v-for="(item, index) in data" :key="index" :style="'width:' + width">
                     <a :href="`${item.path}?tgform=香港教育文化之旅`" target="_blank">
@@ -19,36 +19,15 @@ defineProps({
     width: {
         type: String,
         default: "20%"
-    },
-    className: {
-        type: String,
-        default: ""
     }
 })
-
+import { defineAsyncComponent } from 'vue';
+const Title = defineAsyncComponent(() => import('./Title.vue'))
 </script>
 
 <style lang="less" scoped>
 .school-wrap {
-    &.cf3ad25 {
-        background-color: #f3ad25;
-
-        .school {
-            .title {
-                &::after {
-                    color: #873b03;
-                }
-            }
-        }
-    }
-
-    &.c273770 {
-        background-color: #273770;
-    }
-
-    &.c003d96 {
-        background-color: #003d96;
-    }
+    background-color: var(--primary);
 
     .school {
         width: 1280px;
@@ -59,7 +38,7 @@ defineProps({
             color: #fff;
 
             &::after {
-                color: #fff;
+                color: var(--next);
             }
         }
 

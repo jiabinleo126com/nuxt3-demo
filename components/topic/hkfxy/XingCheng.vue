@@ -1,7 +1,7 @@
 <template>
-    <section :class="['xc-wrap', className]">
+    <section class="xc-wrap">
         <div class="xc" v-for="(items, indexs) in data" :key="indexs">
-            <h3 en="Daily itinerary" class="title">{{ items.title }}</h3>
+            <component :is="Title" en="Daily itinerary" :cn="items.title" />
             <ul>
                 <li v-for="(item, index) in items.list">
                     <div class="title">
@@ -52,15 +52,14 @@ defineProps({
     data: {
         type: Array
     },
-    className: {
-        type: String
-    },
     arrImg: {
         type: String
     }
 })
 
-import { onMounted } from 'vue';
+import { onMounted, defineAsyncComponent } from 'vue';
+const Title = defineAsyncComponent(() => import('./Title.vue'))
+
 onMounted(() => {
     $(".title").on("click", "button", function () {
         var flag = $(this).hasClass("s");
@@ -75,170 +74,9 @@ onMounted(() => {
     });
 })
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .xc-wrap {
     background-color: #f2f4f6;
-
-    &.c003d96 {
-        .xc {
-            ul {
-                li {
-                    .title {
-                        button {
-                            border: 1px solid #003d96;
-                            color: #003d96;
-                        }
-
-                        .date-card {
-
-                            .card {
-                                border: solid 5px #003d96;
-
-                                p {
-
-                                    &:first-of-type {
-                                        background-color: #003d96;
-                                    }
-
-                                    &:nth-of-type(2) {
-                                        color: #003d96;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .list {
-                        .wrap {
-                            .con {
-                                .desc {
-                                    p {
-                                        &.bold {
-
-                                            a {
-
-                                                &:hover {
-                                                    color: #003d96;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    &.c273770 {
-        color: #273770;
-
-        .xc {
-            ul {
-                li {
-                    .title {
-                        button {
-                            border: 1px solid #273770;
-                            color: #273770;
-                        }
-
-                        .date-card {
-
-                            .card {
-                                border: solid 5px #273770;
-
-                                p {
-
-                                    &:first-of-type {
-                                        background-color: #273770;
-                                    }
-
-                                    &:nth-of-type(2) {
-                                        color: #273770;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .list {
-                        .wrap {
-                            .con {
-                                .desc {
-                                    p {
-                                        &.bold {
-                                            a {
-                                                &:hover {
-                                                    color: #273770;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    &.cf3ad25 {
-        color: #f3ad25;
-
-        .xc {
-            ul {
-                li {
-                    .title {
-                        button {
-                            border: 1px solid #f3ad25;
-                            color: #f3ad25;
-                        }
-
-                        .date-card {
-
-                            .card {
-                                border: solid 5px #f3ad25;
-
-                                p {
-
-                                    &:first-of-type {
-                                        background-color: #f3ad25;
-                                    }
-
-                                    &:nth-of-type(2) {
-                                        color: #f3ad25;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .list {
-                        .wrap {
-                            .con {
-                                .desc {
-                                    p {
-                                        &.bold {
-
-                                            a {
-
-                                                &:hover {
-                                                    color: #f3ad25;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     .xc {
         width: 1280px;
@@ -279,6 +117,7 @@ onMounted(() => {
                             height: 42px;
                             background-color: #fff;
                             margin: 0 auto;
+                            border: solid 5px var(--primary);
 
                             p {
                                 text-align: center;
@@ -291,6 +130,7 @@ onMounted(() => {
                                     line-height: 19px;
                                     margin-top: -5px;
                                     letter-spacing: 1px;
+                                    background-color: var(--primary);
                                 }
 
                                 &:nth-of-type(2) {
@@ -298,6 +138,7 @@ onMounted(() => {
                                     font-size: 15px;
                                     padding-top: 2px;
                                     letter-spacing: 1px;
+                                    color: var(--primary)
                                 }
                             }
                         }
@@ -318,6 +159,8 @@ onMounted(() => {
                         font-weight: 400;
                         cursor: pointer;
                         margin-right: 64px;
+                        border: 1px solid var(--primary);
+                        color: var(--primary);
 
                         &.s {
                             img {
@@ -416,7 +259,7 @@ onMounted(() => {
                                             color: #333;
 
                                             &:hover {
-                                                color: var(--primary-color);
+                                                color: var(--primary);
                                             }
                                         }
                                     }
