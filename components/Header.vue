@@ -229,6 +229,7 @@
 </template>
 
 <script setup>
+import { useHead } from "nuxt/app";
 import { onMounted, reactive } from "vue";
 
 const hkTopic = reactive([
@@ -242,7 +243,7 @@ const hkTopic = reactive([
     },
     {
         title: "24年12月:元朗公立中学校友会邓英业小学等5所学校",
-        path: "https://www.ieduchina.com/topic/2024/hk11/"
+        path: "/topic/2024/hk11/"
     },
     {
         title: "24年12月:中华基督教会铭基书院等4所学校",
@@ -356,6 +357,15 @@ const InternationalEducationForum = reactive([
         title: "2017年10月"
     }
 ])
+useHead({
+    script: [
+        {
+            src: "/s2hk.js",
+            type: "text/javascript",
+            defer: true
+        }
+    ]
+})
 
 
 onMounted(() => {

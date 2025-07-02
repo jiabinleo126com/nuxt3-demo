@@ -1,52 +1,36 @@
 <template>
-    <img src="https://www.ieduchina.com/topic/2025/hk12/images/dd2d5130.jpg" alt="" height="0" width="0"
-        img="https://www.ieduchina.com/topic/2025/hk12/images/dd2d5130.jpg" style="display:none">
-    <Header />
-    <section>
-        <div class="banner">
-            <img src="https://www.ieduchina.com/topic/2025/hk12/images/427ffc66.png" alt="2025年香港名校探校之旅" height="420"
-                width="1280">
-        </div>
-        <component :is="About" :data="about" />
-        <component :is="LiangDian" />
-    </section>
-    <section class="gray">
-        <component :is="XingCheng" />
-    </section>
-    <section class="green">
-        <component :is="School" />
-    </section>
-    <component :is="Footer" />
-    <div class="mask">
-        <div class="wrap">
-            <img src="//www.ieduchina.com/topic/2024/hk7/images/a4ba9f2a.png" alt="">
-            <div class="video-play">
-                <video height="405" id="mask_video" playsinline poster="" preload="auto" value="" webkit-playsinline
-                    width="520"></video>
-            </div>
-        </div>
-    </div>
-    <component :is="RightFixedNav" />
-    <component :is="MaskForm" mark="香港教育文化之旅第12期_国际教育网PC版" />
-    <div class="img-mask">
-        <img src="" alt="">
-        <div class="close-img-mask"></div>
-        <div class="arr">
-            <span class="left"></span>
-            <span class="right"></span>
-        </div>
+    <div class="hk12">
+        <img src="https://www.ieduchina.com/topic/2025/hk12/images/dd2d5130.jpg" alt="" height="0" width="0"
+            img="https://www.ieduchina.com/topic/2025/hk12/images/dd2d5130.jpg" style="display:none">
+        <Header />
+        <section>
+            <component :is="Banner" src="https://www.ieduchina.com/topic/2025/hk12/images/427ffc66.png" height=420
+                alt="2025年香港名校探校之旅" />
+            <component :is="About" :data="about" />
+            <component :is="LiangDian" :data="liangdian" />
+        </section>
+        <component :is="XingCheng" :data="xingcheng" :arrImg="arrImg" />
+        <component :is="School" :data="school" width="25%" />
+        <component :is="Footer" />
+        <component :is="VideoMask" />
+        <component :is="RightFixedNav" />
+        <component :is="MaskForm" mark="香港教育文化之旅第12期_国际教育网PC版" />
+        <component :is="ImgMask" />
     </div>
 </template>
 
 <script setup>
 import { defineAsyncComponent } from "vue";
-const LiangDian = defineAsyncComponent(() => import('~/components/topic/2025/hk12/LiangDian.vue'))
-const XingCheng = defineAsyncComponent(() => import('~/components/topic/2025/hk12/XingCheng.vue'))
-const School = defineAsyncComponent(() => import('~/components/topic/2025/hk12/School.vue'))
+const Banner = defineAsyncComponent(() => import('~/components/topic/hkfxy/Banner.vue'))
+const LiangDian = defineAsyncComponent(() => import('~/components/topic/hkfxy/LiangDian.vue'))
+const XingCheng = defineAsyncComponent(() => import('~/components/topic/hkfxy/XingCheng.vue'))
+const School = defineAsyncComponent(() => import('~/components/topic/hkfxy/School.vue'))
 const Footer = defineAsyncComponent(() => import('~/components/topic/HK-Footer.vue'))
 const About = defineAsyncComponent(() => import('~/components/topic/hkfxy/About.vue'))
 const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/MaskForm.vue'))
 const RightFixedNav = defineAsyncComponent(() => import('~/components/topic/hkfxy/RightFixedNav.vue'))
+const ImgMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/ImgMask.vue'))
+const VideoMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/VideoMask.vue'))
 
 import { onMounted, ref } from "vue";
 
@@ -57,7 +41,328 @@ const about = ref([
     "校长和老师们的全程相伴导览，更是让来访家庭有机会近距离探索校园细节，饱览校园风光。从现代化的教学楼到设施完备的实验室，从充满艺术氛围的艺术教室到活力四射的运动场，大家亲身感受着每所学校独特的校园文化。校长和老师们热情地解答大家的疑问，分享学校的历史故事和办学成果，让家长和学生对学校的了解不再停留在表面。",
     "校长亲授的普通话升学讲座，无疑是本次探访团的重头戏。在讲座中，校长们精准对接香港教育体系，详细介绍了香港中学的升学途径、招生政策以及如何做好升学准备。他们用丰富的案例和实用的建议，为家长们和学生们答疑解惑，帮助大家前瞻布局择校规划蓝图，量身定做个性化升学路径。许多家长表示，这场讲座让他们对孩子的升学之路有了清晰的方向，收获颇丰。"
 ]);
+const school = ref([
+    {
+        path: "https://schoollist.ieduchina.com/school/cfss/",
+        name: "中华基金中学",
+        logo: "https://www.ieduchina.com/uploadfile/college/202309/1695808686.jpg"
+    },
+    {
+        path: "https://schoollist.ieduchina.com/school/calfsshk/",
+        name: "迦密爱礼信中学",
+        logo: "https://zhaosheng.ieduchina.com/Upload/File/202402/65c325d6557ee.jpg"
+    },
+    {
+        path: "https://schoollist.ieduchina.com/school/tmcss/",
+        name: "屯门天主教中学",
+        logo: "https://zhaosheng.ieduchina.com/Upload/File/202402/65c1cbccbbee0.jpg"
+    },
+    {
+        path: "https://schoollist.ieduchina.com/school/pyc/",
+        name: "沙田培英中学",
+        logo: "https://www.ieduchina.com/uploadfile/college/202310/1698053489.jpg"
+    },
+    {
+        path: "https://schoollist.ieduchina.com/school/evangel/",
+        name: "播道书院",
+        logo: "https://www.ieduchina.com/uploadfile/college/202401/1704353550.jpg"
+    },
+    {
+        path: "https://schoollist.ieduchina.com/school/cccsshk/",
+        name: "新界西贡坑口区郑植之中学",
+        logo: "https://zhaosheng.ieduchina.com/Upload/File/202402/65d1a9a706b6e.jpg"
+    },
+    {
+        path: "https://schoollist.ieduchina.com/school/uccke/",
+        name: "汇基书院(东九龙)",
+        logo: "https://www.ieduchina.com/uploadfile/college/202310/1697439246.jpg"
+    }
+])
 
+const liangdian = reactive(["独家定制香港名校探访团，深入体验香港六所顶尖中学", "路线覆盖香港核心教育区，一站式领略名校风采", "国际教育网专家团队讲解，深度解析学校特色与教学理念", "校长老师全程相伴导览，探索校园细节，饱览校园风光", "校长亲授普通话升学讲座，精准对接香港教育体系", "前瞻布局择校规划蓝图，量身定做个性化升学路径"])
+const xingcheng = reactive([
+    {
+        title: "每日行程",
+        list: [
+            {
+                title: "2025年01月20日访校行程安排",
+                list: [
+                    {
+                        time: "07:40",
+                        title: "香港校区集合(香港尖沙咀港景汇商场)"
+                    },
+                    {
+                        time: "08:10-08:50",
+                        title: "交通"
+                    },
+                    {
+                        time: "09:00-11:00",
+                        title: "中华基金中学",
+                        path: "https://schoollist.ieduchina.com/school/cfss/",
+                        desc: [
+                            "学校类别： 直资、男女校，全年学费约$19,820",
+                            "Banding：Band 1B",
+                            "创校历史： 2000 年创立",
+                            "办学团体：中华历史文化教育基金会有限公司让学生确立正面的价值观，不断追求卓越；在学习及社化教育上养成正确的态度，发展专业才能，追求终身学习；培养责任心和投入感，成为未来社会具教养及开放思维的理想公民，共创未来。",
+                            "教学语言： 学校以英文为主要教学语言",
+                            "全校语文政策：以英语为主要授课语言，全部英语老师基准试达标，学生英语水平达到当局在「中学教学语言政策」中的英语教学要求。中一设英文适应课程，初中一、二中国语文选用普通话教学。学校非常重视提升「两文三语」能力。此外，初中生可在课堂学习日语及西班牙语。高中学生亦可选读其他语言科目，如法语及日语。",
+                            "办学宗旨：学校致力提供优质教育；运用现代科技及方法，培养学生的领导才能、批判思考、创造力和自信心；增进学生的知识和技能，为他们日后贡献社会作好准备。",
+                            "学校有联系小学：仁德天主教小学、青山天主教小学 在中学统一派位，联系中学可为其联系小学保留最多25% 的学位。",
+                        ],
+                        images: [
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/1c1d3e7f.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/b82e27d0.jpg"
+                            },
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/ba8c9875.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/fe1a699a.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/e5a5136b.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/1b2bf54e.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/3fe49dea.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/cc0bb275.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        time: "11:30-12:30",
+                        title: "午餐加午休"
+                    },
+                    {
+                        time: "12:30-13:30",
+                        title: "交通"
+                    },
+                    {
+                        time: "13:30-14:30",
+                        title: "迦密爱礼信中学",
+                        path: "https://schoollist.ieduchina.com/school/calfsshk/",
+                        desc: [
+                            "学校类别： 资助、男女校、基督教；位于葵青区",
+                            "Banding：Band 2C–2B",
+                            "创校历史： 1982 年创立",
+                            "办学团体：基督教兴学会",
+                            "校训：明道律己忠主善群",
+                            "教学语言： 学校以中文为主要教学语言",
+                            "全校语文政策：中一至中三以母语教学为主，数学及综合科学科英语教学元素占高比重，所有科目均有跨科目英语学习元素。中四至中六的选修科目中，数学、生物、化学科设中、英文组及数学延伸单元，让学生因应语文能力、升学目标，选择合适组别。",
+                            "办学宗旨：学校为一所提供全人教育的基督教中学，学校不断提高学术水平，帮助同学认识神，建立正确的人生观和价值观、慎思明辨、律己尽责、孝顺父母、忠主善群。",
+                        ],
+                        images: [
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/0c3280e7.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/41f1c52a.jpg"
+                            },
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/88edad7d.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/8fcae8c2.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/ea629427.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/c067b113.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/e0b4e0ac.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/0960f590.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        time: "14:30-15:30",
+                        title: "交通"
+                    },
+                    {
+                        time: "15:30-16:50",
+                        title: "屯门天主教中学",
+                        path: "https://schoollist.ieduchina.com/school/tmcss/",
+                        desc: [
+                            "学校类别：资助、男女校、天主教；位于屯门区",
+                            "Banding：Band 2",
+                            "创校历史： 1987 年创立",
+                            "办学团体：天主教香港教区",
+                            "校训：真、谦、恒、诚",
+                            "教学语言： 学校以英文为主要教学语言",
+                            "全校语文政策：1：学校初中大部份班别以英语授课，除中文科、中国历史、普通话、生活与社会、宗教及伦理、阅读课外，其余科目均以英语教学。部份学生英文、数学和科学以英语教学，以便照顾学习差异；2：高中部份科目衔接初中，维持以英语为授课语言。",
+                            "办学宗旨：传扬耶稣基督爱和公义的福音精神，培养学生以勇气实践伦理道德，成己达人；培养学生运用智慧，应用所学，创造美好的人生，贡献社群。",
+                        ],
+                        images: [
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/18f5f5ad.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/1c90b6fc.jpg"
+                            },
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/94e94221.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/36167d1e.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/963ba2cd.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/82858a5d.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        time: "17:00-18:00",
+                        title: "回程"
+                    }
+                ]
+            },
+            {
+                title: "2025年01月21日访校行程安排",
+                list: [
+                    {
+                        time: "07:40",
+                        title: "香港校区集合(香港尖沙咀港景汇商场)"
+                    },
+                    {
+                        time: "08:10-08:50",
+                        title: "交通"
+                    },
+                    {
+                        time: "09:00-10:20",
+                        title: "沙田培英中学",
+                        path: "https://schoollist.ieduchina.com/school/pyc/",
+                        desc: [
+                            "学校类别： 资助、男女校、基督教；位于沙田区",
+                            "Banding：Band 1B–1A",
+                            "创校历史： 1978 年创立",
+                            "办学团体：中华基督教会香港区会",
+                            "校训：信、望、爱",
+                            "教学语言： 学校以英文为主要教学语言",
+                            "全校语文政策：学校初中除中文有关科目、生活与社会科及宗教教育科（基督教）外，全以英语授课。着重英语教学，致力栽培学生达致中、英兼擅。",
+                            "办学宗旨：以基督精神办学，注重学生在德、智、体、群、美、灵的发展；鼓励学生扩阔视野，发挥潜能，并提升学生人文素养，培育领袖，以建立丰盛生命，贡献社会。",
+                        ],
+                        images: [
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/ce67c924.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/3f5bbec8.jpg"
+                            },
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/a8150ab5.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/a5bd2b98.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/e2102044.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/347a2401.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/6cd5b9b6.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/15bba9a1.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        time: "10:20-11:00",
+                        title: "交通"
+                    },
+                    {
+                        time: "11:00-12:00",
+                        title: "播道书院",
+                        path: "https://schoollist.ieduchina.com/school/evangel/",
+                        desc: [
+                            "学校类别： 直资、男女校、基督教，全年学费约$28,700",
+                            "创校历史： 2006 年创立",
+                            "办学团体：香港基督教播道会联会",
+                            "校训：播扬真理，道育幼苗",
+                            "教学语言：学校以英文为主要教学语言",
+                            "全校语文政策：学校中、英并重；采用英语为主要教学语言，亦会努力推动普通话的学习，好让同学掌握全世界最通用的两个口语，有所需之口语能力来走遍中国、踏足世界。学校实施粤教中政策，全面促进中国语文之听、说、读、写、品德、情意、高阶思维、文化、文学、自学十大能力范畴之学习。",
+                            "办学宗旨：以圣经真理为基础，为青少年提供全人教育及优质教育，建立正确生活价值观，启发潜能，以达致灵、德、智、体、群、美均衡发展。",
+                        ],
+                        images: [
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/796609e0.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/b88ac3f1.jpg"
+                            },
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/37a0e5d0.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/45f1df96.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/5d3d2563.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/9b6bf56d.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/7d164a5c.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/8fff513b.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        time: "12:20-13:10",
+                        title: "午餐加午休"
+                    },
+                    {
+                        time: "13:10-13:40",
+                        title: "交通"
+                    },
+                    {
+                        time: "13:40-15:00",
+                        title: "新界西贡坑口区郑植之中学",
+                        path: "https://schoollist.ieduchina.com/school/cccsshk/",
+                        desc: [
+                            "学校类别：资助、男女校；位于西贡区",
+                            "Banding：Band 3A–2C",
+                            "创校历史：1979 年创立",
+                            "办学团体：新界西贡坑口区中学有限公司",
+                            "教学语言： 学校以中文为主要教学语言",
+                            "全校语文政策：学校由中一开始，在数学（中一至中三）、科学（中一至中二）、物理（中三）、化学（中三）及生物（中三）各科辅以英语延展教学活动，积极提升同学语文水平。从课程设计、教学法及增润措施，巩固同学英语能力。",
+                            "办学宗旨：学校着重发展全人教育，并培育学生积极面对知识型社会的挑战。",
+                        ],
+                        images: [
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/e7fd4c1d.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/c0414147.jpg"
+                            },
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/4df213ae.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/92c894a0.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/3b44c525.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/319f6e32.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/9b864659.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/8e98d67a.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        time: "15:00-15:30",
+                        title: "交通"
+                    },
+                    {
+                        time: "15:30-16:30",
+                        title: "汇基书院(东九龙)",
+                        path: "https://schoollist.ieduchina.com/school/uccke/",
+                        desc: [
+                            "学校类别：直资、男女校、基督教，全年学费约$29,800",
+                            "Banding：Band 1B–1A",
+                            "创校历史：2003 年创立",
+                            "办学团体：汇基书院有限公司",
+                            "校训：明道尚主勤学立德",
+                            "教学语言： 学校以英文为主要教学语言",
+                            "全校语文政策：学校以英语为教学语言，大部份学科均以英语授课。初中个别班别以普通话教授中国语文。除两文三语外，亦开办日语和法文班。",
+                            "办学宗旨：学校秉着神的爱和圣经真理，为每位学生提供优质的基督教全人教育，协助学生发展上帝所赐的天赋潜质，成为有信仰、有道德、有知识、有文化及有理想的人。",
+                        ],
+                        images: [
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/06eef388.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/73139b2f.jpg"
+                            },
+                            {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/88cd857e.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/bfc3de59.jpg"
+                            }, {
+                                image: "//www.ieduchina.com/topic/2025/hk12/images/5d7eebf7.jpg",
+                                preview: "//www.ieduchina.com/topic/2025/hk12/images/7e2e218d.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        time: "16:30-17:00",
+                        title: "颁发结营证书"
+                    },
+                    {
+                        time: "17:00-17:30",
+                        title: "回程"
+                    },
+                ]
+            }
+        ]
+    }
+])
+const arrImg = ref("//www.ieduchina.com/topic/2025/hk13/images/70084d28.png")
 useHead({
     script: [
         {
@@ -128,72 +433,6 @@ useHead({
     ]
 })
 onMounted(() => {
-    $(".title").on("click", "button", function () {
-        var flag = $(this).hasClass("s");
-        if (flag) {
-            $(this).removeClass("s").find("span").text($(this).find("a.c").text());
-            $(this).closest("li").find(".list").animate({ "height": 0 }, 800);
-        }
-        else {
-            $(this).addClass("s").find("span").text($(this).find("a.g").text());
-            $(this).closest("li").find(".list").animate({ "height": $(this).closest("li").find(".wrap").height() }, 800);
-        }
-    });
-    var previewLength = $("img[preview]").length;
-    $.each($("img[preview]"), function (index, item) {
-        $(item).attr("index", index);
-    });
-    var previewIndex = 0;
-    $(document).on("click", "img[preview]", function () {
-        var src = $(this).attr("preview");
-        $(".img-mask img").attr("src", src);
-        $(".img-mask").addClass("show");
-        previewIndex = Number($(this).attr("index"));
-    });
-    $(document).on("click", ".close-img-mask", function () {
-        $(".img-mask").removeClass("show");
-        $(".img-mask img").attr("src", "");
-    });
-    $(".img-mask").on("click", function (e) {
-        if (e.target == this) {
-            $(this).removeClass("show");
-            $(".img-mask img").attr("src", "");
-        }
-    });
-    $(".arr").on("click", "span", function () {
-        var img = "";
-        $(".img-mask img").attr("src", "");
-        if ($(this).hasClass("left")) {
-            previewIndex = previewIndex - 1;
-        }
-        else if ($(this).hasClass("right")) {
-            previewIndex = previewIndex + 1;
-        }
-        if (previewIndex < 0) {
-            previewIndex = previewLength - 1;
-        }
-        else if (previewIndex > previewLength - 1) {
-            previewIndex = 0;
-        }
-        img = $("img[preview][index='" + previewIndex + "']");
-        $(".img-mask img").attr("src", img.attr("preview"));
-    });
-    $("#fullyear").text(new Date().getFullYear());
-    new Swiper('.case_swiper', {
-        effect: 'coverflow',
-        centeredSlides: true,
-        spaceBetween: -80,
-        slidesPerView: 2,
-        loop: true,
-        autoplay: 500,
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 60.8,
-            depth: 80,
-            modifier: 3,
-            slideShadows: true,
-        }
-    });
     if ($(".video_swiper").find(".swiper-slide").length > 4) {
         new Swiper('.video_swiper', {
             loop: true,
@@ -240,7 +479,7 @@ onMounted(() => {
         $('.error-tips').html('');
         $(this).parents('.mask_form').find('form')[0].reset();
     });
-    
+
     var flag = true;
     if ($(".school").length) {
         $(window).on('scroll', function () {
@@ -317,101 +556,10 @@ onMounted(() => {
     });
 })
 </script>
-<style lang="less">
-:root {
-    --primary-color: #273770;
-}
-
-
-.date-card {
-    width: 125px;
-    height: 42px;
-}
-
-.date-card .card {
-    width: 53px;
-    height: 42px;
-    background-color: #fff;
-    border: solid 5px var(--primary-color);
-    margin: 0 auto;
-}
-
-.date-card .card p {
-    text-align: center;
-    margin-left: 0 !important;
-}
-
-.date-card .card p:first-of-type {
-    background-color: var(--primary-color);
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 19px;
-    margin-top: -5px;
-    letter-spacing: 1px;
-}
-
-.date-card .card p:nth-of-type(2) {
-    font-weight: bold;
-    color: var(--primary-color);
-    font-size: 15px;
-    padding-top: 2px;
-    letter-spacing: 1px;
-}
-
-.images {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    font-size: 0;
-    width: 1280px;
-    margin: 50px auto 0;
-}
-
-.images .left img {
-    width: 560px;
-    height: 305px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: left center;
-    object-position: left center;
-}
-
-.images .right {
-    width: 705px;
-    height: 305px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-
-.images .right img {
-    width: 225px;
-    height: 145px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
-}
-
-.images .right img:nth-of-type(n+4) {
-    margin-top: 15px;
+<style lang="less" scoped>
+.hk12 {
+    --primary: #273770;
+    --next: #A13424;
 }
 
 body {
@@ -435,262 +583,10 @@ section.gray {
 }
 
 section.green {
-    background-color: var(--primary-color);
+    background-color: #273770;
 }
 
 section.green>div>h3 {
     color: #fff;
-}
-
-section h3.title {
-    font-size: 42px;
-    font-weight: bold;
-    color: #000;
-}
-
-section h3.title::after {
-    content: attr(en);
-    font-size: 28px;
-    font-weight: 500;
-    color: #ccc;
-    text-transform: uppercase;
-    margin-left: 20px;
-}
-
-section .banner {
-    width: 1280px;
-    margin: 0 auto;
-}
-
-section .banner img {
-    width: 100%;
-    height: 420px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
-}
-
-section .jc {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 80px 0 80px;
-}
-
-section .jc .swiper-container {
-    height: 360px;
-    margin-top: 80px;
-}
-
-section .jc .swiper-container img {
-    -o-object-position: center;
-    object-position: center;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
-
-section .jc .swiper-container .swiper-slide-next,
-section .jc .swiper-container .swiper-slide-prev {
-    -webkit-filter: brightness(0.5);
-    filter: brightness(0.5);
-}
-
-section .sp {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 80px 0;
-}
-
-section .sp .box {
-    width: 1034px;
-    height: 707px;
-    margin: 80px auto 0;
-}
-
-section .sp .box .video-wrap {
-    width: 1034px;
-    height: 520px;
-}
-
-section .sp .box .video-wrap .tcplayer {
-    width: 100%;
-    height: 100%;
-}
-
-section .sp .box p {
-    height: 50px;
-    width: 100%;
-    line-height: 50px;
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff;
-    text-align: center;
-    background-color: #000;
-}
-
-section .sp .box .swiper_wrap {
-    background-color: #656565;
-    position: relative;
-    padding-top: 18px;
-}
-
-section .sp .box .swiper_wrap .video_swiper {
-    width: 820px;
-    height: 122px;
-    margin: 0 auto;
-}
-
-section .sp .box .swiper_wrap .video_swiper .swiper-wrapper .swiper-slide img {
-    width: 190px;
-    height: 104px;
-    -o-object-position: center -19px;
-    object-position: center -19px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-section .sp .box .swiper_wrap .swiper-button-prev {
-    position: absolute;
-    left: 50px;
-    top: 80px;
-    width: 14px;
-    height: 30px;
-    background: url(https://www.ieduchina.com/topic/2024/hk7/images/10552782.png) center / contain no-repeat;
-}
-
-section .sp .box .swiper_wrap .swiper-button-next {
-    position: absolute;
-    right: 50px;
-    top: 80px;
-    width: 14px;
-    height: 30px;
-    background: url(https://www.ieduchina.com/topic/2024/hk7/images/10552782.png) center / contain no-repeat;
-    -webkit-transform: rotateZ(180deg);
-    transform: rotateZ(180deg);
-}
-
-.mask {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 111;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.mask .wrap {
-    position: absolute;
-    background-color: #000;
-    width: 1200px;
-    height: 600px;
-    left: 50%;
-    top: 50%;
-    z-index: 100;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.mask .wrap>img {
-    width: 32px;
-    height: 32px;
-    -o-object-position: center;
-    object-position: center;
-    -o-object-fit: contain;
-    object-fit: contain;
-    position: absolute;
-    right: -30px;
-    top: -30px;
-    z-index: 100;
-    cursor: pointer;
-}
-
-.mask .wrap .video-play {
-    width: 100%;
-    height: 100%;
-}
-
-.mask .wrap .video-play .tcplayer {
-    width: 100%;
-    height: 100%;
-}
-
-img[preview] {
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-}
-
-.img-mask {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1100;
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.img-mask.show {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.img-mask.show img {
-    height: 80vh;
-    -o-object-fit: contain;
-    object-fit: contain;
-    -o-object-position: center;
-    object-position: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.img-mask.show .close-img-mask {
-    position: absolute;
-    left: 50%;
-    bottom: 4vh;
-    margin-left: 24px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 20px;
-    cursor: pointer;
-    background: url("//www.ieduchina.com/topic/2024/hk7/images/a4ba9f2a.png") center / contain no-repeat;
-}
-
-.img-mask.show .arr span {
-    position: absolute;
-    top: 50%;
-    margin-top: -30px;
-    width: 60px;
-    height: 60px;
-    background: url(//www.ieduchina.com/topic/2025/hk13/images/e113f82e.png) center / contain no-repeat;
-    cursor: pointer;
-}
-
-.img-mask.show .arr span.left {
-    left: 5vw;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
-.img-mask.show .arr span.right {
-    right: 5vw;
 }
 </style>
