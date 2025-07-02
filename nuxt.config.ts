@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
-const routes = ["/topic/2025/hk12"]
+const routes = ["/hk"]
 export default defineNuxtConfig({
     compatibilityDate: '2025-05-15',
     devtools: { enabled: true },

@@ -46,8 +46,9 @@
     </div>
 </template>
 <script setup lang="ts">
-import { onMounted, reactive, computed } from 'vue';
-const YinZhang = defineAsyncComponent(() => import('~/components/zhaosheng/YinZhang.vue'))
+import { onMounted, reactive, computed, defineAsyncComponent, nextTick } from 'vue';
+import { useHead } from 'nuxt/app';
+const YinZhang = defineAsyncComponent(() => import('../../components/zhaosheng/YinZhang.vue'));
 
 interface DataType {
     name: string;
