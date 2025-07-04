@@ -68,7 +68,6 @@ const props = defineProps<{
 }>();
 
 onMounted(() => {
-    "onMountedStart"
     var mySwiper1 = new Swiper('.swiper-container', {
         direction: 'horizontal',
         loop: true, // 循环模式选项
@@ -102,7 +101,6 @@ onMounted(() => {
     else {
         $(".swiper-banner-list").addClass("noswiper");
     }
-    "onMountedEnd"
 })
 </script>
 
@@ -114,13 +112,7 @@ onMounted(() => {
         width: 1280px;
         margin: 0 auto;
         padding-top: 20px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
         justify-content: space-between;
 
         .banner-img {
@@ -171,164 +163,166 @@ onMounted(() => {
                 }
             }
         }
+
+        .banner-list {
+            width: 340px;
+            height: 420px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 0 15px;
+            box-sizing: content-box;
+
+            .banner-title {
+                height: 50px;
+                line-height: 50px;
+                display: flex;
+                justify-content: space-between;
+
+                h2 {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #000000;
+                }
+
+                a {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #0d72ca;
+                }
+            }
+
+            .swiper-banner-list {
+                width: 340px;
+                height: 360px;
+                overflow: hidden;
+
+                .swiper-wrapper {
+                    width: 100%;
+
+                    .swiper-slide {
+                        a {
+                            height: 90px;
+                            width: 100%;
+                            display: flex;
+
+                            .icon {
+                                position: relative;
+                                text-align: center;
+                                padding-left: 7px;
+                                height: 90px;
+                                width: 24px;
+                                line-height: 90px;
+                                box-sizing: content-box;
+
+                                &::before {
+                                    position: absolute;
+                                    content: '';
+                                    left: 17px;
+                                    top: 0;
+                                    z-index: 10;
+                                    width: 2px;
+                                    height: 100%;
+                                    background-color: #2764ff;
+                                }
+
+                                img {
+                                    position: absolute;
+                                    width: 22px;
+                                    height: 22px;
+                                    left: 6px;
+                                    top: 34px;
+                                    z-index: 10;
+                                }
+                            }
+
+                            .time {
+                                height: 90px;
+                                margin: 0 16px 0 13px;
+
+                                .box {
+                                    margin-top: 15px;
+                                    width: 60px;
+                                    height: 60px;
+                                    border-radius: 10px;
+                                    text-align: center;
+                                    background: linear-gradient(176deg, #2e7bfa, #1c4af6);
+
+                                    h3 {
+                                        font-size: 30px;
+                                        font-weight: bold;
+                                        color: #ffffff;
+                                        line-height: 41px;
+                                    }
+
+                                    p {
+                                        font-size: 12px;
+                                        font-weight: bold;
+                                        color: #ffffff;
+                                    }
+                                }
+                            }
+
+                            .text {
+                                padding: 12px 0;
+
+                                p {
+                                    width: 206px;
+
+                                    &:first-of-type {
+                                        height: 40px;
+                                        font-size: 16px;
+                                        color: #303030;
+                                        line-height: 20px;
+                                        display: -webkit-box;
+                                        display: box;
+                                        -webkit-box-orient: vertical;
+                                        box-orient: vertical;
+                                        text-overflow: ellipsis;
+                                        line-clamp: 2;
+                                        overflow: hidden;
+                                    }
+
+                                    &:last-of-type {
+                                        font-size: 12px;
+                                        color: #666666;
+                                        line-height: 30px;
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                        overflow: hidden;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.first {
+                            .time {
+                                .box {
+                                    background: linear-gradient(176deg, #fd8809, #fb5105)
+                                }
+                            }
+                        }
+
+                        &.two {
+                            .time {
+                                .box {
+                                    background: linear-gradient(176deg, #ffca0c, #ffa507)
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.noswiper {
+                    .swiper-wrapper {
+                        display: block;
+
+                        .swiper-slide {
+                            height: auto
+                        }
+                    }
+                }
+            }
+        }
     }
-}
-
-
-body .activity .con .banner-list {
-    width: 340px;
-    height: 420px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 0 15px;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-}
-
-body .activity .con .banner-list .banner-title {
-    height: 50px;
-    line-height: 50px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
-
-body .activity .con .banner-list .banner-title h2 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #000000;
-}
-
-body .activity .con .banner-list .banner-title a {
-    font-size: 14px;
-    font-weight: bold;
-    color: #0d72ca;
-}
-
-body .activity .con .banner-list .swiper-banner-list {
-    width: 340px;
-    height: 360px;
-    overflow: hidden;
-}
-
-body .activity .con .banner-list .swiper-banner-list.noswiper .swiper-wrapper {
-    display: block
-}
-
-body .activity .con .banner-list .swiper-banner-list.noswiper .swiper-wrapper .swiper-slide {
-    height: auto
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper {
-    width: 100%;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a {
-    height: 90px;
-    width: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .icon {
-    position: relative;
-    text-align: center;
-    padding-left: 7px;
-    height: 90px;
-    width: 24px;
-    line-height: 90px;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .icon::before {
-    position: absolute;
-    content: '';
-    left: 17px;
-    top: 0;
-    z-index: 10;
-    width: 2px;
-    height: 100%;
-    background-color: #2764ff;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .icon img {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    left: 6px;
-    top: 34px;
-    z-index: 10;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .time {
-    height: 90px;
-    margin: 0 16px 0 13px;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .time .box {
-    margin-top: 15px;
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    text-align: center;
-    background: linear-gradient(176deg, #2e7bfa, #1c4af6);
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .time .box h3 {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ffffff;
-    line-height: 41px;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .time .box p {
-    font-size: 12px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .text {
-    padding: 12px 0;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .text p {
-    width: 206px;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .text p:first-of-type {
-    height: 40px;
-    font-size: 16px;
-    color: #303030;
-    line-height: 20px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    line-clamp: 2;
-    overflow: hidden;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide a .text p:last-of-type {
-    font-size: 12px;
-    color: #666666;
-    line-height: 30px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide.first .time .box {
-    background: linear-gradient(176deg, #fd8809, #fb5105)
-}
-
-body .activity .con .banner-list .swiper-banner-list .swiper-wrapper .swiper-slide.two .time .box {
-    background: linear-gradient(176deg, #ffca0c, #ffa507)
 }
 </style>

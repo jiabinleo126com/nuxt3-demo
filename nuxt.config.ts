@@ -1,5 +1,6 @@
-import { defineNuxtConfig } from 'nuxt/config'
-const routes = ["/hk"]
+import { defineNuxtConfig } from 'nuxt/config';
+import forceLowercaseAssets from './scripts/force-lowercase-assets.cjs';
+const routes = ["/"]
 export default defineNuxtConfig({
     compatibilityDate: '2025-05-15',
     devtools: { enabled: true },
@@ -31,6 +32,7 @@ export default defineNuxtConfig({
     },
     vite: {
         base: '',// ✅ 设置资源和入口文件的基础路径为相对路径
+        plugins: [forceLowercaseAssets()],
         // plugins: [
         //     {
         //         name: 'force-lowercase-assets',
@@ -53,6 +55,7 @@ export default defineNuxtConfig({
             cssCodeSplit: false,// 禁止 CSS 分割
             rollupOptions: {
                 output: {
+                    assetFileNames: 'statics/[hash][extname]',
                     // manualChunks: () => "all-in-one",// JS 文件合并策略
                     // manualChunks: () => 'everything.js', // 禁用分包，所有 JS 合并
                     // entryFileNames: 'app.js', // JS 合并为 app.js
@@ -92,8 +95,8 @@ export default defineNuxtConfig({
         preset: 'static',
         prerender: {
             assets: true, // 关键配置
-            crawlLinks: false, // 爬取链接进行预渲染
-            routes, // 预渲染首页
+            crawlLinks: true, // 爬取链接进行预渲染
+            // routes, // 预渲染首页
             ignore: ['200', '404'] // 忽略路由
         } as any,
         devProxy: {
