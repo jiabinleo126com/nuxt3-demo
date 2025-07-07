@@ -1,5 +1,5 @@
 <template>
-    <Header />
+    <Header :showHome=false />
     <component :is="Activity" :activity="activity" :bannerList="bannerList" />
     <component :is="FocusToday" />
     <component :is="VideoList" :verticalVideos="verticalVideos" :horizontalVideos="horizontalVideos" />

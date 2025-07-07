@@ -298,11 +298,11 @@ html {
 }
 
 .container .title .pages a:first-of-type {
-    background-image: url(/statics/video/images/37353e3b.png);
+    background-image: url(/assets/video/37353e3b.png);
 }
 
 .container .title .pages a:last-of-type {
-    background-image: url(/statics/video/images/81532380.png);
+    background-image: url(/assets/video/81532380.png);
     vertical-align: -2px;
 }
 
@@ -377,7 +377,7 @@ html {
 }
 
 .container>ul li .nums span:nth-of-type(1) i {
-    background-image: url(/statics/video/images/f7299d4c.png);
+    background-image: url(/assets/video/f7299d4c.png);
 }
 
 .container>ul li .nums span:nth-of-type(2) {
@@ -385,7 +385,7 @@ html {
 }
 
 .container>ul li .nums span:nth-of-type(2) i {
-    background-image: url(/statics/video/images/525f804a.png);
+    background-image: url(/assets/video/525f804a.png);
 }
 
 .container>ul li:nth-of-type(6n+1) {
@@ -527,11 +527,11 @@ html {
 }
 
 .container-video .videos .video-wrap .oper .right span:nth-of-type(1) i {
-    background-image: url(/statics/video/images/525f804a.png);
+    background-image: url(/assets/video/525f804a.png);
 }
 
 .container-video .videos .video-wrap .oper .right span:nth-of-type(1) i.active {
-    background-image: url(/statics/video/images/e3dc2e45.png);
+    background-image: url(/assets/video/e3dc2e45.png);
 }
 
 .container-video .videos .video-wrap .oper .right span:nth-of-type(2) {
@@ -539,7 +539,7 @@ html {
 }
 
 .container-video .videos .video-wrap .oper .right span:nth-of-type(2) i {
-    background-image: url(/statics/video/images/5d5a86de.png);
+    background-image: url(/assets/video/5d5a86de.png);
     vertical-align: -3px;
 }
 
@@ -555,7 +555,7 @@ html {
 }
 
 .container-video .videos .video-wrap .oper .right #share .social-share-icon.icon-wechat {
-    background-image: url(/statics/video/images/9bfa5073.png);
+    background-image: url(/assets/video/9bfa5073.png);
 }
 
 .container-video .videos .video-wrap .oper .right #share .social-share-icon.icon-wechat .wechat-qrcode {
@@ -563,15 +563,15 @@ html {
 }
 
 .container-video .videos .video-wrap .oper .right #share .social-share-icon.icon-qq {
-    background-image: url(/statics/video/images/31a7158a.png);
+    background-image: url(/assets/video/31a7158a.png);
 }
 
 .container-video .videos .video-wrap .oper .right #share .social-share-icon.icon-qzone {
-    background-image: url(/statics/video/images/052533b1.png);
+    background-image: url(/assets/video/052533b1.png);
 }
 
 .container-video .videos .video-wrap .oper .right #share .social-share-icon.icon-weibo {
-    background-image: url(/statics/video/images/17f5cce3.png);
+    background-image: url(/assets/video/17f5cce3.png);
 }
 
 .container-video .videos .video-wrap .oper .right #share .social-share-icon::before {
@@ -670,7 +670,7 @@ html {
     width: 14px;
     height: 14px;
     display: inline-block;
-    background-image: url(/statics/video/images/4412e517.png);
+    background-image: url(/assets/video/4412e517.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -752,7 +752,7 @@ html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: inline-block;
-    background-image: url(/statics/video/images/2edd62f9.png);
+    background-image: url(/assets/video/2edd62f9.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -914,7 +914,7 @@ html {
 }
 
 .container-video .videos .video-list ul li a .text .nums span:nth-of-type(1) i {
-    background-image: url(/statics/video/images/f7299d4c.png);
+    background-image: url(/assets/video/f7299d4c.png);
 }
 
 .container-video .videos .video-list ul li a .text .nums span:nth-of-type(2) {
@@ -922,10 +922,10 @@ html {
 }
 
 .container-video .videos .video-list ul li a .text .nums span:nth-of-type(2) i {
-    background-image: url(/statics/video/images/525f804a.png);
+    background-image: url(/assets/video/525f804a.png);
 }
 
 .container-video .videos .video-list ul li a .text .nums span:nth-of-type(2) i.active {
-    background-image: url(/statics/video/images/e3dc2e45.png);
+    background-image: url(/assets/video/e3dc2e45.png);
 }
 </style>
