@@ -5,17 +5,11 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate && node scripts/replaceStrImagePath.cjs",
+    "generate": "nuxt generate",
     "webpack": "cross-env NODE_ENV=production webpack",
-    "clean": "node scripts/clean-js-onmounted.cjs",
     "image": "node scripts/replaceStrImagePath.cjs",
-    "generate:one": "nuxt generate && node scripts/clean-static-html.cjs && node scripts/move-page-to-root.cjs && node scripts/fix-paths.js && node scripts/remove-style-tags.cjs",
-    "fix-paths": "node scripts/fix-paths.js",
-    "build:static": "npm run generate && npm run fix-paths",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "copy-assets": "cpx \".nuxt/dist/client/*.png\" dist/static/",
-    "build:static2": "npm run generate && npm run copy-assets"
   },
   "repository": {
     "type": "git",
