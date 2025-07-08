@@ -274,12 +274,12 @@ onMounted(() => {
                                         color: #303030;
                                         line-height: 20px;
                                         display: -webkit-box;
-                                        display: box;
-                                        -webkit-box-orient: vertical;
-                                        box-orient: vertical;
                                         text-overflow: ellipsis;
-                                        line-clamp: 2;
                                         overflow: hidden;
+                                        width: 100px;
+                                        -webkit-line-clamp: 2;
+                                        line-clamp: 2;
+                                        -webkit-box-orient: vertical;
                                     }
 
                                     &:last-of-type {

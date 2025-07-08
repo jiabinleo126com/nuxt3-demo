@@ -1,18 +1,16 @@
 <template>
-    <div class="mask">
-        <div class="wrap">
-            <img src="//www.ieduchina.com/topic/2024/hk7/images/a4ba9f2a.png" alt="">
-            <div class="video-play">
-                <video height="405" id="mask_video" playsinline poster="" preload="auto" value="" webkit-playsinline
-                    width="520"></video>
+    <div class='mask'>
+        <div class='wrap'>
+            <img src='//www.ieduchina.com/topic/2024/hk7/images/a4ba9f2a.png' alt=''>
+            <div class='video-play'>
+                <video height='405' id='mask_video' playsinline poster='' preload='auto' value='' webkit-playsinline
+                    width='520'></video>
             </div>
         </div>
     </div>
 </template>
-<script setup>
 
-</script>
-<style lang="less">
+<style lang='less'>
 .mask {
     display: none;
     position: fixed;

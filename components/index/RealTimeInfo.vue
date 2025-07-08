@@ -740,6 +740,7 @@ body .real-time-info .boxwrap .title li {
     flex: 1;
     text-align: center;
     cursor: pointer;
+    line-height: 52px;
 }
 
 body .real-time-info .boxwrap .title li.active {
@@ -1090,6 +1091,7 @@ body .real-time-info .dynamic ul li .cover-text p {
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     overflow: hidden;
 }
 

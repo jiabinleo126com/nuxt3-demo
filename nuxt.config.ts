@@ -126,5 +126,12 @@ export default defineNuxtConfig({
         // 关闭源映射生成
         sourceMap: false,
     },
-
+    modules: [
+        '@nuxt/eslint'
+    ],
+    eslint: {
+        config: {
+            autoInit: false
+        }
+    }
 })

@@ -452,9 +452,9 @@ body .bar .bar-header .search-box form input.search-content {
     font-weight: 400;
     color: #333;
     background: #fff;
-    -webkit-appearance: none;
+    appearance: none;
     outline: none;
-    -webkit-box-shadow: 0 0 0 1000px white inset;
+    box-shadow: 0 0 0 1000px white inset;
 }
 
 body .bar .bar-header .search-box form input.search-content::-webkit-input-placeholder {

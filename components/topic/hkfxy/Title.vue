@@ -1,13 +1,15 @@
-<template>
-    <h3 class="title" :en>{{ cn }}</h3>
-</template>
-<script setup lang="ts">
+<script setup lang='ts'>
 defineProps<{
     cn: string,
     en: string,
 }>();
 </script>
-<style scoped lang="less">
+
+<template>
+    <h3 class='title' :en>{{ cn }}</h3>
+</template>
+
+<style scoped lang='less'>
 h3[en].title {
     font-size: 42px;
     font-weight: bold;

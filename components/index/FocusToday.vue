@@ -401,6 +401,7 @@ body .focustoday .con .focustoday-con .focustoday-img li .box p {
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     overflow: hidden;
     text-align: justify;
     -webkit-box-sizing: content-box;

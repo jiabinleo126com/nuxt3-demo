@@ -139,6 +139,7 @@ body .abroad .abroad-con .abroad-news ul li .abroad-article .text p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     text-overflow: ellipsis;
     overflow: hidden;
     text-align: justify;
