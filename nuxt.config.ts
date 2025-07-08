@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     },
     vite: {
         base: '',// ✅ 设置资源和入口文件的基础路径为相对路径
-        plugins: [forceLowercaseAssets()],
+        // plugins: [forceLowercaseAssets()],
         // plugins: [
         //     {
         //         name: 'force-lowercase-assets',
@@ -95,8 +95,8 @@ export default defineNuxtConfig({
         preset: 'static',
         prerender: {
             assets: true, // 关键配置
-            crawlLinks: true, // 爬取链接进行预渲染
-            // routes, // 预渲染首页
+            crawlLinks: false, // 爬取链接进行预渲染
+            routes, // 预渲染首页
             ignore: ['200', '404'] // 忽略路由
         } as any,
         devProxy: {
