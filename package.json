@@ -10,8 +10,8 @@
     "image": "node scripts/replaceStrImagePath.cjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint": "eslint .",
+    "lint:watch": "nodemon --watch . --ext js,ts,vue --ignore node_modules/ --ignore .nuxt/ --exec \"npm run lint\""
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "less-loader": "^12.3.0",
     "mini-css-extract-plugin": "^2.9.2",
     "node-html-parser": "^7.0.1",
+    "nodemon": "^3.1.10",
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^10.2.3",
     "replace-in-file": "^8.3.0",

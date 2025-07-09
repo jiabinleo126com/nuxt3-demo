@@ -146,8 +146,16 @@ onMounted(() => {
     <div class="videos">
       <div class="video-wrap">
         <div class="video-play">
-          <video id="player-container-id" width="520" height="405" preload="auto" playsinline webkit-playsinline
-            :poster="videoMsg.cover" :src="videoMsg.videoUrl">
+          <video
+            id="player-container-id"
+            width="520"
+            height="405"
+            preload="auto"
+            playsinline
+            webkit-playsinline
+            :poster="videoMsg.cover"
+            :src="videoMsg.videoUrl"
+          >
           </video>
         </div>
         <div class="oper">
@@ -158,12 +166,14 @@ onMounted(() => {
           <span class="time">发布时间：{{ videoMsg.time }}</span>
           <div class="right">
             <span>
-              <i class='thumbs' value="3"></i><span id="likes_count">3</span>
+              <i class="thumbs" value="3"></i><span id="likes_count">3</span>
             </span>
             <span id="share">分享到：</span>
           </div>
         </div>
-        <p class="video-title">{{ videoMsg.title }}</p>
+        <p class="video-title">
+          {{ videoMsg.title }}
+        </p>
         <div class="box">
           <div class="upmsg">
             <NuxtLink :to="`/home/${videoMsg.author_id}`">
@@ -183,18 +193,29 @@ onMounted(() => {
           </button>
         </div>
         <form class="layui-form" action="/index.php?m=college&c=index&a=collegereg&dopost=reg" method="post">
-          <div class="form_head"><span>快速匹配适合您孩子的学校</span></div>
-          <div class="titles"><span><i></i>全国500所国际学校大全</span> <span><i></i>3分钟匹配5-8所</span>
+          <div class="form_head">
+            <span>快速匹配适合您孩子的学校</span>
+          </div>
+          <div class="titles">
+            <span><i></i>全国500所国际学校大全</span>
+            <span><i></i>3分钟匹配5-8所</span>
             <span><i></i>1年名校升学备考托管服务</span>
           </div>
           <div class="inputs">
             <input type="hidden" name="shipin_id" :value="videoMsg.id">
-            <div class="input"><input name="name" placeholder="您的孩子姓名" lay-verify="name"></div>
-            <div class="input"><input name="want_school" placeholder="您的意向学校" lay-verify="want_school">
+            <div class="input">
+              <input name="name" placeholder="您的孩子姓名" lay-verify="name">
             </div>
-            <div class="input"><input name="mobile" maxlength="11" placeholder="您的联系号码" lay-verify="mobile">
+            <div class="input">
+              <input name="want_school" placeholder="您的意向学校" lay-verify="want_school">
             </div>
-          </div><button type="submit" lay-submit="pub_form" lay-filter="pub_form">为您匹配</button>
+            <div class="input">
+              <input name="mobile" maxlength="11" placeholder="您的联系号码" lay-verify="mobile">
+            </div>
+          </div>
+          <button type="submit" lay-submit="pub_form" lay-filter="pub_form">
+            为您匹配
+          </button>
         </form>
       </div>
       <div class="video-list">
@@ -209,7 +230,7 @@ onMounted(() => {
                 </div>
                 <div class="nums">
                   <span>
-                    <i :style='`background-image: url(${item.authorImg})`'></i>{{ item.author }}
+                    <i :style="`background-image: url(${item.authorImg})`"></i>{{ item.author }}
                   </span>
                 </div>
               </div>
@@ -904,6 +925,7 @@ html {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
 }
 

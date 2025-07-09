@@ -16,7 +16,7 @@
                             <span>查看行程</span>
                             <a class="c">查看行程</a>
                             <a class="g">关闭行程</a>
-                            <img :src="arrImg" alt="">
+                            <img :src="arrimg" alt="">
                         </button>
                     </div>
                     <div class="list">
@@ -52,7 +52,7 @@ defineProps({
     data: {
         type: Array
     },
-    arrImg: {
+    arrimg: {
         type: String
     }
 })
