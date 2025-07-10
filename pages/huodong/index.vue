@@ -1,3 +1,287 @@
+<script setup>
+import { defineAsyncComponent, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const pageThis = route.query.page || 1
+const List = defineAsyncComponent(() => import('~/components/huodong/List.vue'))
+const Page = defineAsyncComponent(() => import('~/components/huodong/Page.vue'))
+const Search = defineAsyncComponent(() => import('~/components/huodong/Search.vue'))
+const Class = defineAsyncComponent(() => import('~/components/huodong/Class.vue'))
+const SpecialSide = defineAsyncComponent(() => import('~/components/huodong/SpecialSide.vue'))
+const NewsSlide = defineAsyncComponent(() => import('~/components/huodong/NewsSlide.vue'))
+const { data: { value: { activily, page } } } = await useFetch(`/api/huodong?page=${pageThis}`)
+const activilyData = ref(activily)
+
+watch(() => route.query.page, newVal => {
+  useFetch(`/api/huodong?page=${newVal}`).then((res) => {
+    activilyData.value = res.data.value.activily
+    // const ipdata = res.data.value.activily.filter(item => item.image.includes('zhaosheng'))
+  })
+},
+)
+
+useHead({
+  title: '国际学校开放日_夏令营_择校展_国际教育网',
+  meta: [
+    {
+      name: 'description',
+      content: '国际教育网活动专栏提供最新国际学校活动信息，包括国际学校开放日、夏令营、冬令营，国际学校择校展会、培训讲座、名校直播等。',
+    },
+    {
+      name: 'keywords',
+      content: '国际学校开放日,夏令营,国际教育展',
+    },
+  ],
+  charset: 'utf-8',
+  script: [
+    {
+      src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
+      type: 'text/javascript',
+      defer: true,
+    },
+    {
+      src: 'https://www.ieduchina.com/statics/layui/layui.js',
+      type: 'text/javascript',
+      defer: true,
+    },
+  ],
+  link: [
+    {
+      rel: 'icon',
+      href: 'https://www.ieduchina.com/favicon.ico',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://www.ieduchina.com/statics/layui/css/layui.css',
+    },
+  ],
+})
+
+onMounted(() => {
+  $(() => {
+    layui.use('form', () => {
+      const form = layui.form
+      form.on('select(provinceid)', (value) => {
+        const provinceid = value.value
+        $.ajax({
+          url: '/indexPhp/api.php?op=api&do=getCity',
+          type: 'GET',
+          data: {
+            provinceid,
+          },
+          success(res) {
+            $('select[name=cityid]').html(res)
+            form.render()
+          },
+          error() {
+          },
+        })
+      })
+      form.render()
+    })
+
+    // banner
+    if ($('.banner').length) {
+      // eslint-disable-next-line no-new
+      new Swiper('.banner', {
+        autoplay: true, // 可选选项，自动滑动
+        loop: true,
+        pagination: {
+          el: '.banner-swiper-pagination',
+        },
+      })
+    }
+
+    // 提交数据
+    let applyFlag = true
+    $(document).on('click', '.submitdata', function (e) {
+      e = e || window.event
+      e.preventDefault()
+      const form = $(this).parents('form')
+      const error = form.find('.error-tips')
+      error.html('')
+      const btnTxt = $(this).html()
+      const result = false
+      const self = this
+
+      // 提交前验证
+      const con = []
+      form.find('input, select').each(function () {
+        result = check(this)
+        if ($(this).attr('mark') && $(this).val()) {
+          con.push(($(this).attr('mark') === 'mark' ? '' : `${$(this).attr('mark')}:`) + $(this).val())
+        }
+        return result
+      })
+      const content = form.serialize()
+      if (result && applyFlag) {
+        applyFlag = false
+        $.ajax({
+          url: `/index.php?m=activity&c=index&a=ajax_activity_baoming&t=${Math.random()}`,
+          type: 'POST',
+          dataType: 'json',
+          data: content,
+          header: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+            'X-XXS-Protection': '1;mode=block',
+            'X-Frame-Options': 'deny',
+          },
+          success(data) {
+            if (data.status === 1) {
+              $('.mask').hide()
+              $('.readschool').hide()
+              form[0].reset()
+              layer.open({
+                content: '您已预约成功，谢谢您的参与！',
+                skin: 'msg',
+                time: 3000, // 3秒后自动关闭
+              })
+            }
+            else {
+              layer.open({
+                content: data.info,
+                skin: 'msg',
+                time: 3000, // 3秒后自动关闭
+              })
+            }
+            applyFlag = true
+            $(self).html(btnTxt)
+          },
+          error() {
+            applyFlag = true
+            $(self).html(btnTxt)
+            layer.open({
+              content: '预约失败，请稍后再试',
+              skin: 'msg',
+              time: 3000, // 3秒后自动关闭
+            })
+          },
+        })
+      }
+    }) // 验证表单
+    const dataReg = {
+      m: /^1\d{10}$/,
+    }
+
+    function check(element) {
+      const error = $(element).parents('form').find('.error-tips')
+      const datatype = $(element).attr('datatype')
+      const value = $(element).val()
+      if (!value && $(element).attr('nullmsg')) {
+        // error.html($(element).attr('nullmsg'))
+        // $(element).addClass('error')
+        layer.open({
+          content: $(element).attr('nullmsg'),
+          skin: 'msg',
+          time: 3000, // 3秒后自动关闭
+        })
+        return false
+      }
+      if (datatype && !dataReg[datatype].test(value)) {
+        // error.html($(element).attr('errormsg'))
+        // $(element).addClass('error')
+        layer.open({
+          content: $(element).attr('errormsg'),
+          skin: 'msg',
+          time: 3000, // 3秒后自动关闭
+        })
+        return false
+      }
+      error.html('')
+      $(element).parents('.item').removeClass('error')
+      return true
+    }
+
+    // $('body').on('blur', 'form input,form select', function () {
+    // check(this)
+    // })
+    let is_getcode = false
+    // 获取验证码
+    $('.getcode').on('click', function () {
+      const _this = $(this)
+      if (is_getcode)
+        return
+
+      const telnum = _this.closest('form').find('input[name=tel]')
+      if (!check(telnum))
+        return false
+      const val = telnum.val()
+      val = $.trim(val)
+      is_getcode = true
+
+      $.ajax({
+        url: '/index.php?m=activity&c=index&a=send_mobile_yzm&t=1616380473',
+        data: { tel: val },
+        type: 'POST',
+        dataType: 'json',
+        success() {
+          _this.css('background', '#ccc')
+          let i = 60
+          const t = setInterval(() => {
+            i--
+            if (i === 0) {
+              clearInterval(t)
+              _this.css('background', '#e5e5e5').html('获取验证码')
+              is_getcode = false
+              return
+            }
+            _this.html(`${i}秒后重试`)
+          }, 1000)
+          is_getcode = false
+        },
+        error() {
+          layer.open({
+            content: '验证码获取失败，请稍后再试',
+            skin: 'msg',
+            // 3秒后自动关闭
+            time: 3000,
+          })
+          is_getcode = false
+        },
+      })
+    })
+
+    $(document).on('click', '.showtk', () => {
+      $('.box-alert').show()
+    })
+    $(document).on('click', '#close', () => {
+      $(this).closest('.box-alert').hide()
+    })
+
+    layui.use(['form', 'layer'], () => {
+      const laydate = layui.laydate
+      laydate.render({
+        elem: '#date',
+        type: 'month',
+      })
+    })
+
+    // 客服
+    $(document).on('click', '.kefu', () => {
+      open_kefu()
+    })
+
+    function open_kefu() {
+      // 客服
+      const url = 'https://p.qiao.baidu.com/cps/chat?siteId=17703851&userId=33651932&siteToken=25b3e7ac69f5b12c1fc2e0367d02eb0d'
+      // 网页名称，可为空
+      const name = ''
+      // 弹出窗口的宽度
+      const iWidth = 800
+      // 弹出窗口的高度
+      const iHeight = 700
+      // window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
+      // 获得窗口的垂直位置
+      const iTop = (window.screen.height - 30 - iHeight) / 2
+      // 获得窗口的水平位置
+      const iLeft = (window.screen.width - 10 - iWidth) / 2
+      window.open(url, name, `height=${iHeight},innerHeight=${iHeight},width=${iWidth},innerWidth=${iWidth},top=${iTop},left=${iLeft},toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no'`)
+    }
+  })
+})
+</script>
+
 <template>
   <Header />
   <section class="x-content">
@@ -17,290 +301,7 @@
   </section>
   <Footer />
 </template>
-<script setup>
-import { defineAsyncComponent, onMounted, ref, watch } from 'vue';
-import { useRoute } from 'vue-router'
-const route = useRoute();
-const pageThis = route.query.page || 1;
-const List = defineAsyncComponent(() => import('~/components/huodong/List.vue'));
-const Page = defineAsyncComponent(() => import('~/components/huodong/Page.vue'));
-const Search = defineAsyncComponent(() => import('~/components/huodong/Search.vue'));
-const Class = defineAsyncComponent(() => import('~/components/huodong/Class.vue'));
-const SpecialSide = defineAsyncComponent(() => import('~/components/huodong/SpecialSide.vue'));
-const NewsSlide = defineAsyncComponent(() => import('~/components/huodong/NewsSlide.vue'));
-const { data: { value: { activily, page } } } = await useFetch(`/api/huodong?page=${pageThis}`);
-const activilyData = ref(activily);
 
-watch(() => route.query.page,
-  (newVal) => {
-    useFetch(`/api/huodong?page=${newVal}`).then((res) => {
-      activilyData.value = res.data.value.activily;
-      const ipdata = res.data.value.activily.filter(item => item.image.indexOf("zhaosheng") != -1);
-    });
-  }
-)
-
-useHead({
-  title: "国际学校开放日_夏令营_择校展_国际教育网",
-  meta: [
-    {
-      name: "description",
-      content: "国际教育网活动专栏提供最新国际学校活动信息，包括国际学校开放日、夏令营、冬令营，国际学校择校展会、培训讲座、名校直播等。"
-    },
-    {
-      name: "keywords",
-      content: "国际学校开放日,夏令营,国际教育展"
-    }
-  ],
-  charset: "utf-8",
-  script: [
-    {
-      src: "https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js",
-      type: "text/javascript",
-      defer: true
-    },
-    {
-      src: "https://www.ieduchina.com/statics/layui/layui.js",
-      type: "text/javascript",
-      defer: true
-    }
-  ],
-  link: [
-    {
-      rel: "icon",
-      href: "https://www.ieduchina.com/favicon.ico"
-    }
-    ,
-    {
-      rel: "stylesheet",
-      href: "https://www.ieduchina.com/statics/layui/css/layui.css"
-    }
-  ]
-})
-
-onMounted(() => {
-  $(function () {
-    layui.use("form", function () {
-      var form = layui.form;
-      form.on("select(provinceid)", function (value) {
-        var provinceid = value.value;
-        $.ajax({
-          url: "/indexPhp/api.php?op=api&do=getCity",
-          type: "GET",
-          data: {
-            provinceid: provinceid
-          },
-          success: function (res) {
-            $("select[name='cityid']").html(res);
-            form.render();
-          },
-          error() {
-          }
-        })
-      })
-      form.render();
-    })
-
-    // banner
-    if ($(".banner").length) {
-      var mySwiper = new Swiper('.banner', {
-        autoplay: true, //可选选项，自动滑动
-        loop: true,
-        pagination: {
-          el: '.banner-swiper-pagination',
-        },
-      })
-    }
-
-    // 提交数据
-    var applyFlag = true;
-    $(document).on("click", ".submitdata", function (e) {
-      e = e || window.event
-      e.preventDefault();
-      var form = $(this).parents('form');
-      var error = form.find('.error-tips');
-      error.html("");
-      var btnTxt = $(this).html();
-      var result = false;
-      var self = this;
-
-      // 提交前验证
-      var con = [];
-      form.find('input, select').each(function () {
-        result = check(this);
-        if ($(this).attr("mark") && $(this).val()) {
-          con.push(($(this).attr("mark") == "mark" ? '' : ($(this).attr("mark") + ":")) +
-            $(this).val())
-        }
-        return result;
-      });
-      var content = form.serialize();
-      if (result && applyFlag) {
-        applyFlag = false;
-        $.ajax({
-          url: "/index.php?m=activity&c=index&a=ajax_activity_baoming&t=" + Math.random(),
-          type: 'POST',
-          dataType: 'json',
-          data: content,
-          header: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-            'X-XXS-Protection': '1;mode=block',
-            'X-Frame-Options': 'deny'
-          },
-          success: function (data) {
-            if (data.status == 1) {
-              $(".mask").hide();
-              $(".readschool").hide();
-              form[0].reset();
-              layer.open({
-                content: '您已预约成功，谢谢您的参与！',
-                skin: 'msg',
-                time: 3000 //3秒后自动关闭
-              });
-            } else {
-              layer.open({
-                content: data.info,
-                skin: 'msg',
-                time: 3000 //3秒后自动关闭
-              });
-            }
-            applyFlag = true;
-            $(self).html(btnTxt);
-          },
-          error: function () {
-            applyFlag = true;
-            $(self).html(btnTxt);
-            layer.open({
-              content: '预约失败，请稍后再试',
-              skin: 'msg',
-              time: 3000 //3秒后自动关闭
-            });
-          }
-        })
-      }
-
-    }) // 验证表单
-    var dataReg = {
-      m: /^[1][0-9]{10}$/
-    }
-
-    function check(element) {
-      var error = $(element).parents("form").find(".error-tips");
-      var datatype = $(element).attr('datatype');
-      var value = $(element).val();
-      if (!value && $(element).attr('nullmsg')) {
-        // error.html($(element).attr('nullmsg'));
-        // $(element).addClass('error');
-        layer.open({
-          content: $(element).attr('nullmsg'),
-          skin: 'msg',
-          time: 3000 //3秒后自动关闭
-        });
-        return false;
-      }
-      if (datatype && !dataReg[datatype].test(value)) {
-        // error.html($(element).attr('errormsg'));
-        // $(element).addClass('error');
-        layer.open({
-          content: $(element).attr('errormsg'),
-          skin: 'msg',
-          time: 3000 //3秒后自动关闭
-        });
-        return false;
-      }
-      error.html('');
-      $(element).parents(".item").removeClass('error');
-      return true;
-    }
-
-    // $("body").on('blur', 'form input,form select', function () {
-    // 	check(this);
-    // })
-    var is_getcode = false;
-    //获取验证码
-    $('.getcode').on('click', function () {
-      var _this = $(this);
-      if (is_getcode) return;
-
-      var telnum = _this.closest("form").find("input[name='tel']");
-      if (!check(telnum)) {
-        return false;
-      }
-      var val = telnum.val();
-      val = $.trim(val);
-      is_getcode = true;
-
-      $.ajax({
-        url: "/index.php?m=activity&c=index&a=send_mobile_yzm&t=1616380473",
-        data: { tel: val },
-        type: 'POST',
-        dataType: 'json',
-        success: function () {
-          _this.css('background', '#ccc');
-          var i = 60;
-          var t = setInterval(function () {
-            i--;
-            if (i == 0) {
-              clearInterval(t);
-              _this.css('background', '#e5e5e5').html('获取验证码');
-              is_getcode = false;
-              return;
-            }
-            var text = i + '秒后重试';
-            _this.html(text);
-          }, 1000);
-          is_getcode = false;
-        },
-        error: function () {
-          layer.open({
-            content: "验证码获取失败，请稍后再试",
-            skin: 'msg',
-            time: 3000 //3秒后自动关闭
-          });
-          is_getcode = false;
-        }
-      })
-    });
-
-    $(document).on("click", ".showtk", function () {
-      $(".box-alert").show();
-    })
-    $(document).on("click", "#close", function () {
-      $(this).closest(".box-alert").hide();
-    })
-
-    layui.use(["form", "layer"], function () {
-      var form = layui.form, layer = layui.layer, laydate = layui.laydate;
-
-      laydate.render({
-        elem: '#date',
-        type: 'month'
-      });
-
-    });
-
-    // 客服
-    //客服
-    $(document).on("click", ".kefu", function () {
-      open_kefu()
-    })
-
-    function open_kefu() {
-      var url = 'https://p.qiao.baidu.com/cps/chat?siteId=17703851&userId=33651932&siteToken=25b3e7ac69f5b12c1fc2e0367d02eb0d'; //客服
-      var name;                           //网页名称，可为空;
-      var iWidth = 800;                         //弹出窗口的宽度;
-      var iHeight = 700;                        //弹出窗口的高度;
-      //window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
-      var iTop = (window.screen.height - 30 - iHeight) / 2;       //获得窗口的垂直位置;
-      var iLeft = (window.screen.width - 10 - iWidth) / 2;        //获得窗口的水平位置;
-      window.open(url, name, 'height=' + iHeight + ',,innerHeight=' + iHeight + ',width=' + iWidth + ',innerWidth=' + iWidth + ',top=' + iTop + ',left=' + iLeft + ',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');
-    }
-  })
-});
-
-
-
-</script>
 <style lang="less">
 a:hover {
   text-decoration: none

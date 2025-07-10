@@ -22,9 +22,9 @@ export default defineEventHandler(async () => {
       authorImage?: string
     }
     const activity: IndexData[] = []
-    const bannerList: IndexData[] = []
-    const verticalVideos: IndexData[] = []
-    const horizontalVideos: IndexData[] = []
+    const bannerlist: IndexData[] = []
+    const verticalvideos: IndexData[] = []
+    const horizontalvideos: IndexData[] = []
 
     $('.banner-img .swiper-slide').each((_, item) => {
       const path = $(item).find('a').attr('href') || ''
@@ -38,7 +38,7 @@ export default defineEventHandler(async () => {
     $('.banner-list .swiper-slide').each((_, item) => {
       const stateImg = $(item).find('img').attr('src') || ''
       const dateText = $(item).find('.box>p').text().split('.')
-      bannerList.push({
+      bannerlist.push({
         href: $(item).find('a').attr('href') || '',
         state: Number(stateImg.match(/\/t(\d+)\.png\?v=1/)?.[1]) || 3,
         year: dateText[0] || '',
@@ -49,7 +49,7 @@ export default defineEventHandler(async () => {
       })
     })
     $('.video-con').find('ul').eq(0).find('li').each((index, item) => {
-      verticalVideos.push({
+      verticalvideos.push({
         id: $(item).find('a').attr('href')?.split('/video/')[1].replace('.html', ''),
         image: $(item).find('a').find('img').attr('src'),
         title: $(item).find('p').text(),
@@ -58,7 +58,7 @@ export default defineEventHandler(async () => {
       })
     })
     $('.video-con .video2 li').each((index, item) => {
-      horizontalVideos.push({
+      horizontalvideos.push({
         id: $(item).find('a').attr('href')?.split('/video/')[1].replace('.html', ''),
         image: $(item).find('a').find('img').attr('src'),
         title: $(item).find('p').text(),
@@ -69,9 +69,9 @@ export default defineEventHandler(async () => {
 
     return {
       activity,
-      bannerList,
-      verticalVideos,
-      horizontalVideos,
+      bannerlist,
+      verticalvideos,
+      horizontalvideos,
     }
   }
   catch (error) {

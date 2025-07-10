@@ -1,3 +1,12 @@
+<script setup>
+const props = defineProps({
+  data: {
+    type: Array,
+    default: () => []
+  }
+})
+</script>
+
 <template>
   <div class="abroad-banner">
     <a v-for="(item, index) in data" :href="item.path">
@@ -6,15 +15,7 @@
     </a>
   </div>
 </template>
-<script setup>
-import { reactive, ref } from 'vue';
-const props = defineProps({
-  data: {
-    type: Array,
-    default: () => []
-  }
-})
-</script>
+
 <style lang="less" scoped>
 .abroad-banner {
   overflow: hidden;
@@ -26,9 +27,6 @@ const props = defineProps({
     height: 163px;
     overflow: hidden;
     border-radius: 12px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 
     img {
       width: 100%;

@@ -18,7 +18,7 @@ const about = ref([
   '每到一所學校，都有校長和資深老師親自導覽。他們將帶領大家走進教室、圖書館、實驗室、體育館等校園的各個角落，讓孩子和家長親身感受學校的學習氛圍和校園文化。從教學設施的配備到師資力量的介紹，從課程安排到課外活動的組織，每一個細節都不會錯過，全方位領略香港名校的獨特魅力。',
   '學校還特意為國際教育網安排了校長普通話升學講座。校長們將憑藉豐富的教育經驗，為家長們詳細解讀香港的教育體系、升學政策和招生要求。無論是幼兒園升小學，還是小學升中學的各個階段，都能獲得最準確、最實用的信息，幫助家長提前規劃孩子的升學目標，制定個性化的升學方案，讓孩子在香港的學業之路更加順暢。',
   '參加這次探訪團，孩子們可以提前感受香港名校的學習氛圍，激發學習興趣和探索慾望；家長們則能獲取一手的教育信息，為孩子的升學做好充分準備。一次行程，收獲的不僅是對香港教育的深入了解，更是為孩子未來的學業發展打下堅實的基礎。',
-]);
+])
 const school = ref([
   {
     path: 'https://schoollist.ieduchina.com/school/aluhk/',
@@ -83,8 +83,8 @@ const xingcheng = reactive([
                 preview: 'https://www.ieduchina.com/topic/2024/hk11/images/8d6f078e.jpg',
               },
               {
-                image: '	https://www.ieduchina.com/topic/2024/hk11/images/226dffd8.png',
-                preview: '	https://www.ieduchina.com/topic/2024/hk11/images/4657ae52.png',
+                image: 'https://www.ieduchina.com/topic/2024/hk11/images/226dffd8.png',
+                preview: 'https://www.ieduchina.com/topic/2024/hk11/images/4657ae52.png',
               },
             ],
           },
@@ -157,8 +157,8 @@ const xingcheng = reactive([
               {
                 image: 'https://www.ieduchina.com/topic/2024/hk11/images/e5091dd2.png',
                 preview: 'https://www.ieduchina.com/topic/2024/hk11/images/2dab0415.jpg',
-              }
-            ]
+              },
+            ],
           },
           {
             time: '12:30-13:20',
@@ -264,27 +264,32 @@ useHead({
       src: '/tencent-cdn/qcloud/video/dist/tcadapter.1.0.0.min.js',
       defer: true,
       crossorigin: 'anonymous',
-    }, {
+    },
+    {
       src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/TXLivePlayer-1.2.3.min.js',
       defer: true,
       crossorigin: 'anonymous',
-    }, {
+    },
+    {
       src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/hls.min.1.1.5.js',
       defer: true,
       crossorigin: 'anonymous',
-    }, {
+    },
+    {
       src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/flv.min.1.6.3.js',
       defer: true,
       crossorigin: 'anonymous',
-    }, {
+    },
+    {
       src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/dash.all.min.4.4.1.js',
       defer: true,
       crossorigin: 'anonymous',
-    }, {
+    },
+    {
       src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.v4.5.4.min.js',
       defer: true,
       crossorigin: 'anonymous',
-    }
+    },
   ],
   link: [
     {
@@ -315,30 +320,33 @@ useHead({
 })
 onMounted(() => {
   if ($('.video_swiper').find('.swiper-slide').length > 4) {
+    // eslint-disable-next-line no-new
     new Swiper('.video_swiper', {
       loop: true,
       slidesPerView: 4,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      }
+      },
     })
   }
+  let player = null
   try {
-    var player = TCPlayer('swipervideo', {})
+    player = TCPlayer('swipervideo', {})
     player.src($('#swipervideo').attr('value'))
     player.poster($('#swipervideo').attr('poster2'))
   }
   catch (err) {
+    console.warn(err)
   }
   $('#videos').on('click', 'img[value]', () => {
-    var img = $(this).attr('src')
-    var value = $(this).attr('value')
-    var name = $(this).attr('alt')
+    const img = $(this).attr('src')
+    const value = $(this).attr('value')
+    const name = $(this).attr('alt')
     player.src(value)
     player.poster(img)
     $(this).closest('#videos').siblings('p').text(name)
-    setTimeout(function () {
+    setTimeout(() => {
       player.play()
     }, 300)
   })
