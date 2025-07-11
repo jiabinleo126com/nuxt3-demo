@@ -10,7 +10,7 @@
                     <li><a href="guoji.html">国际学校升学</a></li>
                     <li><a href="guwenzhuanjia.html">专家团队</a></li>
                     <li><a href="about.html">关于我们</a></li>
-                    <li><a href="https://www.ieduchina.com/">国际教育网</a></li>
+                    <li><NuxtLink to="/">国际教育网</NuxtLink></li>
                     <li><a class="s2hk" style="cursor: pointer;">繁體</a></li>
                 </ul>
             </menu>

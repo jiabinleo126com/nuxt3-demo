@@ -2,7 +2,7 @@
 defineProps({
   data: {
     type: Array,
-    default: []
+    default: [],
   }
 })
 </script>

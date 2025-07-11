@@ -13,13 +13,12 @@ const NewsSlide = defineAsyncComponent(() => import('~/components/huodong/NewsSl
 const { data: { value: { activily, page } } } = await useFetch(`/api/huodong?page=${pageThis}`)
 const activilyData = ref(activily)
 
-watch(() => route.query.page, newVal => {
+watch(() => route.query.page, (newVal) => {
   useFetch(`/api/huodong?page=${newVal}`).then((res) => {
     activilyData.value = res.data.value.activily
     // const ipdata = res.data.value.activily.filter(item => item.image.includes('zhaosheng'))
   })
-},
-)
+})
 
 useHead({
   title: '国际学校开放日_夏令营_择校展_国际教育网',
@@ -95,7 +94,7 @@ onMounted(() => {
 
     // 提交数据
     let applyFlag = true
-    $(document).on('click', '.submitdata', function (e) {
+    $(document).on('click', '.submitdata', (e) => {
       e = e || window.event
       e.preventDefault()
       const form = $(this).parents('form')
@@ -103,7 +102,7 @@ onMounted(() => {
       error.html('')
       const btnTxt = $(this).html()
       const result = false
-      const self = this
+      const self = $(this)
 
       // 提交前验证
       const con = []
@@ -146,11 +145,11 @@ onMounted(() => {
               })
             }
             applyFlag = true
-            $(self).html(btnTxt)
+            self.html(btnTxt)
           },
           error() {
             applyFlag = true
-            $(self).html(btnTxt)
+            self.html(btnTxt)
             layer.open({
               content: '预约失败，请稍后再试',
               skin: 'msg',
@@ -199,14 +198,14 @@ onMounted(() => {
     let is_getcode = false
     // 获取验证码
     $('.getcode').on('click', function () {
-      let _this = $(this)
+      const _this = $(this)
       if (is_getcode)
         return
 
       const telnum = _this.closest('form').find('input[name=tel]')
       if (!check(telnum))
         return false
-      var val = telnum.val()
+      const val = telnum.val()
       val = $.trim(val)
       is_getcode = true
 

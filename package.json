@@ -1,7 +1,16 @@
 {
   "name": "nuxt-app",
-  "private": true,
   "type": "module",
+  "private": true,
+  "author": "jiabinleo@126.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiabinleo126com/nuxt3-demo"
+  },
+  "bugs": {
+    "url": "https://github.com/jiabinleo126com/nuxt3-demo/issues"
+  },
+  "keywords": [],
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -12,15 +21,6 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:watch": "nodemon --watch . --ext js,ts,vue --ignore node_modules/ --ignore .nuxt/ --exec \"npm run lint\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jiabinleo126com/nuxt3-demo"
-  },
-  "keywords": [],
-  "author": "jiabinleo@126.com",
-  "bugs": {
-    "url": "https://github.com/jiabinleo126com/nuxt3-demo/issues"
   },
   "issues": {
     "url": "https://github.com/jiabinleo126com/nuxt3-demo/issues"

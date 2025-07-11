@@ -1,7 +1,8 @@
 <script setup>
-import { useHead } from 'nuxt/app';
-import {defineAsyncComponent, onMounted } from 'vue'
-const Pages = defineAsyncComponent(()=>import(`~/components/huodong/Page.vue`))
+import { useHead } from 'nuxt/app'
+import { defineAsyncComponent, onMounted } from 'vue'
+
+const Pages = defineAsyncComponent(() => import(`~/components/huodong/Page.vue`))
 // data
 useHead({
   script: [
@@ -16,7 +17,7 @@ useHead({
       rel: 'shortcut icon',
       type: 'image/x-icon',
       href: '//www.ieduchina.com/statics/pcc/img/favicon.ico',
-    }
+    },
   ],
   title: '中外合办大学-中外合作办学院校大全 - 国际教育网',
   meta: [
@@ -34,201 +35,205 @@ useHead({
 })
 
 onMounted(() => {
-  var scrollTop = 0;
-  $(document).on("click", ".gw", function () {
-    var _this = $(this), collegeid = $(this).attr("collegeid"), mark = $(".form_1403").find("input[name=mark]").val();
+  let scrollTop = 0
+  $(document).on('click', '.gw', () => {
+    const _this = $(this)
+    const collegeid = $(this).attr('collegeid')
+    const mark = $('.form_1403').find('input[name=mark]').val()
     $.ajax({
-      url: "/index.php?m=college&c=index&a=collegecheck",
-      type: "post",
+      url: '/index.php?m=college&c=index&a=collegecheck',
+      type: 'post',
       data: {
-        collegeid: collegeid,
-        mark: mark,
-        isvip: 1
+        collegeid,
+        mark,
+        isvip: 1,
       },
-      dataType: "json",
-      success: function (res) {
-        if (res.status == 1 && res.url) {
-          window.location.href = res.url;
+      dataType: 'json',
+      success(res) {
+        if (res.status === 1 && res.url) {
+          window.location.href = res.url
         }
-        else if (res.status == 1) {
-          layer.msg(res.info);
-        } else {
-          scrollTop = $(document).scrollTop();
-          if (_this.attr("src")) {
-            var src = _this.attr("src");
-            $(".form_1403").siblings().not("script,link,img").hide();
-            if ($(document).find("#bg1f8c60f5").length) {
-              $("#bg1f8c60f5").attr("src", src).show();
+        else if (res.status === 1) {
+          layer.msg(res.info)
+        }
+        else {
+          scrollTop = $(document).scrollTop()
+          if (_this.attr('src')) {
+            const src = _this.attr('src')
+            $('.form_1403').siblings().not('script,link,img').hide()
+            if ($(document).find('#bg1f8c60f5').length) {
+              $('#bg1f8c60f5').attr('src', src).show()
             }
             else {
-              $(document.body).append("<img id=\"bg1f8c60f5\" src=\"".concat(src, "\">"));
+              $(document.body).append('<img id=\'bg1f8c60f5\' src=\''.concat(src, '\'>'))
             }
-            $("html,body").scrollTop(0);
+            $('html,body').scrollTop(0)
           }
-          $(".want_school").val(_this.closest("li").find("h3").attr("title"));
-          $(".collegeid").val(_this.closest("li").find("h3").attr("collegeid"));
-          $(".form_1403").addClass("show");
-          return false;
+          $('.want_school').val(_this.closest('li').find('h3').attr('title'))
+          $('.collegeid').val(_this.closest('li').find('h3').attr('collegeid'))
+          $('.form_1403').addClass('show')
+          return false
         }
       },
-      error: function () {
-      }
-    });
+    })
     return false
-  });
-  $(".form_1403").on("click", ".close_1409", function () {
-    $(document).find("#bg1f8c60f5").hide().siblings().not("link,.form_1403,.layui-layer-move,script,img").show();
-    $(".form_1403").removeClass("show");
-    $("html,body").scrollTop(scrollTop);
-  });
-  var inputs = [
+  })
+  $('.form_1403').on('click', '.close_1409', () => {
+    $(document).find('#bg1f8c60f5').hide().siblings().not('link,.form_1403,.layui-layer-move,script,img').show()
+    $('.form_1403').removeClass('show')
+    $('html,body').scrollTop(scrollTop)
+  })
+  const inputs = [
     {
-      class: "name"
+      class: 'name',
     },
     {
-      class: "mobile1"
+      class: 'mobile1',
     },
     {
-      class: "age"
-    }, {
-      class: "email",
-      test: /@/
-    }, {
-      class: "emailcode"
-    }, {
-      class: "else"
-    }
-  ];
+      class: 'age',
+    },
+    {
+      class: 'email',
+      test: /@/,
+    },
+    {
+      class: 'emailcode',
+    },
+    {
+      class: 'else',
+    },
+  ]
   function msgfun(dom) {
-    return "请输入" + dom.attr("placeholder");
+    return `请输入${dom.attr('placeholder')}`
   }
-  function setSourceCookie2(name, value, expires) {
-    var date = new Date();
-    var expireDays = 1;
-    date.setTime(date.getTime() + expireDays * 24 * 3600 * 1000);
-    document.cookie = name + "=" + value + ";path=/;domain=.ieduchina.com;expires=" + date.toGMTString();
+  function setSourceCookie2(name, value) {
+    const date = new Date()
+    const expireDays = 1
+    date.setTime(date.getTime() + expireDays * 24 * 3600 * 1000)
+    document.cookie = `${name}=${value};path=/;domain=.ieduchina.com;expires=${date.toGMTString()}`
   }
-  var mark = $(".mark").val();
-  $(document).on("click", "button.submit_1421", function (e) {
-    e.preventDefault();
-    var forms = $(this).closest("form");
-    var errors = [];
-    var msg = inputs.reduce(function (_acc, input) {
-      var val = forms.find(".".concat(input.class)).val() + "";
-      if (!val && forms.find(".".concat(input.class)).css("display") !== "none") {
-        errors.push(msgfun(forms.find(".".concat(input.class))));
+  const mark = $('.mark').val()
+  $(document).on('click', 'button.submit_1421', (e) => {
+    e.preventDefault()
+    const forms = $(this).closest('form')
+    const errors = []
+    const msg = inputs.reduce((_acc, input) => {
+      const val = forms.find(`.${input.class}`).val().toString()
+      if (!val && forms.find(`.${input.class}`).css('display') !== 'none') {
+        errors.push(msgfun(forms.find(`.${input.class}`)))
       }
       else if (input.test) {
         if (!input.test.test(val)) {
-          errors.push("邮箱格式不正确");
+          errors.push('邮箱格式不正确')
         }
       }
-      return errors[0];
-    }, "");
+      return errors[0]
+    }, '')
     if (msg) {
-      layer.msg(msg);
-      return false;
+      layer.msg(msg)
+      return false
     }
-    if ($(".age").val()) {
-      $(".mark").val(mark + "%%%\u5E74\u9F84\uFF1A".concat($(".age").val()));
+    if ($('.age').val()) {
+      $('.mark').val(mark + '%%%\u5E74\u9F84\uFF1A'.concat($('.age').val()))
     }
     $.ajax({
       url: forms[0].action,
       type: forms[0].method,
       data: forms.serialize(),
-      dataType: "json",
-      success: function (res) {
-        if (res.status == 1) {
+      dataType: 'json',
+      success(res) {
+        if (res.status === 1) {
           if (res.url) {
-            layer.msg("正在加载境外网址，需耐心等待");
-            setSourceCookie2("gw_yanjiu", "c14def69d77be075", 1);
-            setTimeout(function () {
-              window.open(res.url);
-            }, 2000);
-            setTimeout(function () {
-              window.location.reload();
-            }, 2800);
+            layer.msg('正在加载境外网址，需耐心等待')
+            setSourceCookie2('gw_yanjiu', 'c14def69d77be075', 1)
+            setTimeout(() => {
+              window.open(res.url)
+            }, 2000)
+            setTimeout(() => {
+              window.location.reload()
+            }, 2800)
           }
         }
         else {
-          layer.msg(res.info);
+          layer.msg(res.info)
         }
       },
-      error: function () {
-        layer.msg("数据提交失败，请稍后再试");
-      }
-    });
-    return false;
-  });
+      error() {
+        layer.msg('数据提交失败，请稍后再试')
+      },
+    })
+    return false
+  })
 
-  var emailTImer = 60;
-  var timer = null;
-  $(".getcode").on("click", function () {
-    if (emailTImer == 60) {
-      var email = $(this).closest("form").find("input[name=email]").val();
+  const emailTImer = 60
+  let timer = null
+  $('.getcode').on('click', () => {
+    if (emailTImer === 60) {
+      const email = $(this).closest('form').find('input[name=email]').val()
       if (!email) {
-        layer.msg("请输入邮箱");
+        layer.msg('请输入邮箱')
       }
       else {
-        $(".getcode").text("".concat(emailTImer, "s")).attr("disabled", "disabled");
-        timer = setInterval(function () {
-          emailTImer--;
-          if (emailTImer == 0) {
-            clearInterval(timer);
-            emailTImer = 60;
-            $(".getcode").text("获取验证码").removeAttr("disabled");
+        $('.getcode').text(''.concat(emailTImer, 's')).attr('disabled', 'disabled')
+        timer = setInterval(() => {
+          emailTImer--
+          if (emailTImer === 0) {
+            clearInterval(timer)
+            emailTImer = 60
+            $('.getcode').text('获取验证码').removeAttr('disabled')
           }
           else {
-            $(".getcode").text("".concat(emailTImer, "s")).attr("disabled", "disabled");
+            $('.getcode').text(''.concat(emailTImer, 's')).attr('disabled', 'disabled')
           }
-        }, 1000);
+        }, 1000)
         $.ajax({
-          url: "//www.ieduchina.com/index.php?m=content&c=ajax&a=emailcode",
-          type: "GET",
-          dataType: "json",
+          url: '//www.ieduchina.com/index.php?m=content&c=ajax&a=emailcode',
+          type: 'GET',
+          dataType: 'json',
           data: {
-            email: email
+            email,
           },
-          success: function (res) {
-            layer.msg(res.info);
+          success(res) {
+            layer.msg(res.info)
           },
-        });
+        })
       }
     }
-  });
+  })
 
-  $(".kf").on("click", function () {
-    open_kefu();
-    return false;
-  });
+  $('.kf').on('click', () => {
+    open_kefu()
+    return false
+  })
   function open_kefu() {
-    var url = "https://affim.baidu.com/unique_33651932/chat?siteId=17703848&userId=33651932&siteToken=13b3496aab3bbca8a5fee9288c6fbebf&cp=&cr=&cw=GuanWang-PC";
-    var name;
-    var iWidth = 800;
-    var iHeight = 700;
-    var iTop = (window.screen.height - 30 - iHeight) / 2;
-    var iLeft = (window.screen.width - 10 - iWidth) / 2;
-    window.open(url, name, 'height=' + iHeight + ',,innerHeight=' + iHeight + ',width=' + iWidth + ',innerWidth=' + iWidth + ',top=' + iTop + ',left=' + iLeft + ',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');
+    const url = 'https://affim.baidu.com/unique_33651932/chat?siteId=17703848&userId=33651932&siteToken=13b3496aab3bbca8a5fee9288c6fbebf&cp=&cr=&cw=GuanWang-PC'
+    const name = ''
+    const iWidth = 800
+    const iHeight = 700
+    const iTop = (window.screen.height - 30 - iHeight) / 2
+    const iLeft = (window.screen.width - 10 - iWidth) / 2
+    window.open(url, name, `height=${iHeight},innerHeight=${iHeight},width=${iWidth},innerWidth=${iWidth},top=${iTop},left=${iLeft},toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no`)
   }
-  $(".arr").click(function () {
-    var arr = "arr".concat($(this).closest(".m").index());
-    if ($(this).hasClass("open")) {
-      $(this).removeClass("open");
-      $(this).closest(".m").find(".right").removeClass("open");
-      sessionStorage.removeItem(arr);
+  $('.arr').click(() => {
+    const arr = 'arr'.concat($(this).closest('.m').index())
+    if ($(this).hasClass('open')) {
+      $(this).removeClass('open')
+      $(this).closest('.m').find('.right').removeClass('open')
+      sessionStorage.removeItem(arr)
     }
     else {
-      $(this).addClass("open");
-      $(this).closest(".m").find(".right").addClass("open");
-      sessionStorage.setItem(arr, "1");
+      $(this).addClass('open')
+      $(this).closest('.m').find('.right').addClass('open')
+      sessionStorage.setItem(arr, '1')
     }
-  });
-  $.each($(".menu .m"), function (index) {
-    if (sessionStorage.getItem("arr".concat(index))) {
-      $(".menu").find(".m").eq(index).find(".right").addClass("open");
-      $(".menu").find(".m").eq(index).find(".arr").addClass("open");
+  })
+  $.each($('.menu .m'), (index) => {
+    if (sessionStorage.getItem('arr'.concat(index))) {
+      $('.menu').find('.m').eq(index).find('.right').addClass('open')
+      $('.menu').find('.m').eq(index).find('.arr').addClass('open')
     }
-  });
+  })
 })
 </script>
 
@@ -246,7 +251,8 @@ onMounted(() => {
         </div>
       </form>
       <div class="menu">
-        <div class="m"><span>独立法人&nbsp;S11</span>
+        <div class="m">
+          <span>独立法人&nbsp;S11</span>
           <div class="right">
             <a href="https://schoollist.ieduchina.com/school/nyush/" target="_blank">上海纽约大学</a>
             <a href="https://schoollist.ieduchina.com/school/dukekunshan/" target="_blank">昆山杜克大学</a>
@@ -260,9 +266,13 @@ onMounted(() => {
             <a href="https://schoollist.ieduchina.com/school/wku/" target="_blank">温州肯恩大学</a>
             <a href="https://schoollist.ieduchina.com/school/1938/">广东以色列理工大学</a>
           </div>
-          <div class="arr"><i>展开</i><i>收起</i><img src="https://www.ieduchina.com/statics/zwhb/images/bc1f5d13.png" alt=""></div>
+          <div class="arr">
+            <i>展开</i><i>收起</i>
+            <img src="https://www.ieduchina.com/statics/zwhb/images/bc1f5d13.png" alt="">
+          </div>
         </div>
-        <div class="m"><span>中方学校地区</span>
+        <div class="m">
+          <span>中方学校地区</span>
           <div class="right">
             <a href="/zwhb/project/p0-c0-g0-x0-q0/" class="active">全部</a>
             <a href="/zwhb/project/p2-c0-g0-x0-q0/">北京</a>
@@ -299,9 +309,13 @@ onMounted(() => {
             <a href="/zwhb/project/p33-c0-g0-x0-q0/">台湾</a>
             <a href="/zwhb/project/p35-c0-g0-x0-q0/">澳门</a>
           </div>
-          <div class="arr"><i>展开</i><i>收起</i><img src="https://www.ieduchina.com/statics/zwhb/images/bc1f5d13.png" alt=""></div>
+          <div class="arr">
+            <i>展开</i><i>收起</i>
+            <img src="https://www.ieduchina.com/statics/zwhb/images/bc1f5d13.png" alt="">
+          </div>
         </div>
-        <div class="m"><span>外方学校地区</span>
+        <div class="m">
+          <span>外方学校地区</span>
           <div class="right">
             <a href="/zwhb/project/p0-c0-g0-x0-q0/" class="active">全部</a>
             <a href="/zwhb/project/p0-c0-g1-x0-q0/">美国</a>
@@ -317,9 +331,13 @@ onMounted(() => {
             <a href="/zwhb/project/p0-c0-g12-x0-q0/">瑞士</a>
             <a href="/zwhb/project/p0-c0-g13-x0-q0/">新加坡</a>
           </div>
-          <div class="arr"><i>展开</i><i>收起</i><img src="https://www.ieduchina.com/statics/zwhb/images/bc1f5d13.png" alt=""></div>
+          <div class="arr">
+            <i>展开</i><i>收起</i>
+            <img src="https://www.ieduchina.com/statics/zwhb/images/bc1f5d13.png" alt="">
+          </div>
         </div>
-        <div class="m"><span>学&nbsp;&nbsp;习&nbsp;&nbsp;时&nbsp;&nbsp;间</span>
+        <div class="m">
+          <span>学&nbsp;&nbsp;习&nbsp;&nbsp;时&nbsp;&nbsp;间</span>
           <div class="right">
             <a href="/zwhb/project/p0-c0-g0-x0-q0/" class="active">全部</a>
             <a href="/zwhb/project/p0-c0-g0-x1-q0/">1+3年制</a>
@@ -350,8 +368,12 @@ onMounted(() => {
     </div>
     <main>
       <div class="tab">
-        <NuxtLink to="/zwhb">中外合办院校</NuxtLink>
-        <NuxtLink class="active" to="/zwhb/project">中外合办机构及项目</NuxtLink>
+        <NuxtLink to="/zwhb">
+          中外合办院校
+        </NuxtLink>
+        <NuxtLink class="active" to="/zwhb/project">
+          中外合办机构及项目
+        </NuxtLink>
       </div>
       <div class="institutions">
         <ul>
@@ -376,18 +398,22 @@ onMounted(() => {
           <li><a href="/zt/project/1490.html" target="_blank">西北民族大学与美国犹他州立大学合作举办国际经济与贸易专业本科教育项目（停止招生）</a></li>
           <li><a href="/zt/project/1489.html" target="_blank">兰州大学威尔士学院（英文：Lanzhou University Wales College）</a></li>
         </ul>
-        <div class="pages"> <a href="//www.ieduchina.com/zwhb/project/?page=0">上一页</a> <span>1</span> <a
-            href="//www.ieduchina.com/zwhb/project/?page=2">2</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=3">3</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=4">4</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=5">5</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=6">6</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=7">7</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=8">8</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=9">9</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=10">10</a> ..<a
-            href="//www.ieduchina.com/zwhb/project/?page=76">76</a> <a
-            href="//www.ieduchina.com/zwhb/project/?page=2">下一页</a></div>
+        <div class="pages">
+          <a href="//www.ieduchina.com/zwhb/project/?page=0">上一页</a>
+          <span>1</span>
+          <a href="//www.ieduchina.com/zwhb/project/?page=2">2</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=3">3</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=4">4</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=5">5</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=6">6</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=7">7</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=8">8</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=9">9</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=10">10</a>
+          ..
+          <a href="//www.ieduchina.com/zwhb/project/?page=76">76</a>
+          <a href="//www.ieduchina.com/zwhb/project/?page=2">下一页</a>
+        </div>
       </div>
       <component :is="Pages" data="76" />
     </main>
@@ -403,14 +429,16 @@ onMounted(() => {
         <input name="mobile" type="text" class="mobile1" placeholder="手机">
         <input name="age" type="text" class="age" placeholder="年龄">
         <input name="email" type="text" class="email" placeholder="邮箱">
-        <button class="submit_1421" type="submit">提交</button>
+        <button class="submit_1421" type="submit">
+          提交
+        </button>
       </form><img src="https://www.ieduchina.com/statics/zwhb/images/1e225adb.png" alt="" class="close_1409">
     </div>
   </div>
   <Footer />
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 @font-face {
   font-family: "Source Han Sans CN-Normal";
   src: url("/statics/font/SourceHanSansCN-Normal.otf") format("truetype")
@@ -438,7 +466,6 @@ body {
   -o-object-position: center;
   object-position: center
 }
-
 
 .pages {
   text-align: center;
