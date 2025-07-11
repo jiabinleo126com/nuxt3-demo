@@ -199,14 +199,14 @@ onMounted(() => {
     let is_getcode = false
     // 获取验证码
     $('.getcode').on('click', function () {
-      const _this = $(this)
+      let _this = $(this)
       if (is_getcode)
         return
 
       const telnum = _this.closest('form').find('input[name=tel]')
       if (!check(telnum))
         return false
-      const val = telnum.val()
+      var val = telnum.val()
       val = $.trim(val)
       is_getcode = true
 

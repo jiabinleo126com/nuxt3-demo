@@ -71,7 +71,7 @@
           <li class="parentMenu">
             <a href="//www.ieduchina.com/zwhb/"><span>合办大学</span></a>
             <ul class="submenu">
-              <li><a href="//www.ieduchina.com/zwhb/"><span>中外合办大学</span></a></li>
+              <li><NuxtLink to="/zwhb/"><span>中外合办大学</span></NuxtLink></li>
               <li><a href="//www.ieduchina.com/gwhb/"><span>港外合办大学</span></a></li>
               <li><a href="//www.ieduchina.com/xwhb/"><span>新外合办大学</span></a></li>
             </ul>

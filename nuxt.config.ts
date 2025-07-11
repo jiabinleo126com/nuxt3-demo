@@ -1,6 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config';
 import forceLowercaseAssets from './scripts/force-lowercase-assets.cjs';
-const routes = ["/"]
+const routes = ["/zwhb","/zwhb/project"]
 export default defineNuxtConfig({
     compatibilityDate: '2025-05-15',
     devtools: { enabled: true },
