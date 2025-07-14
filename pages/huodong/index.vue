@@ -44,6 +44,11 @@ useHead({
       type: 'text/javascript',
       defer: true,
     },
+    {
+      src: 'https://www.ieduchina.com/statics/js/layer.js',
+      type: 'text/javascript',
+      defer: true,
+    },
   ],
   link: [
     {
@@ -205,7 +210,7 @@ onMounted(() => {
       const telnum = _this.closest('form').find('input[name=tel]')
       if (!check(telnum))
         return false
-      const val = telnum.val()
+      let val = telnum.val()
       val = $.trim(val)
       is_getcode = true
 

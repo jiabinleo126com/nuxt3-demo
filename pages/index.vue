@@ -98,12 +98,6 @@ onMounted(() => {
       spaceBetween: 0,
     })
 
-    $('#title > li').hover(() => {
-      $(this).addClass('active').siblings().removeClass('active')
-      $('.boxwrap').find('.contents').eq($(this).index()).find('.info-list').find('a.more').attr('href', $(this).find('a').attr('href'))
-      $('.boxwrap').find('.contents').eq($(this).index()).css('display', 'flex').siblings('.contents').css('display', 'none')
-    }, () => { })
-
     $('#school-title > li').hover(() => {
       if ($(this).index() !== $('#school-title li').length - 1) {
         $(this).addClass('active').siblings().removeClass('active')
