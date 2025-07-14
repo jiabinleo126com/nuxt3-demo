@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { onMounted, reactive } from 'vue'
 
 const data = reactive([
   {
@@ -586,6 +586,14 @@ const dynamicData = reactive([
     title: '2025-26学年杭州惠立学校招生简章',
   },
 ])
+
+onMounted(() => {
+  $('#title > li').hover(function () {
+    $(this).addClass('active').siblings().removeClass('active')
+    $('.boxwrap').find('.contents').eq($(this).index()).find('.info-list').find('a.more').attr('href', $(this).find('a').attr('href'))
+    $('.boxwrap').find('.contents').eq($(this).index()).css('display', 'flex').siblings('.contents').css('display', 'none')
+  }, () => { })
+})
 </script>
 
 <template>
