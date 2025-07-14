@@ -1,3 +1,18 @@
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  $(() => {
+    $('#fullyear').text(new Date().getFullYear())
+    $('.contact ul').hover(() => {
+      $('.right-fixed-nav').hide()
+    }, () => {
+      $('.right-fixed-nav').show()
+    })
+  })
+})
+</script>
+
 <template>
   <footer>
     <div class="con">
@@ -56,20 +71,6 @@
     </div>
   </footer>
 </template>
-<script setup>
-import { onMounted } from 'vue';
-onMounted(() => {
-  $(function () {
-    $("#fullyear").text(new Date().getFullYear());
-    $(".contact ul").hover(function () {
-      $(".right-fixed-nav").hide();
-    }, function () {
-      $(".right-fixed-nav").show();
-    });
-  })
-})
-
-</script>
 
 <style lang="less">
 footer .con {

@@ -2,8 +2,8 @@
 defineProps({
   data: {
     type: Array,
-    default: []
-  }
+    default: () => [],
+  },
 })
 </script>
 
@@ -16,7 +16,9 @@ defineProps({
           <NuxtLink :to="item.path">
             <div class="card">
               <img :src="item.image" :alt="item.title">
-              <div class="title">{{ item.title }}</div>
+              <div class="title">
+                {{ item.title }}
+              </div>
             </div>
           </NuxtLink>
           <NuxtLink :to="`//www.ieduchina.com/home/${item.author_id}.html`" rel="nofollow" class="author">

@@ -1,15 +1,15 @@
 <script setup>
-const props = defineProps({
+defineProps({
   data: {
     type: Array,
-    default: () => []
-  }
+    default: () => [],
+  },
 })
 </script>
 
 <template>
   <div class="abroad-banner">
-    <a v-for="(item, index) in data" :href="item.path">
+    <a v-for="(item, index) in data" :key="index" :href="item.path">
       <img :src="item.image" :alt="item.title">
       <p>{{ item.title }}</p>
     </a>

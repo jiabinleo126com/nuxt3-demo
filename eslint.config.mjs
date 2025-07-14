@@ -8,11 +8,11 @@ export default antfu(
     },
     {
         rules: {
-            // "comma-dangle": ["warn", "always"],  // 禁止尾随逗号
-            // "semi": ["warn", "never"],         // 禁止分号
-            // "object-curly-spacing": ["warn", "always"], // 对象花括号内需要空格
-            // "array-bracket-spacing": ["warn", "never"], // 数组方括号内不要空格
-            // "no-console": ["warn", { allow: ["warn", "error"] }], // 正确格式
+            // "comma-dangle": ["warn", "any"],  // 禁止尾随逗号
+            // "semi": ["warn", "any"],         // 禁止分号
+            // "object-curly-spacing": ["warn", "any"], // 对象花括号内需要空格
+            // "array-bracket-spacing": ["warn", "any"], // 数组方括号内不要空格
+            // "no-console": ["warn", { allow: ["warn", "any"] }], // 正确格式
             "vue/html-self-closing": ["warn", {
                 "html": {
                     "void": "any",    // void 元素可自闭合或非自闭合
@@ -38,6 +38,7 @@ export default antfu(
             "product-dist",
             "scripts/**",
             "eslint.config.mjs",
-            "public"
+            "public",
+            "README.md"
         ]
     })

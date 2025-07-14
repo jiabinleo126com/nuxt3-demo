@@ -2,8 +2,8 @@
 defineProps({
   data: {
     type: Array,
-    default: []
-  }
+    default: () => [],
+  },
 })
 </script>
 
@@ -22,6 +22,7 @@ defineProps({
     </ul>
   </div>
 </template>
+
 <style lang="less">
 .star-school-choice {
   ul {

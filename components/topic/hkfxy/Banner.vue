@@ -1,21 +1,23 @@
+<script setup>
+defineProps({
+  height: {
+    type: Number,
+  },
+  alt: {
+    type: String,
+  },
+  src: {
+    type: String,
+  },
+})
+</script>
+
 <template>
   <div class="banner">
     <img :src :alt :height width="1280">
   </div>
 </template>
-<script setup>
-defineProps({
-  height: {
-    type: Number
-  },
-  alt: {
-    type: String
-  },
-  src: {
-    type: String
-  },
-})
-</script>
+
 <style lang="less" scoped>
 .banner {
   width: 1280px;

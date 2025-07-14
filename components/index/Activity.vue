@@ -1,10 +1,10 @@
 <template>
   <div class="activity">
     <div class="con">
-      <div v-if="bannerList" class="banner-img">
+      <div v-if="bannerlist" class="banner-img">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div v-for="(item, index) in activity" class="swiper-slide" :key="index">
+            <div v-for="(item, index) in activity" :key="index" class="swiper-slide">
               <a :href="item.path">
                 <img :src="item.image">
               </a>
@@ -13,14 +13,14 @@
           <div class="swiper-pagination"></div>
         </div>
       </div>
-      <div v-if="bannerList" class="banner-list">
+      <div v-if="bannerlist" class="banner-list">
         <div class="banner-title">
           <h2>夏/冬令营</h2>
           <a href="//www.ieduchina.com/camps/index.html" target="_blank">更多>></a>
         </div>
         <div class="swiper-banner-list">
           <div class="swiper-wrapper">
-            <div v-for="item in bannerList" class="swiper-slide">
+            <div v-for="(item, index) in bannerlist" class="swiper-slide" :key="index">
               <a :href="item.href" target="_blank">
                 <div class="icon">
                   <img :src="`//www.ieduchina.com/statics/pcc/img/t${item.state}.png`">
@@ -64,7 +64,7 @@ interface BannerListItem {
 
 const props = defineProps<{
   activity: ActivityItem[],
-  bannerList: BannerListItem[]
+  bannerlist: BannerListItem[]
 }>();
 
 onMounted(() => {

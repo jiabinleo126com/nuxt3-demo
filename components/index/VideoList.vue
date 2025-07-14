@@ -1,3 +1,18 @@
+<script setup lang="ts">
+interface Videos {
+  id: string
+  image: string
+  title: string
+  author: string
+  authorImage: string
+}
+
+defineProps<{
+  verticalVideos: Videos[]
+  horizontalVideos: Videos[]
+}>()
+</script>
+
 <template>
   <div class="video-list">
     <div v-if="verticalVideos || horizontalVideos" class="video-con">
@@ -38,22 +53,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-interface Videos {
-  id: string;
-  image: string;
-  title: string;
-  author: string;
-  authorImage: string;
-}
-
-defineProps<{
-  verticalVideos: Videos[],
-  horizontalVideos: Videos[]
-}>()
-
-</script>
 
 <style lang="less" scoped>
 body .video-list {

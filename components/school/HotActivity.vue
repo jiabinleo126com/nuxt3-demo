@@ -1,24 +1,26 @@
 <script setup>
 import { onMounted } from 'vue'
+
 defineProps({
   data: {
     type: Array,
-    default: []
-  }
+    default: () => [],
+  },
 })
 
 onMounted(() => {
+  // eslint-disable-next-line no-new
   new Swiper('#hot-activity', {
     autoplay: true,
-    loop: true
-  });
+    loop: true,
+  })
 })
-
 </script>
+
 <template>
-  <div :class="$style.activity1" id="hot-activity">
+  <div id="hot-activity" :class="$style.activity1">
     <div class="swiper-wrapper">
-      <div :class="[$style.slide, 'swiper-slide']" v-for="item in data">
+      <div v-for="item in data" :key="item.title" class="swiper-slide" :class="$style.slide">
         <div :class="$style.image">
           <img :src="item.image" :alt="item.title">
           <div :class="$style.title">

@@ -1,9 +1,18 @@
+<script setup>
+defineProps({
+  data: {
+    type: Array,
+    default: () => [],
+  },
+})
+</script>
+
 <template>
   <div class="abroad-news">
     <h3><span>校园最新资讯</span></h3>
     <ul>
       <li v-for="item in data" :key="item.userid">
-        <NuxtLink :to="item.path" v-if="item.image">
+        <NuxtLink v-if="item.image" :to="item.path">
           <img :src="item.image" :alt="item.title">
         </NuxtLink>
         <div class="abroad-article">
@@ -25,16 +34,7 @@
     </ul>
   </div>
 </template>
-<script setup>
-const props = defineProps({
-  data: {
-    type: Array,
-    default: () => []
-  }
-})
-console.log(props)
 
-</script>
 <style>
 body .abroad .abroad-con .abroad-news {
   margin-top: 10px;

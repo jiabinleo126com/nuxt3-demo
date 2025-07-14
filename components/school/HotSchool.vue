@@ -2,9 +2,10 @@
 defineProps({
   data: {
     type: Array,
-    default: [],
-  }
+    default: () => [],
+  },
 })
+const grade = ['幼儿园', '一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '七年级', '八年级', '九年级', '十年级', '十一年级', '十二年级', '大一', '大二', '大三', '大四', '已毕业']
 </script>
 
 <template>
@@ -14,78 +15,78 @@ defineProps({
       <li v-for="item in data" :key="item.id">
         <NuxtLink :to="item.path">
           <img :src="item.logo" :alt="item.name">
-          <h2 :title="item.name">{{ item.name }}</h2>
+          <h2 :title="item.name">
+            {{ item.name }}
+          </h2>
         </NuxtLink>
         <div :class="$style.label">
           <template v-for="(it, index) in item.grade" :key="index">
             <a v-if="it === '幼儿园'" :class="$style.y">幼儿园</a>
-            <a v-else-if="it == '小学'" :class="$style.x">小学</a>
-            <a v-else-if="it == '初中'" :class="$style.c">初中</a>
-            <a v-else-if="it == '高中'" :class="$style.g">高中</a>
+            <a v-else-if="it === '小学'" :class="$style.x">小学</a>
+            <a v-else-if="it === '初中'" :class="$style.c">初中</a>
+            <a v-else-if="it === '高中'" :class="$style.g">高中</a>
           </template>
         </div>
         <p>课程设置：{{ item.kecheng }}</p>
         <p>学费区间：{{ item.xuefei }}</p>
         <div :class="$style.btn">
-          <button type="button">申请入读</button>
+          <button type="button">
+            申请入读
+          </button>
         </div>
       </li>
     </ul>
-    <div :class="$style.mask" id="hot_school_form">
+    <div id="hot_school_form" :class="$style.mask">
       <div :class="$style.main">
-        <div :class="$style.close">×</div>
-        <h3>填写申请信息</h3>
+        <div :class="$style.close">
+          ×
+        </div>
+        <h3>
+          填写申请信息
+        </h3>
         <form action="">
           <input type="hidden" value="国际教育网PC版" mark="mark">
           <div>
             <div :class="$style.list">
-              <select name="province" id="provinceid" nullmsg="请选择在读省份"></select>
-            </div>
-          </div>
-          <div>
-            <div :class="$style.list"><select name="city" id="cityid" nullmsg="请选择在城市">
-                <option value="">您目前在读的城市</option>
-              </select></div>
-          </div>
-          <div>
-            <div :class="$style.list">
-              <input type="text" name="name" placeholder="学生姓名" id="truename" nullmsg="请填写学生姓名">
+              <select id="provinceid" name="province" nullmsg="请选择在读省份"></select>
             </div>
           </div>
           <div>
             <div :class="$style.list">
-              <select name="grade" nullmsg="请选择在读年级" style="color: rgb(102, 102, 102);">
-                <option value="" selected="selected">在读年级</option>
-                <option value="幼儿园">幼儿园</option>
-                <option value="一年级">一年级</option>
-                <option value="二年级">二年级</option>
-                <option value="三年级">三年级</option>
-                <option value="四年级">四年级</option>
-                <option value="五年级">五年级</option>
-                <option value="六年级">六年级</option>
-                <option value="七年级">七年级</option>
-                <option value="八年级">八年级</option>
-                <option value="九年级">九年级</option>
-                <option value="十年级">十年级</option>
-                <option value="十一年级">十一年级</option>
-                <option value="十二年级">十二年级</option>
-                <option value="大一">大一</option>
-                <option value="大二">大二</option>
-                <option value="大三">大三</option>
-                <option value="大四">大四</option>
-                <option value="已毕业">已毕业</option>
+              <select id="cityid" name="city" nullmsg="请选择在城市">
+                <option value="">
+                  您目前在读的城市
+                </option>
               </select>
             </div>
           </div>
           <div>
             <div :class="$style.list">
-              <input type="text" placeholder="手机号码" datatype="m" name="mobile" id="mobile2" nullmsg="请填写手机号码"
-                errormsg="手机号格式不正确" maxlength="11">
+              <input id="truename" type="text" name="name" placeholder="学生姓名" nullmsg="请填写学生姓名">
+            </div>
+          </div>
+          <div>
+            <div :class="$style.list">
+              <select name="grade" nullmsg="请选择在读年级" style="color: rgb(102, 102, 102);">
+                <option value="" selected="selected">
+                  在读年级
+                </option>
+                <option v-for="(item, index) in grade" :key="index" :value="item">
+                  {{ item }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div :class="$style.list">
+              <input id="mobile2" type="text" placeholder="手机号码" datatype="m" name="mobile" nullmsg="请填写手机号码" errormsg="手机号格式不正确" maxlength="11">
             </div>
           </div>
           <p :class="$style.tips"></p>
           <input type="hidden" name="want_school" value="">
-          <div :class="$style.btn" successmsg="提交成功" errormsg="提交失败，请重新提交">确认提交</div>
+          <div :class="$style.btn" successmsg="提交成功" errormsg="提交失败，请重新提交">
+            确认提交
+          </div>
         </form>
       </div>
     </div>

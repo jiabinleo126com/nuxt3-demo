@@ -1,16 +1,22 @@
-<template>
-  <div class="about">
-    <h3 en="Active review">探校营回顾</h3>
-    <div class="text">
-      <p v-for="(item, index) in data" :key="index">{{ item }}</p>
-    </div>
-  </div>
-</template>
 <script setup lang="ts">
 defineProps<{
   data: string[]
-}>();
+}>()
 </script>
+
+<template>
+  <div class="about">
+    <h3 en="Active review">
+      探校营回顾
+    </h3>
+    <div class="text">
+      <p v-for="(item, index) in data" :key="index">
+        {{ item }}
+      </p>
+    </div>
+  </div>
+</template>
+
 <style scoped lang="less">
 .about {
   display: flex;

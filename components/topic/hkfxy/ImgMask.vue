@@ -1,57 +1,48 @@
-<template>
-  <div class="img-mask">
-    <img src="" alt="">
-    <div class="close-img-mask"></div>
-    <div class="arr">
-      <span class="left"></span>
-      <span class="right"></span>
-    </div>
-  </div>
-</template>
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted } from 'vue'
 
 onMounted(() => {
-  var previewLength = $("img[preview]").length;
-  $.each($("img[preview]"), function (index, item) {
-    $(item).attr("index", index);
-  });
-  var previewIndex = 0;
-  $(document).on("click", "img[preview]", function () {
-    var src = $(this).attr("preview");
-    $(".img-mask img").attr("src", src);
-    $(".img-mask").addClass("show");
-    previewIndex = Number($(this).attr("index"));
-  });
-  $(document).on("click", ".close-img-mask", function () {
-    $(".img-mask").removeClass("show");
-    $(".img-mask img").attr("src", "");
-  });
-  $(".img-mask").on("click", function (e) {
-    if (e.target == this) {
-      $(this).removeClass("show");
-      $(".img-mask img").attr("src", "");
+  const previewLength = $('img[preview]').length
+  $.each($('img[preview]'), (index, item) => {
+    $(item).attr('index', index)
+  })
+  let previewIndex = 0
+  $(document).on('click', 'img[preview]', () => {
+    const src = $(this).attr('preview')
+    $('.img-mask img').attr('src', src)
+    $('.img-mask').addClass('show')
+    previewIndex = Number($(this).attr('index'))
+  })
+  $(document).on('click', '.close-img-mask', () => {
+    $('.img-mask').removeClass('show')
+    $('.img-mask img').attr('src', '')
+  })
+  $('.img-mask').on('click', (e) => {
+    if (e.target === this) {
+      $(this).removeClass('show')
+      $('.img-mask img').attr('src', '')
     }
-  });
-  $(".arr").on("click", "span", function () {
-    var img = "";
-    $(".img-mask img").attr("src", "");
-    if ($(this).hasClass("left")) {
-      previewIndex = previewIndex - 1;
+  })
+  $('.arr').on('click', 'span', () => {
+    let img = ''
+    $('.img-mask img').attr('src', '')
+    if ($(this).hasClass('left')) {
+      previewIndex = previewIndex - 1
     }
-    else if ($(this).hasClass("right")) {
-      previewIndex = previewIndex + 1;
+    else if ($(this).hasClass('right')) {
+      previewIndex = previewIndex + 1
     }
     if (previewIndex < 0) {
-      previewIndex = previewLength - 1;
+      previewIndex = previewLength - 1
     }
     else if (previewIndex > previewLength - 1) {
-      previewIndex = 0;
+      previewIndex = 0
     }
-    img = $("img[preview][index='" + previewIndex + "']");
-    $(".img-mask img").attr("src", img.attr("preview"));
-  });
+    img = $(`img[preview][index='${previewIndex}']`)
+    $('.img-mask img').attr('src', img.attr('preview'))
+  })
 
+  // eslint-disable-next-line no-new
   new Swiper('.case_swiper', {
     effect: 'coverflow',
     centeredSlides: true,
@@ -65,10 +56,22 @@ onMounted(() => {
       depth: 80,
       modifier: 3,
       slideShadows: true,
-    }
-  });
+    },
+  })
 })
 </script>
+
+<template>
+  <div class="img-mask">
+    <img src="" alt="">
+    <div class="close-img-mask"></div>
+    <div class="arr">
+      <span class="left"></span>
+      <span class="right"></span>
+    </div>
+  </div>
+</template>
+
 <style lang="less">
 .img-mask {
   position: fixed;
