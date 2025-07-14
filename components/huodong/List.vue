@@ -1,20 +1,20 @@
 <script setup lang="ts">
 interface Activity {
-  title: string;
-  dw: string;
-  time: string;
-  image: string;
-  status: number;
-  nums: number;
+  title: string
+  dw: string
+  time: string
+  image: string
+  status: number
+  nums: number
   path: string
 }
 
-const props = defineProps({
+defineProps({
   data: {
     type: Array as () => Activity[],
-    default: () => []
-  }
-});
+    default: () => [],
+  },
+})
 </script>
 
 <template>

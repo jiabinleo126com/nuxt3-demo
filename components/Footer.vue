@@ -69,10 +69,6 @@
   </footer>
 </template>
 
-<script setup>
-
-</script>
-
 <style>
 body .footer_nav {
   background-color: #044781;

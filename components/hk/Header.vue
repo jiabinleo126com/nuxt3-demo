@@ -1,62 +1,40 @@
-<template>
-  <img src="https://www.ieduchina.com/statics/image/c14def69.jpg" width="0" height="0" style="display:none;">
-  <header>
-    <div class="con">
-      <h1><a href="index.html"><img :src="c7ac0a9fb" alt="国际教育网"></a></h1>
-      <menu>
-        <ul>
-          <li class="active"><a href="index.html">首页</a></li>
-          <li><a href="bendi.html">本地学校升学</a></li>
-          <li><a href="guoji.html">国际学校升学</a></li>
-          <li><a href="guwenzhuanjia.html">专家团队</a></li>
-          <li><a href="about.html">关于我们</a></li>
-          <li>
-            <NuxtLink to="/">国际教育网</NuxtLink>
-          </li>
-          <li><a class="s2hk" style="cursor: pointer;">繁體</a></li>
-        </ul>
-      </menu>
-    </div>
-  </header>
-</template>
 <script setup>
-import { useHead } from 'nuxt/app';
-
-import c7ac0a9fb from "~/assets/hk/7ac0a9fb.png"
+import { useHead } from 'nuxt/app'
+import c7ac0a9fb from '~/assets/hk/7ac0a9fb.png'
 
 useHead({
   link: [
     {
-      rel: "shortcut icon",
-      type: "image/x-icon",
-      href: "//www.ieduchina.com/statics/pcc/img/favicon.ico"
+      rel: 'shortcut icon',
+      type: 'image/x-icon',
+      href: '//www.ieduchina.com/statics/pcc/img/favicon.ico',
     },
     {
-      rel: "stylesheet",
-      href: "https://www.ieduchina.com/statics/pc/css/swiper.min.css"
-    }
+      rel: 'stylesheet',
+      href: 'https://www.ieduchina.com/statics/pc/css/swiper.min.css',
+    },
   ],
   script: [
     {
-      src: "https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js",
-      type: "text/javascript",
-      defer: true
+      src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
+      type: 'text/javascript',
+      defer: true,
     },
     {
-      src: "//www.ieduchina.com/statics/js/layer.js",
-      type: "text/javascript",
-      defer: true
+      src: '//www.ieduchina.com/statics/js/layer.js',
+      type: 'text/javascript',
+      defer: true,
     },
     {
-      src: "https://www.ieduchina.com/statics/pcc/js/swiper.min.js",
-      type: "text/javascript",
-      defer: true
+      src: 'https://www.ieduchina.com/statics/pcc/js/swiper.min.js',
+      type: 'text/javascript',
+      defer: true,
     },
     {
-      src: "https://www.ieduchina.com/statics/common/js/hk2s1.js",
-      type: "text/javascript",
-      defer: true
-    }
+      src: 'https://www.ieduchina.com/statics/common/js/hk2s1.js',
+      type: 'text/javascript',
+      defer: true,
+    },
   ],
   title: 'HKIEDU 香港愛讀教育-國際教育網升學中心 香港本土一站式名校升學服務',
   meta: [
@@ -71,10 +49,47 @@ useHead({
     // Twitter 卡片
     { name: 'twitter:card', content: 'https://www.ieduchina.com/statics/image/c14def69.jpg' },
     { name: 'twitter:title', content: 'HKIEDU 香港愛讀教育-國際教育網升學中心 香港本土一站式名校升學服務' },
-    { name: 'twitter:description', content: '香港愛讀教育擁有12年+香港名校一站式服務經驗，服務中心落地於香港和深圳，專注於為香港新移民、雙非港寶和華僑等赴港讀書家庭提供香港優質學校……' }
-  ]
+    { name: 'twitter:description', content: '香港愛讀教育擁有12年+香港名校一站式服務經驗，服務中心落地於香港和深圳，專注於為香港新移民、雙非港寶和華僑等赴港讀書家庭提供香港優質學校……' },
+  ],
 })
 </script>
+
+<template>
+  <img src="https://www.ieduchina.com/statics/image/c14def69.jpg" width="0" height="0" style="display:none;">
+  <header>
+    <div class="con">
+      <h1><a href="index.html"><img :src="c7ac0a9fb" alt="国际教育网"></a></h1>
+      <menu>
+        <ul>
+          <li class="active">
+            <a href="index.html">首页</a>
+          </li>
+          <li>
+            <a href="bendi.html">本地学校升学</a>
+          </li>
+          <li>
+            <a href="guoji.html">国际学校升学</a>
+          </li>
+          <li>
+            <a href="guwenzhuanjia.html">专家团队</a>
+          </li>
+          <li>
+            <a href="about.html">关于我们</a>
+          </li>
+          <li>
+            <NuxtLink to="/">
+              国际教育网
+            </NuxtLink>
+          </li>
+          <li>
+            <a class="s2hk" style="cursor: pointer;">繁體</a>
+          </li>
+        </ul>
+      </menu>
+    </div>
+  </header>
+</template>
+
 <style lang="less">
 header {
   background: #2C2E71;

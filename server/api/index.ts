@@ -25,6 +25,7 @@ export default defineEventHandler(async () => {
     const bannerlist: IndexData[] = []
     const verticalvideos: IndexData[] = []
     const horizontalvideos: IndexData[] = []
+    const cityexpressdata: IndexData[] = []
 
     $('.banner-img .swiper-slide').each((_, item) => {
       const path = $(item).find('a').attr('href') || ''
@@ -66,12 +67,42 @@ export default defineEventHandler(async () => {
         authorImage: $(item).find('.nums').find('i').attr('style')?.replace('background-image: url(', '')?.replace(')', ''),
       })
     })
+    $('.city-express-wrap .contents').each((index, item) => {
+      const list: any = []
+      $('.right li', item).each((listindex, listitem) => {
+        list.push(
+          {
+            title: $(listitem).find('p').text(),
+            path: $(listitem).find('a').attr('href'),
+          },
+        )
+      })
+      const items = {
+        title: $('#cityExpress').find('li').eq(index).find('span').text(),
+        path: $('#cityExpress').find('li').eq(index).find('a').attr('href'),
+        image1: {
+          image: $(item).find('.left').find('.img').attr('style')?.replace('background-image: url(', '')?.replace(';)', ''),
+          path: $(item).find('.left').find('a').attr('href'),
+        },
+        image2: {
+          image: $(item).find('.center').find('a').eq(0).find('.img').attr('style')?.replace('background-image: url(', '')?.replace(';)', ''),
+          path: $(item).find('.center').find('a').eq(0).attr('href'),
+        },
+        image3: {
+          image: $(item).find('.center').find('a').eq(1).find('.img').attr('style')?.replace('background-image: url(', '')?.replace(';)', ''),
+          path: $(item).find('.center').find('a').eq(1).attr('href'),
+        },
+        list,
+      }
+      cityexpressdata.push(items)
+    })
 
     return {
       activity,
       bannerlist,
       verticalvideos,
       horizontalvideos,
+      cityexpressdata,
     }
   }
   catch (error) {

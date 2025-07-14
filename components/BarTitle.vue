@@ -1,8 +1,18 @@
+<script setup>
+defineProps({
+  showhome: {
+    type: Boolean,
+    default: true,
+  },
+})
+</script>
+
 <template>
   <div :class="$style.bar_title">
     <div :class="$style.bar_title_con">
       <ul :class="$style.left">
-        <li :class="$style.nav">网站导航
+        <li :class="$style.nav">
+          网站导航
           <div :class="$style.nav_box">
             <div :class="$style.nav_box_in">
               <ol>
@@ -13,32 +23,47 @@
                 <li><a href="/schlist/c1/" target="_blank">海外学校</a></li>
               </ol>
               <ol>
-                <li>学校活动</li>
-                <li><a href="/huodong/?type=6" target="_blank">学校开放日</a></li>
-                <li><a href="/topic/2024/hk5/" target="_blank">名校探校营</a></li>
-                <li><a href="/camps/index.html" target="_blank">夏/冬令营</a></li>
-                <li><a href="/topic/2024/shenzhen/index.html" target="_blank">国际教育论坛</a>
+                <li>
+                  学校活动
+                </li>
+                <li>
+                  <a href="/huodong/?type=6" target="_blank">学校开放日</a>
+                </li>
+                <li>
+                  <a href="/topic/2024/hk5/" target="_blank">名校探校营</a>
+                </li>
+                <li>
+                  <a href="/camps/index.html" target="_blank">夏/冬令营</a>
+                </li>
+                <li>
+                  <a href="/topic/2024/shenzhen/index.html" target="_blank">国际教育论坛</a>
                 </li>
               </ol>
               <ol>
-                <li>备考学习</li>
-                <li><a href="/xuexi/index.html?tgfrom=guanwang" target="_blank">官方考试</a>
+                <li>
+                  备考学习
                 </li>
-                <li><a
-                    href="https://appaznrqrnb5508.h5.xiaoeknow.com/p/decorate/more/eyJpZCI6MTYzNzI4NDEsImNoYW5uZWxfaWQiOiIiLCJjb21wb25lbnRfaWQiOjI5NDkzODU2fQ"
-                    target="_blank">学习资源</a></li>
+                <li>
+                  <a href="/xuexi/index.html?tgfrom=guanwang" target="_blank">官方考试</a>
+                </li>
+                <li>
+                  <a href="https://appaznrqrnb5508.h5.xiaoeknow.com/p/decorate/more/eyJpZCI6MTYzNzI4NDEsImNoYW5uZWxfaWQiOiIiLCJjb21wb25lbnRfaWQiOjI5NDkzODU2fQ" target="_blank">学习资源</a>
+                </li>
               </ol>
             </div>
           </div>
         </li>
-        <li v-if=showhome>返回
-          <NuxtLink to="/" :class="$style.home">国际教育网</NuxtLink>主页
+        <!-- eslint-disable-next-line -->
+        <li v-if="showhome">返回<NuxtLink to="/" :class="$style.home">国际教育网</NuxtLink>主页</li>
+        <li>
+          <a href="/service/tousu.html">投诉建议</a>
         </li>
-        <li><a href="/service/tousu.html">投诉建议</a></li>
-        <li><a href="/mp/login_member.html">发布文章</a></li>
+        <li>
+          <a href="/mp/login_member.html">发布文章</a>
+        </li>
       </ul>
       <ul :class="$style.right">
-        <li :class="$style.login" id="login-before">
+        <li id="login-before" :class="$style.login">
           <a href="/login.html" target="_blank">登录</a>/
           <a href="/register.html" target="_blank">注册</a>
         </li>
@@ -47,15 +72,7 @@
     </div>
   </div>
 </template>
-<script setup>
 
-defineProps({
-  showhome: {
-    type: Boolean,
-    default: true
-  }
-})
-</script>
 <style module lang="less">
 .bar_title {
   border-bottom: solid 1px #e5e5e5;

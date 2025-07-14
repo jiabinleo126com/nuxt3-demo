@@ -1,19 +1,28 @@
+<script setup>
+import c7d29e24f from '~/assets/hongkong/7d29e24f.png'
+import logo_xg from '~/assets/hongkong/logo_xg.png'
+</script>
+
 <template>
   <header :class="$style.bar">
     <BarTitle showhome="true" />
     <div :class="$style.bar_header">
-      <div :class="$style.logo"><a href="">
+      <div :class="$style.logo">
+        <a href="">
           <img :src="logo_xg" width="220">
-        </a></div>
+        </a>
+      </div>
       <div :class="$style.search_box">
-        <form action="/search/index.html" method="get" id="search">
-          <input name="searchkey" placeholder="搜索 学校/文章/机构" type="text" value="" id="q" :class="$style.search_content">
-          <button :class="$style.search_submit" id="searchbtn" type="submit">
+        <form id="search" action="/search/index.html" method="get">
+          <input id="q" name="searchkey" placeholder="搜索 学校/文章/机构" type="text" value="" :class="$style.search_content">
+          <button id="searchbtn" :class="$style.search_submit" type="submit">
             <img :src="c7d29e24f">搜索
           </button>
         </form>
       </div>
-      <div :class="$style.tel"><a href="tel:4009008516">400-900-8516</a></div>
+      <div :class="$style.tel">
+        <a href="tel:4009008516">400-900-8516</a>
+      </div>
     </div>
     <div :class="$style.menu_5062847">
       <menu>
@@ -36,10 +45,7 @@
     </div>
   </header>
 </template>
-<script setup>
-import logo_xg from "~/assets/hongkong/logo_xg.png"
-import c7d29e24f from "~/assets/hongkong/7d29e24f.png"
-</script>
+
 <style module lang="less">
 .bar {
   width: 100%;

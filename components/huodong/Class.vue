@@ -1,29 +1,30 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+
 const menu = reactive([
   {
-    text: "全部",
-    link: "/huodong"
+    text: '全部',
+    link: '/huodong',
   },
   {
-    text: "校园开放日",
-    link: "/huodong?type=6"
+    text: '校园开放日',
+    link: '/huodong?type=6',
   },
   {
-    text: "夏/冬令营",
-    link: "/huodong?type=2"
+    text: '夏/冬令营',
+    link: '/huodong?type=2',
   },
   {
-    text: "直播",
-    link: "/huodong?type=5"
+    text: '直播',
+    link: '/huodong?type=5',
   },
   {
-    text: "分享会",
-    link: "/huodong?type=3"
+    text: '分享会',
+    link: '/huodong?type=3',
   },
   {
-    text: "其他活动",
-    link: "/huodong?type=7"
+    text: '其他活动',
+    link: '/huodong?type=7',
   },
 ])
 </script>
@@ -32,7 +33,9 @@ const menu = reactive([
   <div class="menu">
     <span>活动类别</span>
     <div class="hd_links">
-      <NuxtLink v-for="(item, index) in menu" :key="index" :to="item.link" :class="{ active: item.link === $route.fullPath }">{{ item.text }}</NuxtLink>
+      <NuxtLink v-for="(item, index) in menu" :key="index" :to="item.link" :class="{ active: item.link === $route.fullPath }">
+        {{ item.text }}
+      </NuxtLink>
     </div>
   </div>
 </template>

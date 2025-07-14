@@ -1,27 +1,46 @@
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+defineProps<{ data: number }>()
+const route = useRoute()
+const pageThis = ref(0)
+pageThis.value = route.query.page ? Number.parseInt(route.query.page as string) : 1
+
+watch(() => route.query.page, (newVal) => {
+  pageThis.value = newVal ? Number.parseInt(newVal as string) : 1
+})
+</script>
+
 <template>
-  <div class="pagination" id="pages">
-    <NuxtLink :to="{ path: '/huodong', query: { page: pageThis - 1 < 1 ? 1 : pageThis - 1 } }" class="active">上一页
+  <div id="pages" class="pagination">
+    <NuxtLink :to="{ path: '/huodong', query: { page: pageThis - 1 < 1 ? 1 : pageThis - 1 } }" class="active">
+      上一页
     </NuxtLink>
     <template v-if="pageThis - 5 > 0">
-      <NuxtLink :to="{ path: '/huodong', query: { page: 1 } }">1</NuxtLink>
+      <NuxtLink :to="{ path: '/huodong', query: { page: 1 } }">
+        1
+      </NuxtLink>
     </template>
-    <template v-if="pageThis - 5 > 0">...</template>
+    <template v-if="pageThis - 5 > 0">
+      ...
+    </template>
     <template v-for="(item, index) in data + 1" :key="item">
       <template v-if="index">
-        <NuxtLink v-if="index < pageThis && index > pageThis - 5 && pageThis > 0"
-          :to="{ path: '/huodong', query: { page: index } }">
+        <NuxtLink v-if="index < pageThis && index > pageThis - 5 && pageThis > 0" :to="{ path: '/huodong', query: { page: index } }">
           {{ index }}
         </NuxtLink>
         <span v-if="index === pageThis && index > 0 && index < data + 1">
           {{ index }}
         </span>
-        <NuxtLink v-else-if="index > pageThis && index < pageThis + 5 && index > 1 && index < data + 1"
-          :to="{ path: '/huodong', query: { page: index } }">
+        <NuxtLink v-else-if="index > pageThis && index < pageThis + 5 && index > 1 && index < data + 1" :to="{ path: '/huodong', query: { page: index } }">
           {{ index }}
         </NuxtLink>
       </template>
     </template>
-    <template v-if="pageThis + 5 < data">...</template>
+    <template v-if="pageThis + 5 < data">
+      ...
+    </template>
     <NuxtLink v-if="pageThis + 5 < data + 1" :to="{ path: '/huodong', query: { page: data } }">
       {{ data }}
     </NuxtLink>
@@ -30,21 +49,7 @@
     </NuxtLink>
   </div>
 </template>
-<script setup lang="ts">
-import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router'
-defineProps<{ data: number }>()
-const route = useRoute();
-let pageThis = ref(0)
-pageThis.value = route.query.page ? parseInt(route.query.page as string) : 1;
-console.log(pageThis.value)
 
-watch(() => route.query.page,
-  (newVal) => {
-    pageThis.value = newVal ? parseInt(newVal as string) : 1;
-  }
-)
-</script>
 <style lang="less">
 #pages {
   text-align: center;

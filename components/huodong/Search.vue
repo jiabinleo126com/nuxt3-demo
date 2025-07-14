@@ -1,25 +1,123 @@
+<script setup>
+import { reactive } from 'vue'
+import search from '~/assets/huodong/search.png'
+
+const prov = reactive([
+  {
+    text: '省份',
+    value: '',
+  },
+  {
+    text: '北京',
+    value: '2',
+  },
+  {
+    text: '上海',
+    value: '3',
+  },
+  {
+    text: '香港',
+    value: '34',
+  },
+  {
+    text: '广东',
+    value: '21',
+  },
+  {
+    text: '天津',
+    value: '4',
+  },
+  {
+    text: '江苏',
+    value: '12',
+  },
+  {
+    text: '浙江',
+    value: '13',
+  },
+  {
+    text: '安徽',
+    value: '14',
+  },
+  {
+    text: '福建',
+    value: '15',
+  },
+  {
+    text: '湖北',
+    value: '19',
+  },
+  {
+    text: '湖南',
+    value: '20',
+  },
+  {
+    text: '四川',
+    value: '24',
+  },
+  {
+    text: '辽宁',
+    value: '9',
+  },
+  {
+    text: '吉林',
+    value: '10',
+  },
+  {
+    text: '山东',
+    value: '17',
+  },
+  {
+    text: '河南',
+    value: '18',
+  },
+  {
+    text: '广西',
+    value: '22',
+  },
+  {
+    text: '海南',
+    value: '23',
+  },
+  {
+    text: '云南',
+    value: '26',
+  },
+  {
+    text: '重庆',
+    value: '5',
+  },
+])
+</script>
+
 <template>
   <div class="top">
-    <h2 class="title">活动专区</h2>
+    <h2 class="title">
+      活动专区
+    </h2>
     <div class="form-search">
       <form action="https://www.ieduchina.com/huodong/" method="get" class="layui-form">
         <div class="layui-inline">
           <div class="layui-input-inline">
             <select id="prov" name="provinceid" lay-filter="provinceid">
-              <option v-for="item in prov" :key="item.value" :value="item.value">{{ item.text }}</option>
+              <option v-for="item in prov" :key="item.value" :value="item.value">
+                {{ item.text }}
+              </option>
             </select>
           </div>
         </div>
         <div class="layui-inline">
           <div class="layui-input-inline">
             <select id="city" name="cityid">
-              <option value="">城市</option>
+              <option value="">
+                城市
+              </option>
             </select>
           </div>
         </div>
         <div class="layui-inline">
           <div class="layui-input-inline">
-            <input name="date" type="text" value="" id="date" class="layui-input" placeholder="年月" readonly="readonly">
+            <input id="date" name="date" type="text" value="" class="layui-input" placeholder="年月" readonly="readonly">
           </div>
         </div>
         <div class="layui-inline">
@@ -34,96 +132,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import { reactive } from 'vue';
-import search from '~/assets/huodong/search.png';
-const prov = reactive([
-  {
-    text: "省份",
-    value: ""
-  },
-  {
-    text: "北京",
-    value: "2"
-  },
-  {
-    text: "上海",
-    value: "3"
-  },
-  {
-    text: "香港",
-    value: "34"
-  },
-  {
-    text: "广东",
-    value: "21"
-  },
-  {
-    text: "天津",
-    value: "4"
-  },
-  {
-    text: "江苏",
-    value: "12"
-  },
-  {
-    text: "浙江",
-    value: "13"
-  },
-  {
-    text: "安徽",
-    value: "14"
-  },
-  {
-    text: "福建",
-    value: "15"
-  },
-  {
-    text: "湖北",
-    value: "19"
-  },
-  {
-    text: "湖南",
-    value: "20"
-  },
-  {
-    text: "四川",
-    value: "24"
-  },
-  {
-    text: "辽宁",
-    value: "9"
-  },
-  {
-    text: "吉林",
-    value: "10"
-  },
-  {
-    text: "山东",
-    value: "17"
-  },
-  {
-    text: "河南",
-    value: "18"
-  },
-  {
-    text: "广西",
-    value: "22"
-  },
-  {
-    text: "海南",
-    value: "23"
-  },
-  {
-    text: "云南",
-    value: "26"
-  },
-  {
-    text: "重庆",
-    value: "5"
-  }
-])
-</script>
+
 <style lang="less">
 body .x-content .container .left h2.title {
   position: relative;
@@ -184,11 +193,8 @@ body .x-content .container .left h2.title::before {
   cursor: pointer;
   width: 38px;
   height: 38px;
-  -o-object-fit: contain;
   object-fit: contain;
-  -o-object-position: center;
   object-position: center;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 10px 0
 }

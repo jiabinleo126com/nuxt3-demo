@@ -1,3 +1,198 @@
+<script setup>
+import { useHead } from 'nuxt/app'
+import { defineAsyncComponent, onMounted, reactive } from 'vue'
+
+defineProps({
+  showhome: {
+    type: Boolean,
+    default: true,
+  },
+})
+const BarTitl = defineAsyncComponent(() => import(`./BarTitle.vue`))
+
+const hkTopic = reactive([
+  {
+    title: '25年05月:可风中学、世界龙冈学校刘皇发中学等10所学校',
+    path: '/topic/2025/hk13',
+  },
+  {
+    title: '25年01月:中华基金中学、迦密爱礼信中学等7所学校',
+    path: '/topic/2025/hk12',
+  },
+  {
+    title: '24年12月:元朗公立中学校友会邓英业小学等5所学校',
+    path: '/topic/2024/hk11/',
+  },
+  {
+    title: '24年12月:中华基督教会铭基书院等4所学校',
+    path: 'https://www.ieduchina.com/topic/2024/hk8/',
+  },
+  {
+    title: '24年10月:香岛中学、新会商会陈白沙纪念中学等9所学校',
+    path: 'https://www.ieduchina.com/topic/2024/hk7/',
+  },
+  {
+    title: '24年07月:孔圣堂礼仁书院等5所本地学校(访校研学)',
+    path: 'https://www.ieduchina.com/topic/2024/hkyx1/',
+  },
+  {
+    title: '24年07月:汇基书院（东九龙）、播道书院等4所学校',
+    path: 'https://www.ieduchina.com/topic/2024/hk6/',
+  },
+  {
+    title: '24年05月:沙田培英、保良局罗杰承(一九八三)等15所学校',
+    path: 'https://www.ieduchina.com/topic/2024/hk5/',
+  },
+  {
+    title: '24年01月:香港UWC、播道书院等8所学校',
+    path: 'https://www.ieduchina.com/topic/2024/hk4/',
+  },
+  {
+    title: '23年12月:中华基督教会协和书院等6所学校+教育展',
+    path: 'https://www.ieduchina.com/topic/2023/hk3/',
+  },
+  {
+    title: '23年10月:保良局百周年李兆忠纪念中学等6所学校',
+    path: 'https://www.ieduchina.com/topic/2023/xg/',
+  },
+  {
+    title: '23年07月:圣保禄学校、英华书院、九龙真光等10所学校 ',
+    path: 'https://www.ieduchina.com/topic/2023/hk/',
+  },
+])
+
+const InternationalEducationForum = reactive([
+  {
+    path: '//www.ieduchina.com/topic/2025/sz/',
+    title: '2025年05月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2024/sz/',
+    title: '2024年10月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2024/shenzhen/',
+    title: '2024年03月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2023/shenzhen/',
+    title: '2023年10月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2022/shenzhen/',
+    title: '2022年04月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2020/1017_SZ/',
+    title: '2020年10月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2020/711_SZ/',
+    title: '2020年07月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2020/3_SZ/',
+    title: '2020年03月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2019/11_SZ/',
+    title: '2019年11月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2019/07_SZ/',
+    title: '2019年07月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2019/05_SH/',
+    title: '2019年05月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2019/04_SZ/',
+    title: '2019年04月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2019/03_GZ/',
+    title: '2019年03月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2019/12_SZ/',
+    title: '2018年12月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2018/5_GZ/',
+    title: '2018年05月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2018/4_SZ/',
+    title: '2018年04月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2017/11_GZ/',
+    title: '2017年11月',
+  },
+  {
+    path: '//www.ieduchina.com/topic/2017/10_SZ/',
+    title: '2017年10月',
+  },
+])
+useHead({
+  script: [
+    {
+      src: '/s2hk.js',
+      type: 'text/javascript',
+      defer: true,
+    },
+  ],
+})
+
+onMounted(() => {
+  $(() => {
+    $('.search-hover').on('click', 'li', function () {
+      $('#searchContent').text($(this).text())
+      $('#searchid').val($(this).attr('value'))
+      $('.search-hover').find('.submenu').hide()
+    })
+    $('#searchbtn').click(() => {
+      const txt = $('#q').val().replace(/(^\s*)|(\s*$)/g, '')
+      if (txt === '输入搜索内容' || txt === '请输入搜索内容' || txt === '') {
+        return false
+      }
+    })
+    function isShowMenu() {
+      const ad_height = $('#pc_ad_top').height() || 0
+      const top = $(window).scrollTop()
+      const position = top > ($('.bar-header').height() + $('.bar-title').height() + ad_height) ? 'fixed' : 'initial'
+      $('.iedu-menu-box').css({
+        position,
+      })
+    }
+    $(document).on('scroll', () => {
+      isShowMenu()
+    })
+    isShowMenu()
+    $('.parentMenu').hover(function () {
+      $(this).find('.submenu').show()
+    }, function () {
+      $(this).find('.submenu').hide()
+    })
+    function getcookieval(objname) {
+      const arrstr = document.cookie.split('; ')
+      for (let i = 0; i < arrstr.length; i++) {
+        const temp = arrstr[i].split('=')
+        if (temp[0] === objname)
+          return decodeURI(unescape(temp[1]))
+      }
+    }
+    const live_username = getcookieval('live_username')
+    if (live_username) {
+      const userUrl = '//www.ieduchina.com/usercenter/index/index.html'
+      const html = `<p class='logout'><span><a rel='nofollow' target='_blank' href='${userUrl}'>${live_username}</a></span><span> | </span><a href='//www.ieduchina.com/logout.html'>退出</a></p>`
+      $('#login-before').html(html)
+    }
+  })
+})
+</script>
+
 <template>
   <header class="bar">
     <BarTitl :showhome />
@@ -8,7 +203,7 @@
         </NuxtLink>
       </div>
       <div class="search-box">
-        <form action="//www.ieduchina.com/search/index.html" method="get" id="search">
+        <form id="search" action="//www.ieduchina.com/search/index.html" method="get">
           <input id="q" class="search-content" name="searchkey" placeholder="搜索 学校/文章/机构" type="text" value="">
           <button id="searchbtn" class="search-submit" type="submit">
             <img src="//www.ieduchina.com/statics/pcc/img/search1.png?v=1">
@@ -71,9 +266,17 @@
           <li class="parentMenu">
             <a href="//www.ieduchina.com/zwhb/"><span>合办大学</span></a>
             <ul class="submenu">
-              <li><NuxtLink to="/zwhb/"><span>中外合办大学</span></NuxtLink></li>
-              <li><a href="//www.ieduchina.com/gwhb/"><span>港外合办大学</span></a></li>
-              <li><a href="//www.ieduchina.com/xwhb/"><span>新外合办大学</span></a></li>
+              <li>
+                <NuxtLink to="/zwhb/">
+                  <span>中外合办大学</span>
+                </NuxtLink>
+              </li>
+              <li>
+                <a href="//www.ieduchina.com/gwhb/"><span>港外合办大学</span></a>
+              </li>
+              <li>
+                <a href="//www.ieduchina.com/xwhb/"><span>新外合办大学</span></a>
+              </li>
             </ul>
           </li>
           <li class="parentMenu">
@@ -82,11 +285,13 @@
             </NuxtLink>
             <ul class="submenu">
               <!-- <li><a href="//www.ieduchina.com/huodong/?type=9"><span>家长学院</span></a></li> -->
-              <li><a href="//www.ieduchina.com/huodong/?type=6"><span>学校开放日</span></a></li>
               <li>
-                <a href="//www.ieduchina.com/topic/2025/hk13/" target="_blank"><span><img
-                      src="//www.ieduchina.com/statics/pcc/img/11d86433.png"
-                      style="vertical-align: -1px;">访校团</span></a>
+                <a href="//www.ieduchina.com/huodong/?type=6"><span>学校开放日</span></a>
+              </li>
+              <li>
+                <a href="//www.ieduchina.com/topic/2025/hk13/" target="_blank">
+                  <span><img src="//www.ieduchina.com/statics/pcc/img/11d86433.png" style="vertical-align: -1px;">访校团</span>
+                </a>
                 <div class="box">
                   <div class="box_lis">
                     <div class="box_con">
@@ -119,62 +324,91 @@
             </ul>
           </li>
           <li class="parentMenu">
-            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>备考学习</span></NuxtLink>
+            <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+              <span>备考学习</span>
+            </NuxtLink>
             <ul class="submenu">
               <li>
-                <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>官方考试</span></NuxtLink>
+                <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                  <span>官方考试</span>
+                </NuxtLink>
                 <div class="box">
                   <div class="box_lis">
-                    <div class="box_title">入学考试</div>
+                    <div class="box_title">
+                      入学考试
+                    </div>
                     <div class="box_con">
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>MAP</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>MAP</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>CAT4</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>CAT4</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>中数</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>中数</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>英数</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>英数</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>新加坡</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>新加坡</span>
                       </NuxtLink>
                     </div>
                   </div>
                   <div class="box_lis">
-                    <div class="box_title">语言考试</div>
+                    <div class="box_title">
+                      语言考试
+                    </div>
                     <div class="box_con">
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>雅思</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>雅思</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>托福</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>托福</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>多邻国</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>多邻国</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>SAT</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>SAT</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>GRE</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>GRE</span>
                       </NuxtLink>
                     </div>
                   </div>
                   <div class="box_lis">
-                    <div class="box_title">国际考试</div>
+                    <div class="box_title">
+                      国际考试
+                    </div>
                     <div class="box_con">
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>A-LEVEL</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>A-LEVEL</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>IB考试</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>IB考试</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>AP考试</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>AP考试</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>DSE考试</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>DSE考试</span>
                       </NuxtLink>
                     </div>
                   </div>
                   <div class="box_lis">
-                    <div class="box_title">数学竞赛</div>
+                    <div class="box_title">
+                      数学竞赛
+                    </div>
                     <div class="box_con">
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>美国AMC</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>美国AMC</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>澳洲AMC</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>澳洲AMC</span>
                       </NuxtLink>
-                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow"><span>袋鼠数学竞赛</span>
+                      <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
+                        <span>袋鼠数学竞赛</span>
                       </NuxtLink>
                     </div>
                   </div>
@@ -188,203 +422,6 @@
     </div>
   </header>
 </template>
-
-<script setup>
-import { useHead } from "nuxt/app"
-import { onMounted, reactive, defineAsyncComponent } from "vue"
-
-defineProps({
-  showhome: {
-    type: Boolean,
-    default: true,
-  }
-})
-const BarTitl = defineAsyncComponent(() => import(`./BarTitle.vue`))
-
-
-const hkTopic = reactive([
-  {
-    title: "25年05月:可风中学、世界龙冈学校刘皇发中学等10所学校",
-    path: "/topic/2025/hk13",
-  },
-  {
-    title: "25年01月:中华基金中学、迦密爱礼信中学等7所学校",
-    path: "/topic/2025/hk12",
-  },
-  {
-    title: "24年12月:元朗公立中学校友会邓英业小学等5所学校",
-    path: "/topic/2024/hk11/",
-  },
-  {
-    title: "24年12月:中华基督教会铭基书院等4所学校",
-    path: "https://www.ieduchina.com/topic/2024/hk8/",
-  },
-  {
-    title: "24年10月:香岛中学、新会商会陈白沙纪念中学等9所学校",
-    path: "https://www.ieduchina.com/topic/2024/hk7/",
-  },
-  {
-    title: "24年07月:孔圣堂礼仁书院等5所本地学校(访校研学)",
-    path: "https://www.ieduchina.com/topic/2024/hkyx1/",
-  },
-  {
-    title: "24年07月:汇基书院（东九龙）、播道书院等4所学校",
-    path: "https://www.ieduchina.com/topic/2024/hk6/",
-  },
-  {
-    title: "24年05月:沙田培英、保良局罗杰承(一九八三)等15所学校",
-    path: "https://www.ieduchina.com/topic/2024/hk5/",
-  },
-  {
-    title: "24年01月:香港UWC、播道书院等8所学校",
-    path: "https://www.ieduchina.com/topic/2024/hk4/",
-  },
-  {
-    title: "23年12月:中华基督教会协和书院等6所学校+教育展",
-    path: "https://www.ieduchina.com/topic/2023/hk3/",
-  },
-  {
-    title: "23年10月:保良局百周年李兆忠纪念中学等6所学校",
-    path: "https://www.ieduchina.com/topic/2023/xg/",
-  },
-  {
-    title: "23年07月:圣保禄学校、英华书院、九龙真光等10所学校 ",
-    path: "https://www.ieduchina.com/topic/2023/hk/",
-  },
-])
-
-const InternationalEducationForum = reactive([
-  {
-    path: "//www.ieduchina.com/topic/2025/sz/",
-    title: "2025年05月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2024/sz/",
-    title: "2024年10月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2024/shenzhen/",
-    title: "2024年03月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2023/shenzhen/",
-    title: "2023年10月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2022/shenzhen/",
-    title: "2022年04月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2020/1017_SZ/",
-    title: "2020年10月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2020/711_SZ/",
-    title: "2020年07月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2020/3_SZ/",
-    title: "2020年03月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2019/11_SZ/",
-    title: "2019年11月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2019/07_SZ/",
-    title: "2019年07月"
-  },
-  {
-    path: "//www.ieduchina.com/topic/2019/05_SH/",
-    title: "2019年05月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2019/04_SZ/",
-    title: "2019年04月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2019/03_GZ/",
-    title: "2019年03月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2019/12_SZ/",
-    title: "2018年12月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2018/5_GZ/",
-    title: "2018年05月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2018/4_SZ/",
-    title: "2018年04月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2017/11_GZ/",
-    title: "2017年11月",
-  },
-  {
-    path: "//www.ieduchina.com/topic/2017/10_SZ/",
-    title: "2017年10月",
-  }
-])
-useHead({
-  script: [
-    {
-      src: "/s2hk.js",
-      type: "text/javascript",
-      defer: true,
-    }
-  ]
-})
-
-
-onMounted(() => {
-  $(function () {
-    $('.search-hover').on('click', 'li', function () {
-      $('#searchContent').text($(this).text())
-      $('#searchid').val($(this).attr('value'))
-      $('.search-hover').find('.submenu').hide()
-    });
-    $('#searchbtn').click(function () {
-      var txt = $('#q').val().replace(/(^\s*)|(\s*$)/g, '')
-      if (txt === '输入搜索内容' || txt === '请输入搜索内容' || txt == '') {
-        return false
-      }
-    });
-    function isShowMenu() {
-      var ad_height = $('#pc_ad_top').height() || 0;
-      var top = $(window).scrollTop();
-      var position = top > ($('.bar-header').height() + $('.bar-title').height() + ad_height) ? 'fixed' : 'initial';
-      $('.iedu-menu-box').css({
-        position: position
-      })
-    }
-    $(document).on('scroll', function () {
-      isShowMenu()
-    });
-    isShowMenu()
-    $('.parentMenu').hover(function () {
-      $(this).find('.submenu').show()
-    }, function () {
-      $(this).find('.submenu').hide()
-    });
-    function getcookieval(objname) {
-      var arrstr = document.cookie.split('; ')
-      for (var i = 0; i < arrstr.length; i++) {
-        var temp = arrstr[i].split('=')
-        if (temp[0] == objname)
-          return decodeURI(unescape(temp[1]))
-      }
-    }
-    var live_username = getcookieval("live_username")
-    if (live_username) {
-      var userUrl = '//www.ieduchina.com/usercenter/index/index.html';
-      var html = "<p class='logout'><span><a rel='nofollow' target='_blank' href='" + userUrl + "'> " + live_username + " </a></span><span> | </span><a href='//www.ieduchina.com/logout.html'>退出</a></p>";
-      $("#login-before").html(html);
-    }
-  })
-})
-</script>
 
 <style lang="less">
 body .bar {

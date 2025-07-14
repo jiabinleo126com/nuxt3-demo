@@ -13,14 +13,17 @@
       </div>
       <div :class="$style.footer_contact">
         <ul>
-          <li><img src="https://www.ieduchina.com/statics/pcc/img/ada.png" alt="国际教育网Ada">
+          <li>
+            <img src="https://www.ieduchina.com/statics/pcc/img/ada.png" alt="国际教育网Ada">
             <span>国际教育网Ada</span>
           </li>
           <li>
             <p>学生家长咨询</p>
             <p>400-900-8516</p>
           </li>
-          <li><img src="https://www.ieduchina.com/statics/hui.jpg" alt="学校官方媒体合作"> <span>学校官方媒体合作</span></li>
+          <li>
+            <img src="https://www.ieduchina.com/statics/hui.jpg" alt="学校官方媒体合作"><span>学校官方媒体合作</span>
+          </li>
           <li>
             <p>学校媒体合作</p>
             <p>18165706113</p>
@@ -29,42 +32,36 @@
         <div :class="$style.right">
           <p>
             <span>小红书</span>
-            <span><a>爱读国际择校说</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/db240701.jpg"
-                  alt="爱读国际择校说"></a></span>
-            <span><a>国际择校说</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/cf005a47.jpg"
-                  alt="国际择校说"></a></span>
-            <span><a>爱读选校君</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/ae66ed27.jpg"
-                  alt="爱读选校君"></a></span>
-            <span><a>小鹏</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/c0651e2d.jpg"
-                  alt="小鹏"></a></span>
+            <span><a>爱读国际择校说</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/db240701.jpg" alt="爱读国际择校说"></a></span>
+            <span><a>国际择校说</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/cf005a47.jpg" alt="国际择校说"></a></span>
+            <span><a>爱读选校君</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/ae66ed27.jpg" alt="爱读选校君"></a></span>
+            <span><a>小鹏</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/c0651e2d.jpg" alt="小鹏"></a></span>
           </p>
           <p>
             <span>视频号</span>
-            <span><a>选校砖家</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/726abf7f.jpg"
-                  alt="选校砖家"></a></span>
+            <span><a>选校砖家</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/726abf7f.jpg" alt="选校砖家"></a></span>
           </p>
           <p>
             <span>微信公众号</span>
-            <span><a>选校砖家</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/af371255.jpg"
-                  alt="选校砖家"></a></span>
-            <span><a>香港名校通</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/19172166.jpg"
-                  alt="香港名校通"></a></span>
-            <span><a>爱读教育</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/18d2c315.jpg"
-                  alt="爱读教育"></a></span>
+            <span><a>选校砖家</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/af371255.jpg" alt="选校砖家"></a></span>
+            <span><a>香港名校通</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/19172166.jpg" alt="香港名校通"></a></span>
+            <span><a>爱读教育</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/18d2c315.jpg" alt="爱读教育"></a></span>
           </p>
           <p>
             <span>小程序</span>
-            <span><a>探校小管家</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/25eb8325.png"
-                  alt="探校小管家"></a></span>
+            <span><a>探校小管家</a><a :class="$style.img_wrap"><img src="//www.ieduchina.com/statics/pcc/img/25eb8325.png" alt="探校小管家"></a></span>
           </p>
         </div>
       </div>
       <div :class="$style.footer_copyright">
         <p>Copyright © <span id="fullyear">2024</span> 国际教育网 版权所有</p>
-        <p><a href="http://beian.miit.gov.cn/" rel="nofollow">粤ICP备2021064228号</a> <a
-            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502002588" rel="nofollow"><img
-              src="//www.ieduchina.com/statics/pcc/img/police.png?v=1"
-              style="display: inline-block;vertical-align: middle;">粤公网安备 44030502002588号</a></p>
+        <p>
+          <a href="http://beian.miit.gov.cn/" rel="nofollow">粤ICP备2021064228号</a>
+          <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502002588" rel="nofollow">
+            <img src="//www.ieduchina.com/statics/pcc/img/police.png?v=1" style="display: inline-block;vertical-align: middle;">
+            粤公网安备 44030502002588号
+          </a>
+        </p>
         <p>网站所有图片、文字未经许可不得拷贝、复制</p>
       </div>
     </div>

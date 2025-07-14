@@ -1,3 +1,67 @@
+<script setup lang="ts">
+import { defineProps, onMounted } from 'vue'
+
+defineProps<{
+  activity: ActivityItem[]
+  bannerlist: BannerListItem[]
+}>()
+
+declare const $: any
+declare const Swiper: any
+
+interface ActivityItem {
+  path: string
+  image: string
+}
+interface BannerListItem {
+  href: string
+  date: string
+  title: string
+  grade: string
+  month: number
+  year: number
+  state: number
+}
+
+onMounted(() => {
+  // eslint-disable-next-line no-new
+  new Swiper('.swiper-container', {
+    direction: 'horizontal',
+    loop: true, // 循环模式选项
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    // 如果需要前进后退按钮
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 0,
+  })
+  if ($('.swiper-banner-list').find('.swiper-slide').length > 3) {
+    // eslint-disable-next-line no-new
+    new Swiper('.swiper-banner-list', {
+      direction: 'vertical',
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 4,
+      spaceBetween: 0,
+    })
+  }
+  else {
+    $('.swiper-banner-list').addClass('noswiper')
+  }
+})
+</script>
+
 <template>
   <div class="activity">
     <div class="con">
@@ -20,7 +84,7 @@
         </div>
         <div class="swiper-banner-list">
           <div class="swiper-wrapper">
-            <div v-for="(item, index) in bannerlist" class="swiper-slide" :key="index">
+            <div v-for="(item, index) in bannerlist" :key="index" class="swiper-slide">
               <a :href="item.href" target="_blank">
                 <div class="icon">
                   <img :src="`//www.ieduchina.com/statics/pcc/img/t${item.state}.png`">
@@ -43,66 +107,6 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import { onMounted } from 'vue';
-declare const $: any;
-declare const Swiper: any;
-
-interface ActivityItem {
-  path: string;
-  image: string;
-}
-interface BannerListItem {
-  href: string;
-  date: string;
-  title: string;
-  grade: string;
-  month: number;
-  year: number;
-  state: number;
-}
-
-const props = defineProps<{
-  activity: ActivityItem[],
-  bannerlist: BannerListItem[]
-}>();
-
-onMounted(() => {
-  var mySwiper1 = new Swiper('.swiper-container', {
-    direction: 'horizontal',
-    loop: true, // 循环模式选项
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 1,
-    // 如果需要分页器
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    // 如果需要前进后退按钮
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    spaceBetween: 0
-  })
-  if ($(".swiper-banner-list").find(".swiper-slide").length > 3) {
-    new Swiper('.swiper-banner-list', {
-      direction: "vertical",
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      slidesPerView: 4,
-      spaceBetween: 0
-    });
-  }
-  else {
-    $(".swiper-banner-list").addClass("noswiper");
-  }
-})
-</script>
 
 <style lang="less" scoped>
 .activity {

@@ -1,31 +1,6 @@
-<template>
-  <div class="x-news side-title2">
-    <h2><i></i>新闻资讯</h2>
-    <ul>
-      <li v-for="(item, index) in data" :key="index">
-        <NuxtLink :to="item.path">
-          <div class="image" :style="{ backgroundImage: `url(${item.image})` }"></div>
-        </NuxtLink>
-        <div class="news-text">
-          <NuxtLink :to="item.path">
-            <p class="title">
-              {{ item.title }}
-            </p>
-          </NuxtLink>
-          <p class="bottom">
-            <NuxtLink :to="item.path">
-              <span title=""><i :style="{ backgroundImage: `url(${item.authorImage})` }"></i>{{
-                item.author }}</span>
-            </NuxtLink>
-            <span>{{ item.date }}</span>
-          </p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</template>
 <script setup>
-import { reactive } from 'vue';
+import { reactive } from 'vue'
+
 const data = reactive([
   {
     title: '2026QS排名大洗牌！港大飙升！这次排名真的很颠...',
@@ -69,6 +44,34 @@ const data = reactive([
   },
 ])
 </script>
+
+<template>
+  <div class="x-news side-title2">
+    <h2><i></i>新闻资讯</h2>
+    <ul>
+      <li v-for="(item, index) in data" :key="index">
+        <NuxtLink :to="item.path">
+          <div class="image" :style="{ backgroundImage: `url(${item.image})` }"></div>
+        </NuxtLink>
+        <div class="news-text">
+          <NuxtLink :to="item.path">
+            <p class="title">
+              {{ item.title }}
+            </p>
+          </NuxtLink>
+          <p class="bottom">
+            <NuxtLink :to="item.path">
+              <span title=""><i :style="{ backgroundImage: `url(${item.authorImage})` }"></i>{{
+                item.author }}</span>
+            </NuxtLink>
+            <span>{{ item.date }}</span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
+
 <style lang="less">
 #side .x-news {
   background-color: #f7fafc

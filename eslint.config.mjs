@@ -39,6 +39,7 @@ export default antfu(
             "scripts/**",
             "eslint.config.mjs",
             "public",
-            "README.md"
+            "README.md",
+            ".vscode"
         ]
     })

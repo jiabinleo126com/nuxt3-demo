@@ -11,8 +11,7 @@ const FocusToday = defineAsyncComponent(() => import(`~/components/index/FocusTo
 const RealTimeInfo = defineAsyncComponent(() => import(`~/components/index/RealTimeInfo.vue`))
 const showhome = false
 
-const { data: { value: { activity, bannerlist, verticalvideos, horizontalvideos } } } = await useFetch(`/api/`)
-
+const { data: { value: { activity, bannerlist, verticalvideos, horizontalvideos, cityexpressdata } } } = await useFetch(`/api/`)
 useHead({
   script: [
     {
@@ -111,11 +110,6 @@ onMounted(() => {
       }
       $('.school-con').find('.school-list').eq($(this).index()).css('display', 'flex').siblings('.school-list').css('display', 'none')
     }, () => { })
-
-    $('#cityExpress > li').hover(() => {
-      $(this).addClass('active').siblings().removeClass('active')
-      $('.city-express-wrap').find('.contents').eq($(this).index()).css('display', 'flex').siblings('.contents').css('display', 'none')
-    }, () => { })
   })
 })
 </script>
@@ -128,7 +122,7 @@ onMounted(() => {
   <component :is="RealTimeInfo" />
   <component :is="InternationalSchool" />
   <component :is="HotSchool" />
-  <component :is="cityExpress" />
+  <component :is="cityExpress" :cityexpressdata />
   <component :is="Links" />
   <Footer />
 </template>
