@@ -172,10 +172,10 @@ $(function () {
   $(document).on("click", ".s2hk", function () {
     if (changeFlag) {
       changeFlag = false;
-      if (jian == 1) {
+      if (jian === 1) {
         jian = 2;
       }
-      else if (jian == 2) {
+      else if (jian === 2) {
         jian = 1;
       }
       jtf();
@@ -183,10 +183,10 @@ $(function () {
     return false;
   });
   function jtf() {
-    if (jian == 1) {
+    if (jian === 1) {
       $('html').t2s1();
     }
-    else if (jian == 2) {
+    else if (jian === 2) {
       $('html').s2t1();
     }
     localStorageSet('jtf', jian);

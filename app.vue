@@ -1,8 +1,8 @@
-<template>
-    <NuxtPage />
-</template>
 <script setup lang="ts">
 </script>
-<style>
 
-</style>
+<template>
+  <NuxtPage />
+</template>
+
+<style></style>
