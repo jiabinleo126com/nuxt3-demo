@@ -27,7 +27,7 @@ deleteFolderRecursive('product-page');
 fs.readdirSync(dir).forEach(file => {
     const filePath = path.join(dir, file);
     if (fs.statSync(filePath).isFile() && (file.endsWith('200.html') || file.endsWith('404.html'))) {
-        // fs.unlinkSync(filePath);
+        fs.unlinkSync(filePath);
     } else if (fs.statSync(filePath).isFile() && file.endsWith('.html')) {
         console.log(filePath)
         const content = fs.readFileSync(filePath, 'utf-8');
@@ -36,7 +36,7 @@ fs.readdirSync(dir).forEach(file => {
             if (fs.statSync(filePath_).isFile() && file_.endsWith('.js')) {
                 const jsStr = fs.readFileSync(filePath_, 'utf-8');
                 if (!content.includes(file_) || !jsStr.includes('onMounted')) {
-                    // fs.unlinkSync(filePath);
+                    fs.unlinkSync(filePath);
                     console.log(`已删除不包含预加载和不包含onMounted的文件: ${file_}`);
                 } else {
                     console.log(`未删除: ${file_}`);
