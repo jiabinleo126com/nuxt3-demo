@@ -1,7 +1,8 @@
 import { defineNuxtConfig } from 'nuxt/config'
 // import forceLowercaseAssets from './scripts/force-lowercase-assets.cjs'
-const routes = ['/zwhb', '/zwhb/project']
+const routes = ['/topic/2025/sz']
 export default defineNuxtConfig({
+  // modules: ['@nuxt/image'],
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   postcss: {

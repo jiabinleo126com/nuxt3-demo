@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { parse } = require('node-html-parser');
 
-const dir = path.resolve(__dirname, '../dist/');
+const dir = path.resolve(__dirname, '../dist/topic/2025/sz/');
 const staticsdir = path.resolve(__dirname, '../dist/statics');
 var tsContent = "//@ts-nocheck \n import \"./index.less\"; \n";
 
@@ -15,7 +15,7 @@ function deleteFolderRecursive(path) {
             if (fs.lstatSync(curPath).isDirectory()) {
                 deleteFolderRecursive(curPath);
             } else {
-                fs.unlinkSync(curPath);
+                // fs.unlinkSync(curPath);
             }
         });
         fs.rmdirSync(path);
@@ -26,6 +26,8 @@ deleteFolderRecursive('product-page');
 
 fs.readdirSync(dir).forEach(file => {
     const filePath = path.join(dir, file);
+    console.log("filePath")
+    console.log(filePath)
     if (fs.statSync(filePath).isFile() && (file.endsWith('200.html') || file.endsWith('404.html'))) {
         // fs.unlinkSync(filePath);
     } else if (fs.statSync(filePath).isFile() && file.endsWith('.html')) {
