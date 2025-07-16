@@ -86,7 +86,7 @@ const moduleConfig = {
       },
     },
     {
-      test: /\.(png|gif|jpe?g|svg)$/i,
+      test: /\.(png|gif|jpe?g|svg|webp)$/i,
       type: "asset/resource",
       // use: [
       //   'file-loader',

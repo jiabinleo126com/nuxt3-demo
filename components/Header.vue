@@ -12,7 +12,7 @@ const BarTitl = defineAsyncComponent(() => import(`./BarTitle.vue`))
 
 const hkTopic = reactive([
   {
-    title: '25年07月:等8所学校',
+    title: '25年07月:圣若瑟英文中学、中华基督教会基道中学等8所学校',
     path: '/topic/2025/hk14',
   },
   {

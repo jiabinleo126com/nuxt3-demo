@@ -406,14 +406,14 @@ const xingcheng = reactive([
             title: '中华基金中学',
             path: 'https://schoollist.ieduchina.com/school/cfss/',
             desc: [
-              '創辦時間:2000年',
-              '學校類別:直資、男女校',
-              '辦學團體:中華歷史文化教育基金會有限公司',
-              '學校位置:香港柴灣小西灣富欣道9號',
-              '課程體系:香港中學文憑試HKDSE',
-              '辦學宗旨:學校致力提供優質教育;運用現代科技及方法，培學生的領導才能批判思考、創造力和自信心;增進學生的知和技能，為他們日後貢社會作好準备',
-              '學校特色:中華基金中學以創新課程、國際化視野及全人發展益核心，致力培养備學術實力、社會责任感和全球競爭力的未來領袖。其直資學校的靈活性也讓課程設計更贴近時代需求，成為香港東區的熱門中學之一',
-              '教學語言:學校以英文為主要教學語言。'
+              '創辦時間：2000年',
+              '學校類別：直資、男女校',
+              '辦學團體：中華歷史文化教育基金會有限公司',
+              '學校位置：香港柴灣小西灣富欣道9號',
+              '課程體系：香港中學文憑試HKDSE',
+              '辦學宗旨：學校致力提供優質教育;運用現代科技及方法，培學生的領導才能批判思考、創造力和自信心;增進學生的知和技能，為他們日後貢社會作好準备',
+              '學校特色：中華基金中學以創新課程、國際化視野及全人發展益核心，致力培养備學術實力、社會责任感和全球競爭力的未來領袖。其直資學校的靈活性也讓課程設計更贴近時代需求，成為香港東區的熱門中學之一',
+              '教學語言：學校以英文為主要教學語言。'
             ],
             images: [
               {
@@ -502,7 +502,7 @@ useHead({
       href: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.min.css',
     },
   ],
-  title: '香港教育文化之旅第13期-香港探校 - 国际教育网',
+  title: '香港教育文化之旅第14期-香港中学校访校 - 国际教育网',
   meta: [
     {
       name: 'keywords',
@@ -510,14 +510,14 @@ useHead({
     },
     {
       name: 'description',
-      content: '5月2日-5月3日,香港教育文化之旅第13期圆满收官.此次活动如教育盛宴,为参访家庭带来难忘探索体验.行程丰富紧凑,探访团深入走访香港十所顶尖中学,路线涵盖DSE课程学校与国际课程学校,让参访家庭一站式领略不同名校风采.',
+      content: '本次访校活动行程丰富紧凑，国际教育网专家团队全程相伴，每到一所学校，便如知识引路人，凭借专业造诣和行业经验，深度解析学校特色与教学理念，详细讲解课程设置、师资力量，还分享教育发展趋势，让家长全方位了解学校。',
     },
   ],
 })
 </script>
 
 <template>
-  <div class="hk13">
+  <div class="hk14">
     <img src="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" alt="" height="0" width="0"
       img="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" style="display:none" />
     <Header />
@@ -537,7 +537,7 @@ useHead({
 </template>
 
 <style lang='less' scoped>
-.hk13 {
+.hk14 {
   --primary: #d53c90;
   --next: #ffc85e;
 }
@@ -564,5 +564,9 @@ section.gray {
 
 section.green>div>h3 {
   color: #fff;
+}
+
+.hk14 .xc-wrap .xc ul li .list .wrap .con .desc .image img {
+  object-position: right bottom;
 }
 </style>

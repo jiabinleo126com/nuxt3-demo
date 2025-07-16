@@ -29,8 +29,10 @@ onMounted(() => {
         <i class="close2808c713"></i>
         <ul>
           <li>
-            <a href="//www.ieduchina.com/topic/2025/hk13/" target="_blank" title="香港教育文化之旅"
-              class="active">25年05月:可风中学、屯门天主教中学等10所学校</a>
+            <a href="//www.ieduchina.com/topic/2025/hk14/" target="_blank" title="香港教育文化之旅"
+              class="active">25年07月:圣若瑟英文中学等8所学校</a>
+            <a href="//www.ieduchina.com/topic/2025/hk13/" target="_blank"
+              title="香港教育文化之旅">25年05月:可风中学、屯门天主教中学等10所学校</a>
             <a href="//www.ieduchina.com/topic/2025/hk12/" target="_blank"
               title="香港教育文化之旅">25年01月:中华基金中学、迦密爱礼信中学等7所学校</a>
             <a href="//www.ieduchina.com/topic/2025/hkyy10/" target="_blank" title="香港教育文化之旅">25年01月:汇基书院（东九龙）等6所学校</a>
@@ -60,17 +62,8 @@ onMounted(() => {
   z-index: 1000;
   top: 0;
   height: 1.792rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   padding: 0 0.64rem;
   background-color: white;
@@ -83,13 +76,7 @@ onMounted(() => {
 .top .top-right {
   position: relative;
   height: 1.792rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
 }
@@ -119,7 +106,6 @@ onMounted(() => {
   position: fixed;
   top: 0;
   left: 50%;
-  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   bottom: 0;
   display: none;
@@ -161,7 +147,6 @@ onMounted(() => {
 .top .menu_mask .con i.close2808c713::before,
 .top .menu_mask .con i.close2808c713::after {
   pointer-events: none;
-  -webkit-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
   position: absolute;
   left: 0.64rem;
@@ -171,12 +156,10 @@ onMounted(() => {
   height: 0.064rem;
   background-color: #7B7B7B;
   border-radius: 0.064rem;
-  -webkit-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
 }
 
 .top .menu_mask .con i.close2808c713::after {
-  -webkit-transform: rotateZ(-45deg);
   transform: rotateZ(-45deg);
   top: 1.17333333rem;
   left: 0.59733333rem;
@@ -205,7 +188,7 @@ onMounted(() => {
   display: inline-block;
   width: 0.10666667rem;
   height: 0.59733333rem;
-  background: var(--prime);
+  background: var(--primary);
   margin-right: 0.32rem;
   vertical-align: -0.064rem;
 }
@@ -227,7 +210,7 @@ onMounted(() => {
 
 .top .menu_mask .con ul li a.active {
   color: white;
-  background-color: var(--prime);
-  border-color: var(--prime);
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
 </style>
