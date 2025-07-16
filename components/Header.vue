@@ -63,7 +63,7 @@ const hkTopic = reactive([
 
 const InternationalEducationForum = reactive([
   {
-    path: '//www.ieduchina.com/topic/2025/sz/',
+    path: '/topic/2025/sz/',
     title: '2025年05月',
   },
   {

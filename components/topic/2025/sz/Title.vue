@@ -22,7 +22,7 @@ defineProps({
 </template>
 <style lang="less" module>
 .title {
-    background: url("./标题.png") center/contain no-repeat;
+    background: url("/assets/topic/2025/sz/标题.png") center/contain no-repeat;
     text-align: center;
 
     h2 {
