@@ -53,6 +53,10 @@ const menu = ref([
     path: '/topic/2025/hk13/',
     title: '第十三期',
   },
+  {
+    path: '/topic/2025/hk14/',
+    title: '第十四期',
+  },
 ])
 onMounted(() => {
   $(() => {
@@ -83,7 +87,8 @@ onMounted(() => {
   <div class="right-fixed-nav">
     <ul>
       <li class="right-nav">
-        <img src="//www.ieduchina.com/topic/2024/hk7/images/f361907d.png" alt="" style="width:40px;height:40px;margin-bottom:8px">
+        <img src="//www.ieduchina.com/topic/2024/hk7/images/f361907d.png" alt=""
+          style="width:40px;height:40px;margin-bottom:8px">
         <p class="title">
           往期回顾
         </p>

@@ -3,15 +3,15 @@ import { defineAsyncComponent } from 'vue'
 
 defineProps({
   data: {
-    type: () => Array,
+    type: Array,
     default: () => [],
   },
   color1: {
-    type: () => String,
+    type: String,
     default: () => '',
   },
   color2: {
-    type: () => String,
+    type: String,
     default: () => '',
   },
 })

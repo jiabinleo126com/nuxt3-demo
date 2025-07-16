@@ -41,7 +41,8 @@ onMounted(() => {
         message: '您的邮箱',
       },
     ]
-    $('.submit').on('click', () => {
+    $('.submit').on('click', function () {
+      debugger
       const form = $(this).closest('form')
       const errors: any = []
       const msg = inputs.reduce((acc, input: any) => {
@@ -94,7 +95,8 @@ onMounted(() => {
             <input name="name" type="text" class="username" placeholder="请输入学生姓名" autocomplete="off">
           </div>
           <div>
-            <input name="mobile" type="text" class="telphone" placeholder="请输入家长手机号" autocomplete="off" datatype="m" maxlength="11">
+            <input name="mobile" type="text" class="telphone" placeholder="请输入家长手机号" autocomplete="off" datatype="m"
+              maxlength="11">
           </div>
           <div class="select">
             <select class="grateClass" name="grade">

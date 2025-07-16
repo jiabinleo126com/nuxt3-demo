@@ -12,6 +12,10 @@ const BarTitl = defineAsyncComponent(() => import(`./BarTitle.vue`))
 
 const hkTopic = reactive([
   {
+    title: '25年07月:等8所学校',
+    path: '/topic/2025/hk14',
+  },
+  {
     title: '25年05月:可风中学、世界龙冈学校刘皇发中学等10所学校',
     path: '/topic/2025/hk13',
   },
@@ -290,7 +294,8 @@ onMounted(() => {
               </li>
               <li>
                 <a href="//www.ieduchina.com/topic/2025/hk13/" target="_blank">
-                  <span><img src="//www.ieduchina.com/statics/pcc/img/11d86433.png" style="vertical-align: -1px;">访校团</span>
+                  <span><img src="//www.ieduchina.com/statics/pcc/img/11d86433.png"
+                      style="vertical-align: -1px;">访校团</span>
                 </a>
                 <div class="box">
                   <div class="box_lis">
