@@ -41,6 +41,23 @@ import school8Image1 from '~/assets/topic/2025/hk14/640 (28).webp'
 import school8Image2 from '~/assets/topic/2025/hk14/640 (29).webp'
 import school8Image3 from '~/assets/topic/2025/hk14/640 (30).webp'
 import school8Image4 from '~/assets/topic/2025/hk14/640 (31).webp'
+import iconImage from '~/assets/topic/2025/hk14/800.png'
+import images1 from '/assets/topic/2025/hk14/320/1.jpg'
+import images2 from '/assets/topic/2025/hk14/320/2.jpg'
+import images3 from '/assets/topic/2025/hk14/320/3.jpg'
+import images4 from '/assets/topic/2025/hk14/320/4.jpg'
+import images5 from '/assets/topic/2025/hk14/320/5.jpg'
+import images6 from '/assets/topic/2025/hk14/320/6.jpg'
+import images7 from '/assets/topic/2025/hk14/320/7.jpg'
+import images8 from '/assets/topic/2025/hk14/320/8.jpg'
+import images1_ from '/assets/topic/2025/hk14/1.jpg'
+import images2_ from '/assets/topic/2025/hk14/2.jpg'
+import images3_ from '/assets/topic/2025/hk14/3.jpg'
+import images4_ from '/assets/topic/2025/hk14/4.jpg'
+import images5_ from '/assets/topic/2025/hk14/5.jpg'
+import images6_ from '/assets/topic/2025/hk14/6.jpg'
+import images7_ from '/assets/topic/2025/hk14/7.jpg'
+import images8_ from '/assets/topic/2025/hk14/8.jpg'
 
 const Banner = defineAsyncComponent(() => import('~/components/topic/hkfxy/Banner.vue'))
 const LiangDian = defineAsyncComponent(() => import('~/components/topic/hkfxy/LiangDian.vue'))
@@ -52,8 +69,9 @@ const MaskForm = defineAsyncComponent(() => import('~/components/topic/hkfxy/Mas
 const RightFixedNav = defineAsyncComponent(() => import('~/components/topic/hkfxy/RightFixedNav.vue'))
 const ImgMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/ImgMask.vue'))
 const VideoMask = defineAsyncComponent(() => import('~/components/topic/hkfxy/VideoMask.vue'))
+const Images = defineAsyncComponent(() => import('~/components/topic/hkfxy/Images.vue'))
 
-const about = ref([
+const about = [
   '都说读万卷书不如行万里路，想真正了解一所学校，也是这个理儿。光在网上看碎片化的信息可不够！',
   '这不，第14期【香港教育文化之旅】，我们带着10组家庭，在两天一夜的时间里，沉浸式打卡了8所香港本地学校，实打实体验了把 “名校零距离”!',
   '2天行程满满当当，大家都说收获超足！',
@@ -62,7 +80,7 @@ const about = ref([
   '校长和老师全程导览，带领大家参观校园各处，从现代化教学楼到实验室、艺术教室、运动场，展示校园文化魅力。',
   '通过实地探访，各位家长和同学对香港中学的办学特色、课程设置及升学路径都有了更直观的认识。',
   '希望这些宝贵的见闻与体验，能为大家未来的教育选择提供重要参考。'
-])
+]
 const school = [
   {
     path: 'https://schoollist.ieduchina.com/school/sjacshk/',
@@ -105,8 +123,8 @@ const school = [
     logo: schoolLogo2,
   },
 ]
-const liangdian = reactive(['独家定制香港中学探访团，深入体验香港八所顶尖中学', '路线覆盖香港核心名校区，一站式领略学校风采', '名师带队讲解，深度解析学校特色与教学理念', '校长老师全程相伴导览，探索校园细节，饱览校园风光', '校长亲授普通话升学讲座，精准把握香港教育体系脉络', '前瞻布局择校规划蓝图，量身定制个性化升学路径'])
-const xingcheng = reactive([
+const liangdian = ['独家定制香港中学探访团，深入体验香港八所顶尖中学', '路线覆盖香港核心名校区，一站式领略学校风采', '名师带队讲解，深度解析学校特色与教学理念', '校长老师全程相伴导览，探索校园细节，饱览校园风光', '校长亲授普通话升学讲座，精准把握香港教育体系脉络', '前瞻布局择校规划蓝图，量身定制个性化升学路径']
+const xingcheng = [
   {
     title: '每日行程',
     list: [
@@ -442,10 +460,48 @@ const xingcheng = reactive([
       },
     ],
   }
-])
-const arrimg = ref('https://www.ieduchina.com/topic/2025/hk13/images/70084d28.png')
+]
+const imagesData = [
+  {
+    image:images1,
+    imageMax:images1_
+  },
+  {
+    image:images2,
+    imageMax:images2_
+  },
+  {
+    image:images3,
+    imageMax:images3_
+  },
+  {
+    image:images4,
+    imageMax:images4_
+  },
+  {
+    image:images5,
+    imageMax:images5_
+  },
+  {
+    image:images6,
+    imageMax:images6_
+  },
+  {
+    image:images7,
+    imageMax:images7_
+  },
+  {
+    image:images8,
+    imageMax:images8_
+  },
+]
 useHead({
   script: [
+    {
+      innerHTML: `
+      /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(window.location.href="/m/topic/2025/hk14/");
+      `
+    },
     {
       src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
       type: 'text/javascript',
@@ -457,34 +513,9 @@ useHead({
       defer: true,
     },
     {
-      src: '/tencent-cdn/qcloud/video/dist/tcadapter.1.0.0.min.js',
+      src: 'https://www.ieduchina.com/statics/js/layer.js',
+      type: 'text/javascript',
       defer: true,
-      crossorigin: 'anonymous',
-    },
-    {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/TXLivePlayer-1.2.3.min.js',
-      defer: true,
-      crossorigin: 'anonymous',
-    },
-    {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/hls.min.1.1.5.js',
-      defer: true,
-      crossorigin: 'anonymous',
-    },
-    {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/flv.min.1.6.3.js',
-      defer: true,
-      crossorigin: 'anonymous',
-    },
-    {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/dash.all.min.4.4.1.js',
-      defer: true,
-      crossorigin: 'anonymous',
-    },
-    {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.v4.5.4.min.js',
-      defer: true,
-      crossorigin: 'anonymous',
     },
   ],
   link: [
@@ -496,10 +527,6 @@ useHead({
     {
       rel: 'stylesheet',
       href: 'https://www.ieduchina.com/statics/pc/css/swiper.min.css',
-    },
-    {
-      rel: 'stylesheet',
-      href: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.min.css',
     },
   ],
   title: '香港教育文化之旅第14期-香港中学校访校 - 国际教育网',
@@ -518,15 +545,15 @@ useHead({
 
 <template>
   <div class="hk14">
-    <img src="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" alt="" height="0" width="0"
-      img="//www.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" style="display:none" />
+    <img :src="iconImage" alt="" height="0" width="0" style="display:none" />
     <Header />
     <section>
       <component :is="Banner" :src="bannerImage" height="420" alt="2025年香港名校探校之旅" />
       <component :is="About" :data="about" />
+      <component :is="Images" :data="imagesData" />
       <component :is="LiangDian" :data="liangdian" />
     </section>
-    <component :is="XingCheng" :data="xingcheng" :arrimg />
+    <component :is="XingCheng" :data="xingcheng" />
     <component :is="School" :data="school" width="width:25%" />
     <component :is="Footer" />
     <component :is="VideoMask" />

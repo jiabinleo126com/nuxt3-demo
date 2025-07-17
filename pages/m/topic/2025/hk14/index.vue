@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, defineAsyncComponent } from 'vue';
+import { onMounted, defineAsyncComponent } from 'vue'
 import BannerData from '~/assets/m/topic/2025/hk14/750.png'
 import schoolLogo1 from '~/assets/topic/2025/hk14/school/组 961@1x.png'
 import schoolLogo2 from '~/assets/topic/2025/hk14/school/组 972@1x.png'
@@ -41,14 +41,32 @@ import school8Image1 from '~/assets/topic/2025/hk14/640 (28).webp'
 import school8Image2 from '~/assets/topic/2025/hk14/640 (29).webp'
 import school8Image3 from '~/assets/topic/2025/hk14/640 (30).webp'
 import school8Image4 from '~/assets/topic/2025/hk14/640 (31).webp'
+import iconImage from '~/assets/topic/2025/hk14/800.png'
+import images1 from '/assets/topic/2025/hk14/320/1.jpg'
+import images2 from '/assets/topic/2025/hk14/320/2.jpg'
+import images3 from '/assets/topic/2025/hk14/320/3.jpg'
+import images4 from '/assets/topic/2025/hk14/320/4.jpg'
+import images5 from '/assets/topic/2025/hk14/320/5.jpg'
+import images6 from '/assets/topic/2025/hk14/320/6.jpg'
+import images7 from '/assets/topic/2025/hk14/320/7.jpg'
+import images8 from '/assets/topic/2025/hk14/320/8.jpg'
+import images1_ from '/assets/topic/2025/hk14/1.jpg'
+import images2_ from '/assets/topic/2025/hk14/2.jpg'
+import images3_ from '/assets/topic/2025/hk14/3.jpg'
+import images4_ from '/assets/topic/2025/hk14/4.jpg'
+import images5_ from '/assets/topic/2025/hk14/5.jpg'
+import images6_ from '/assets/topic/2025/hk14/6.jpg'
+import images7_ from '/assets/topic/2025/hk14/7.jpg'
+import images8_ from '/assets/topic/2025/hk14/8.jpg'
 const TopMenu = defineAsyncComponent(() => import(`~/components/m/topic/hkfxy/TopMenu.vue`))
 const Banner = defineAsyncComponent(() => import(`~/components/m/topic/hkfxy/Banner.vue`))
 const Lthg = defineAsyncComponent(() => import(`~/components/m/topic/hkfxy/Lthg.vue`))
 const Liangdian = defineAsyncComponent(() => import(`~/components/m/topic/hkfxy/Liangdian.vue`))
 const XingCheng = defineAsyncComponent(() => import(`~/components/m/topic/hkfxy/XingCheng.vue`))
 const School = defineAsyncComponent(() => import(`~/components/m/topic/hkfxy/School.vue`))
+const Images = defineAsyncComponent(() => import('~/components/m/topic/hkfxy/Images.vue'))
 
-const about = ref([
+const about = [
   '都说读万卷书不如行万里路，想真正了解一所学校，也是这个理儿。光在网上看碎片化的信息可不够！',
   '这不，第14期【香港教育文化之旅】，我们带着10组家庭，在两天一夜的时间里，沉浸式打卡了8所香港本地学校，实打实体验了把 “名校零距离”!',
   '2天行程满满当当，大家都说收获超足！',
@@ -57,8 +75,8 @@ const about = ref([
   '校长和老师全程导览，带领大家参观校园各处，从现代化教学楼到实验室、艺术教室、运动场，展示校园文化魅力。',
   '通过实地探访，各位家长和同学对香港中学的办学特色、课程设置及升学路径都有了更直观的认识。',
   '希望这些宝贵的见闻与体验，能为大家未来的教育选择提供重要参考。'
-])
-const LiangdianData = reactive(['独家定制香港中学探访团，深入体验香港八所顶尖中学', '路线覆盖香港核心名校区，一站式领略学校风采', '名师带队讲解，深度解析学校特色与教学理念', '校长老师全程相伴导览，探索校园细节，饱览校园风光', '校长亲授普通话升学讲座，精准把握香港教育体系脉络', '前瞻布局择校规划蓝图，量身定制个性化升学路径'])
+]
+const LiangdianData = ['独家定制香港中学探访团，深入体验香港八所顶尖中学', '路线覆盖香港核心名校区，一站式领略学校风采', '名师带队讲解，深度解析学校特色与教学理念', '校长老师全程相伴导览，探索校园细节，饱览校园风光', '校长亲授普通话升学讲座，精准把握香港教育体系脉络', '前瞻布局择校规划蓝图，量身定制个性化升学路径']
 const school = [
   {
     path: 'https://schoollist.ieduchina.com/school/sjacshk/',
@@ -101,7 +119,7 @@ const school = [
     logo: schoolLogo2,
   },
 ]
-const xingcheng = reactive([
+const xingcheng = [
   {
     title: '每日行程',
     list: [
@@ -110,7 +128,7 @@ const xingcheng = reactive([
         list: [
           {
             time: '08:10',
-            title: '香港8度海逸酒店 集合',
+            title: '集合',
           },
           {
             time: '08:20-08:50',
@@ -266,7 +284,7 @@ const xingcheng = reactive([
           },
           {
             time: '17:00',
-            title: '返回 香港8度海逸酒店',
+            title: '返程',
           },
         ],
       },
@@ -275,7 +293,7 @@ const xingcheng = reactive([
         list: [
           {
             time: '08:10',
-            title: '香港8度海逸酒店 集合',
+            title: '集合',
           },
           {
             time: '08:10-08:50',
@@ -431,64 +449,132 @@ const xingcheng = reactive([
           },
           {
             time: '17:20',
-            title: '返程 龙堡国际酒店',
+            title: '返程 香港校区',
           },
         ],
       },
     ],
   }
-])
+]
+const ImagesData = [
+  {
+    image:images1,
+    imageMax:images1_
+  },
+  {
+    image:images2,
+    imageMax:images2_
+  },
+  {
+    image:images3,
+    imageMax:images3_
+  },
+  {
+    image:images4,
+    imageMax:images4_
+  },
+  {
+    image:images5,
+    imageMax:images5_
+  },
+  {
+    image:images6,
+    imageMax:images6_
+  },
+  {
+    image:images7,
+    imageMax:images7_
+  },
+  {
+    image:images8,
+    imageMax:images8_
+  },
+]
 useHead({
   script: [
+    {
+      innerHTML: `
+      /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)||(window.location.href="/topic/2025/hk14/");
+      (function () {
+            function onResize() {
+                var width = document.documentElement.clientWidth;
+                var style = document.createElement("style");
+                style.setAttribute('id', 'style')
+                var html = '';
+                if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                    html = "html{font-size: " + width / 16 + "px !important;}";
+                } else {
+                    html = "html{font-size: " + 750 / 16 + "px !important;width:750px;margin:0 auto;}";
+                }
+                if (document.getElementById('style')) {
+                    document.getElementById('style').innerHTML = html
+                } else {
+                    style.innerHTML = html;
+                    document.head.appendChild(style);
+                }
+            }
+            window.addEventListener('resize', onResize);
+            onResize()
+        })();
+      `
+    },
     {
       src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
       type: 'text/javascript',
       defer: true,
+      body: true,
     },
     {
       src: 'https://www.ieduchina.com/statics/pcc/js/swiper.min.js',
       type: 'text/javascript',
       defer: true,
+      body: true,
     },
     {
-      src: '/tencent-cdn/qcloud/video/dist/tcadapter.1.0.0.min.js',
+      src: 'https://m.ieduchina.com/statics/users/js/layer.js',
+      type: 'text/javascript',
       defer: true,
-      crossorigin: 'anonymous',
+      body: true,
     },
     {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/TXLivePlayer-1.2.3.min.js',
+      src: 'https://m.ieduchina.com/topic/tgFrom.js',
+      type: 'text/javascript',
       defer: true,
-      crossorigin: 'anonymous',
+      body: true,
     },
     {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/hls.min.1.1.5.js',
+      src: 'https://res2.wx.qq.com/open/js/jweixin-1.6.0.js',
+      type: 'text/javascript',
       defer: true,
-      crossorigin: 'anonymous',
+      body: true,
     },
     {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/flv.min.1.6.3.js',
+      src: 'https://res2.wx.qq.com/open/js/jweixin-1.6.0.js',
+      type: 'text/javascript',
       defer: true,
-      crossorigin: 'anonymous',
+      body: true,
     },
     {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/libs/dash.all.min.4.4.1.js',
+      src: 'https://m.ieduchina.com/topic/weixinShare.js',
+      type: 'text/javascript',
       defer: true,
-      crossorigin: 'anonymous',
+      body: true,
     },
     {
-      src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.v4.5.4.min.js',
+      src: 'https://m.ieduchina.com/statics/js/s2hk.js',
+      type: 'text/javascript',
       defer: true,
-      crossorigin: 'anonymous',
+      body: true,
     },
   ],
   link: [
     {
       itemprop: 'image',
-      content: 'https://m.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg',
+      content: iconImage,
     },
     {
       rel: 'apple-touch-icon',
-      href: 'https://m.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg',
+      href: iconImage,
     },
     {
       rel: 'shortcut icon',
@@ -498,10 +584,6 @@ useHead({
     {
       rel: 'stylesheet',
       href: '//m.ieduchina.com/statics/css/swiper.min.css',
-    },
-    {
-      rel: 'stylesheet',
-      href: '//web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.min.css',
     },
   ],
   title: '香港教育文化之旅第14期-香港中学校访校 - 国际教育网',
@@ -518,13 +600,6 @@ useHead({
 })
 
 onMounted(() => {
-  !function () {
-    var t = document.documentElement.clientWidth
-      , e = document.createElement("style");
-    /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) ? e.innerHTML = "html{font-size: " + t / 16 + "px !important;}" : e.innerHTML = "html{font-size: 46.875px !important;width:750px;margin:0 auto;}",
-      document.head.appendChild(e)
-  }()
-
   $("#fullyear").text(new Date().getFullYear());
   var swiper1 = new Swiper(".preview_swiper", {
     slidesPerView: 1,
@@ -613,6 +688,7 @@ onMounted(() => {
     }
   ];
   $(".submit").on("click", function () {
+    $('html').t2s1()
     var form = $(this).closest("form");
     var errors = [];
     var msg = inputs.reduce(function (acc, input) {
@@ -664,21 +740,7 @@ onMounted(() => {
     }
     return false;
   });
-  try {
-    var player = TCPlayer('masksp', {});
-    player.poster($(".sp").find("li").eq(0).find("img").attr("src"));
-  }
-  catch (error) {
-  }
-  $(".sp").on("click", "li img", function () {
-    $("#mask").show();
-    $("html,body").addClass("noscroll");
-    player.src($(this).attr("value"));
-    player.poster($(this).attr("src"));
-    setTimeout(function () {
-      player.play();
-    }, 300);
-  });
+
   $("#mask").on("click", "img", function () {
     $("html,body").removeClass("noscroll");
     player.pause();
@@ -727,13 +789,13 @@ onMounted(() => {
 </script>
 <template>
   <div class="hk14">
-    <img alt="" src="https://m.ieduchina.com/topic/2025/hk13/images/1d83b8f1.jpg" img="images/1d83b8f1.jpg" id="share"
-      style="display:none">
+    <img alt="香港访校营" :src="iconImage" id="share" style="display:none">
     <component :is="TopMenu" />
     <component :is="Banner" :src="BannerData" />
+    <component :is="Images" :data="ImagesData" />
     <component :is="Lthg" :data="about" />
     <component :is="Liangdian" :data="LiangdianData" />
-    <component :is="XingCheng" :data="xingcheng"/>
+    <component :is="XingCheng" :data="xingcheng" />
     <component :is="School" :data="school" />
     <section class="form_up">
       <div class="con">
@@ -988,7 +1050,7 @@ section .ld ul li span {
 }
 
 section .ld ul li:nth-of-type(2n) span {
-  background-color: #f99501;
+  background-color: var(--next);
 }
 
 section .jc {
@@ -1290,8 +1352,8 @@ section.form_up .con form button {
   width: 100%;
   height: 1.92rem;
   background: var(--primary);
-  -webkit-box-shadow: 0 0.064rem 0.128rem 0.02133333rem rgba(39, 55, 112, 0.502);
-  box-shadow: 0 0.064rem 0.128rem 0.02133333rem rgba(39, 55, 112, 0.502);
+  -webkit-box-shadow: 0 0.064rem 0.128rem 0.02133333rem rgba(213, 60, 144, 0.502);
+  box-shadow: 0 0.064rem 0.128rem 0.02133333rem rgba(213, 60, 144, 0.502);
   border-radius: 0.21333333rem;
   font-size: 0.768rem;
   font-weight: 500;

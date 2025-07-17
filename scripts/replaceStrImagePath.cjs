@@ -85,13 +85,13 @@ fs.readdirSync(dir).forEach(file => {
             'src="<%=require(`../dist/statics/$1`)%>"'
         ).replace(
             /preview="\/statics\/([^"]+\.png)"/g,
-            'src="<%=require(`../dist/statics/$1`)%>"'
+            'preview="<%=require(`../dist/statics/$1`)%>"'
         ).replace(
             /preview="\/statics\/([^"]+\.jpg)"/g,
-            'src="<%=require(`../dist/statics/$1`)%>"'
+            'preview="<%=require(`../dist/statics/$1`)%>"'
         ).replace(
             /preview="\/statics\/([^"]+\.webp)"/g,
-            'src="<%=require(`../dist/statics/$1`)%>"'
+            'preview="<%=require(`../dist/statics/$1`)%>"'
         );;
         var ejspath = file.replace("dist", "product-page").replace(".html", ".ejs")
         console.log(ejspath)
