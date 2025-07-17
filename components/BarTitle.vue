@@ -8,18 +8,6 @@ defineProps({
   },
 })
 onMounted(() => {
-  function showMenu() {
-    var top = $(window).scrollTop();
-    var position = top > ($('#bar_header').height() + $('#bar_title').height() + ($('#pc_ad_top').height() || 0)) ? 'fixed' : 'initial';
-    console.log(position)
-    $('#iedu_menu_box').css({
-      position: position
-    });
-  }
-  $(document).on('scroll', function () {
-    showMenu();
-  });
-  showMenu();
   function getcookieval(objname) {
     const arrstr = document.cookie.split('; ')
     for (let i = 0; i < arrstr.length; i++) {
