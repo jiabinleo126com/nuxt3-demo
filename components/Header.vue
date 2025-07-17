@@ -145,6 +145,7 @@ useHead({
       src: '/s2hk.js',
       type: 'text/javascript',
       defer: true,
+      body: true
     },
   ],
 })
@@ -162,37 +163,11 @@ onMounted(() => {
         return false
       }
     })
-    function isShowMenu() {
-      const ad_height = $('#pc_ad_top').height() || 0
-      const top = $(window).scrollTop()
-      const position = top > ($('.bar-header').height() + $('.bar-title').height() + ad_height) ? 'fixed' : 'initial'
-      $('.iedu-menu-box').css({
-        position,
-      })
-    }
-    $(document).on('scroll', () => {
-      isShowMenu()
-    })
-    isShowMenu()
     $('.parentMenu').hover(function () {
       $(this).find('.submenu').show()
     }, function () {
       $(this).find('.submenu').hide()
     })
-    function getcookieval(objname) {
-      const arrstr = document.cookie.split('; ')
-      for (let i = 0; i < arrstr.length; i++) {
-        const temp = arrstr[i].split('=')
-        if (temp[0] === objname)
-          return decodeURI(unescape(temp[1]))
-      }
-    }
-    const live_username = getcookieval('live_username')
-    if (live_username) {
-      const userUrl = '//www.ieduchina.com/usercenter/index/index.html'
-      const html = `<p class='logout'><span><a rel='nofollow' target='_blank' href='${userUrl}'>${live_username}</a></span><span> | </span><a href='//www.ieduchina.com/logout.html'>退出</a></p>`
-      $('#login-before').html(html)
-    }
   })
 })
 </script>
@@ -200,7 +175,7 @@ onMounted(() => {
 <template>
   <header class="bar">
     <BarTitl :showhome />
-    <div class="bar-header">
+    <div class="bar-header" id="bar_header">
       <div class="logo">
         <NuxtLink to="/">
           <img src="//www.ieduchina.com/statics/pcc/img/logo_header.png?v=1" alt="国际教育网" />
@@ -220,7 +195,7 @@ onMounted(() => {
       </div>
     </div>
     <div class="iedu-menu-wrap">
-      <div class="iedu-menu-box">
+      <div class="iedu-menu-box" id="iedu_menu_box">
         <ul class="iedu-menu">
           <li>
             <NuxtLink to="/">
@@ -238,17 +213,17 @@ onMounted(() => {
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/school">
+                <NuxtLink to="/abroad">
                   <span>留学资讯</span>
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/school">
+                <NuxtLink to="/parents">
                   <span>家庭教育</span>
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/school">
+                <NuxtLink to="/zt">
                   <span>教育综合</span>
                 </NuxtLink>
               </li>

@@ -42,7 +42,6 @@ onMounted(() => {
       },
     ]
     $('.submit').on('click', function () {
-      debugger
       const form = $(this).closest('form')
       const errors: any = []
       const msg = inputs.reduce((acc, input: any) => {

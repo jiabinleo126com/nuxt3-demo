@@ -463,36 +463,36 @@ const xingcheng = [
 ]
 const imagesData = [
   {
-    image:images1,
-    imageMax:images1_
+    image: images1,
+    imageMax: images1_
   },
   {
-    image:images2,
-    imageMax:images2_
+    image: images2,
+    imageMax: images2_
   },
   {
-    image:images3,
-    imageMax:images3_
+    image: images3,
+    imageMax: images3_
   },
   {
-    image:images4,
-    imageMax:images4_
+    image: images4,
+    imageMax: images4_
   },
   {
-    image:images5,
-    imageMax:images5_
+    image: images5,
+    imageMax: images5_
   },
   {
-    image:images6,
-    imageMax:images6_
+    image: images6,
+    imageMax: images6_
   },
   {
-    image:images7,
-    imageMax:images7_
+    image: images7,
+    imageMax: images7_
   },
   {
-    image:images8,
-    imageMax:images8_
+    image: images8,
+    imageMax: images8_
   },
 ]
 useHead({
@@ -505,17 +505,28 @@ useHead({
     {
       src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
       type: 'text/javascript',
-      defer: true,
+      body: true
     },
     {
       src: 'https://www.ieduchina.com/statics/pcc/js/swiper.min.js',
       type: 'text/javascript',
-      defer: true,
+      body: true
     },
     {
       src: 'https://www.ieduchina.com/statics/js/layer.js',
       type: 'text/javascript',
+      body: true
+    },
+    {
+      src: 'https://www.ieduchina.com/topic/tgFrom.js',
+      type: 'text/javascript',
       defer: true,
+      body: true
+    },
+    {
+      src: 'https://www.ieduchina.com/statics/common/js/s2hk.js',
+      type: 'text/javascript',
+      body: true
     },
   ],
   link: [

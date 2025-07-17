@@ -1,14 +1,44 @@
 <script setup>
+import { onMounted } from 'vue';
+
 defineProps({
   showhome: {
     type: Boolean,
     default: true,
   },
 })
+onMounted(() => {
+  function showMenu() {
+    var top = $(window).scrollTop();
+    var position = top > ($('#bar_header').height() + $('#bar_title').height() + ($('#pc_ad_top').height() || 0)) ? 'fixed' : 'initial';
+    console.log(position)
+    $('#iedu_menu_box').css({
+      position: position
+    });
+  }
+  $(document).on('scroll', function () {
+    showMenu();
+  });
+  showMenu();
+  function getcookieval(objname) {
+    const arrstr = document.cookie.split('; ')
+    for (let i = 0; i < arrstr.length; i++) {
+      const temp = arrstr[i].split('=')
+      if (temp[0] === objname)
+        return decodeURI(unescape(temp[1]))
+    }
+  }
+  const live_username = getcookieval('live_username')
+  if (live_username) {
+    const userUrl = '//www.ieduchina.com/usercenter/index/index.html'
+    const html = `<p class='logout'><span><a rel='nofollow' target='_blank' href='${userUrl}'>${live_username}</a></span><span> | </span><a href='//www.ieduchina.com/logout.html'>退出</a></p>`
+    $('#login-before').html(html)
+  }
+})
 </script>
 
 <template>
-  <div :class="$style.bar_title">
+  <div :class="$style.bar_title" id="bar_title">
     <div :class="$style.bar_title_con">
       <ul :class="$style.left">
         <li :class="$style.nav">
@@ -47,7 +77,8 @@ defineProps({
                   <a href="/xuexi/index.html?tgfrom=guanwang" target="_blank">官方考试</a>
                 </li>
                 <li>
-                  <a href="https://appaznrqrnb5508.h5.xiaoeknow.com/p/decorate/more/eyJpZCI6MTYzNzI4NDEsImNoYW5uZWxfaWQiOiIiLCJjb21wb25lbnRfaWQiOjI5NDkzODU2fQ" target="_blank">学习资源</a>
+                  <a href="https://appaznrqrnb5508.h5.xiaoeknow.com/p/decorate/more/eyJpZCI6MTYzNzI4NDEsImNoYW5uZWxfaWQiOiIiLCJjb21wb25lbnRfaWQiOjI5NDkzODU2fQ"
+                    target="_blank">学习资源</a>
                 </li>
               </ol>
             </div>
@@ -67,7 +98,7 @@ defineProps({
           <a href="/login.html" target="_blank">登录</a>/
           <a href="/register.html" target="_blank">注册</a>
         </li>
-        <li><a :class="$style.s2hk" style="cursor:pointer">简体</a></li>
+        <li><a class="s2hk" style="cursor:pointer">简体</a></li>
       </ul>
     </div>
   </div>
