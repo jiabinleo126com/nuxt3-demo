@@ -7,6 +7,17 @@ defineProps({
     default: true,
   },
 })
+
+useHead({
+  script: [
+    {
+      src: '/s2hk.js',
+      type: 'text/javascript',
+      defer: true,
+      body: true
+    },
+  ],
+})
 onMounted(() => {
   function getcookieval(objname) {
     const arrstr = document.cookie.split('; ')

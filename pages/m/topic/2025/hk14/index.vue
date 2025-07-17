@@ -545,12 +545,12 @@ useHead({
       body: true,
     },
     {
-      src: 'https://m.ieduchina.com/topic/weixinShare.js',
+      src: '/weixinShare.js',
       type: 'text/javascript',
       body: true,
     },
     {
-      src: 'https://m.ieduchina.com/statics/js/s2hk.js',
+      src: '/s2hk.js',
       type: 'text/javascript',
       body: true,
     },
