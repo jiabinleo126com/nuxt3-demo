@@ -5,6 +5,7 @@ import { computed, defineAsyncComponent, reactive } from 'vue'
 const space = ''
 
 const YinZhang = defineAsyncComponent(() => import('../../components/zhaosheng/YinZhang.vue'))
+const CheckBox = defineAsyncComponent(() => import('../../components/zhaosheng/CheckBox.vue'))
 
 interface DataType {
   name: string
@@ -101,11 +102,11 @@ useHead({
               <i>HK</i><span>{{ data.minMoney }}</span>
             </div>
             <div class="desc-center">
-              <span><img src="./未选中.png" alt="选中">现金</span>
-              <span><img src="./未选中.png" alt="选中">转账</span>
-              <span><img src="./未选中.png" alt="选中">微信/支付宝</span>
-              <span><img src="./未选中.png" alt="选中">支票</span>
-              <span><img src="./选中.png" alt="选中">移动支付</span>
+              <component :is="CheckBox" checked title="现金" />
+              <component :is="CheckBox" title="转账" />
+              <component :is="CheckBox" title="微信/支付宝" />
+              <component :is="CheckBox" title="支票" />
+              <component :is="CheckBox" title="移动支付" />
             </div>
             <div class="desc-right">
               收款单位（盖章）
@@ -272,20 +273,6 @@ useHead({
             font-size: 0.5cm;
             display: block;
             margin-left: 0.6cm;
-
-            span {
-              display: inline-block;
-              min-width: 2cm;
-
-              &:nth-of-type(2) {
-                margin-right: 0.9cm;
-              }
-            }
-
-            img {
-              width: 0.6cm;
-              vertical-align: -0.1cm;
-            }
           }
 
           .desc-right {
