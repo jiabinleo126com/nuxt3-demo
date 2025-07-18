@@ -491,6 +491,9 @@ const ImagesData = [
   },
 ]
 useHead({
+  bodyAttrs: {
+    hk14: ""
+  },
   script: [
     {
       innerHTML: `
@@ -776,113 +779,111 @@ onMounted(() => {
 
 </script>
 <template>
-  <div class="hk14">
-    <img alt="香港访校营" :src="iconImage" id="share" style="display:none">
-    <component :is="TopMenu" />
-    <component :is="Banner" :src="BannerData" />
-    <component :is="Images" :data="ImagesData" />
-    <component :is="Lthg" :data="about" />
-    <component :is="Liangdian" :data="LiangdianData" />
-    <component :is="XingCheng" :data="xingcheng" />
-    <component :is="School" :data="school" />
-    <section class="form_up">
-      <div class="con">
-        <form action="/index.php?m=college&c=index&a=collegereg&dopost=reg" method="POST">
-          <p>下一期探校预约报名</p>
-          <input name="name" type="text" placeholder="学生姓名">
-          <input name="mobile" type="text" placeholder="您的手机">
-          <select name="grade">
-            <option value="" style="display:none">学生即将入读年级</option>
-            <option value="幼儿园">幼儿园</option>
-            <option value="一年级">一年级</option>
-            <option value="二年级">二年级</option>
-            <option value="三年级">三年级</option>
-            <option value="四年级">四年级</option>
-            <option value="五年级">五年级</option>
-            <option value="六年级">六年级</option>
-            <option value="七年级">七年级</option>
-            <option value="八年级">八年级</option>
-            <option value="九年级">九年级</option>
-            <option value="十年级">十年级</option>
-            <option value="十一年级">十一年级</option>
-            <option value="十二年级">十二年级</option>
-            <option value="大一">大一</option>
-            <option value="大二">大二</option>
-            <option value="大三">大三</option>
-            <option value="大四">大四</option>
-            <option value="其他">其他</option>
-          </select>
-          <input name="want_school" type="text" placeholder="意向学校">
-          <input name="email" type="text" placeholder="您的邮箱">
-          <input name="mark" type="hidden" value="香港教育文化之旅第14期_国际教育网WAP版">
-          <button class="submit">立即预约</button>
-        </form>
-        <div class="close">
-          <img alt="" src="//m.ieduchina.com/topic/2024/hk7/images/d978f273.png?t=2808c713">
-        </div>
-      </div>
-    </section>
-    <footer>
-      <p>
-        Copyright@<span id="fullyear"></span>
-        ，国际教育网 版权所有
-      </p>
-      <p>粤ICP备2021064228号-2 & 粤公网安备44030502002588号</p>
-    </footer>
-    <div class="mask" id="mask">
-      <img alt="" src="//m.ieduchina.com/topic/2024/hk7/images/d978f273.png?t=2808c713">
-      <video height="405" id="masksp" playsinline poster="" preload="auto" value="" webkit-playsinline
-        width="375"></video>
-    </div>
-    <div class="footer-nav">
-      <ul>
-        <li>
-          <img alt="媒体合作" src="//m.ieduchina.com/topic/2024/hk7/images/8d327893.png?t=2808c713"
-            img="//www.ieduchina.com/statics/hui.jpg" tel="181-6570-6113">
-          <p>媒体合作</p>
-        </li>
-        <li>
-          <img alt="活动预约" src="//m.ieduchina.com/topic/2024/hk7/images/bc4f5a55.png?t=2808c713"
-            img="//m.ieduchina.com/topic/2024/hk7/images/1b8cc5dd.png?t=2808c713">
-          <p>下一期报名</p>
-        </li>
-        <li>
-          <img alt="香港升学咨询" src="//m.ieduchina.com/topic/2024/hk7/images/5ee14fdf.png?t=2808c713"
-            img="//m.ieduchina.com/topic/2024/hk7/images/d7b7dbc9.jpg" tel="189-3807-4754">
-          <p>家长咨询</p>
-        </li>
-      </ul>
-    </div>
-    <div class="concat">
-      <div class="box">
-        <div class="img">
-          <h4></h4>
-          <img alt="" src="">
-          <p></p>
-          <a href=""></a>
-        </div>
+  <img alt="香港访校营" :src="iconImage" id="share" style="display:none">
+  <component :is="TopMenu" />
+  <component :is="Banner" :src="BannerData" />
+  <component :is="Images" :data="ImagesData" />
+  <component :is="Lthg" :data="about" />
+  <component :is="Liangdian" :data="LiangdianData" />
+  <component :is="XingCheng" :data="xingcheng" />
+  <component :is="School" :data="school" />
+  <section class="form_up">
+    <div class="con">
+      <form action="/index.php?m=college&c=index&a=collegereg&dopost=reg" method="POST">
+        <p>下一期探校预约报名</p>
+        <input name="name" type="text" placeholder="学生姓名">
+        <input name="mobile" type="text" placeholder="您的手机">
+        <select name="grade">
+          <option value="" style="display:none">学生即将入读年级</option>
+          <option value="幼儿园">幼儿园</option>
+          <option value="一年级">一年级</option>
+          <option value="二年级">二年级</option>
+          <option value="三年级">三年级</option>
+          <option value="四年级">四年级</option>
+          <option value="五年级">五年级</option>
+          <option value="六年级">六年级</option>
+          <option value="七年级">七年级</option>
+          <option value="八年级">八年级</option>
+          <option value="九年级">九年级</option>
+          <option value="十年级">十年级</option>
+          <option value="十一年级">十一年级</option>
+          <option value="十二年级">十二年级</option>
+          <option value="大一">大一</option>
+          <option value="大二">大二</option>
+          <option value="大三">大三</option>
+          <option value="大四">大四</option>
+          <option value="其他">其他</option>
+        </select>
+        <input name="want_school" type="text" placeholder="意向学校">
+        <input name="email" type="text" placeholder="您的邮箱">
+        <input name="mark" type="hidden" value="香港教育文化之旅第14期_国际教育网WAP版">
+        <button class="submit">立即预约</button>
+      </form>
+      <div class="close">
         <img alt="" src="//m.ieduchina.com/topic/2024/hk7/images/d978f273.png?t=2808c713">
       </div>
     </div>
-    <div class="preview_mask">
-      <div class="preview_swiper">
-        <div class="swiper-wrapper"></div>
-        <div class="swiper-pagination1"></div>
+  </section>
+  <footer>
+    <p>
+      Copyright@<span id="fullyear"></span>
+      ，国际教育网 版权所有
+    </p>
+    <p>粤ICP备2021064228号-2 & 粤公网安备44030502002588号</p>
+  </footer>
+  <div class="mask" id="mask">
+    <img alt="" src="//m.ieduchina.com/topic/2024/hk7/images/d978f273.png?t=2808c713">
+    <video height="405" id="masksp" playsinline poster="" preload="auto" value="" webkit-playsinline
+      width="375"></video>
+  </div>
+  <div class="footer-nav">
+    <ul>
+      <li>
+        <img alt="媒体合作" src="//m.ieduchina.com/topic/2024/hk7/images/8d327893.png?t=2808c713"
+          img="//www.ieduchina.com/statics/hui.jpg" tel="181-6570-6113">
+        <p>媒体合作</p>
+      </li>
+      <li>
+        <img alt="活动预约" src="//m.ieduchina.com/topic/2024/hk7/images/bc4f5a55.png?t=2808c713"
+          img="//m.ieduchina.com/topic/2024/hk7/images/1b8cc5dd.png?t=2808c713">
+        <p>下一期报名</p>
+      </li>
+      <li>
+        <img alt="香港升学咨询" src="//m.ieduchina.com/topic/2024/hk7/images/5ee14fdf.png?t=2808c713"
+          img="//m.ieduchina.com/topic/2024/hk7/images/d7b7dbc9.jpg" tel="189-3807-4754">
+        <p>家长咨询</p>
+      </li>
+    </ul>
+  </div>
+  <div class="concat">
+    <div class="box">
+      <div class="img">
+        <h4></h4>
+        <img alt="" src="">
+        <p></p>
+        <a href=""></a>
       </div>
+      <img alt="" src="//m.ieduchina.com/topic/2024/hk7/images/d978f273.png?t=2808c713">
     </div>
-    <div class="rightfixed">
-      <img alt="" src="//m.ieduchina.com/topic/2025/hkyy10/images/4332d74a.png">
+  </div>
+  <div class="preview_mask">
+    <div class="preview_swiper">
+      <div class="swiper-wrapper"></div>
+      <div class="swiper-pagination1"></div>
     </div>
+  </div>
+  <div class="rightfixed">
+    <img alt="" src="//m.ieduchina.com/topic/2025/hkyy10/images/4332d74a.png">
   </div>
 </template>
 
 <style lang="less">
-.hk14 {
+body[hk14] {
   --primary: #d53c90;
   --next: #ffc85e;
 }
 
-html .noscroll {
+.noscroll {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -893,21 +894,6 @@ body {
   max-width: 750px;
   margin: 0 auto;
   padding-bottom: 3.02933333rem;
-}
-
-body .noscroll {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-header img {
-  width: 100%;
-  height: 9.00266667rem;
-  -o-object-position: center;
-  object-position: center;
-  -o-object-fit: cover;
-  object-fit: cover;
 }
 
 section {
@@ -966,255 +952,10 @@ section h3.title::after {
   margin-left: 0.42666667rem;
 }
 
-section .images {
-  font-size: 0;
-  margin-top: 0.64rem;
-}
-
-section .images>img {
-  width: 14.72rem;
-  height: 8.02133333rem;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-}
-
-section .images .bottom {
-  margin-top: 0.29866667rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-section .images .bottom img {
-  width: 4.69333333rem;
-  height: 3.008rem;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-}
-
-section .ld {
-  padding-bottom: 1.28rem;
-  width: 100%;
-}
-
-section .ld ul {
-  margin-top: 1.06666667rem;
-}
-
-section .ld ul li {
-  height: 1.19466667rem;
-  margin-top: 0.53333333rem;
-  line-height: 1.19466667rem;
-  background-color: #F6F6F6;
-  font-size: 0.512rem;
-  font-weight: 400;
-  color: #333333;
-  -webkit-clip-path: polygon(0.72533333rem -1.25866667rem, 200% 100%, 200% 100%, 0 1.06666667rem);
-  clip-path: polygon(0.72533333rem -1.25866667rem, 200% 100%, 200% 100%, 0 1.06666667rem);
-  letter-spacing: -0.01066667rem;
-}
-
-section .ld ul li span {
-  background-color: var(--primary);
-  margin-right: 0.08533333rem;
-  font-size: 0.512rem;
-  font-weight: 500;
-  width: 2.00533333rem;
-  height: 1.19466667rem;
-  display: inline-block;
-  color: #fff;
-  text-align: center;
-  -webkit-clip-path: polygon(2.00533333rem -5.99466667rem, 5.184rem -10.45333333rem, 1.64266667rem 1.216rem, 0.04266667rem 1.088rem);
-  clip-path: polygon(2.00533333rem -5.99466667rem, 5.184rem -10.45333333rem, 1.64266667rem 1.216rem, 0.04266667rem 1.088rem);
-}
-
-section .ld ul li:nth-of-type(2n) span {
-  background-color: var(--next);
-}
-
-section .jc {
-  width: 100%;
-  margin: 0 auto;
-  padding-bottom: 1.49333333rem;
-}
-
-section .jc .swiper-container {
-  height: 5.29066667rem;
-  margin-top: 0.85333333rem;
-  overflow: visible;
-  overflow: initial;
-}
-
-section .jc .swiper-container .swiper-slide img {
-  -o-object-position: center;
-  object-position: center;
-  -o-object-fit: cover;
-  object-fit: cover;
-  width: 10.38933333rem;
-  height: 5.29066667rem;
-}
-
-section .sp {
-  padding-bottom: 1.70666667rem;
-}
-
-section .sp ul {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin: 1.06666667rem 0 0.42666667rem;
-}
-
-section .sp ul li {
-  position: relative;
-}
-
-section .sp ul li:nth-of-type(n+7) {
-  display: none;
-}
-
-section .sp ul li::before {
-  pointer-events: none;
-  position: absolute;
-  left: 50%;
-  top: 46%;
-  z-index: 100;
-  content: "";
-  -webkit-transform: translate(-50%, -100%);
-  transform: translate(-50%, -100%);
-  width: 1.38666667rem;
-  height: 1.38666667rem;
-  background: url(https://m.ieduchina.com/topic/2024/hk7/images/815ba699.png) center / contain no-repeat;
-}
-
-section .sp ul li img {
-  width: 7.104rem;
-  height: 9.55733333rem;
-  background: #000000;
-  border-radius: 0;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -webkit-filter: brightness(0.5);
-  filter: brightness(0.5);
-}
-
-section .sp ul li p {
-  font-size: 0.55466667rem;
-  font-weight: 400;
-  color: #333333;
-  padding: 0.384rem 0 0.64rem;
-}
-
-section .sp .btn {
-  text-align: center;
-}
-
-section .sp .btn button {
-  width: 4.11733333rem;
-  height: 1.216rem;
-  background: #FFFFFF;
-  border-radius: 0.21333333rem;
-  border: 1px solid var(--primary);
-  text-align: center;
-}
-
-section .sp .btn button.up img {
-  -webkit-transition: all 300ms;
-  transition: all 300ms;
-  -webkit-transform: rotateZ(180deg);
-  transform: rotateZ(180deg);
-}
-
-section .sp .btn button span {
-  font-size: 0.55466667rem;
-  font-weight: 400;
-  color: var(--primary);
-}
-
-section .sp .btn button img {
-  width: 0.34133333rem;
-  height: 0.34133333rem;
-  -o-object-fit: contain;
-  object-fit: contain;
-  -o-object-position: center;
-  object-position: center;
-  margin-left: 0.21333333rem;
-  vertical-align: 0.064rem;
-  -webkit-transform: rotateZ(180deg);
-  transform: rotateZ(180deg);
-}
-
-section .yx ul {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  text-align: center;
-  padding: 1.06666667rem 0 0.85333333rem;
-}
-
-section .yx ul li {
-  width: 7.06133333rem;
-}
-
-section .yx ul li:first-of-type img {
-  padding: 0.21333333rem;
-}
-
-section .yx ul li img {
-  width: 7.06133333rem;
-  height: 2.92266667rem;
-  -o-object-fit: contain;
-  object-fit: contain;
-  -o-object-position: center;
-  object-position: center;
-  background-color: white;
-}
-
-section .yx ul li p {
-  font-size: 0.512rem;
-  font-weight: 400;
-  color: #FFFFFF;
-  padding: 0.42666667rem 0 0.64rem;
-  letter-spacing: -0.02133333rem;
-}
-
 section.form_up {
   display: none;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   position: fixed;
   padding: 0;
@@ -1571,7 +1312,6 @@ footer p {
 .rightfixed img {
   width: 3.2rem;
   height: 3.2rem;
-  -o-object-fit: contain;
   object-fit: contain;
   background-color: var(--primary);
   border-radius: 50%;

@@ -15,16 +15,18 @@ defineProps({
   </section>
 </template>
 <style lang="less">
-section .text p {
-  font-size: 0.512rem;
-  font-weight: 500;
-  line-height: 0.68266667rem;
-  margin-top: 0.85333333rem;
-  color: #666666;
-  text-align: justify;
-}
+.text {
+  p {
+    font-size: 0.512rem;
+    font-weight: 500;
+    line-height: 0.68266667rem;
+    margin-top: 0.85333333rem;
+    color: #666666;
+    text-align: justify;
 
-section .text p span {
-  color: var(--primary);
+    span {
+      color: var(--primary);
+    }
+  }
 }
 </style>

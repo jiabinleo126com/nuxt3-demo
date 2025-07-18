@@ -21,7 +21,6 @@ defineProps({
 
 .images {
   font-size: 0;
-  margin-top: 0.64rem;
   margin: 0.64rem (30/@rem) 0;
 }
 
