@@ -3,15 +3,15 @@ import { defineAsyncComponent } from 'vue'
 
 defineProps({
   data: {
-    type: () => Array,
+    type: Array,
     default: () => [],
   },
   color1: {
-    type: () => String,
+    type: String,
     default: () => '',
   },
   color2: {
-    type: () => String,
+    type: String,
     default: () => '',
   },
 })
@@ -23,7 +23,7 @@ const Title = defineAsyncComponent(() => import('./Title.vue'))
     <component :is="Title" en="characteristic" cn="亮点特色" />
     <ul>
       <li v-for="(str, index) in data" :key="index">
-        <span :style="`background-color: ${index % 2 === 0 ? color1 : color2})`">亮点{{ index + 1 }}</span>
+        <span>亮点{{ index + 1 }}</span>
         {{ str }}
       </li>
     </ul>

@@ -7,7 +7,7 @@ onMounted(() => {
     $(item).attr('index', index)
   })
   let previewIndex = 0
-  $(document).on('click', 'img[preview]', () => {
+  $(document).on('click', 'img[preview]', function () {
     const src = $(this).attr('preview')
     $('.img-mask img').attr('src', src)
     $('.img-mask').addClass('show')
@@ -17,13 +17,13 @@ onMounted(() => {
     $('.img-mask').removeClass('show')
     $('.img-mask img').attr('src', '')
   })
-  $('.img-mask').on('click', (e) => {
+  $('.img-mask').on('click', function (e) {
     if (e.target === this) {
       $(this).removeClass('show')
       $('.img-mask img').attr('src', '')
     }
   })
-  $('.arr').on('click', 'span', () => {
+  $('.arr').on('click', 'span', function () {
     let img = ''
     $('.img-mask img').attr('src', '')
     if ($(this).hasClass('left')) {

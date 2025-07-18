@@ -45,7 +45,7 @@ onMounted(() => {
               <span>查看行程</span>
               <a class="c">查看行程</a>
               <a class="g">关闭行程</a>
-              <img :src="arrimg" alt="">
+              <i class="arr"></i>
             </button>
           </div>
           <div class="list">
@@ -67,7 +67,8 @@ onMounted(() => {
                     {{ str }}
                   </p>
                   <div class="image">
-                    <img v-for="(img, index2) in it.images" :key="index2" :src="img.image" :alt="it.title" :preview="img.preview">
+                    <img v-for="(img, index2) in it.images" :key="index2" :src="img.image" :alt="it.title"
+                      :preview="img.preview">
                   </div>
                 </div>
               </div>
@@ -168,27 +169,52 @@ onMounted(() => {
             color: var(--primary);
 
             &.s {
-              img {
-                -webkit-transform: rotateZ(0);
-                transform: rotateZ(0);
-                -webkit-transition: all 1s;
+              i {
+                transform: rotateZ(180deg);
                 transition: all 1s;
               }
             }
 
-            img {
+            i {
+              display: inline-block;
+              position: relative;
               width: 9px;
               height: 8px;
-              -o-object-fit: contain;
-              object-fit: contain;
-              -o-object-position: center;
-              object-position: center;
               margin-left: 5px;
               margin-bottom: 2px;
-              -webkit-transform: rotateZ(180deg);
-              transform: rotateZ(180deg);
-              -webkit-transition: all 1s;
+              transform: rotateZ(0);
               transition: all 1s;
+              transform-origin: 3px 4px;
+
+              &::after {
+                position: absolute;
+                top: 8px;
+                left: 0;
+                content: "";
+                width: 6px;
+                height: 6px;
+                background-color: transparent;
+                border-color: var(--primary);
+                border-style: solid;
+                border-width: 1px 1px 0 0;
+                transform: rotate(135deg);
+                margin-top: -12px;
+              }
+
+              &::before {
+                position: absolute;
+                top: 6px;
+                left: 0;
+                content: "";
+                width: 6px;
+                height: 6px;
+                background-color: transparent;
+                border-color: var(--primary);
+                border-style: solid;
+                border-width: 1px 1px 0 0;
+                transform: rotate(135deg);
+                margin-top: -5px;
+              }
             }
 
             a {

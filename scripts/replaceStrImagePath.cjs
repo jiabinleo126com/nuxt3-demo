@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { parse } = require('node-html-parser');
 
-const dir = path.resolve(__dirname, '../dist/topic/2025/sz/');
+const dir = path.resolve(__dirname, '../dist/topic/2025/hk14/');
 const staticsdir = path.resolve(__dirname, '../dist/statics');
 var tsContent = "//@ts-nocheck \n import \"./index.less\"; \n";
 
@@ -80,7 +80,19 @@ fs.readdirSync(dir).forEach(file => {
         ).replace(
             /src="\/statics\/([^"]+\.jpg)"/g,
             'src="<%=require(`../dist/statics/$1`)%>"'
-        );
+        ).replace(
+            /src="\/statics\/([^"]+\.webp)"/g,
+            'src="<%=require(`../dist/statics/$1`)%>"'
+        ).replace(
+            /preview="\/statics\/([^"]+\.png)"/g,
+            'preview="<%=require(`../dist/statics/$1`)%>"'
+        ).replace(
+            /preview="\/statics\/([^"]+\.jpg)"/g,
+            'preview="<%=require(`../dist/statics/$1`)%>"'
+        ).replace(
+            /preview="\/statics\/([^"]+\.webp)"/g,
+            'preview="<%=require(`../dist/statics/$1`)%>"'
+        );;
         var ejspath = file.replace("dist", "product-page").replace(".html", ".ejs")
         console.log(ejspath)
         fs.writeFile(path.resolve(__dirname, `../product-page/${ejspath}`), result, function (err) {
