@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, defineAsyncComponent } from 'vue'
+const CheckMarkRem = defineAsyncComponent(()=>import('~/components/zhaosheng/CheckMarkRem.vue'));
 
 useHead({
   script: [
@@ -14,7 +15,7 @@ useHead({
                 if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
                     html = "html{font-size: " + width / 750 + "px !important;}";
                 } else {
-                    html = "html{font-size: 1px !important;width:750px;margin:0 auto;}";
+                    html = "html{font-size: 1px !important;width:750px !important;margin:0 auto !important;}";
                 }
                 if (document.getElementById('style')) {
                     document.getElementById('style').innerHTML = html
@@ -368,13 +369,13 @@ onMounted(() => {
     <p>3.<b>服务提供方</b>：由国际教育网学管老师提供监督与基础辅助。</p>
     <h2>二、 服务范围与边界 (请家长务必仔细阅读)</h2>
     <p>1.<b>核心服务</b>：</p>
-    <p class="indent">√监督学生完成<b>本校区当前正课科目老师布置的作业</b>。</p>
-    <p class="indent">√提供基础的<b>本校区当前正课科目老师布置的作业</b>>完成情况监督与纪律管理。</p>
-    <p class="indent">√进行简单的、与<b>本校区当前正课科目老师布置的作业</b>相关的知识点提示和辅助（<b>不包含详细的知识点讲解或题目答疑</b>）。</p>
-    <p class="indent">√定期向家长、正课老师及顾问反馈学生的自习表现。</p>
+    <p class="indent"><component :is="CheckMarkRem" />监督学生完成<b>本校区当前正课科目老师布置的作业</b>。</p>
+    <p class="indent"><component :is="CheckMarkRem" />提供基础的<b>本校区当前正课科目老师布置的作业</b>>完成情况监督与纪律管理。</p>
+    <p class="indent"><component :is="CheckMarkRem" />进行简单的、与<b>本校区当前正课科目老师布置的作业</b>相关的知识点提示和辅助（<b>不包含详细的知识点讲解或题目答疑</b>）。</p>
+    <p class="indent"><component :is="CheckMarkRem" />定期向家长、正课老师及顾问反馈学生的自习表现。</p>
     <p>2.<b>明确边界 (学管老师无法提供以下服务)</b>：</p>
-    <p class="indent">√<b>不辅助</b>学生在<b>其他机构、学校或家长额外布置</b>的作业。</p>
-    <p class="indent">√<b>不辅导</b>学生正课<未涉及的其他科目>内容（例如：学生正课为数学，学管不辅导英语作业）。</p>
+    <p class="indent"><component :is="CheckMarkRem" /><b>不辅助</b>学生在<b>其他机构、学校或家长额外布置</b>的作业。</p>
+    <p class="indent"><component :is="CheckMarkRem" /><b>不辅导</b>学生正课<未涉及的其他科目>内容（例如：学生正课为数学，学管不辅导英语作业）。</p>
     <h2>三、 自习课安排规则</h2>
     <p>1.<b>配比原则</b>： 自习课的安排遵循 “<b>1:1配比</b>” 原则。即学员<b>每完成1节本校区正课</b>，可对应申请安排<b>1节自习课</b>。</p>
     <p>2.<b>有效期</b>： 赠送的自习课必须在<b>对应的正课完成后的7天（一周）内</b>使用，逾期自动失效。</p>
@@ -424,7 +425,7 @@ onMounted(() => {
   </footer>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 body {
   margin: 0 auto !important;
 }

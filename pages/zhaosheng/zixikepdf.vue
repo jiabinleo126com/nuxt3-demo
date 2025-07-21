@@ -1,4 +1,8 @@
 <script setup>
+import { defineAsyncComponent } from 'vue'
+
+const CheckMark = defineAsyncComponent(() => import('@/components/zhaosheng/CheckMark.vue'))
+const YinZhang = defineAsyncComponent(() => import('../../components/zhaosheng/YinZhang.vue'))
 
 useHead({
   title: '自习课服务申请与规则确认书 - 国际教育网',
@@ -37,13 +41,25 @@ useHead({
     <p>3.<b>服务提供方</b>：由国际教育网学管老师提供监督与基础辅助。</p>
     <h2>二、 服务范围与边界 (请家长务必仔细阅读)</h2>
     <p>1.<b>核心服务</b>：</p>
-    <p class="indent">√监督学生完成<b>本校区当前正课科目老师布置的作业</b>。</p>
-    <p class="indent">√提供基础的<b>本校区当前正课科目老师布置的作业</b>>完成情况监督与纪律管理。</p>
-    <p class="indent">√进行简单的、与<b>本校区当前正课科目老师布置的作业</b>相关的知识点提示和辅助（<b>不包含详细的知识点讲解或题目答疑</b>）。</p>
-    <p class="indent">√定期向家长、正课老师及顾问反馈学生的自习表现。</p>
+    <p class="indent">
+      <component :is="CheckMark" />监督学生完成<b>本校区当前正课科目老师布置的作业</b>。
+    </p>
+    <p class="indent">
+      <component :is="CheckMark" />提供基础的<b>本校区当前正课科目老师布置的作业</b>>完成情况监督与纪律管理。
+    </p>
+    <p class="indent">
+      <component :is="CheckMark" />进行简单的、与<b>本校区当前正课科目老师布置的作业</b>相关的知识点提示和辅助（<b>不包含详细的知识点讲解或题目答疑</b>）。
+    </p>
+    <p class="indent">
+      <component :is="CheckMark" />定期向家长、正课老师及顾问反馈学生的自习表现。
+    </p>
     <p>2.<b>明确边界 (学管老师无法提供以下服务)</b>：</p>
-    <p class="indent">√<b>不辅助</b>学生在<b>其他机构、学校或家长额外布置</b>的作业。</p>
-    <p class="indent">√<b>不辅导</b>学生正课<未涉及的其他科目>内容（例如：学生正课为数学，学管不辅导英语作业）。</p>
+    <p class="indent">
+      <component :is="CheckMark" /><b>不辅助</b>学生在<b>其他机构、学校或家长额外布置</b>的作业。
+    </p>
+    <p class="indent">
+      <component :is="CheckMark" /><b>不辅导</b>学生正课（未涉及的其他科目）内容（例如：学生正课为数学，学管不辅导英语作业）。
+    </p>
     <h2>三、 自习课安排规则</h2>
     <p>1.<b>配比原则</b>： 自习课的安排遵循 “<b>1:1配比</b>” 原则。即学员<b>每完成1节本校区正课</b>，可对应申请安排<b>1节自习课</b>。</p>
     <p>2.<b>有效期</b>： 赠送的自习课必须在<b>对应的正课完成后的7天（一周）内</b>使用，逾期自动失效。</p>
@@ -68,6 +84,7 @@ useHead({
     <p>家长签字：<span><img height="20" src="https://www.ieduchina.com/uploadfile/college/202004/1586423230.jpg"
           alt=""></span></p>
     <p>日期：<u>2025</u>年<u>12</u>月<u>20</u>日</p>
+    <component :is="YinZhang" right="-4cm" bottom="-0.6cm" />
   </footer>
 </template>
 
