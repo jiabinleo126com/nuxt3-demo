@@ -81,10 +81,17 @@ useHead({
     </p>
   </section>
   <footer>
-    <p>家长签字：<span><img height="20" src="https://www.ieduchina.com/uploadfile/college/202004/1586423230.jpg"
-          alt=""></span></p>
-    <p>日期：<u>2025</u>年<u>12</u>月<u>20</u>日</p>
-    <component :is="YinZhang" right="-4cm" bottom="-0.6cm" />
+    <div class="left">
+      <p>家长签字：<span><img height="20" src="https://www.ieduchina.com/uploadfile/college/202004/1586423230.jpg"
+            alt=""></span></p>
+      <p>日期：<u>2025</u>年<u>12</u>月<u>20</u>日</p>
+      <component :is="YinZhang" right="-4cm" bottom="-0.6cm" />
+    </div>
+    <div class="right">
+      <p>乙方：<span>:深圳市爱读有限公司</span></p>
+      <p>乙方授权签约人签字：<span>:深圳市爱读有限公司</span></p>
+      <p>日期：<u>2025</u>年<u>12</u>月<u>20</u>日</p>
+    </div>
   </footer>
 </template>
 
@@ -137,6 +144,19 @@ body {
   footer {
     margin-top: 50px;
 
+    &>div {
+      display: inline-block;
+      vertical-align: middle;
+
+      &:first-of-type {
+        width: 60%;
+      }
+
+      &:last-of-type {
+        width: 36%;
+      }
+    }
+
     p {
       font-size: 16px;
       color: #000;
@@ -146,7 +166,7 @@ body {
         position: relative;
         display: inline-block;
         border-bottom: solid 1px #000;
-        width: 100px;
+        min-width: 100px;
 
         img {
           position: absolute;
