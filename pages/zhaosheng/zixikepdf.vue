@@ -91,8 +91,9 @@ useHead({
     </p>
   </section>
   <footer>
-    <div class="left"> 
-      <p>家长签字：
+    <div class="left">
+      <p>
+        家长签字：
         <component :is="QianZi" left="0" bottom="-26px" height="60" />
       </p>
       <p>日期：<u>2025</u>年<u>12</u>月<u>20</u>日</p>

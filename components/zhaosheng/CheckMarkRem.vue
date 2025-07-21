@@ -1,6 +1,7 @@
 <template>
   <span :class="$style.g"></span>
 </template>
+
 <style lang="less" module>
 .g {
   display: inline-block;
