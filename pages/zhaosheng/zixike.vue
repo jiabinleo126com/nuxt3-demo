@@ -1,5 +1,6 @@
 <script setup>
-import { onMounted, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, onMounted } from 'vue'
+
 const CheckMarkRem = defineAsyncComponent(() => import('~/components/zhaosheng/CheckMarkRem.vue'))
 
 useHead({
@@ -9,13 +10,13 @@ useHead({
       (function () {
             function onResize() {
                 var width = document.documentElement.clientWidth;
-                var style = document.createElement("style");
+                var style = document.createElement('style');
                 style.setAttribute('id', 'style')
                 var html = '';
                 if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-                    html = "html{font-size: " + width / 750 + "px !important;}";
+                    html = 'html{font-size: ' + width / 750 + 'px !important;}';
                 } else {
-                    html = "html{font-size: 1px !important;width:750px !important;margin:0 auto !important;}";
+                    html = 'html{font-size: 1px !important;width:750px !important;margin:0 auto !important;}';
                 }
                 if (document.getElementById('style')) {
                     document.getElementById('style').innerHTML = html
@@ -66,33 +67,33 @@ onMounted(() => {
     function qianming() {
       var qmarray = []
       var scrollY = null, qmindex
-      $(".inner").on("click", function () {
-        qmindex = $(this).attr("data-index")
+      $('.inner').on('click', function () {
+        qmindex = $(this).attr('data-index')
         scrollY = window.scrollY
         window.scrollTo(0, 0)
-        var candom = $(".qmmask").find(".canvas").eq(qmindex)
-        if (candom.attr("img")) {
-          candom.closest(".in").css("background-image", "url(" + candom.attr("img") + ")")
-          candom.attr("img", "")
+        var candom = $('.qmmask').find('.canvas').eq(qmindex)
+        if (candom.attr('img')) {
+          candom.closest('.in').css('background-image', 'url(' + candom.attr('img') + ')')
+          candom.attr('img', '')
         }
         candom.show()
-        $(".qmmask").show()
+        $('.qmmask').show()
       })
       var isMouseDown
       var qmupdate = false
       var flag2 = true
-      if ($(".canvas").length) {
-        $.each($(".canvas"), function (index, el) {
+      if ($('.canvas').length) {
+        $.each($('.canvas'), function (index, el) {
           qmarray[index] = {}
           qmarray[index].isqm = false
-          $(".inner").eq(index).attr("data-index", index)
-          var canvasWidth = $(".qmmask .in").width()
-          var canvasHeight = $(".qmmask .in").height()
+          $('.inner').eq(index).attr('data-index', index)
+          var canvasWidth = $('.qmmask .in').width()
+          var canvasHeight = $('.qmmask .in').height()
           qmarray[index].canvas = el
           qmarray[index].context = qmarray[index].canvas.getContext('2d')
           qmarray[index].canvas.width = canvasWidth
           qmarray[index].canvas.height = canvasHeight
-          var strokeColor = "#000"
+          var strokeColor = '#000'
           isMouseDown = false
           var lastLoc = {
             x: 0,
@@ -105,20 +106,20 @@ onMounted(() => {
           var maxLineWidth = 5
           var minLineWidth = 4
           var image = new Image()
-          var img = $(".qmvalue").val()
+          var img = $('.qmvalue').val()
           if (img) {
-            $(".inner").css("background-image", "url(" + img + ")")
-            $(".inner").find("p").hide()
+            $('.inner').css('background-image', 'url(' + img + ')')
+            $('.inner').find('p').hide()
             image.src = img
-            image.crossOrigin = "Anonymous"
+            image.crossOrigin = 'Anonymous'
             image.onload = function () {
               qmarray[index].context.drawImage(this, 0, 0, canvasWidth, canvasHeight)
             }
           }
-          $(".colorBtn").on("click", function () {
-            $(".colorBtn").removeClass('colorBtnBorder')
-            $(this).addClass("colorBtnBorder")
-            strokeColor = $(this).css("")
+          $('.colorBtn').on('click', function () {
+            $('.colorBtn').removeClass('colorBtnBorder')
+            $(this).addClass('colorBtnBorder')
+            strokeColor = $(this).css('')
           })
           $('.clear_btn').on('click', function () {
             if (flag2) {
@@ -127,8 +128,8 @@ onMounted(() => {
                 flag2 = true
               }, 300)
               qmupdate = true
-              $(".inner").eq(qmindex).css("background-image", "")
-              $(".in").eq(qmindex).css("background-image", "")
+              $('.inner').eq(qmindex).css('background-image', '')
+              $('.in').eq(qmindex).css('background-image', '')
               qmarray[qmindex].context.clearRect(0, 0, canvasWidth, canvasHeight)
               qmarray[qmindex].isqm = false
             }
@@ -137,12 +138,12 @@ onMounted(() => {
             if (flag2) {
               flag2 = false
               setTimeout(function () {
-                flag2 = true;
+                flag2 = true
               }, 300)
               if (qmarray[qmindex].isqm) {
                 var image_1 = canvasToImage(qmarray[qmindex].canvas)
-                myRotate($(image_1).attr("src"))
-                $(".qmmask").find(".canvas").hide()
+                myRotate($(image_1).attr('src'))
+                $('.qmmask').find('.canvas').hide()
               }
               else if (qmupdate) {
                 layer.open({
@@ -152,8 +153,8 @@ onMounted(() => {
                 })
               }
               else {
-                $(".qmmask").hide();
-                $(".qmmask").find(".canvas").hide()
+                $('.qmmask').hide()
+                $('.qmmask').find('.canvas').hide()
               }
             }
           })
@@ -175,7 +176,7 @@ onMounted(() => {
           }
           function moveStroke(point) {
             var curLoc = windowToCanvas(point.x, point.y)
-            var s = calcDistance(curLoc, lastLoc);
+            var s = calcDistance(curLoc, lastLoc)
             var curTimestamp = new Date().getTime()
             var t = curTimestamp - lastTimestamp
             var lineWidth = calcLineWidth(t, s)
@@ -184,8 +185,8 @@ onMounted(() => {
             qmarray[qmindex].context.lineTo(curLoc.x, curLoc.y)
             qmarray[qmindex].context.strokeStyle = strokeColor
             qmarray[qmindex].context.lineWidth = lineWidth
-            qmarray[qmindex].context.lineCap = "round"
-            qmarray[qmindex].context.lineJoin = "round"
+            qmarray[qmindex].context.lineCap = 'round'
+            qmarray[qmindex].context.lineJoin = 'round'
             qmarray[qmindex].context.stroke()
             lastLoc = curLoc
             lastTimestamp = curTimestamp
@@ -193,7 +194,7 @@ onMounted(() => {
             qmarray[qmindex].isqm = true
           }
           qmarray[index].canvas.onmousedown = function (e) {
-            e.preventDefault();
+            e.preventDefault()
             beginStroke({
               x: e.clientX,
               y: e.clientY
@@ -216,20 +217,20 @@ onMounted(() => {
               })
             }
           }
-          qmarray[index].canvas.addEventListener("touchstart", function (e) {
+          qmarray[index].canvas.addEventListener('touchstart', function (e) {
             e.preventDefault()
             var touch = e.touches[0]
-            $(".in").css("background-image", "")
+            $('.in').css('background-image', '')
             beginStroke({
               x: touch.pageX,
               y: touch.pageY
             })
           })
-          qmarray[index].canvas.addEventListener("touchend", function (e) {
+          qmarray[index].canvas.addEventListener('touchend', function (e) {
             e.preventDefault()
             endStroke()
-          });
-          qmarray[index].canvas.addEventListener("touchmove", function (e) {
+          })
+          qmarray[index].canvas.addEventListener('touchmove', function (e) {
             e.preventDefault()
             if (isMouseDown) {
               var touch = e.touches[0]
@@ -239,17 +240,17 @@ onMounted(() => {
               })
             }
             qmarray[qmindex].isqm = true
-          });
+          })
           function calcDistance(loc1, loc2) {
             return Math.sqrt((loc1.x - loc2.x) * (loc1.x - loc2.x) + (loc1.y - loc2.y) * (loc1.y - loc2.y))
           }
           function calcLineWidth(t, s) {
-            var v = s / t;
-            var resultLineWidth;
+            var v = s / t
+            var resultLineWidth
             if (v <= minV)
-              resultLineWidth = maxLineWidth;
+              resultLineWidth = maxLineWidth
             else if (v >= maxV)
-              resultLineWidth = minLineWidth;
+              resultLineWidth = minLineWidth
             else
               resultLineWidth = maxLineWidth - (v - minV) / (maxV - minV) * (maxLineWidth - minLineWidth)
             if (lastLineWidth == -1)
@@ -259,7 +260,7 @@ onMounted(() => {
           }
           function canvasToImage(canvas) {
             var image = new Image()
-            image.src = canvas.toDataURL("image/png")
+            image.src = canvas.toDataURL('image/png')
             return image
           }
           function myRotate(base64) {
@@ -267,16 +268,16 @@ onMounted(() => {
             img.src = base64
             img.onload = function () {
               $('.inner').eq(qmindex).css('background-image', 'url(' + base64 + ')')
-              $(".inner p").eq(qmindex).hide()
-              $(".qmvalue").eq(qmindex).val(base64)
+              $('.inner p').eq(qmindex).hide()
+              $('.qmvalue').eq(qmindex).val(base64)
               window.scrollTo(0, scrollY)
-              $(".qmmask").hide()
+              $('.qmmask').hide()
             }
           }
         })
       }
     }
-    var inputs = [];
+    var inputs = []
     $.each($('form').find('[name]'), function (index, ele) {
       if ($(ele).attr('placeholder')) {
         inputs.push(ele)
@@ -288,7 +289,7 @@ onMounted(() => {
       var _this = this
       inputs.reduce(function (_acc, ele) {
         if (!$(ele).val()) {
-          msgs.push($(ele).attr('placeholder'));
+          msgs.push($(ele).attr('placeholder'))
         }
         return msgs
       }, '')
@@ -304,19 +305,19 @@ onMounted(() => {
         url: form[0].action,
         type: form[0].method,
         data: form.serialize(),
-        dataType: "json",
+        dataType: 'json',
         success(res) {
-          var time = 100;
-          if (res.status == 1) {
-            if ($(_this).closest(".btn").find("a").length) {
+          let time = 100
+          if (res.status === 1) {
+            if ($(_this).closest('.btn').find('a').length) {
               layer.open({
                 content: '提交成功',
                 skin: 'msg',
                 time: 3
-              });
+              })
               time = 2000
             }
-            setTimeout(function () {
+            setTimeout(() => {
               window.location.href = res.info
             }, time)
           }
@@ -324,17 +325,17 @@ onMounted(() => {
             layer.open({
               content: res.info,
               skin: 'msg',
-              time: 3
-            });
+              time: 3,
+            })
           }
         },
         error() {
           layer.open({
             content: '提交失败',
             skin: 'msg',
-            time: 3
+            time: 3,
           })
-        }
+        },
       })
       return false
     })
