@@ -411,7 +411,7 @@ onMounted(() => {
     <p>
       本人已仔细阅读并充分理解《国际教育网自习课服务申请与规则确认书》的全部内容，尤其是关于“服务范围与边界”、“1:1配比与有效期”、“自习室纪律要求及违规后果”的条款。本人自愿为孩子申请此项自习课服务，并承诺督促孩子遵守自习室各项纪律规定。本人理解自习课是国际教育网额外提供的免费增值服务，非主合同项下的强制义务。
     </p>
-    <form action="" method="post">
+    <form action="/index/zixi/index.html?step=1&do=reg" method="post">
       <input type="hidden" name="id" value="4036">
       <div class="input">
         <span>家长接收合同邮箱：</span><input name="email" value="" type="text" placeholder="请输入电子邮箱">
