@@ -4,13 +4,15 @@ interface Props {
   top?: string
   left?: string
   bottom?: string
+  width?: string
+  height?: string
 }
 defineProps<Props>()
 </script>
 
 <template>
   <div class="yz">
-    <div class="move move1" :style="{ right, top, left, bottom }"></div>
+    <div class="move move1" :style="{ right, top, left, bottom, width, height }"></div>
   </div>
 </template>
 

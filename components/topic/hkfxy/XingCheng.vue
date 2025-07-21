@@ -67,8 +67,7 @@ onMounted(() => {
                     {{ str }}
                   </p>
                   <div class="image">
-                    <img v-for="(img, index2) in it.images" :key="index2" :src="img.image" :alt="it.title"
-                      :preview="img.preview">
+                    <img v-for="(img, index2) in it.images" :key="index2" :src="img.image" :alt="it.title" :preview="img.preview">
                   </div>
                 </div>
               </div>
