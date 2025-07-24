@@ -1,5 +1,5 @@
 <script setup>
-import { defineAsyncComponent, onMounted } from 'vue'
+import { defineAsyncComponent, nextTick, onMounted } from 'vue'
 
 const Activity = defineAsyncComponent(() => import('~/components/index/Activity.vue'))
 const VideoList = defineAsyncComponent(() => import(`~/components/index/VideoList.vue`))
@@ -11,7 +11,7 @@ const FocusToday = defineAsyncComponent(() => import(`~/components/index/FocusTo
 const RealTimeInfo = defineAsyncComponent(() => import(`~/components/index/RealTimeInfo.vue`))
 const showhome = false
 
-const { data: { value: { activity, bannerlist, verticalvideos, horizontalvideos, cityexpressdata } } } = await useFetch(`/api/`)
+const { data: { value: { activity, bannerlist, verticalvideos, horizontalvideos, cityexpressdata, internationalschooldata } } } = await useFetch(`/api/`)
 useHead({
   script: [
     {
@@ -85,25 +85,21 @@ useHead({
   ],
 })
 onMounted(() => {
-  $(() => {
-    // eslint-disable-next-line no-new
-    new Swiper('.swiper-hours24', {
-      direction: 'vertical',
-      loop: true, // 循环模式选项
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      slidesPerView: 1,
-      spaceBetween: 0,
+  nextTick(() => {
+    console.log("internationalschooldata", internationalschooldata)
+    $(() => {
+      // eslint-disable-next-line no-new
+      new Swiper('.swiper-hours24', {
+        direction: 'vertical',
+        loop: true, // 循环模式选项
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        slidesPerView: 1,
+        spaceBetween: 0,
+      })
     })
-
-    $('#school-title > li').hover(() => {
-      if ($(this).index() !== $('#school-title li').length - 1) {
-        $(this).addClass('active').siblings().removeClass('active')
-      }
-      $('.school-con').find('.school-list').eq($(this).index()).css('display', 'flex').siblings('.school-list').css('display', 'none')
-    }, () => { })
   })
 })
 </script>
@@ -114,7 +110,7 @@ onMounted(() => {
   <component :is="FocusToday" />
   <component :is="VideoList" :verticalvideos :horizontalvideos />
   <component :is="RealTimeInfo" />
-  <component :is="InternationalSchool" />
+  <component :is="InternationalSchool" :internationalschooldata />
   <component :is="HotSchool" />
   <component :is="cityExpress" :cityexpressdata />
   <component :is="Links" />

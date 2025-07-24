@@ -19,13 +19,15 @@ export default defineEventHandler(async () => {
       grade?: string
       id?: string
       author?: string
-      authorImage?: string
+      authorImage?: string,
+      list?: [],
     }
     const activity: IndexData[] = []
     const bannerlist: IndexData[] = []
     const verticalvideos: IndexData[] = []
     const horizontalvideos: IndexData[] = []
     const cityexpressdata: IndexData[] = []
+    const internationalschooldata: IndexData[] = []
 
     $('.banner-img .swiper-slide').each((_, item) => {
       const path = $(item).find('a').attr('href') || ''
@@ -97,12 +99,39 @@ export default defineEventHandler(async () => {
       cityexpressdata.push(items)
     })
 
+    $("#school-title li").each((index, item) => {
+      internationalschooldata.push({
+        title: $(item).find("a").text(),
+        path: $(item).find("a").attr("href"),
+        list: []
+      })
+    })
+    console.log(internationalschooldata)
+    $(".school-con .school-list").each((index, item) => {
+      const school: any = [];
+      $("li", item).each((index2, item2) => {
+        const label: any = [];
+        $(item2).find(".center p span").each((a, b) => {
+          label.push($(b).text())
+        })
+        school.push({
+          path: $(item2).find("a").attr("href"),
+          image: $(item2).find(".img").attr("style")?.replace('background-image: url(', '')?.replace(')', '')?.replace(';', ''),
+          title: $(item2).find("h3").text(),
+          label: label,
+          logo: $(item2).find(".limg").attr("style")?.replace('background-image: url(', '')?.replace(')', '')?.replace(';', ''),
+        })
+      })
+      internationalschooldata[index].list = school
+    })
+
     return {
       activity,
       bannerlist,
       verticalvideos,
       horizontalvideos,
       cityexpressdata,
+      internationalschooldata
     }
   }
   catch (error) {
