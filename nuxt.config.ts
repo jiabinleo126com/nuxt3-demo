@@ -1,6 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config'
 // import forceLowercaseAssets from './scripts/force-lowercase-assets.cjs'
-const routes = ['/zhaosheng/zixikepdf']
+const routes = ['/huodong']
 export default defineNuxtConfig({
   // modules: ['@nuxt/image'],
   compatibilityDate: '2025-05-15',
