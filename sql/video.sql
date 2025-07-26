@@ -11,7 +11,7 @@
  Target Server Version : 90200 (9.2.0)
  File Encoding         : 65001
 
- Date: 26/07/2025 22:06:35
+ Date: 27/07/2025 00:06:36
 */
 
 SET NAMES utf8mb4;
@@ -36,5 +36,12 @@ CREATE TABLE `video`  (
 -- Records of video
 -- ----------------------------
 INSERT INTO `video` VALUES (445, '国际学校是坑还是路？90%家长转错时机毁孩子前途!', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/04e973713560136624669484595/oEb4NcZuo3AA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750927549701684.png', '2025-06-26 16:45:00', '4920', 3);
+INSERT INTO `video` VALUES (444, 'DSE和A-Level 哪个更容易进港大？', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/04e9fecb3560136624669485516/YUcQGptLapMA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750927491545491.png', '2025-06-26 16:44:00', '4920', 2);
+INSERT INTO `video` VALUES (443, '香港深培中学王牌活动曝光！英语+领袖力双提升！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/7f84ff9d3560136624671012685/SZdZ3jat6W8A.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750927298484653.png', '2025-06-26 16:41:00', '4920', 112);
+INSERT INTO `video` VALUES (442, '不会粤语能在香港读书吗？学校广东话班+英文活动，快速适应！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/1ba620ee3560136624666385595/1CDia5b3NWcA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750927108234807.png', '2025-06-26 16:38:00', '4920', 112);
+INSERT INTO `video` VALUES (441, '不想孩子太卷？香港DSE+内地高校=低压力升学方案！出路比你想的多！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/c9ef7ea63560136624665175690/GuIHfAzik9sA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750927030372456.png', '2025-06-26 16:37:00', '4920', 112);
+INSERT INTO `video` VALUES (440, '200+香港学校联展来袭！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/6fa06b6f3560136624667686717/nAtxMo1KcsYA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750926962981622.png', '2025-06-26 16:36:00', '4920', 112);
+INSERT INTO `video` VALUES (439, '8分钟带你了解启慧 一所坚持全人教育，深耕细作的十二年一贯制学校', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/1e1cea3b3560136623411939026/VqVRtIVWaZMA.mp4', 'https://zhaosheng.ieduchina.com/Upload/File/202506/684ce26052138.jpg', '2025-06-14 10:42:00', '75593', 1);
+INSERT INTO `video` VALUES (438, '香港国际学校竞教小学生开公司？香港威雅杨副校长：学生18岁前玩转跨国商业项目！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/706aa8e73560136621664118878/7OqIAwQNQvIA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202505/1748326396640534.png', '2025-05-27 14:14:00', '4920', 112);
 
 SET FOREIGN_KEY_CHECKS = 1;
