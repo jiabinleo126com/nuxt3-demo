@@ -20,7 +20,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:watch": "nodemon --watch . --ext js,ts,vue --ignore node_modules/ --ignore .nuxt/ --exec \"npm run lint\""
+    "lint:watch": "nodemon --watch . --ext js,ts,vue --ignore node_modules/ --ignore .nuxt/ --exec \"npm run lint\"",
+    "assets": "git clone https://github.com/jiabinleo126com/assets.git"
   },
   "issues": {
     "url": "https://github.com/jiabinleo126com/nuxt3-demo/issues"
@@ -29,6 +30,7 @@
     "@nuxt/image": "^1.10.0",
     "axios": "^1.9.0",
     "cheerio": "^1.0.0",
+    "mysql2": "^3.14.2",
     "nuxt": "^3.17.5",
     "reset.less": "^1.0.5",
     "vue": "^3.5.14",

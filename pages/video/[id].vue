@@ -60,7 +60,6 @@ useHead({
 
 const route = useRoute()
 const { data: { value: { videoMsg, list } } } = await useFetch(`/api/video/${route.params.id}`)
-
 onMounted(() => {
   nextTick(() => {
     $(() => {
@@ -146,16 +145,8 @@ onMounted(() => {
     <div class="videos">
       <div class="video-wrap">
         <div class="video-play">
-          <video
-            id="player-container-id"
-            width="520"
-            height="405"
-            preload="auto"
-            playsinline
-            webkit-playsinline
-            :poster="videoMsg.cover"
-            :src="videoMsg.videoUrl"
-          >
+          <video id="player-container-id" width="520" height="405" preload="auto" playsinline webkit-playsinline
+            :poster="videoMsg.cover" :src="videoMsg.src">
           </video>
         </div>
         <div class="oper">
@@ -166,7 +157,7 @@ onMounted(() => {
           <span class="time">发布时间：{{ videoMsg.time }}</span>
           <div class="right">
             <span>
-              <i class="thumbs" value="3"></i><span id="likes_count">3</span>
+              <i class="thumbs" value="3"></i><span id="likes_count">{{ videoMsg.num }}</span>
             </span>
             <span id="share">分享到：</span>
           </div>

@@ -1,3 +1,4 @@
+import process from 'node:process' // 内置模块
 import { defineNuxtConfig } from 'nuxt/config'
 // import forceLowercaseAssets from './scripts/force-lowercase-assets.cjs'
 const routes = ['/zhaosheng/zixikepdf']
@@ -126,5 +127,13 @@ export default defineNuxtConfig({
     minify: true,
     // 关闭源映射生成
     sourceMap: false,
+  },
+  runtimeConfig: {
+    mysql: {
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
+    },
   },
 })
