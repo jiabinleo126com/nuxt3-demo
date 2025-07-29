@@ -56,7 +56,7 @@ import aidudawanquzexiaoliuxue from '~/assets/index/爱读大湾区择校留学.
 
           <p>
             <span>视频号</span>
-            <span><a>留学选校专家</a><a class="img-wrap"><img :src="liuxuexuanxiaozhuanjia" alt="留学选校专家"> </a></span>
+            <span><a>国际选校专家</a><a class="img-wrap"><img :src="liuxuexuanxiaozhuanjia" alt="国际选校专家"> </a></span>
           </p>
           <p>
             <span>微信公众号</span>
