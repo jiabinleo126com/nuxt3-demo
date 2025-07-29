@@ -1,5 +1,6 @@
 import axios from 'axios'
 import * as cheerio from 'cheerio'
+import { pool } from '~/server/api/utils/mysql'
 
 export default defineEventHandler(async () => {
   // return new Date()
@@ -19,13 +20,18 @@ export default defineEventHandler(async () => {
       grade?: string
       id?: string
       author?: string
+      userid?: any
       authorImage?: string
+      cover?: string
     }
     const activity: IndexData[] = []
     const bannerlist: IndexData[] = []
     const verticalvideos: IndexData[] = []
     const horizontalvideos: IndexData[] = []
     const cityexpressdata: IndexData[] = []
+    const hours24Data: IndexData[] = []
+    // const focustodayImgData: IndexData[] = []
+    const focustodayListData: IndexData[] = []
 
     $('.banner-img .swiper-slide').each((_, item) => {
       const path = $(item).find('a').attr('href') || ''
@@ -96,6 +102,24 @@ export default defineEventHandler(async () => {
       }
       cityexpressdata.push(items)
     })
+    $(".swiper-hours24 .swiper-slide").each((index, item) => {
+      hours24Data.push({
+        path: $(item).find("a").attr("href"),
+        title: $(item).find('p').text().replace(/^\d+\.\s*/, '')
+      })
+    })
+
+    // $(".focustoday-img li").each((index, item) => {
+    //   focustodayImgData.push({
+    //     path: $(item).find(".box>a").attr("href"),
+    //     userid: $(item).find(".author>a").attr("href")?.match(/\/(\d+)\.html$/)?.[1],
+    //     cover: $(item).find(".img").attr("style")?.replace('background-image: url(', '')?.replace(')', ''),
+    //     title: $(item).find(".box").find("p").text()
+    //   })
+    // })
+    // console.log(focustodayImgData)
+    const [focustodayImgData] = await pool.query<any[]>('SELECT * FROM article ORDER BY time DESC LIMIT 6')
+    console.log("focustoday", focustodayImgData)
 
     return {
       activity,
@@ -103,6 +127,9 @@ export default defineEventHandler(async () => {
       verticalvideos,
       horizontalvideos,
       cityexpressdata,
+      hours24Data,
+      focustodayImgData,
+      focustodayListData
     }
   }
   catch (error) {

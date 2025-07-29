@@ -12,6 +12,11 @@ export default defineEventHandler(async (event) => {
       })
     }
     const [video] = await pool.query<any[]>('SELECT * FROM video WHERE id = ?', [id])
+    console.log("video[0]", video[0])
+    if (video?.[0]) {
+      const date = video[0].time;
+      video[0].time = setTime(date)
+    }
     const [list] = await pool.query<any[]>('SELECT * FROM video WHERE id != ? ORDER BY time DESC LIMIT 7', [id])
     if (!video.toString()) {
       const newVideo = await crawler(id)
@@ -43,4 +48,12 @@ async function crawler(id: number) {
   )
   const [newVideo] = await pool.query<any[]>('SELECT * FROM video WHERE id = ?', [id])
   return newVideo
+}
+function addZero(num: number) {
+  if (+num < 10)
+    return `0${num}`
+  return num
+}
+function setTime(date: any) {
+  return `${new Date(date).getFullYear()} -${addZero(new Date(date).getMonth() + 1)} -${addZero(new Date(date).getDate())} ${addZero(new Date(date).getHours())}:${addZero(new Date(date).getMinutes())}:${addZero(new Date(date).getSeconds())}`
 }

@@ -11,7 +11,7 @@ const FocusToday = defineAsyncComponent(() => import(`~/components/index/FocusTo
 const RealTimeInfo = defineAsyncComponent(() => import(`~/components/index/RealTimeInfo.vue`))
 const showhome = false
 
-const { data: { value: { activity, bannerlist, verticalvideos, horizontalvideos, cityexpressdata } } } = await useFetch(`/api/`)
+const { data: { value: { activity, bannerlist, verticalvideos, horizontalvideos, cityexpressdata, hours24Data, focustodayImgData, focustodayListData } } } = await useFetch(`/api/`)
 useHead({
   script: [
     {
@@ -111,7 +111,7 @@ onMounted(() => {
 <template>
   <Header :showhome />
   <component :is="Activity" :activity="activity" :bannerlist />
-  <component :is="FocusToday" />
+  <component :is="FocusToday" :hours24Data :focustodayImgData :focustodayListData />
   <component :is="VideoList" :verticalvideos :horizontalvideos />
   <component :is="RealTimeInfo" />
   <component :is="InternationalSchool" />
