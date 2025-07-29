@@ -8,22 +8,22 @@ interface Videos {
 }
 
 defineProps<{
-  verticalVideos: Videos[]
-  horizontalVideos: Videos[]
+  verticalvideos: Videos[]
+  horizontalvideos: Videos[]
 }>()
 </script>
 
 <template>
   <div class="video-list">
-    <div v-if="verticalVideos || horizontalVideos" class="video-con">
+    <div v-if="verticalvideos || horizontalvideos" class="video-con">
       <h2>
         精彩视频
         <a href="/videos/index.html">
           更多视频<i></i>
         </a>
       </h2>
-      <ul v-if="verticalVideos">
-        <li v-for="item in verticalVideos" :key="item.id">
+      <ul v-if="verticalvideos">
+        <li v-for="item in verticalvideos" :key="item.id">
           <NuxtLink :to="`/video/${item.id}`">
             <img loading="lazy" :src="item.image" :alt="item.title">
           </NuxtLink>
@@ -36,8 +36,8 @@ defineProps<{
           </div>
         </li>
       </ul>
-      <ul v-if="horizontalVideos" class="video2">
-        <li v-for="item in horizontalVideos" :key="item.id">
+      <ul v-if="horizontalvideos" class="video2">
+        <li v-for="item in horizontalvideos" :key="item.id">
           <NuxtLink :to="`/video/${item.id}`">
             <img loading="lazy" :src="item.image" :alt="item.title">
           </NuxtLink>

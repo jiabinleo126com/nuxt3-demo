@@ -137,7 +137,6 @@ onMounted(() => {
   function showMenu() {
     var top = $(window).scrollTop();
     var position = top > ($('#bar_header').height() + $('#bar_title').height() + ($('#pc_ad_top').height() || 0)) ? 'fixed' : 'initial';
-    console.log(position)
     $('#iedu_menu_box').css({
       position: position
     });
