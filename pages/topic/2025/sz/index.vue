@@ -1,5 +1,6 @@
 <script setup>
 import { defineAsyncComponent } from 'vue'
+
 const Header = defineAsyncComponent(() => import(`~/components/topic/2025/sz/Header.vue`))
 const Banner = defineAsyncComponent(() => import(`~/components/topic/2025/sz/Banner.vue`))
 const Lthg = defineAsyncComponent(() => import(`~/components/topic/2025/sz/Lthg.vue`))
