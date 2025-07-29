@@ -1,7 +1,7 @@
 import process from 'node:process' // 内置模块
 import { defineNuxtConfig } from 'nuxt/config'
 // import forceLowercaseAssets from './scripts/force-lowercase-assets.cjs'
-const routes = ['/zhaosheng/zixikepdf']
+const routes = ['/zt/202507/130725']
 export default defineNuxtConfig({
   // modules: ['@nuxt/image'],
   compatibilityDate: '2025-05-15',

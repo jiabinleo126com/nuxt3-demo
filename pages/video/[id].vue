@@ -59,10 +59,10 @@ useHead({
 })
 
 const route = useRoute()
+console.log(",",route.params.id)
 const { data: { value: { videoMsg, list } } } = await useFetch(`/api/video/${route.params.id}`)
 // const { data } = await useFetch(`/api/video/${route.params.id}`)
 // console.log(data)
-console.log(videoMsg.time)
 onMounted(() => {
   nextTick(() => {
     $(() => {
@@ -225,13 +225,13 @@ onMounted(() => {
         </p>
         <div class="box">
           <div class="upmsg">
-            <NuxtLink :to="`/home/${videoMsg.author_id}`">
-              <img :src="videoMsg.authorImg" :alt="videoMsg.author">
+            <NuxtLink :to="`/home/${videoMsg.user.id}`">
+              <img :src="videoMsg.user.image" :alt="videoMsg.user.name">
             </NuxtLink>
             <div class="desc">
               <p>
-                <NuxtLink :to="`/home/${videoMsg.author_id}`">
-                  {{ videoMsg.author }}
+                <NuxtLink :to="`/home/${videoMsg.user.id}`">
+                  {{ videoMsg.user.name }}
                 </NuxtLink>
               </p>
               <p>视频：{{ videoMsg.num }}</p>

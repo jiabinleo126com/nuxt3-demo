@@ -12,7 +12,6 @@ export default defineEventHandler(async (event) => {
       })
     }
     const [video] = await pool.query<any[]>('SELECT * FROM video WHERE id = ?', [id])
-    console.log("video[0]", video[0])
     if (video?.[0]) {
       const date = video[0].time;
       video[0].time = setTime(date)
@@ -22,6 +21,10 @@ export default defineEventHandler(async (event) => {
       const newVideo = await crawler(id)
       return { videoMsg: newVideo[0], list }
     }
+    video[0].user = (await getUser(4920))[0]
+    delete video[0].userid
+    delete video[0].user.brief
+    delete video[0].user.follow
     return { videoMsg: video[0], list }
     // return '数据库连接失败'
   }
@@ -49,6 +52,12 @@ async function crawler(id: number) {
   const [newVideo] = await pool.query<any[]>('SELECT * FROM video WHERE id = ?', [id])
   return newVideo
 }
+
+async function getUser(userid: number) {
+  const [user] = await pool.query<any[]>('SELECT * FROM user WHERE id = ?', [userid])
+  return user
+}
+
 function addZero(num: number) {
   if (+num < 10)
     return `0${num}`

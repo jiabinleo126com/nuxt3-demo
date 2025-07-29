@@ -117,9 +117,7 @@ export default defineEventHandler(async () => {
     //     title: $(item).find(".box").find("p").text()
     //   })
     // })
-    // console.log(focustodayImgData)
     const [focustodayImgData] = await pool.query<any[]>('SELECT * FROM article ORDER BY time DESC LIMIT 6')
-    console.log("focustoday", focustodayImgData)
 
     return {
       activity,
