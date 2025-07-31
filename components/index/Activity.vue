@@ -280,7 +280,6 @@ onMounted(() => {
                     display: -webkit-box;
                     text-overflow: ellipsis;
                     overflow: hidden;
-                    width: 100px;
                     -webkit-line-clamp: 2;
                     line-clamp: 2;
                     -webkit-box-orient: vertical;

@@ -28,8 +28,12 @@ export default defineEventHandler(async (event) => {
         // http://www.ieduchina.com/zt/202507/130671.html
       })
     }
-    // const [list] = await pool.query<any[]>('SELECT * FROM video WHERE id != ? ORDER BY time DESC LIMIT 7', [id])
-    return { ...user[0], content, article: articlelist }
+    if (user?.[0]) {
+      return { ...user[0], content, article: articlelist }
+    } else {
+      const newuser = await crawler1(id)
+      return { ...newuser, content, article, articlelist }
+    }
     // return '数据库连接失败'
   }
   catch (__acc) {
@@ -66,4 +70,19 @@ function addZero(num: number) {
   if (+num < 10)
     return `0${num}`
   return num
+}
+
+async function crawler1(id: number) {
+  const { data } = await axios.get(String(`https://www.ieduchina.com/home/${id}.html`))
+  const $ = cheerio.load(data)
+  const name = $('.user_msg .top span').text() || ''
+  const image = $('.user_msg .top img').attr("src") || ''
+  const biref = $('.user_msg .center .text p').text() || ''
+  const follow = 0
+  await pool.execute(
+    'INSERT INTO user (id, name, image, brief, follow) VALUES (?, ?, ?, ?, ?)',
+    [id, name, image, biref, follow],
+  )
+  const [newuser] = await pool.query<any[]>('SELECT * FROM user WHERE id = ?', [id])
+  return newuser
 }

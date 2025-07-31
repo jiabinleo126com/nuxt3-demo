@@ -108,17 +108,18 @@ export default defineEventHandler(async () => {
         title: $(item).find('p').text().replace(/^\d+\.\s*/, '')
       })
     })
-
-    // $(".focustoday-img li").each((index, item) => {
-    //   focustodayImgData.push({
-    //     path: $(item).find(".box>a").attr("href"),
-    //     userid: $(item).find(".author>a").attr("href")?.match(/\/(\d+)\.html$/)?.[1],
-    //     cover: $(item).find(".img").attr("style")?.replace('background-image: url(', '')?.replace(')', ''),
-    //     title: $(item).find(".box").find("p").text()
-    //   })
-    // })
     const [focustodayImgData] = await pool.query<any[]>('SELECT * FROM article ORDER BY time DESC LIMIT 6')
 
+    for (let i = 0; i < focustodayImgData.length; i++) {
+      focustodayImgData[i].time = gettime(focustodayImgData[i].time)
+      const [a] = await pool.query<any[]>('SELECT * FROM user WHERE id = ?', [focustodayImgData[i].userid])
+      if (a[0]) {
+        focustodayImgData[i].user = a[0]
+      } else {
+        focustodayImgData[i].user = { id: focustodayImgData[i].userid }
+      }
+      delete focustodayImgData[i].userid
+    }
     return {
       activity,
       bannerlist,
@@ -134,3 +135,23 @@ export default defineEventHandler(async () => {
     return error
   }
 })
+
+function gettime(time: any) {
+  const now = new Date().getTime();
+  const dix = now - new Date(time).getTime()
+  if (dix > 3 * 24 * 60 * 60 * 1000) {
+    return `${new Date(time).getFullYear()}-${new Date(time).getMonth() + 1}-${new Date(time).getDate()}`
+  }
+  else if (dix > 24 * 60 * 60 * 1000 && dix <= 3 * 24 * 60 * 60 * 1000) {
+    return `${Math.floor(dix / 1000 / 60 / 60 / 24)}天前`
+  }
+  else if (dix > 60 * 60 * 1000 && dix <= 24 * 60 * 60 * 1000) {
+    return `${Math.floor(dix / 1000 / 60 / 60)}小时前`
+  }
+  else if (dix > 60 * 1000 && dix <= 60 * 60 * 1000) {
+    return `${Math.floor(dix / 1000 / 60)}分钟前`
+  }
+  else if (dix <= 60 * 1000) {
+    return `刚刚`
+  }
+}

@@ -53,9 +53,9 @@ defineProps({
                 <p>{{ item.title }}</p>
               </a>
               <div class="author">
-                <a :href="`/home/${item.userid}`" target="_blank">
-                  <i :style="`background-image: url(${item.userimg})`"></i>
-                  {{ item.user }}
+                <a :href="`/home/${item.user.id}`" target="_blank">
+                  <i :style="`background-image: url(${item.user.image})`"></i>
+                  {{ item.user.name }}
                 </a>
                 <span>{{ item.time }}</span>
               </div>

@@ -469,9 +469,9 @@ useHead({
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
 }
 
-.gzh_wrap .gzh_ygz i {
+// .gzh_wrap .gzh_ygz i {
   /* display:none; */
-}
+// <!-- } -->
 
 .gzh_wrap .gzh_gz i {
   display: inline-block;
@@ -668,6 +668,7 @@ useHead({
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -1005,13 +1006,6 @@ textarea {
   margin-top: 5px;
 }
 
-.img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-top: 10px;
-  margin-left: 10px;
-}
 
 .reply-con .reply {
   padding-top: 10px;
@@ -1234,6 +1228,7 @@ textarea::-webkit-input-placeholder {
   font-size: 14px;
   color: #666;
   -webkit-appearance: none;
+  appearance: none;
   outline: none;
   border: 1px solid #CCCCCC;
   border-radius: 4px;

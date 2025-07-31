@@ -51,8 +51,8 @@ useHead({
         <div class="list_f">
           <div class="menu">
             <a class="active">文章</a>
-            <a href="/home/video/4920.html">视频</a>
-            <a href="/home/activitys/4920.html">活动</a>
+            <a href="/home/video/4920">视频</a>
+            <a href="/home/activitys/4920">活动</a>
           </div>
           <ul class="article">
             <li v-for="item in data.article" :key="item.id">
@@ -285,6 +285,7 @@ body section.container_wrap_f .container_f .user_msg .center .text p {
 
 body section.container_wrap_f .container_f .user_msg .center .text p.clamp {
   -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 body section.container_wrap_f .container_f .user_msg .center a {
@@ -481,6 +482,7 @@ body section.container_wrap_f .container_f .content_f .list_f ul.article li a .c
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   text-align: justify;
   width: 100%;
 }
@@ -565,6 +567,7 @@ body section.container_wrap_f .container_f .content_f .list_f ul.activitys li a 
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   text-align: justify;
   width: 100%;
   margin-top: 0;
@@ -1001,6 +1004,7 @@ body section.container_wrap_f .container_f .content_f .side_f .videos ul li a .t
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
 }
 
@@ -1035,6 +1039,7 @@ body section.container_wrap_f .container_f .content_f .side_f .videos ul li a .t
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
+  line-clamp: 2;
   overflow: hidden;
   line-height: 20px;
   -webkit-box-flex: 1;
@@ -1119,6 +1124,7 @@ body section.container_wrap_f .container_f .content_f .side_f .articles ul li>a 
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
 }
 
@@ -1153,6 +1159,7 @@ body section.container_wrap_f .container_f .content_f .side_f .articles ul li>a 
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
+  line-clamp: 2;
   overflow: hidden;
   line-height: 20px;
 }

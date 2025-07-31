@@ -17,7 +17,6 @@ useHead({
     {
       src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
       type: 'text/javascript',
-      defer: true,
     },
     {
       src: 'https://www.ieduchina.com/statics/pcc/js/swiper.min.js',
