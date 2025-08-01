@@ -1,7 +1,6 @@
 import process from 'node:process' // 内置模块
 import { defineNuxtConfig } from 'nuxt/config'
 // import forceLowercaseAssets from './scripts/force-lowercase-assets.cjs'
-const routes = ['/zt/202507/130725']
 export default defineNuxtConfig({
   // modules: ['@nuxt/image'],
   compatibilityDate: '2025-05-15',
@@ -98,7 +97,7 @@ export default defineNuxtConfig({
     prerender: {
       assets: true, // 关键配置
       crawlLinks: false, // 爬取链接进行预渲染
-      routes, // 预渲染首页
+      routes: [process.env.ROUTE], // 预渲染首页
       ignore: ['200', '404'], // 忽略路由
     } as any,
     devProxy: {
