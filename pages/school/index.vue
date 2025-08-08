@@ -9,7 +9,7 @@ const HotSchool = defineAsyncComponent(() => import(`~/components/school/HotScho
 const HotActivity = defineAsyncComponent(() => import(`~/components/school/HotActivity.vue`))
 
 useHead({
-  script: [
+  script: [ 
     {
       src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
       type: 'text/javascript',
