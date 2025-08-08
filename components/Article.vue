@@ -35,7 +35,7 @@ useHead({
     <div id="main" class="w640 fl">
       <p class="breadnav">
         <a href="//www.ieduchina.com" target="_blank">首页</a>
-        >
+        &gt;
         <a href='/zt/' target='_blank'>教育综合</a>
         &gt;<span>正文</span>
       </p>
@@ -45,22 +45,24 @@ useHead({
       <div id="ad_news_banner">
       </div>
       <div class="article mb12 share-cont">
-        <h1>{{ data.title }}</h1>
+        <h1>{{ data?.title }}</h1>
         <div class="desc-box mb12">
           <div class="desc-new">
             <div class="user-img">
-              <a :href="`/home/${data.user.id}`" rel="nofollow" target="_blank">
-                <img :src="data.user.image" :alt="data.user.name" width="68" height="68" class="vm mr5 yuantu">
+              <a :href="`/home/${data?.user?.id}`" rel="nofollow" target="_blank">
+                <img :src="data?.user?.image" :alt="data?.user?.name" width="68" height="68" class="vm mr5 yuantu">
               </a>
             </div>
             <div class="descs">
               <p class="username">
-                <a href="//www.ieduchina.com/home/4920.html" rel="nofollow" target="_blank">{{ data.user.name }}</a>
+                <a href="//www.ieduchina.com/home/4920.html" rel="nofollow" target="_blank">
+                  {{ data?.user?.name }}
+                </a>
                 <img src="//www.ieduchina.com/statics/pcc/img/d6a04e5c.png" alt="" class="original" height="16"
                   width="40">
               </p>
               <div class="nums">
-                <p>{{ data.time }}</p>
+                <p>{{ data?.time }}</p>
                 <p>发布于广东</p>
               </div>
             </div>
@@ -71,7 +73,7 @@ useHead({
           <div class="clear"></div>
         </div>
         <div class="clearfix" id="main-cont">
-          <div class="con" v-html="data.desc">
+          <div class="con" v-html="data?.description">
 
           </div>
         </div>
@@ -470,7 +472,7 @@ useHead({
 }
 
 // .gzh_wrap .gzh_ygz i {
-  /* display:none; */
+/* display:none; */
 // <!-- } -->
 
 .gzh_wrap .gzh_gz i {
