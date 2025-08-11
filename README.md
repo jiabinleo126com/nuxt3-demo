@@ -94,6 +94,10 @@ git branch -a
 # 强制覆盖远程
 git push --force
 
+# 撤销最近一次提交，保留工作区和暂存区的修改
+git reset --soft HEAD~1
+
+
 Navicat
 jiabinleo@237.com
 Lijiabin.6341

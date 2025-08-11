@@ -28,8 +28,8 @@ export default defineNuxtConfig({
     buildAssetsDir: 'statics', // 构建资源目录
   },
   devServer: {
-    host: '0.0.0.0', // Listen on all network interfaces
-    port: 80, // Optional: Change port if needed
+    host: '192.168.6.121', // Listen on all network interfaces
+    port: 3000, // Optional: Change port if needed
   },
   vite: {
     base: '', // ✅ 设置资源和入口文件的基础路径为相对路径
