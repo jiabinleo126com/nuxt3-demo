@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     buildAssetsDir: 'statics', // 构建资源目录
   },
   devServer: {
-    host: '0.0.0.0', // Listen on all network interfaces
+    host: '192.168.6.121', // Listen on all network interfaces
     port: 3000, // Optional: Change port if needed
   },
   vite: {
