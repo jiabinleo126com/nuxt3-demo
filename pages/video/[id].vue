@@ -59,10 +59,8 @@ useHead({
 })
 
 const route = useRoute()
-console.log(",",route.params.id)
 const { data: { value: { videoMsg, list } } } = await useFetch(`/api/video/${route.params.id}`)
 // const { data } = await useFetch(`/api/video/${route.params.id}`)
-// console.log(data)
 onMounted(() => {
   nextTick(() => {
     $(() => {

@@ -11,7 +11,7 @@
  Target Server Version : 90400 (9.4.0)
  File Encoding         : 65001
 
- Date: 31/07/2025 08:21:16
+ Date: 06/08/2025 17:18:31
 */
 
 SET NAMES utf8mb4;
@@ -35,6 +35,9 @@ CREATE TABLE `video`  (
 -- ----------------------------
 -- Records of video
 -- ----------------------------
+INSERT INTO `video` VALUES (451, '席位告急！香港插班黄金机会，新来港学生专属规划讲座！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/4f90fd6d5145403694084396467/8AsleiOOk8gA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202508/1754374055873502.png', '2025-08-05 14:07:00', '4920', 118);
+INSERT INTO `video` VALUES (450, '初中就开始搞科研？中华基金中学的竞赛培养模式大揭秘！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/b58b77225145403694082388142/hGUJv8GtansA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202508/1754373906780519.png', '2025-08-05 14:05:00', '4920', 118);
+INSERT INTO `video` VALUES (449, '在香港读中学是什么体验？香港道教联合会园玄学院第二中学五年老生揭秘真实校园生活！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/9e9532235145403694085451086/wGe1LF4m7YsA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202508/1754373854626031.png', '2025-08-05 14:04:00', '4920', 118);
 INSERT INTO `video` VALUES (445, '国际学校是坑还是路？90%家长转错时机毁孩子前途!', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/04e973713560136624669484595/oEb4NcZuo3AA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750927549701684.png', '2025-07-29 16:45:00', '4920', 3);
 INSERT INTO `video` VALUES (444, 'DSE和A-Level 哪个更容易进港大？', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/04e9fecb3560136624669485516/YUcQGptLapMA.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750927491545491.png', '2025-07-29 16:44:00', '4920', 2);
 INSERT INTO `video` VALUES (443, '香港深培中学王牌活动曝光！英语+领袖力双提升！', 'https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/7f84ff9d3560136624671012685/SZdZ3jat6W8A.mp4', 'https://www.ieduchina.com/uploadfile/toutiao/202506/1750927298484653.png', '2025-07-29 16:41:00', '4920', 112);

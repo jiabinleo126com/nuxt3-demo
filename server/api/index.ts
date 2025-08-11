@@ -108,7 +108,7 @@ export default defineEventHandler(async () => {
         title: $(item).find('p').text().replace(/^\d+\.\s*/, '')
       })
     })
-    const [focustodayImgData] = await pool.query<any[]>('SELECT * FROM article ORDER BY time DESC LIMIT 6')
+    const [focustodayImgData] = await pool.query<any[]>('SELECT * FROM article ORDER BY event_time DESC LIMIT 6')
 
     for (let i = 0; i < focustodayImgData.length; i++) {
       focustodayImgData[i].time = gettime(focustodayImgData[i].time)
