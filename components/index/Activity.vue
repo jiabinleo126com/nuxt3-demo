@@ -65,7 +65,7 @@ onMounted(() => {
 <template>
   <div class="activity">
     <div class="con">
-      <div v-if="bannerlist" class="banner-img">
+      <div v-if="activity" class="banner-img">
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <div v-for="(item, index) in activity" :key="index" class="swiper-slide">
@@ -280,7 +280,6 @@ onMounted(() => {
                     display: -webkit-box;
                     text-overflow: ellipsis;
                     overflow: hidden;
-                    width: 100px;
                     -webkit-line-clamp: 2;
                     line-clamp: 2;
                     -webkit-box-orient: vertical;

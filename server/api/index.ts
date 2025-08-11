@@ -1,5 +1,6 @@
 import axios from 'axios'
 import * as cheerio from 'cheerio'
+import { pool } from '~/server/api/utils/mysql'
 
 export default defineEventHandler(async () => {
   // return new Date()
@@ -19,15 +20,18 @@ export default defineEventHandler(async () => {
       grade?: string
       id?: string
       author?: string
-      authorImage?: string,
-      list?: [],
+      userid?: any
+      authorImage?: string
+      cover?: string
     }
     const activity: IndexData[] = []
     const bannerlist: IndexData[] = []
     const verticalvideos: IndexData[] = []
     const horizontalvideos: IndexData[] = []
     const cityexpressdata: IndexData[] = []
-    const internationalschooldata: IndexData[] = []
+    const hours24Data: IndexData[] = []
+    // const focustodayImgData: IndexData[] = []
+    const focustodayListData: IndexData[] = []
 
     $('.banner-img .swiper-slide').each((_, item) => {
       const path = $(item).find('a').attr('href') || ''
@@ -98,43 +102,56 @@ export default defineEventHandler(async () => {
       }
       cityexpressdata.push(items)
     })
-
-    $("#school-title li").each((index, item) => {
-      internationalschooldata.push({
-        title: $(item).find("a").text(),
+    $(".swiper-hours24 .swiper-slide").each((index, item) => {
+      hours24Data.push({
         path: $(item).find("a").attr("href"),
-        list: []
+        title: $(item).find('p').text().replace(/^\d+\.\s*/, '')
       })
     })
-    console.log(internationalschooldata)
-    $(".school-con .school-list").each((index, item) => {
-      const school: any = [];
-      $("li", item).each((index2, item2) => {
-        const label: any = [];
-        $(item2).find(".center p span").each((a, b) => {
-          label.push($(b).text())
-        })
-        school.push({
-          path: $(item2).find("a").attr("href"),
-          image: $(item2).find(".img").attr("style")?.replace('background-image: url(', '')?.replace(')', '')?.replace(';', ''),
-          title: $(item2).find("h3").text(),
-          label: label,
-          logo: $(item2).find(".limg").attr("style")?.replace('background-image: url(', '')?.replace(')', '')?.replace(';', ''),
-        })
-      })
-      internationalschooldata[index].list = school
-    })
+    const [focustodayImgData] = await pool.query<any[]>('SELECT * FROM article ORDER BY event_time DESC LIMIT 6')
 
+    for (let i = 0; i < focustodayImgData.length; i++) {
+      focustodayImgData[i].time = gettime(focustodayImgData[i].time)
+      const [a] = await pool.query<any[]>('SELECT * FROM user WHERE id = ?', [focustodayImgData[i].userid])
+      if (a[0]) {
+        focustodayImgData[i].user = a[0]
+      } else {
+        focustodayImgData[i].user = { id: focustodayImgData[i].userid }
+      }
+      delete focustodayImgData[i].userid
+    }
     return {
       activity,
       bannerlist,
       verticalvideos,
       horizontalvideos,
       cityexpressdata,
-      internationalschooldata
+      hours24Data,
+      focustodayImgData,
+      focustodayListData
     }
   }
   catch (error) {
     return error
   }
 })
+
+function gettime(time: any) {
+  const now = new Date().getTime();
+  const dix = now - new Date(time).getTime()
+  if (dix > 3 * 24 * 60 * 60 * 1000) {
+    return `${new Date(time).getFullYear()}-${new Date(time).getMonth() + 1}-${new Date(time).getDate()}`
+  }
+  else if (dix > 24 * 60 * 60 * 1000 && dix <= 3 * 24 * 60 * 60 * 1000) {
+    return `${Math.floor(dix / 1000 / 60 / 60 / 24)}天前`
+  }
+  else if (dix > 60 * 60 * 1000 && dix <= 24 * 60 * 60 * 1000) {
+    return `${Math.floor(dix / 1000 / 60 / 60)}小时前`
+  }
+  else if (dix > 60 * 1000 && dix <= 60 * 60 * 1000) {
+    return `${Math.floor(dix / 1000 / 60)}分钟前`
+  }
+  else if (dix <= 60 * 1000) {
+    return `刚刚`
+  }
+}

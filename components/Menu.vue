@@ -137,7 +137,6 @@ onMounted(() => {
   function showMenu() {
     var top = $(window).scrollTop();
     var position = top > ($('#bar_header').height() + $('#bar_title').height() + ($('#pc_ad_top').height() || 0)) ? 'fixed' : 'initial';
-    console.log(position)
     $('#iedu_menu_box').css({
       position: position
     });
@@ -194,7 +193,7 @@ onMounted(() => {
           <a href="//schoollist.ieduchina.com"><span>学校大全</span></a>
           <ul class="submenu">
             <li><a href="//schoollist.ieduchina.com"><span>内地学校</span></a></li>
-            <li><a href="//www.ieduchina.com/hongkong/" target="_blank"><span>香港学校</span></a></li>
+            <li><a href="/hongkong" target="_blank"><span>香港学校</span></a></li>
             <li><a href="//www.ieduchina.com/singapore/index.html" target="_blank"><span>新加坡学校</span></a></li>
             <li><a href="//schoollist.ieduchina.com/schlist/c1/"><span>海外学校</span></a></li>
             <li><a href="//www.ieduchina.com/graduate/index.html"><span>家长进修</span></a></li>

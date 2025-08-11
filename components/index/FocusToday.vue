@@ -1,120 +1,14 @@
 <script setup>
-const hours = [
-  {
-    path: '//www.ieduchina.com/shanghai/education/202506/129051.html',
-    title: '2025年上海美达菲学校学费及学校简介'
+defineProps({
+  hours24Data: {
+    type: Array,
+    default: () => []
   },
-  {
-    path: '//www.ieduchina.com/hongkong/education/202506/129050.html',
-    title: '弘立书院2025-2026学年学费及招生政策'
-  },
-  {
-    path: '//www.ieduchina.com/chengdu/education/202506/129049.html',
-    title: '2025成都双流区的国际学校汇总'
-  },
-  {
-    path: '//www.ieduchina.com/shenzhen/education/202506/129044.html',
-    title: '福田精英家庭教育秘密！为什么他们2岁就开始“投资”这个？'
+  focustodayImgData: {
+    type: Array,
+    default: () => []
   }
-]
-const focustoday = [
-  {
-    path: '//www.ieduchina.com/shenzhen/education/202506/129044.html',
-    image: '//www.ieduchina.com/uploadfile/202506/f81220250605085413.jpg',
-    title: '福田精英家庭教育秘密！为什么他们2岁就开始“投资”这个？',
-    author: '选校砖家',
-    authorImage: 'https://www.ieduchina.com/uploadfile/gzh/202112/164024959930856.jpg',
-    authorLink: '//www.ieduchina.com/home/4920.html',
-    time: '19小时前',
-  },
-  {
-    path: '//www.ieduchina.com/shenzhen/education/202506/129038.html',
-    image: '//www.ieduchina.com/uploadfile/202506/f40220250605085038.jpg',
-    title: '初中生把数理文史玩出花，福港艺林这场展览绝了！',
-    author: '深圳市福港艺林学校',
-    authorImage: 'https://www.ieduchina.com/uploadfile/gzh/202112/164031623738348.jpg',
-    authorLink: '//www.ieduchina.com/home/9286.html',
-    time: '19小时前',
-  },
-  {
-    path: '//www.ieduchina.com/school/education/202506/129016.html',
-    image: '//www.ieduchina.com/uploadfile/202506/f50820250605084005.jpg',
-    title: 'Field Trip｜踏寻香江文脉，触摸历史温度：佛山ASJ中学部香港研学行',
-    author: '佛山暨大港澳子弟学校',
-    authorImage: 'https://www.ieduchina.com/uploadfile/toutiao/202306/1686633532124200.jpg',
-    authorLink: '//www.ieduchina.com/home/14058.html',
-    time: '19小时前',
-  },
-  {
-    path: '//www.ieduchina.com/guangzhou/education/202506/129014.html',
-    image: '//www.ieduchina.com/uploadfile/202506/f57520250605083924.jpg',
-    title: '语言为桥·艺术作舟｜ASJ第四届紫荆花节暨语言艺术文化节圆满落幕',
-    author: '广州暨大港澳子弟学校',
-    authorImage: 'https://www.ieduchina.com/uploadfile/gzh/202110/163512691354531.jpg',
-    authorLink: '//www.ieduchina.com/home/7064.html',
-    time: '19小时前',
-  },
-  {
-    path: '//www.ieduchina.com/school/education/202506/129009.html',
-    image: '//www.ieduchina.com/uploadfile/202506/f58520250605083811.jpg',
-    title: 'FLA学生说 | 李嘉伟：此心安处是吾乡',
-    author: '未来领导力学校',
-    authorImage: 'https://www.ieduchina.com/uploadfile/gzh/202305/168318054936425.jpg',
-    authorLink: '//www.ieduchina.com/home/14007.html',
-    time: '19小时前',
-  },
-  {
-    path: '//www.ieduchina.com/guangzhou/education/202506/129001.html',
-    image: '//www.ieduchina.com/uploadfile/202506/f60920250605083556.jpg',
-    title: '省实中英国际课程校园生活精选问答',
-    author: '省实IFPAD和省实A Level',
-    authorImage: 'https://www.ieduchina.com/uploadfile/toutiao/202210/1665540381506177.jpg',
-    authorLink: '//www.ieduchina.com/home/13626.html',
-    time: '19小时前',
-  }
-]
-const focustodayList = [
-  {
-    path: '//www.ieduchina.com/huodong/202506/2780.html',
-    title: '2025荟同时装秀，邀您参加',
-    time: '2025-06-06 18:30'
-  },
-  {
-    path: '//www.ieduchina.com/huodong/202505/2749.html',
-    title: '珠海英华6月7日招生说明会，邀您参加',
-    time: '2025-06-07 09:30'
-  },
-  {
-    path: '//www.ieduchina.com/huodong/202505/2753.html',
-    title: '蓝湾未来领导力学校小学部6月7日校园开放日',
-    time: '2025-06-07 09:30'
-  },
-  {
-    path: '//www.ieduchina.com/huodong/202505/2768.html',
-    title: '碧桂园十里银滩学校6月7日校园开放日',
-    time: '2025-06-07 09:30'
-  },
-  {
-    path: '//www.ieduchina.com/huodong/202505/2773.html',
-    title: '佛山暨大港澳子弟学校6月7日校园开放日',
-    time: '2025-06-07 08:30'
-  },
-  {
-    path: '//www.ieduchina.com/huodong/202505/2777.html',
-    title: '南宁哈罗礼德学校6月7日欢乐汇，邀您参加',
-    time: '2025-06-07 09:00'
-  },
-  {
-    path: '//www.ieduchina.com/huodong/202505/2756.html',
-    title: '广州市斐特思学校6月7日校园开放日',
-    time: '2025-06-07 09:30'
-  },
-  {
-    path: '//www.ieduchina.com/huodong/202506/2781.html',
-    title: '上海美达菲学校6月8日校园开放日',
-    time: '2025-06-08 13:00'
-  }
-]
+})
 </script>
 <template>
   <div class="focustoday">
@@ -128,7 +22,7 @@ const focustodayList = [
             </div>
             <div class="swiper-hours24">
               <div class="swiper-wrapper">
-                <div v-for="(item, index) in hours" class="swiper-slide" :key="index">
+                <div v-for="(item, index) in hours24Data" :key="index" class="swiper-slide">
                   <a :href="item.path">
                     <p>
                       <span>{{ index + 1 }}.</span>
@@ -150,17 +44,18 @@ const focustodayList = [
         </div>
       </div>
       <div class="focustoday-con">
-        <ul class="focustoday-img">
-          <li v-for="(item, index) in focustoday" :key="index">
+        <ul v-if="focustodayImgData" class="focustoday-img">
+          <li v-for="item in focustodayImgData" :key="item.id">
             <div class="box">
-              <a :href="item.path" target="_blank">
-                <img :src="item.image" :alt="item.title" height="150">
+              <a href="//www.ieduchina.com/shenzhen/education/202506/129044.html">
+                <div class="img" :style="`background-image: url(${item.cover});`">
+                </div>
                 <p>{{ item.title }}</p>
               </a>
               <div class="author">
-                <a :href="item.authorLink" target="_blank">
-                  <img :src="item.authorImage" :alt="item.author" height="20">
-                  {{ item.author }}
+                <a :href="`/home/${item.user.id}`" target="_blank">
+                  <i :style="`background-image: url(${item.user.image})`"></i>
+                  {{ item.user.name }}
                 </a>
                 <span>{{ item.time }}</span>
               </div>

@@ -11,13 +11,12 @@ const FocusToday = defineAsyncComponent(() => import(`~/components/index/FocusTo
 const RealTimeInfo = defineAsyncComponent(() => import(`~/components/index/RealTimeInfo.vue`))
 const showhome = false
 
-const { data: { value: { activity, bannerlist, verticalvideos, horizontalvideos, cityexpressdata, internationalschooldata } } } = await useFetch(`/api/`)
+const { data: { value: { activity, bannerlist, verticalvideos, horizontalvideos, cityexpressdata, hours24Data, focustodayImgData, focustodayListData } } } = await useFetch(`/api/`)
 useHead({
   script: [
     {
       src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
       type: 'text/javascript',
-      defer: true,
     },
     {
       src: 'https://www.ieduchina.com/statics/pcc/js/swiper.min.js',
@@ -107,7 +106,7 @@ onMounted(() => {
 <template>
   <Header :showhome />
   <component :is="Activity" :activity="activity" :bannerlist />
-  <component :is="FocusToday" />
+  <component :is="FocusToday" :hours24Data :focustodayImgData :focustodayListData />
   <component :is="VideoList" :verticalvideos :horizontalvideos />
   <component :is="RealTimeInfo" />
   <component :is="InternationalSchool" :internationalschooldata />

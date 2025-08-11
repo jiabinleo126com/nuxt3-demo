@@ -4,7 +4,6 @@ useHead({
     {
       src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
       type: 'text/javascript',
-      defer: true,
     },
     {
       src: '/tencent-cdn/qcloud/video/dist/tcadapter.1.0.0.min.js',
@@ -35,10 +34,11 @@ useHead({
       src: 'https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.4/tcplayer.v4.5.4.min.js',
       defer: true,
       crossorigin: 'anonymous',
-      // }, {
-      //     src: '/statics/video/js/videolist.js',
-      //     defer: true,
-      //     crossorigin: 'anonymous'
+    },
+    {
+      src: 'https://www.ieduchina.com/statics/js/layer.js',
+      type: 'text/javascript',
+      body: true
     },
     {
       src: '/statics/share/jquery.share.min.js',
@@ -60,7 +60,7 @@ useHead({
 
 const route = useRoute()
 const { data: { value: { videoMsg, list } } } = await useFetch(`/api/video/${route.params.id}`)
-
+// const { data } = await useFetch(`/api/video/${route.params.id}`)
 onMounted(() => {
   nextTick(() => {
     $(() => {
@@ -132,6 +132,61 @@ onMounted(() => {
           },
         })
       })
+      const inputs = [];
+      $("body [name]").each((index, item) => {
+        if ($(item).attr("required")) {
+          inputs.push({
+            ele: item,
+            tip: $(item).attr("_tip") || $(item).attr("placeholder")
+          })
+        }
+      })
+      $("#video_form").on("click", "button[type=submit]", function () {
+        const erros = [];
+        const msg = inputs.reduce((_acc, item) => {
+          if (!$(item.ele).val()) {
+            erros.push(item.tip)
+          }
+          return erros[0]
+        }, "")
+        if (msg) {
+          layer.msg(msg, {
+            icon: 2,
+            anim: 6,
+            time: 2000
+          });
+          return false;
+        }
+        $.ajax({
+          url: $(this).closest("form").attr("action"),
+          type: $(this).closest("form").attr("method"),
+          dataType: "json",
+          data: data.field,
+          success: function success(res) {
+            if (res.status == 1) {
+              layer.msg("数据提交成功", {
+                icon: 1,
+                time: 2000
+              });
+              $("form.layui-form")[0].reset();
+            } else {
+              layer.msg(res.info, {
+                icon: 2,
+                anim: 6,
+                time: 2000
+              });
+            }
+          },
+          error: function error(err) {
+            layer.msg("数据提交失败，请稍后再试", {
+              icon: 2,
+              anim: 6,
+              time: 2000
+            });
+          }
+        });
+        return false;
+      })
     })
   })
 })
@@ -146,16 +201,8 @@ onMounted(() => {
     <div class="videos">
       <div class="video-wrap">
         <div class="video-play">
-          <video
-            id="player-container-id"
-            width="520"
-            height="405"
-            preload="auto"
-            playsinline
-            webkit-playsinline
-            :poster="videoMsg.cover"
-            :src="videoMsg.videoUrl"
-          >
+          <video id="player-container-id" width="520" height="405" preload="auto" playsinline webkit-playsinline
+            :poster="videoMsg.cover" :src="videoMsg.src">
           </video>
         </div>
         <div class="oper">
@@ -166,7 +213,7 @@ onMounted(() => {
           <span class="time">发布时间：{{ videoMsg.time }}</span>
           <div class="right">
             <span>
-              <i class="thumbs" value="3"></i><span id="likes_count">3</span>
+              <i class="thumbs" value="3"></i><span id="likes_count">{{ videoMsg.num }}</span>
             </span>
             <span id="share">分享到：</span>
           </div>
@@ -176,13 +223,13 @@ onMounted(() => {
         </p>
         <div class="box">
           <div class="upmsg">
-            <NuxtLink :to="`/home/${videoMsg.author_id}`">
-              <img :src="videoMsg.authorImg" :alt="videoMsg.author">
+            <NuxtLink :to="`/home/${videoMsg.user.id}`">
+              <img :src="videoMsg.user.image" :alt="videoMsg.user.name">
             </NuxtLink>
             <div class="desc">
               <p>
-                <NuxtLink :to="`/home/${videoMsg.author_id}`">
-                  {{ videoMsg.author }}
+                <NuxtLink :to="`/home/${videoMsg.user.id}`">
+                  {{ videoMsg.user.name }}
                 </NuxtLink>
               </p>
               <p>视频：{{ videoMsg.num }}</p>
@@ -192,7 +239,7 @@ onMounted(() => {
             <i></i>关注
           </button>
         </div>
-        <form class="layui-form" action="/index.php?m=college&c=index&a=collegereg&dopost=reg" method="post">
+        <form id="video_form" action="/index.php?m=college&c=index&a=collegereg&dopost=reg" method="post">
           <div class="form_head">
             <span>快速匹配适合您孩子的学校</span>
           </div>
@@ -204,16 +251,16 @@ onMounted(() => {
           <div class="inputs">
             <input type="hidden" name="shipin_id" :value="videoMsg.id">
             <div class="input">
-              <input name="name" placeholder="您的孩子姓名" lay-verify="name">
+              <input name="name" placeholder="您的孩子姓名" required>
             </div>
             <div class="input">
-              <input name="want_school" placeholder="您的意向学校" lay-verify="want_school">
+              <input name="want_school" placeholder="您的意向学校">
             </div>
             <div class="input">
-              <input name="mobile" maxlength="11" placeholder="您的联系号码" lay-verify="mobile">
+              <input name="mobile" maxlength="11" placeholder="您的联系号码">
             </div>
           </div>
-          <button type="submit" lay-submit="pub_form" lay-filter="pub_form">
+          <button type="submit">
             为您匹配
           </button>
         </form>
@@ -244,41 +291,6 @@ onMounted(() => {
 </template>
 
 <style lang="less" scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-track-piece {
-  background-color: rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:vertical {
-  height: 5px;
-  background-color: rgba(125, 125, 125, 0.7);
-  -webkit-border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:horizontal {
-  width: 5px;
-  background-color: rgba(125, 125, 125, 0.7);
-  -webkit-border-radius: 6px;
-}
-
-html {
-  font-family: Source Han Sans CN-Regular, Source Han Sans CN;
-}
-
-html {
-  font-family: "Source Han Sans CN-Medium";
-}
-
 .container {
   width: 1280px;
   margin: 0 auto;
@@ -954,5 +966,9 @@ html {
 
 .container-video .videos .video-list ul li a .text .nums span:nth-of-type(2) i.active {
   background-image: url(/assets/video/e3dc2e45.png);
+}
+
+.layui-layer-msg {
+  background-color: white;
 }
 </style>
