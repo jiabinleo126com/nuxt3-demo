@@ -13,7 +13,7 @@
   "keywords": [],
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --open",
     "generate": "nuxt generate",
     "webpack": "cross-env NODE_ENV=production webpack",
     "image": "node scripts/replaceStrImagePath.cjs",
