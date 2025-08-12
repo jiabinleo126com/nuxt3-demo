@@ -98,7 +98,7 @@ export default defineNuxtConfig({
       assets: true, // 关键配置
       crawlLinks: false, // 爬取链接进行预渲染
       // routes: process.env.ROUTE, // 预渲染首页
-      routes: ['/topic/2025/shengxue/'], // 预渲染首页
+      routes: ['/zhaosheng/crm/sbbf'], // 预渲染首页
       ignore: ['200', '404'], // 忽略路由
     } as any,
     devProxy: {
