@@ -1,8 +1,68 @@
 <script setup>
 import { useHead } from 'nuxt/app';
 import { onMounted } from 'vue';
+import { grade } from '~/assets/data/index.ts'
 onMounted(() => {
-
+  $(() => {
+    var inputs = [];
+    $.each($("form").find("input,select"), function (index, item) {
+      if ($(item).attr("required")) {
+        inputs.push(item);
+      }
+    });
+    $("select").change(function () {
+      $(this).css("color", "#333")
+    })
+    $("button[type=submit]").on("click", function () {
+      $(".error-tips").text("");
+      var form = $(this).closest("form");
+      var errors = [];
+      var content = inputs.reduce(function (_acc, input) {
+        var val = form.find(input).val();
+        if (!val) {
+          errors.push(form.find(input).attr("placeholder"));
+        }
+        return errors[0];
+      }, "");
+      if (content) {
+        layer.open({ content: content, skin: "msg", time: 3 });
+        $(".error-tips").text(content);
+        return false;
+      }
+      if ($("input[name=price]:checked").val() == "E" && !$("#sign_yhj").val()) {
+        layer.open({
+          content: '请输入优惠券码',
+          skin: 'msg',
+          time: 3
+        });
+        return false;
+      }
+      $.ajax({
+        url: form[0].action,
+        type: form[0].method,
+        dataType: "json",
+        data: form.serialize(),
+        success: function (res) {
+          if (res.status == 1) {
+            form[0].reset();
+            layer.open({
+              content: '提交成功',
+              skin: 'msg',
+              time: 3
+            });
+            window.location.href = res.info;
+          }
+          if (res.status == 2) {
+            callPay(res.data);
+          }
+          if (res.status == 0) {
+            layer.open({ content: res.info, skin: "msg", time: 3 });
+          }
+        }
+      });
+      return false;
+    });
+  })
 })
 
 useHead({
@@ -18,7 +78,7 @@ useHead({
                 if (/Android|webOS|iPhone|iPod|BlackBerry|OpenHarmony/i.test(navigator.userAgent)) {
                     html = "html{font-size: " + width / 780 + "px !important;}";
                 } else {
-                    html = "html{font-size: " + 780 / 16 + "px !important;width:750px;margin:0 auto;}";
+                    html = "html{font-size: " + 1 + "px !important;width:750px !important;margin:0 auto !important;}";
                 }
                 if (document.getElementById('style')) {
                     document.getElementById('style').innerHTML = html
@@ -85,15 +145,21 @@ useHead({
   <header><img alt="" src="https://m.ieduchina.com/wxpay/zhanhui/202410/images/a4ad1bcg.png"></header>
   <section>
     <form action="https://m.ieduchina.com/wxpay/ajax.php?do=zhan" method="post">
-      <p>购买电子入场券</p>
+      <p>活动报名</p>
       <div class="input"><span>学生姓名：</span><input name="name" type="text" autocomplete="off" placeholder="请输入学生姓名"
           required></div>
       <div class="input"><span>手机号码：</span><input name="tel" type="text" autocomplete="off" placeholder="请输入手机号码"
           id="tel" required></div>
-      <div class="input"><span>优惠券码：</span><input name="sign_yhj" type="text" autocomplete="off" placeholder="请输入优惠券码"
-          id="sign_yhj" maxlength="7">
-        <img alt="" src="https://m.ieduchina.com/wxpay/zhanhui/202410/images/ec90ec38.png" class="ok">
+      <div class="input"><span>在读年级：</span><select name="grade" placeholder="请选择在读年级" required>
+          <option value="">请选择在读年级</option>
+          <option v-for="item in grade" :value="item">{{ item }}</option>
+        </select>
       </div>
+      <div class="input"><span>参加人数：</span><input name="num" type="number" autocomplete="off" placeholder="请输入参与人数"
+          required></div>
+      <!-- <div class="input"><span>优惠券码：</span><input name="sign_yhj" type="text" autocomplete="off" placeholder="请输入优惠券码" id="sign_yhj" maxlength="7"> -->
+      <!-- <img alt="" src="https://m.ieduchina.com/wxpay/zhanhui/202410/images/ec90ec38.png" class="ok">
+      </div> -->
       <div class="btn">
         <div class="error-tips"></div><button type="submit">提交</button>
       </div>
@@ -134,20 +200,20 @@ footer a[href] {
 
 footer a:first-of-type {
   width: 100%;
-  background: url(../images/0a713ece.png) center 16rem/56rem 56rem no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/0a713ece.png) center 16rem/56rem 56rem no-repeat
 }
 
 footer a:first-of-type[href] {
-  background-image: url(../images/4aea2284.png)
+  background-image: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/4aea2284.png)
 }
 
 footer a:last-of-type {
   width: 100%;
-  background: url(../images/e253df8f.png) center 16rem/56rem 56rem no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/e253df8f.png) center 16rem/56rem 56rem no-repeat
 }
 
 footer a:last-of-type[href] {
-  background-image: url(../images/33d08641.png)
+  background-image: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/33d08641.png)
 }
 
 :root {
@@ -196,7 +262,28 @@ section form .input input {
   width: 100%;
   font-size: 32rem;
   color: #333;
-  padding-left: 240rem
+  padding-left: 240rem;
+  height: 100rem;
+}
+
+section form .input select {
+  font-size: 32rem;
+  color: #333;
+  margin-left: 240rem;
+  width: 508rem;
+  height: 100rem;
+  border: none;
+  color: #999;
+  appearance: none;
+  background-color: transparent;
+
+  option {
+    color: #333;
+
+    &[value=""] {
+      display: none;
+    }
+  }
 }
 
 section form .input input::placeholder {
@@ -249,7 +336,7 @@ section form ul li input:checked+.box::after {
   top: -1rem;
   width: 24rem;
   height: 24rem;
-  background: url(../images/7e03a4b8.png) center/contain no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/7e03a4b8.png) center/contain no-repeat
 }
 
 section form ul li input:checked+.box p {
@@ -425,7 +512,7 @@ section .time ul li {
   height: 130rem;
   overflow: hidden;
   border-radius: 8rem;
-  background: #fe8710 url(../images/5000c8db.png) center/contain no-repeat;
+  background: #fe8710 url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/5000c8db.png) center/contain no-repeat;
   text-align: center
 }
 
@@ -472,11 +559,11 @@ section .ticket ul li.over .left .tbody {
 }
 
 section .ticket ul li.over .left .tbody .l {
-  background-image: url(../images/4d20c677.png)
+  background-image: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/4d20c677.png)
 }
 
 section .ticket ul li.over .left .tbody .e {
-  background-image: url(../images/e8366957.png)
+  background-image: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/e8366957.png)
 }
 
 section .ticket ul li.over .right .thead {
@@ -534,7 +621,7 @@ section .ticket ul li .left .tbody {
 section .ticket ul li .left .tbody .l {
   width: 152rem;
   height: 38rem;
-  background: url(../images/28294855.png) center/contain no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/28294855.png) center/contain no-repeat
 }
 
 section .ticket ul li .left .tbody span {
@@ -549,7 +636,7 @@ section .ticket ul li .left .tbody span {
 section .ticket ul li .left .tbody .e {
   width: 65rem;
   height: 65rem;
-  background: url(../images/a9b04df6.png) center/contain no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/a9b04df6.png) center/contain no-repeat
 }
 
 section .ticket ul li .right {
@@ -637,7 +724,7 @@ section .links .tip {
 .mask.show .con .box {
   width: 620rem;
   padding: 0 32rem 32rem 32rem;
-  background: url(../images/3809756e.png) center/contain no-repeat;
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/3809756e.png) center/contain no-repeat;
   border-radius: 16rem;
   text-align: center
 }

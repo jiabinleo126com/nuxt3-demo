@@ -5773,8 +5773,8 @@ body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
   max-height: 150px;
   vertical-align: middle;
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  display: inline;
+  zoom: 1;
 }
 
 .college_list .items .sem-l {

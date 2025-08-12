@@ -2,7 +2,49 @@
 import { useHead } from 'nuxt/app';
 import { onMounted } from 'vue';
 onMounted(() => {
-
+  $(function () {
+    if ($(".time").length) {
+      time();
+    }
+    function time() {
+      var start = new Date($(".time").attr("time")).getTime();
+      var timer = setInterval(function () {
+        var now = new Date().getTime();
+        if (start >= now) {
+          var leftTime = start - now;
+          var day = Math.floor(leftTime / (24 * 60 * 60 * 1000));
+          var hour = Math.floor(leftTime / (60 * 60 * 1000) - day * 24);
+          var minute = Math.floor(leftTime / (60 * 1000) - day * 24 * 60 - hour * 60);
+          var second = Math.floor(leftTime / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - minute * 60);
+          $(".time").find("li").eq(0).find("span").text(addZero(day));
+          $(".time").find("li").eq(1).find("span").text(addZero(hour));
+          $(".time").find("li").eq(2).find("span").text(addZero(minute));
+          $(".time").find("li").eq(3).find("span").text(addZero(second));
+        }
+        else {
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+    function addZero(num) {
+      if (num < 10) {
+        return "0" + num;
+      }
+      else {
+        return num;
+      }
+    }
+    $(".ticket").on("click", "li", function () {
+      if (!$(this).hasClass("over")) {
+        var img = $(this).attr("img");
+        $(".mask").find(".box img").attr("src", img);
+        $(".mask").addClass("show");
+      }
+    });
+    $(".close").on("click", function () {
+      window.location.reload();
+    });
+  });
 })
 
 useHead({
@@ -18,7 +60,7 @@ useHead({
                 if (/Android|webOS|iPhone|iPod|BlackBerry|OpenHarmony/i.test(navigator.userAgent)) {
                     html = "html{font-size: " + width / 780 + "px !important;}";
                 } else {
-                    html = "html{font-size: " + 780 / 16 + "px !important;width:750px;margin:0 auto;}";
+                    html = "html{font-size: " + 1 + "px !important;width:750px !important;margin:0 auto !important;}";
                 }
                 if (document.getElementById('style')) {
                     document.getElementById('style').innerHTML = html
@@ -84,7 +126,7 @@ useHead({
 <template>
   <header><img alt="" src="//m.ieduchina.com/wxpay/zhanhui/202410/images/a4ad1bcg.png"></header>
   <section>
-    <div class="time" time="2024-10-19 08:30:00">
+    <div class="time" time="2025-08-23 08:30:00">
       <div class="time-title"><span>距离论坛开始还剩</span></div>
       <ul>
         <li><span>00</span>
@@ -102,9 +144,9 @@ useHead({
       </ul>
     </div>
     <div class="ticket">
-      <p>我的门票（10）</p>
+      <p>我的门票（5）</p>
       <ul>
-        <li class='$over' img='$ewm'>
+        <li class='' img='https://m.ieduchina.com/wxpay/zhanhui/202410/images/a9b04df6.png'>
           <div class='left'>
             <div class='thead'>19日通行证</div>
             <div class='tbody'>
@@ -116,6 +158,21 @@ useHead({
           </div>
           <div class='right'>
             <div class='thead'>未使用</div>
+            <div class='tbody'>10</div>
+          </div>
+        </li>
+        <li class='over' img='$ewm'>
+          <div class='left'>
+            <div class='thead'>19日通行证</div>
+            <div class='tbody'>
+              <div class='l'></div><span>
+                点击显示二维码
+              </span>
+              <div class='e'></div>
+            </div>
+          </div>
+          <div class='right'>
+            <div class='thead'>已使用</div>
             <div class='tbody'>10</div>
           </div>
         </li>
@@ -173,20 +230,20 @@ footer a[href] {
 
 footer a:first-of-type {
   width: 100%;
-  background: url(../images/0a713ece.png) center 16rem/56rem 56rem no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/0a713ece.png) center 16rem/56rem 56rem no-repeat
 }
 
 footer a:first-of-type[href] {
-  background-image: url(../images/4aea2284.png)
+  background-image: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/4aea2284.png)
 }
 
 footer a:last-of-type {
   width: 100%;
-  background: url(../images/e253df8f.png) center 16rem/56rem 56rem no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/e253df8f.png) center 16rem/56rem 56rem no-repeat
 }
 
 footer a:last-of-type[href] {
-  background-image: url(../images/33d08641.png)
+  background-image: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/33d08641.png)
 }
 
 :root {
@@ -288,7 +345,7 @@ section form ul li input:checked+.box::after {
   top: -1rem;
   width: 24rem;
   height: 24rem;
-  background: url(../images/7e03a4b8.png) center/contain no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/7e03a4b8.png) center/contain no-repeat
 }
 
 section form ul li input:checked+.box p {
@@ -464,7 +521,7 @@ section .time ul li {
   height: 130rem;
   overflow: hidden;
   border-radius: 8rem;
-  background: #fe8710 url(../images/5000c8db.png) center/contain no-repeat;
+  background: #fe8710 url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/5000c8db.png) center/contain no-repeat;
   text-align: center
 }
 
@@ -511,11 +568,11 @@ section .ticket ul li.over .left .tbody {
 }
 
 section .ticket ul li.over .left .tbody .l {
-  background-image: url(../images/4d20c677.png)
+  background-image: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/4d20c677.png)
 }
 
 section .ticket ul li.over .left .tbody .e {
-  background-image: url(../images/e8366957.png)
+  background-image: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/e8366957.png)
 }
 
 section .ticket ul li.over .right .thead {
@@ -573,7 +630,7 @@ section .ticket ul li .left .tbody {
 section .ticket ul li .left .tbody .l {
   width: 152rem;
   height: 38rem;
-  background: url(../images/28294855.png) center/contain no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/28294855.png) center/contain no-repeat
 }
 
 section .ticket ul li .left .tbody span {
@@ -588,7 +645,7 @@ section .ticket ul li .left .tbody span {
 section .ticket ul li .left .tbody .e {
   width: 65rem;
   height: 65rem;
-  background: url(../images/a9b04df6.png) center/contain no-repeat
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/a9b04df6.png) center/contain no-repeat
 }
 
 section .ticket ul li .right {
@@ -676,7 +733,7 @@ section .links .tip {
 .mask.show .con .box {
   width: 620rem;
   padding: 0 32rem 32rem 32rem;
-  background: url(../images/3809756e.png) center/contain no-repeat;
+  background: url(https://m.ieduchina.com/wxpay/zhanhui/202410/images/3809756e.png) center/contain no-repeat;
   border-radius: 16rem;
   text-align: center
 }
