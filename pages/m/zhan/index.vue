@@ -29,12 +29,11 @@ onMounted(() => {
         $(".error-tips").text(content);
         return false;
       }
-      if ($("input[name=price]:checked").val() == "E" && !$("#sign_yhj").val()) {
-        layer.open({
-          content: '请输入优惠券码',
-          skin: 'msg',
-          time: 3
-        });
+      const num = $("#num_1").val();
+      if (!Number(num) || Number(num) < 0 || Number(num) > 5) {
+        content = "参加人数请填写阿拉伯数字，且人数不超过5人"
+        layer.open({ content: content, skin: "msg", time: 3 });
+        $(".error-tips").text(content);
         return false;
       }
       $.ajax({
@@ -155,8 +154,8 @@ useHead({
           <option v-for="item in grade" :value="item">{{ item }}</option>
         </select>
       </div>
-      <div class="input"><span>参加人数：</span><input name="num" type="number" autocomplete="off" placeholder="请输入参与人数"
-          required></div>
+      <div class="input"><span>参加人数：</span><input name="num" id="num_l" type="number" autocomplete="off"
+          placeholder="请输入参与人数" required></div>
       <!-- <div class="input"><span>优惠券码：</span><input name="sign_yhj" type="text" autocomplete="off" placeholder="请输入优惠券码" id="sign_yhj" maxlength="7"> -->
       <!-- <img alt="" src="https://m.ieduchina.com/wxpay/zhanhui/202410/images/ec90ec38.png" class="ok">
       </div> -->
@@ -276,6 +275,7 @@ section form .input select {
   color: #999;
   appearance: none;
   background-color: transparent;
+  outline: none;
 
   option {
     color: #333;
