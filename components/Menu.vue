@@ -154,19 +154,19 @@ onMounted(() => {
 
 </script>
 <template>
-  <div class="iedu-menu-wrap">
-    <div class="iedu-menu-box" id="iedu_menu_box">
-      <ul class="iedu-menu">
+  <div :class="$style.iedu_menu_wrap">
+    <div :class="$style.iedu_menu_box" id="iedu_menu_box">
+      <ul :class="$style.iedu_menu">
         <li>
           <NuxtLink to="/">
             <span>首页</span>
           </NuxtLink>
         </li>
-        <li class="parentMenu">
+        <li class="parentMenu" :class="$style.parent_menu">
           <NuxtLink to="/school">
             <span>教育资讯</span>
           </NuxtLink>
-          <ul class="submenu">
+          <ul :class="$style.submenu" class="submenu">
             <li>
               <NuxtLink to="/school">
                 <span>校园资讯</span>
@@ -189,9 +189,9 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu">
+        <li class="parentMenu" :class="$style.parent_menu">
           <a href="//schoollist.ieduchina.com"><span>学校大全</span></a>
-          <ul class="submenu">
+          <ul :class="$style.submenu" class="submenu">
             <li><a href="//schoollist.ieduchina.com"><span>内地学校</span></a></li>
             <li><a href="/hongkong" target="_blank"><span>香港学校</span></a></li>
             <li><a href="//www.ieduchina.com/singapore/index.html" target="_blank"><span>新加坡学校</span></a></li>
@@ -202,9 +202,9 @@ onMounted(() => {
         <li>
           <a href="//www.ieduchina.com/camps/index.html"><span>夏/冬令营</span></a>
         </li>
-        <li class="parentMenu">
+        <li class="parentMenu" :class="$style.parent_menu">
           <a href="//www.ieduchina.com/zwhb/"><span>合办大学</span></a>
-          <ul class="submenu">
+          <ul :class="$style.submenu" class="submenu">
             <li>
               <NuxtLink to="/zwhb/">
                 <span>中外合办大学</span>
@@ -218,11 +218,11 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu">
+        <li class="parentMenu" :class="$style.parent_menu">
           <NuxtLink to="/huodong">
             <span>学校活动</span>
           </NuxtLink>
-          <ul class="submenu">
+          <ul :class="$style.submenu" class="submenu">
             <!-- <li><a href="//www.ieduchina.com/huodong/?type=9"><span>家长学院</span></a></li> -->
             <li>
               <a href="//www.ieduchina.com/huodong/?type=6"><span>学校开放日</span></a>
@@ -232,9 +232,9 @@ onMounted(() => {
                 <span><img src="//www.ieduchina.com/statics/pcc/img/11d86433.png"
                     style="vertical-align: -1px;">访校团</span>
               </a>
-              <div class="box">
-                <div class="box_lis">
-                  <div class="box_con">
+              <div :class="$style.box">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_con">
                     <template v-for="(item, index) in hkTopic" :key="index">
                       <NuxtLink :to="item.path" :title="item.title">
                         {{ item.title }}
@@ -246,9 +246,9 @@ onMounted(() => {
             </li>
             <li>
               <a href="//www.ieduchina.com/topic/2025/sz/index.html" target="_blank"><span>国际教育论坛</span></a>
-              <div class="box" style="padding-top: 12px;">
-                <div class="box_lis" style="max-height: 486px;">
-                  <div class="box_con center">
+              <div :class="$style.box" style="padding-top: 12px;">
+                <div :class="$style.box_lis" style="max-height: 486px;">
+                  <div :class="[$style.box_con, $style.center]">
                     <template v-for="(item, index) in InternationalEducationForum" :key="index">
                       <NuxtLink :to="item.path" :title="item.title" rel="nofollow">
                         {{ item.title }}
@@ -260,21 +260,21 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu">
+        <li class="parentMenu" :class="$style.parent_menu">
           <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
             <span>备考学习</span>
           </NuxtLink>
-          <ul class="submenu">
+          <ul :class="$style.submenu" class="submenu">
             <li>
               <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                 <span>官方考试</span>
               </NuxtLink>
-              <div class="box">
-                <div class="box_lis">
-                  <div class="box_title">
+              <div :class="$style.box">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_title">
                     入学考试
                   </div>
-                  <div class="box_con">
+                  <div :class="$style.box_con">
                     <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                       <span>MAP</span>
                     </NuxtLink>
@@ -292,11 +292,11 @@ onMounted(() => {
                     </NuxtLink>
                   </div>
                 </div>
-                <div class="box_lis">
-                  <div class="box_title">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_title">
                     语言考试
                   </div>
-                  <div class="box_con">
+                  <div :class="$style.box_con">
                     <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                       <span>雅思</span>
                     </NuxtLink>
@@ -314,11 +314,11 @@ onMounted(() => {
                     </NuxtLink>
                   </div>
                 </div>
-                <div class="box_lis">
-                  <div class="box_title">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_title">
                     国际考试
                   </div>
-                  <div class="box_con">
+                  <div :class="$style.box_con">
                     <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                       <span>A-LEVEL</span>
                     </NuxtLink>
@@ -333,11 +333,11 @@ onMounted(() => {
                     </NuxtLink>
                   </div>
                 </div>
-                <div class="box_lis">
-                  <div class="box_title">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_title">
                     数学竞赛
                   </div>
-                  <div class="box_con">
+                  <div :class="$style.box_con">
                     <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                       <span>美国AMC</span>
                     </NuxtLink>
@@ -358,14 +358,14 @@ onMounted(() => {
     </div>
   </div>
 </template>
-<style lang="less">
-.iedu-menu-wrap {
+<style lang="less" module>
+.iedu_menu_wrap {
   width: 1280px;
   margin: 0 auto;
   height: 48px;
 }
 
-.iedu-menu-wrap .iedu-menu-box {
+.iedu_menu_wrap .iedu_menu_box {
   background-color: #ffffff;
   width: 100%;
   height: 48px;
@@ -374,7 +374,7 @@ onMounted(() => {
   z-index: 1000;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu {
   width: 1280px;
   height: 48px;
   margin: 0 auto;
@@ -384,7 +384,7 @@ onMounted(() => {
   display: flex;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li {
   cursor: pointer;
   flex: 1;
   line-height: 48px;
@@ -394,20 +394,20 @@ onMounted(() => {
   color: #ffffff;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li a {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li a {
   color: #303030;
   width: 100%;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li.parent_menu {
   position: relative;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li.parent_menu>a span {
   position: relative;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li.parent_menu>a span::after {
   content: '';
   position: absolute;
   right: -16px;
@@ -419,7 +419,7 @@ onMounted(() => {
   transform: rotateZ(45deg);
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu {
   display: none;
   position: absolute;
   left: 0;
@@ -430,7 +430,7 @@ onMounted(() => {
   box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li {
   line-height: 48px;
   text-align: center;
   font-size: 16px;
@@ -438,21 +438,21 @@ onMounted(() => {
   position: relative;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li:hover .box {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li:hover .box {
   display: block;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li a {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li a {
   width: 100%;
   height: 100%;
   color: #212121;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li:hover a {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li:hover a {
   color: #338eff;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box {
   display: none;
   max-height: 80vh;
   overflow-y: auto;
@@ -466,15 +466,15 @@ onMounted(() => {
   padding: 0 16px 0
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis {
   border-bottom: solid 1px #cecece
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis:last-of-type {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis:last-of-type {
   border-bottom: none;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_title {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_title {
   text-align: left;
   font-size: 16px;
   font-weight: 500;
@@ -483,7 +483,7 @@ onMounted(() => {
   padding-top: 14px
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_title::before {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_title::before {
   content: "";
   display: inline-block;
   width: 5px;
@@ -493,7 +493,7 @@ onMounted(() => {
   margin-right: 6px;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con {
   flex: 1;
   flex-wrap: wrap;
   display: flex;
@@ -501,7 +501,7 @@ onMounted(() => {
   padding-top: 10px
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con a {
   font-size: 16px;
   font-weight: 400;
   color: #666666;
@@ -511,20 +511,20 @@ onMounted(() => {
   line-height: 38px;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con.center a {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con.center a {
   text-align: center;
   width: 100% !important;
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a:nth-of-type(3n) {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con a:nth-of-type(3n) {
   width: 30%
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a.ing {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con a.ing {
   width: 100%
 }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a:hover {
+.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con a:hover {
   color: #338eff
 }
 </style>
