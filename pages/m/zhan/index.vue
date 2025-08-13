@@ -16,7 +16,7 @@ onMounted(() => {
       $(this).css("color", "#333")
     })
     $("button[type=submit]").on("click", function () {
-      $(".error-tips").text("");
+      $(".tips").text("");
       var form = $(this).closest("form");
       var errors = [];
       var content = inputs.reduce(function (_acc, input) {
@@ -28,14 +28,7 @@ onMounted(() => {
       }, "");
       if (content) {
         layer.open({ content: content, skin: "msg", time: 3 });
-        $(".error-tips").text(content);
-        return false;
-      }
-      const num = $("#num_1").val();
-      if (!Number(num) || Number(num) < 0 || Number(num) > 5) {
-        content = "参加人数请填写阿拉伯数字，且人数不超过5人"
-        layer.open({ content: content, skin: "msg", time: 3 });
-        $(".error-tips").text(content);
+        $(".tips").text(content);
         return false;
       }
       $.ajax({
@@ -156,8 +149,8 @@ useHead({
           <option v-for="item in grade" :value="item">{{ item }}</option>
         </select>
       </div>
-      <div :class="$style.input"><span>在读年级：</span><select name="num" placeholder="请选择参与人数" required>
-          <option value="">请选择参与人数</option>
+      <div :class="$style.input"><span>参加人数：</span><select name="num" placeholder="请选择参加人数" required>
+          <option value="">请选择参加人数</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -168,7 +161,7 @@ useHead({
       <!-- <div :class="$style.input"><span>参加人数：</span><input name="num" type="number" autocomplete="off"
           placeholder="请输入参与人数" required></div> -->
       <div :class="$style.btn">
-        <div :class="$style.error - tips"></div><button type="submit">提交</button>
+        <div :class="$style.error_tips" class="tips"></div><button type="submit">提交</button>
       </div>
     </form>
   </section>
@@ -276,7 +269,7 @@ section form .btn {
   padding: 0 32rem;
   margin-top: 78rem;
 
-  .error-tips {
+  .error_tips {
     text-align: center;
     color: red;
     line-height: 0;
