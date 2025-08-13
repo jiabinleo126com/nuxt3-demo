@@ -156,7 +156,7 @@ onMounted(() => {
             src="https://zhaosheng.ieduchina.com/Public/waps/images/37fa6ee0.png"></button></div>
     </div>
   </section>
-  <div class="mask_s15 mask show">
+  <div class="mask_s15 mask">
     <form action="">
       <p>设备ID：<i>11</i></p>
       <input type="hidden" name="ids" value="">
