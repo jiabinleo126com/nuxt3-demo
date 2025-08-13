@@ -156,8 +156,17 @@ useHead({
           <option v-for="item in grade" :value="item">{{ item }}</option>
         </select>
       </div>
-      <div :class="$style.input"><span>参加人数：</span><input name="num" type="number" autocomplete="off"
-          placeholder="请输入参与人数" required></div>
+      <div :class="$style.input"><span>在读年级：</span><select name="num" placeholder="请选择参与人数" required>
+          <option value="">请选择参与人数</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <!-- <div :class="$style.input"><span>参加人数：</span><input name="num" type="number" autocomplete="off"
+          placeholder="请输入参与人数" required></div> -->
       <div :class="$style.btn">
         <div :class="$style.error - tips"></div><button type="submit">提交</button>
       </div>
