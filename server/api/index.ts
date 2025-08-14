@@ -23,6 +23,7 @@ export default defineEventHandler(async () => {
       userid?: any
       authorImage?: string
       cover?: string
+      list?: any
     }
     const activity: IndexData[] = []
     const bannerlist: IndexData[] = []
@@ -30,6 +31,7 @@ export default defineEventHandler(async () => {
     const horizontalvideos: IndexData[] = []
     const cityexpressdata: IndexData[] = []
     const hours24Data: IndexData[] = []
+    const internationalschooldata: IndexData[] = []
     // const focustodayImgData: IndexData[] = []
     const focustodayListData: IndexData[] = []
 
@@ -71,6 +73,13 @@ export default defineEventHandler(async () => {
         title: $(item).find('p').text(),
         author: $(item).find('.nums').text(),
         authorImage: $(item).find('.nums').find('i').attr('style')?.replace('background-image: url(', '')?.replace(')', ''),
+      })
+    })
+    $("#school-title li").each((index, item) => {
+      internationalschooldata.push({
+        title: $(item).find("a").text(),
+        path: $(item).find("a").attr("href"),
+        list: []
       })
     })
     $('.city-express-wrap .contents').each((index, item) => {
@@ -120,6 +129,23 @@ export default defineEventHandler(async () => {
       }
       delete focustodayImgData[i].userid
     }
+    $(".school-con .school-list").each((index, item) => {
+      const school: any = [];
+      $("li", item).each((index2, item2) => {
+        const label: any = [];
+        $(item2).find(".center p span").each((a, b) => {
+          label.push($(b).text())
+        })
+        school.push({
+          path: $(item2).find("a").attr("href"),
+          image: $(item2).find(".img").attr("style")?.replace('background-image: url(', '')?.replace(')', '')?.replace(';', ''),
+          title: $(item2).find("h3").text(),
+          label: label,
+          logo: $(item2).find(".limg").attr("style")?.replace('background-image: url(', '')?.replace(')', '')?.replace(';', ''),
+        })
+      })
+      internationalschooldata[index].list = school
+    })
     return {
       activity,
       bannerlist,
@@ -128,7 +154,8 @@ export default defineEventHandler(async () => {
       cityexpressdata,
       hours24Data,
       focustodayImgData,
-      focustodayListData
+      focustodayListData,
+      internationalschooldata
     }
   }
   catch (error) {
