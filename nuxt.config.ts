@@ -82,6 +82,7 @@ export default defineNuxtConfig({
           // }
         },
       },
+      assetsInlineLimit: 10
       // loaders: {
       //     less: {
       //         lessOptions: {
