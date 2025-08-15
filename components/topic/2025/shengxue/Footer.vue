@@ -82,10 +82,10 @@ defineProps({
 .footer {
   background-color: #083A83;
   clear: both;
-  min-width: 1280px;
+  min-width: 1200px;
 
   .con {
-    width: 1280px;
+    width: 1200px;
     margin: 0 auto;
 
     .menu {

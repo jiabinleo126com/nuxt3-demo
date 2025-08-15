@@ -3,7 +3,7 @@ import logo from '~/assets/topic/2025/shengxue/logo@1x.png'
 import banner1 from '~/assets/topic/2025/shengxue/banner1.png'
 import banner2 from '~/assets/topic/2025/shengxue/banner2.png'
 import banner3 from '~/assets/topic/2025/shengxue/banner3.png'
-import banner4 from '~/assets/topic/2025/shengxue/banner4.png'
+import banner4 from '~/assets/topic/2025/shengxue/banner4.jpg'
 import banner5 from '~/assets/topic/2025/shengxue/banner5.png'
 import banner6 from '~/assets/topic/2025/shengxue/banner6.png'
 
@@ -12,32 +12,6 @@ import ywtext_icon2 from '~/assets/topic/2025/shengxue/容器@1x (1).png'
 import ywtext_icon3 from '~/assets/topic/2025/shengxue/容器@1x (2).png'
 import ywtext_icon4 from '~/assets/topic/2025/shengxue/容器@1x (3).png'
 import ywtext_icon5 from '~/assets/topic/2025/shengxue/容器@1x (4).png'
-import _offer1 from '~/assets/topic/2025/shengxue/offer/1.png'
-import _offer2 from '~/assets/topic/2025/shengxue/offer/2.png'
-import _offer3 from '~/assets/topic/2025/shengxue/offer/3.png'
-import _offer4 from '~/assets/topic/2025/shengxue/offer/4.png'
-import _offer5 from '~/assets/topic/2025/shengxue/offer/5.png'
-import _offer6 from '~/assets/topic/2025/shengxue/offer/6.png'
-import _offer7 from '~/assets/topic/2025/shengxue/offer/7.png'
-import _offer8 from '~/assets/topic/2025/shengxue/offer/8.png'
-import _offer9 from '~/assets/topic/2025/shengxue/offer/9.png'
-import _offer10 from '~/assets/topic/2025/shengxue/offer/10.png'
-import _offer11 from '~/assets/topic/2025/shengxue/offer/11.png'
-import _offer12 from '~/assets/topic/2025/shengxue/offer/12.png'
-import _offer13 from '~/assets/topic/2025/shengxue/offer/13.png'
-import _offer14 from '~/assets/topic/2025/shengxue/offer/14.png'
-import _offer15 from '~/assets/topic/2025/shengxue/offer/15.png'
-import _offer16 from '~/assets/topic/2025/shengxue/offer/16.png'
-import _offer17 from '~/assets/topic/2025/shengxue/offer/17.png'
-import _offer18 from '~/assets/topic/2025/shengxue/offer/18.png'
-import _offer19 from '~/assets/topic/2025/shengxue/offer/19.png'
-import _offer20 from '~/assets/topic/2025/shengxue/offer/20.png'
-import _offer21 from '~/assets/topic/2025/shengxue/offer/21.png'
-import _offer22 from '~/assets/topic/2025/shengxue/offer/22.png'
-import _offer23 from '~/assets/topic/2025/shengxue/offer/23.png'
-import _offer24 from '~/assets/topic/2025/shengxue/offer/24.png'
-import _offer25 from '~/assets/topic/2025/shengxue/offer/25.png'
-import _offer26 from '~/assets/topic/2025/shengxue/offer/26.png'
 
 import _offer_1 from '~/assets/topic/2025/shengxue/offer/offer/资源 1.png'
 import _offer_2 from '~/assets/topic/2025/shengxue/offer/offer/资源 2.png'
@@ -428,8 +402,7 @@ const ywtext3 = [{
 const offers1 = [offer26, offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21, offer22, offer23, offer24, offer25]
 
 const offers2 = [
-  _offer1, _offer2, _offer3, _offer4, _offer5, _offer6, _offer7, _offer8, _offer9, _offer10, _offer11, _offer12, _offer13, _offer14, _offer15, _offer16, _offer17, _offer18, _offer19, _offer20, _offer21, _offer22, _offer23, _offer24, _offer25, _offer26,
-  _offer_1, _offer_2, _offer_3, _offer_4, _offer_5, _offer_6, _offer_7, _offer_8, _offer_9, _offer_10, _offer_11, _offer_12, _offer_13, _offer_14, _offer_15, _offer_16, _offer_17, _offer_18, _offer_19, _offer_20, _offer_21, _offer_22, _offer_23, _offer_24,
+  _offer_24, _offer_23, _offer_22, _offer_21, _offer_20, _offer_19, _offer_18, _offer_17, _offer_16, _offer_15, _offer_14, _offer_13, _offer_12, _offer_11, _offer_10, _offer_9, _offer_8, _offer_7, _offer_6, _offer_5, _offer_4, _offer_3, _offer_2, _offer_1,
   offer_1, offer_2, offer_3, offer_4, offer_5, offer_6, offer_7, offer_8, offer_9, offer_10, offer_11, offer_12, offer_13, offer_14, offer_15, offer_16, offer_17, offer_18, offer_19, offer_20, offer_21, offer_22, offer_23, offer_24, offer_25, offer_26, offer_27, offer_28, offer_29, offer_30, offer_31, offer_32, offer_33, offer_34, offer_35, offer_36, offer_37, offer_38, offer_39, offer_40, offer_41, offer_42, offer_43, offer_44, offer_45, offer_46, offer_47, offer_48, offer_49, offer_50, offer_51, offer_52, offer_53, offer_54, offer_55, offer_56, offer_57, offer_58, offer_59, offer_60, offer_61]
 
 const banner = [
@@ -707,11 +680,11 @@ onMounted(() => {
 })
 useHead({
   script: [
-    {
-      innerHTML: `
-      /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(window.location.href="/m/topic/2025/hk14/");
-      `
-    },
+    // {
+    //   innerHTML: `
+    //   /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(window.location.href="/m/topic/2025/shengxue/");
+    //   `
+    // },
     {
       src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
       type: 'text/javascript',
@@ -1203,7 +1176,7 @@ section {
         right: 0;
         bottom: -172px;
         width: 957px;
-        opacity: 0.2;
+        opacity: 0.12;
       }
     }
   }
