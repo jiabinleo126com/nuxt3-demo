@@ -192,8 +192,8 @@ useHead({
         <button>签到码</button>
         <img alt="" src="">
         <div :class="$style.tip">
-          <p>时间：2025年08月23日 周六08:30-16:00</p>
-          <p>地址：深圳文华东方酒店4楼</p>
+          <p>时间：2025年08月23日 周六08:30-12:30</p>
+          <p>地址：深圳</p>
         </div>
       </div>
       <img alt="" src="//m.ieduchina.com//wxpay/zhanhui/202410/images/5ddcd19c.png" class="close" :class="$style.close">
