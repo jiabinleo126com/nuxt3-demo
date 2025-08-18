@@ -69,10 +69,10 @@ const data = [
     video: "https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/922954843560136621077538556/CMhT7MRLaJkA.mp4",
     image: image1
   },
-  {
-    video: "https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/2be42dfa3560136621079502292/yvaPSR66dlMA.mp4",
-    image: image2
-  },
+  // {
+  //   video: "https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/2be42dfa3560136621079502292/yvaPSR66dlMA.mp4",
+  //   image: image2
+  // },
   {
     video: "https://1313547163.vod2.myqcloud.com/62c522c4vodcq1313547163/9e7be9013560136621084838471/p8wOW0T0980A.mp4",
     image: image3
