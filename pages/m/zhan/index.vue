@@ -16,7 +16,7 @@ onMounted(() => {
       $(this).css("color", "#333")
     })
     $("button[type=submit]").on("click", function () {
-      $(".error-tips").text("");
+      $(".tips").text("");
       var form = $(this).closest("form");
       var errors = [];
       var content = inputs.reduce(function (_acc, input) {
@@ -28,15 +28,7 @@ onMounted(() => {
       }, "");
       if (content) {
         layer.open({ content: content, skin: "msg", time: 3 });
-        $(".error-tips").text(content);
-        return false;
-      }
-      if ($("input[name=price]:checked").val() == "E" && !$("#sign_yhj").val()) {
-        layer.open({
-          content: '请输入优惠券码',
-          skin: 'msg',
-          time: 3
-        });
+        $(".tips").text(content);
         return false;
       }
       $.ajax({
@@ -157,10 +149,19 @@ useHead({
           <option v-for="item in grade" :value="item">{{ item }}</option>
         </select>
       </div>
-      <div :class="$style.input"><span>参加人数：</span><input name="num" type="number" autocomplete="off"
-          placeholder="请输入参与人数" required></div>
+      <div :class="$style.input"><span>参加人数：</span><select name="num" placeholder="请选择参加人数" required>
+          <option value="">请选择参加人数</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <!-- <div :class="$style.input"><span>参加人数：</span><input name="num" type="number" autocomplete="off"
+          placeholder="请输入参与人数" required></div> -->
       <div :class="$style.btn">
-        <div :class="$style.error - tips"></div><button type="submit">提交</button>
+        <div :class="$style.error_tips" class="tips"></div><button type="submit">提交</button>
       </div>
     </form>
   </section>
@@ -216,6 +217,7 @@ section form .input select {
   color: #999;
   appearance: none;
   background-color: transparent;
+  outline: none;
 
   option {
     color: #333;
@@ -267,7 +269,7 @@ section form .btn {
   padding: 0 32rem;
   margin-top: 78rem;
 
-  .error-tips {
+  .error_tips {
     text-align: center;
     color: red;
     line-height: 0;

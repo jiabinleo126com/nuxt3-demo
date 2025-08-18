@@ -1,5 +1,5 @@
 <script setup>
-import banner from '~/assets/m/zhan/bg@2x.png'
+import banner from '~/assets/m/zhan/750(1).jpg'
 </script>
 <template>
   <header :class="$style.header"><img alt="" :src="banner"></header>
