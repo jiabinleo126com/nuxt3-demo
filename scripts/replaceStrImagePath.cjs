@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const { parse } = require('node-html-parser');
-const dir = path.resolve(__dirname, `../dist/m/zhan/show`);
+const dir = path.resolve(__dirname, `../dist/zhaosheng/crm/hsjg/`);
 const staticsdir = path.resolve(__dirname, '../dist/statics');
 var tsContent = "//@ts-nocheck \n import \"./index.less\"; \n";
 
