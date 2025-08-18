@@ -145,28 +145,23 @@ onMounted(() => {
     showMenu();
   });
   showMenu();
-  $('.parentMenu').hover(function () {
-    $(this).find('.submenu').show()
-  }, function () {
-    $(this).find('.submenu').hide()
-  })
 })
 
 </script>
 <template>
-  <div class="iedu-menu-wrap">
-    <div class="iedu-menu-box" id="iedu_menu_box">
-      <ul class="iedu-menu">
+  <div :class="$style.menu">
+    <div :class="$style.wrap" id="iedu_menu_box">
+      <ul :class="$style.iedu">
         <li>
           <NuxtLink to="/">
             <span>首页</span>
           </NuxtLink>
         </li>
-        <li class="parentMenu">
+        <li :class="$style.parent">
           <NuxtLink to="/school">
             <span>教育资讯</span>
           </NuxtLink>
-          <ul class="submenu">
+          <ul :class="$style.submenu">
             <li>
               <NuxtLink to="/school">
                 <span>校园资讯</span>
@@ -189,9 +184,9 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu">
+        <li :class="$style.parent">
           <a href="//schoollist.ieduchina.com"><span>学校大全</span></a>
-          <ul class="submenu">
+          <ul :class="$style.submenu">
             <li><a href="//schoollist.ieduchina.com"><span>内地学校</span></a></li>
             <li><a href="/hongkong" target="_blank"><span>香港学校</span></a></li>
             <li><a href="//www.ieduchina.com/singapore/index.html" target="_blank"><span>新加坡学校</span></a></li>
@@ -202,9 +197,9 @@ onMounted(() => {
         <li>
           <a href="//www.ieduchina.com/camps/index.html"><span>夏/冬令营</span></a>
         </li>
-        <li class="parentMenu">
+        <li :class="$style.parent">
           <a href="//www.ieduchina.com/zwhb/"><span>合办大学</span></a>
-          <ul class="submenu">
+          <ul :class="$style.submenu">
             <li>
               <NuxtLink to="/zwhb/">
                 <span>中外合办大学</span>
@@ -218,11 +213,11 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu">
+        <li :class="$style.parent">
           <NuxtLink to="/huodong">
             <span>学校活动</span>
           </NuxtLink>
-          <ul class="submenu">
+          <ul :class="$style.submenu">
             <!-- <li><a href="//www.ieduchina.com/huodong/?type=9"><span>家长学院</span></a></li> -->
             <li>
               <a href="//www.ieduchina.com/huodong/?type=6"><span>学校开放日</span></a>
@@ -232,9 +227,9 @@ onMounted(() => {
                 <span><img src="//www.ieduchina.com/statics/pcc/img/11d86433.png"
                     style="vertical-align: -1px;">访校团</span>
               </a>
-              <div class="box">
-                <div class="box_lis">
-                  <div class="box_con">
+              <div :class="$style.box">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_con">
                     <template v-for="(item, index) in hkTopic" :key="index">
                       <NuxtLink :to="item.path" :title="item.title">
                         {{ item.title }}
@@ -246,9 +241,9 @@ onMounted(() => {
             </li>
             <li>
               <a href="//www.ieduchina.com/topic/2025/sz/index.html" target="_blank"><span>国际教育论坛</span></a>
-              <div class="box" style="padding-top: 12px;">
-                <div class="box_lis" style="max-height: 486px;">
-                  <div class="box_con center">
+              <div :class="$style.box" style="padding-top: 12px;">
+                <div :class="$style.box_lis" style="max-height: 486px;">
+                  <div :class="[$style.box_con, $style.center]">
                     <template v-for="(item, index) in InternationalEducationForum" :key="index">
                       <NuxtLink :to="item.path" :title="item.title" rel="nofollow">
                         {{ item.title }}
@@ -260,21 +255,21 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu">
+        <li :class="$style.parent">
           <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
             <span>备考学习</span>
           </NuxtLink>
-          <ul class="submenu">
+          <ul :class="$style.submenu">
             <li>
               <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                 <span>官方考试</span>
               </NuxtLink>
-              <div class="box">
-                <div class="box_lis">
-                  <div class="box_title">
+              <div :class="$style.box">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_title">
                     入学考试
                   </div>
-                  <div class="box_con">
+                  <div :class="$style.box_con">
                     <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                       <span>MAP</span>
                     </NuxtLink>
@@ -292,11 +287,11 @@ onMounted(() => {
                     </NuxtLink>
                   </div>
                 </div>
-                <div class="box_lis">
-                  <div class="box_title">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_title">
                     语言考试
                   </div>
-                  <div class="box_con">
+                  <div :class="$style.box_con">
                     <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                       <span>雅思</span>
                     </NuxtLink>
@@ -314,11 +309,11 @@ onMounted(() => {
                     </NuxtLink>
                   </div>
                 </div>
-                <div class="box_lis">
-                  <div class="box_title">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_title">
                     国际考试
                   </div>
-                  <div class="box_con">
+                  <div :class="$style.box_con">
                     <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                       <span>A-LEVEL</span>
                     </NuxtLink>
@@ -333,11 +328,11 @@ onMounted(() => {
                     </NuxtLink>
                   </div>
                 </div>
-                <div class="box_lis">
-                  <div class="box_title">
+                <div :class="$style.box_lis">
+                  <div :class="$style.box_title">
                     数学竞赛
                   </div>
-                  <div class="box_con">
+                  <div :class="$style.box_con">
                     <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                       <span>美国AMC</span>
                     </NuxtLink>
@@ -361,13 +356,13 @@ onMounted(() => {
     </div>
   </div>
 </template>
-<style lang="less">
-.iedu-menu-wrap {
+<style lang="less" module scoped>
+.menu {
   width: 1280px;
   margin: 0 auto;
   height: 48px;
 
-  .iedu-menu-box {
+  .wrap {
     background-color: #ffffff;
     width: 100%;
     height: 48px;
@@ -375,7 +370,7 @@ onMounted(() => {
     left: 0;
     z-index: 1000;
 
-    .iedu-menu {
+    .iedu {
       width: 1280px;
       height: 48px;
       margin: 0 auto;
@@ -514,9 +509,15 @@ onMounted(() => {
           }
         }
 
-        &.parentMenu {
+        &.parent {
           position: relative;
           padding-right: 18px;
+
+          &:hover {
+            .submenu {
+              display: block;
+            }
+          }
 
           &>a {
             span {
