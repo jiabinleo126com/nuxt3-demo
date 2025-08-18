@@ -353,6 +353,9 @@ onMounted(() => {
             </li>
           </ul>
         </li>
+        <li>
+          <NuxtLink to="/topic/2025/shengxue" rel="nofollow"><span>国际教育网升学中心</span></NuxtLink>
+        </li>
         <li><a href="//www.ieduchina.com/service/aboutus.html" rel="nofollow"><span>关于我们</span></a></li>
       </ul>
     </div>
@@ -363,168 +366,178 @@ onMounted(() => {
   width: 1280px;
   margin: 0 auto;
   height: 48px;
-}
 
-.iedu-menu-wrap .iedu-menu-box {
-  background-color: #ffffff;
-  width: 100%;
-  height: 48px;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
+  .iedu-menu-box {
+    background-color: #ffffff;
+    width: 100%;
+    height: 48px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu {
-  width: 1280px;
-  height: 48px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
+    .iedu-menu {
+      width: 1280px;
+      height: 48px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li {
-  cursor: pointer;
-  flex: 1;
-  line-height: 48px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  color: #ffffff;
-}
+      li {
+        cursor: pointer;
+        line-height: 48px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        color: #ffffff;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li a {
-  color: #303030;
-  width: 100%;
-}
+        a {
+          color: #303030;
+          width: 100%;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu {
-  position: relative;
-}
+          span {
+            white-space: nowrap;
+          }
+        }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span {
-  position: relative;
-}
+        .submenu {
+          display: none;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          min-width: 100%;
+          top: 48px;
+          z-index: 800;
+          background: #ffffff;
+          box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
-  content: '';
-  position: absolute;
-  right: -16px;
-  top: 0;
-  width: 8px;
-  height: 8px;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  transform: rotateZ(45deg);
-}
+          li {
+            padding: 0 20px;
+            line-height: 48px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+            position: relative;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu {
-  display: none;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: 48px;
-  z-index: 800;
-  background: #ffffff;
-  box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
-}
+            a {
+              width: 100%;
+              height: 100%;
+              color: #212121;
+            }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li {
-  line-height: 48px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-}
+            .box {
+              display: none;
+              max-height: 80vh;
+              overflow-y: auto;
+              position: absolute;
+              left: 100%;
+              top: 0;
+              background: #fff;
+              box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, .302);
+              border-radius: 0px 0px 0px 0px;
+              box-sizing: border-box;
+              padding: 0 16px 0;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li:hover .box {
-  display: block;
-}
+              .box_lis {
+                border-bottom: solid 1px #cecece;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li a {
-  width: 100%;
-  height: 100%;
-  color: #212121;
-}
+                .box_title {
+                  text-align: left;
+                  font-size: 16px;
+                  font-weight: 500;
+                  color: #333333;
+                  line-height: 1;
+                  padding-top: 14px;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li:hover a {
-  color: #338eff;
-}
+                  &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 5px;
+                    height: 18px;
+                    background-color: #338eff;
+                    vertical-align: -3px;
+                    margin-right: 6px;
+                  }
+                }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box {
-  display: none;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: absolute;
-  left: 142px;
-  top: 0;
-  background: #fff;
-  box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, .302);
-  border-radius: 0px 0px 0px 0px;
-  box-sizing: border-box;
-  padding: 0 16px 0
-}
+                .box_con {
+                  flex: 1;
+                  flex-wrap: wrap;
+                  display: flex;
+                  padding-bottom: 12px;
+                  padding-top: 10px;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis {
-  border-bottom: solid 1px #cecece
-}
+                  a {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #666666;
+                    display: block;
+                    text-align: left;
+                    white-space: nowrap;
+                    line-height: 38px;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis:last-of-type {
-  border-bottom: none;
-}
+                    &.ing {
+                      width: 100%
+                    }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_title {
-  text-align: left;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333333;
-  line-height: 1;
-  padding-top: 14px
-}
+                    &:hover {
+                      color: #338eff
+                    }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_title::before {
-  content: "";
-  display: inline-block;
-  width: 5px;
-  height: 18px;
-  background-color: #338eff;
-  vertical-align: -3px;
-  margin-right: 6px;
-}
+                    &:nth-of-type(3n) {
+                      width: 30%
+                    }
+                  }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con {
-  flex: 1;
-  flex-wrap: wrap;
-  display: flex;
-  padding-bottom: 12px;
-  padding-top: 10px
-}
+                  &.center {
+                    a {
+                      text-align: center;
+                      width: 100% !important;
+                    }
+                  }
+                }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a {
-  font-size: 16px;
-  font-weight: 400;
-  color: #666666;
-  display: block;
-  text-align: left;
-  white-space: nowrap;
-  line-height: 38px;
-}
+                &:last-of-type {
+                  border-bottom: none;
+                }
+              }
+            }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con.center a {
-  text-align: center;
-  width: 100% !important;
-}
+            &:hover {
+              .box {
+                display: block;
+              }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a:nth-of-type(3n) {
-  width: 30%
-}
+              a {
+                color: #338eff;
+              }
+            }
+          }
+        }
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a.ing {
-  width: 100%
-}
+        &.parentMenu {
+          position: relative;
+          padding-right: 18px;
 
-.iedu-menu-wrap .iedu-menu-box .iedu-menu li .submenu li .box .box_lis .box_con a:hover {
-  color: #338eff
+          &>a {
+            span {
+              position: relative;
+
+              &::after {
+                content: '';
+                position: absolute;
+                right: -16px;
+                top: 0;
+                width: 8px;
+                height: 8px;
+                border-style: solid;
+                border-width: 0 2px 2px 0;
+                transform: rotateZ(45deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 </style>
