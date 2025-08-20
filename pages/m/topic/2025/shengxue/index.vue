@@ -1,17 +1,19 @@
 <script setup>
-import logo from '~/assets/topic/2025/shengxue/logo@1x.png'
-import banner1 from '~/assets/topic/2025/shengxue/banner1.png'
-import banner2 from '~/assets/topic/2025/shengxue/banner2.png'
-import banner3 from '~/assets/topic/2025/shengxue/banner3.png'
-import banner4 from '~/assets/topic/2025/shengxue/banner4.jpg'
-import banner5 from '~/assets/topic/2025/shengxue/banner5.png'
-import banner6 from '~/assets/topic/2025/shengxue/banner6.png'
+import { useHead } from 'nuxt/app';
 
-import ywtext_icon1 from '~/assets/topic/2025/shengxue/容器@1x.png'
-import ywtext_icon2 from '~/assets/topic/2025/shengxue/容器@1x (1).png'
-import ywtext_icon3 from '~/assets/topic/2025/shengxue/容器@1x (2).png'
-import ywtext_icon4 from '~/assets/topic/2025/shengxue/容器@1x (3).png'
-import ywtext_icon5 from '~/assets/topic/2025/shengxue/容器@1x (4).png'
+import logo from '~/assets/hk/7ac0a9fb.png';
+import banner1 from '~/assets/m/topic/2025/shengxue/组 2926@2x.png';
+import banner2 from '~/assets/m/topic/2025/shengxue/1 拷贝@2x.png';
+import banner3 from '~/assets/m/topic/2025/shengxue/2 拷贝@2x.png';
+import banner4 from '~/assets/m/topic/2025/shengxue/3 拷贝@2x.png';
+import banner5 from '~/assets/m/topic/2025/shengxue/4 拷贝@2x.png';
+import banner6 from '~/assets/m/topic/2025/shengxue/5 拷贝@2x.png';
+
+import ywtext_icon1 from '~/assets/m/topic/2025/shengxue/容器@2x.png'
+import ywtext_icon2 from '~/assets/m/topic/2025/shengxue/容器@2x (1).png'
+import ywtext_icon3 from '~/assets/m/topic/2025/shengxue/容器@2x (2).png'
+import ywtext_icon4 from '~/assets/m/topic/2025/shengxue/容器@2x (3).png'
+import ywtext_icon5 from '~/assets/m/topic/2025/shengxue/容器@2x (4).png'
 
 import _offer_1 from '~/assets/topic/2025/shengxue/offer/offer/资源 1.png'
 import _offer_2 from '~/assets/topic/2025/shengxue/offer/offer/资源 2.png'
@@ -129,7 +131,12 @@ import offer_59 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/
 import offer_60 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/2025.5.26-深圳培侨信义-G7录取offer.jpg'
 import offer_61 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/2025-深圳外国语湾区学校-中六录取.jpg'
 
-import fwlc from '~/assets/topic/2025/shengxue/资源 2@1x.png'
+import fwlc from '~/assets/m/topic/2025/shengxue/资源 2@2x.png'
+import environment from '~/assets/m/topic/2025/shengxue/资源 1@2x.png'
+import mobileicon from '~/assets/m/topic/2025/shengxue/路径@2x.png'
+
+import yyicon from '~/assets/m/topic/2025/shengxue/yuyue@2x.png'
+import zdicon from '~/assets/m/topic/2025/shengxue/组 2883@2x.png'
 
 import teacher1 from '~/assets/topic/2025/shengxue/teacher/图片1.png'
 import teacher2 from '~/assets/topic/2025/shengxue/teacher/图片2.png'
@@ -150,31 +157,14 @@ import teacher16 from '~/assets/topic/2025/shengxue/teacher/图片16.png'
 import teacher17 from '~/assets/topic/2025/shengxue/teacher/图片17.png'
 import teacher18 from '~/assets/topic/2025/shengxue/teacher/图片18.png'
 
-import addressicon from '~/assets/topic/2025/shengxue/map-pin-fill@1x.png'
-import telicon from '~/assets/topic/2025/shengxue/容器@1x (5).png'
+import addressicon from '~/assets/m/topic/2025/shengxue/map-pin-fill@2x.png'
 
-import fixed1 from '~/assets/topic/2025/shengxue/37cfcae2.png'
-import fixed2 from '~/assets/topic/2025/shengxue/6f33e6c5.png'
-import fixed3 from '~/assets/topic/2025/shengxue/7cc474eb.png'
-import fixed4 from '~/assets/topic/2025/shengxue/yuyue@1x.png'
-import fixed1_ from '~/assets/topic/2025/shengxue/fc33df53.png'
-import fixed2_ from '~/assets/topic/2025/shengxue/ec431536.png'
-import fixed3_ from '~/assets/topic/2025/shengxue/7cf45f6b.png'
-import fixed4_ from '~/assets/topic/2025/shengxue/yueyue@1x.png'
-
-import xqdz from '~/assets/topic/2025/shengxue/资源 1@1x.png'
-
-import ewm1 from '~/assets/topic/2025/shengxue/image@1x.png'
-import ewm2 from '~/assets/topic/2025/shengxue/image@1x (1).png'
+import ewm1 from '~/assets/m/topic/2025/shengxue/image@2x.png'
+import ewm2 from '~/assets/m/topic/2025/shengxue/蒙版组 121@2x.png'
 
 import bg from '~/assets/topic/2025/shengxue/bg.png'
 
 const teacher = [
-  {
-    name: "connie",
-    image: teacher17,
-    desc: '香港大学翻译硕士，香港浸会大学翻译本科，9年教学经验，曾任教于香港及内地国际学校，熟悉DSE、雅思托福及中考体系。雅思阅读听力满分，辅导学生获DSE 5**及中考115+高分。持香港PGDE及中国教师资格证，教学成果显著。'
-  },
   {
     name: "Nathalie",
     image: teacher18,
@@ -268,6 +258,11 @@ const teacher = [
     image: teacher16,
     desc: '毕业于香港城市大学，具备国际化教育背景，高中就读于香港Band 1A传统名校圣杰灵女子中学，以英语为主要教学语言，奠定扎实的学术基础，英文接近母语水平。拥有丰富的国际学校教学经验，擅长辅导英语、数学、语文及经济等科目，精通DSE考试体系。教学过程中注重学情评估与个性化方案制定，采用数据化追踪系统（如学习档案与定期测评），帮助学生提升学习效率20%。独创“3E反馈法”（Example-Explanation-Encouragement），有效提高学生参与度35%，家长满意度达92%。教学风格严谨认真，致力于提升学生成绩，助力学生考入更高Banding的学校。'
   },
+  {
+    name: "connie",
+    image: teacher17,
+    desc: '香港大学翻译硕士，香港浸会大学翻译本科，9年教学经验，曾任教于香港及内地国际学校，熟悉DSE、雅思托福及中考体系。雅思阅读听力满分，辅导学生获DSE 5**及中考115+高分。持香港PGDE及中国教师资格证，教学成果显著。'
+  },
 ];
 
 const address = [
@@ -305,8 +300,7 @@ const ewm = [
 
 import { defineAsyncComponent, onMounted } from 'vue';
 
-const Title = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Title.vue`))
-const Footer = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Footer.vue`))
+const Title = defineAsyncComponent(() => import(`~/components/m/topic/2025/shengxue/Title.vue`))
 
 const ywtext1 = [
   {
@@ -399,7 +393,7 @@ const ywtext3 = [{
 }
 ]
 
-const offers1 = [offer26, offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21, offer22, offer23, offer24, offer25]
+const offers1 = [offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21, offer22, offer23, offer24, offer25, offer26]
 
 const offers2 = [
   _offer_24, _offer_23, _offer_22, _offer_21, _offer_20, _offer_19, _offer_18, _offer_17, _offer_16, _offer_15, _offer_14, _offer_13, _offer_12, _offer_11, _offer_10, _offer_9, _offer_8, _offer_7, _offer_6, _offer_5, _offer_4, _offer_3, _offer_2, _offer_1,
@@ -434,18 +428,17 @@ const banner = [
 
 onMounted(() => {
   $(() => {
-    const swiper1 = new Swiper('.banner_swiper', {
+    const swiper1 = new Swiper('.banner_swiper_wap', {
       loop: true,
       autoplay: {
         pauseOnMouseEnter: true,
         disableOnInteraction: false,
       },
       pagination: {
-        el: '.banner_swiper_pagination',
+        el: '.banner_swiper_wap_pagination',
         clickable: true,
       },
     });
-
     const swiper2 = new Swiper('.cg1', {
       effect: 'coverflow',
       centeredSlides: true,
@@ -462,10 +455,6 @@ onMounted(() => {
         depth: 180,
         modifier: 3,
         slideShadows: false,
-      },
-      navigation: {
-        nextEl: '.cg1-swiper-button-next',
-        prevEl: '.cg1-swiper-button-prev',
       }
     });
     const swiper3 = new Swiper('.cg2', {
@@ -484,23 +473,15 @@ onMounted(() => {
         depth: 180,
         modifier: 3,
         slideShadows: false,
-      },
-      navigation: {
-        nextEl: '.cg2-swiper-button-next',
-        prevEl: '.cg2-swiper-button-prev',
       }
     });
-
-    const swiper4 = new Swiper('.team_swiper2', {
-      slidesPerView: 5,
+    const swiper4 = new Swiper('.team_swiper_wap', {
+      slidesPerView: 3,
       loop: true,
+      autoplay: false,
       autoplay: {
         pauseOnMouseEnter: true,
         disableOnInteraction: false,
-      },
-      navigation: {
-        nextEl: '.team2-swiper-button-next',
-        prevEl: '.team2-swiper-button-prev',
       }
     });
 
@@ -513,7 +494,7 @@ onMounted(() => {
         }
       });
     }, {
-      threshold: 0.2
+      threshold: 0.5
     });
     const observer2 = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -524,7 +505,7 @@ onMounted(() => {
         }
       });
     }, {
-      threshold: 0.2
+      threshold: 0.5
     });
     const observer3 = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -535,7 +516,7 @@ onMounted(() => {
         }
       });
     }, {
-      threshold: 0.2
+      threshold: 0.5
     });
     const observer4 = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -546,84 +527,35 @@ onMounted(() => {
         }
       });
     }, {
-      threshold: 0.2
+      threshold: 0.5
     });
-    observer1.observe(document.querySelector('.banner_swiper'));
+    observer1.observe(document.querySelector('.banner_swiper_wap'));
     observer2.observe(document.querySelector('.cg1'));
     observer3.observe(document.querySelector('.cg2'));
-    observer4.observe(document.querySelector('.team_swiper2'));
-    swiper2.el.onmouseenter = function () {
-      swiper2.autoplay.stop();
-    };
-    swiper2.el.onmouseleave = function () {
-      swiper2.autoplay.start();
-    };
-    swiper3.el.onmouseenter = function () {
-      swiper3.autoplay.stop();
-    };
-    swiper3.el.onmouseleave = function () {
-      swiper3.autoplay.start();
-    };
-    swiper4.el.onmouseenter = function () {
-      swiper4.autoplay.stop();
-    };
-    swiper4.el.onmouseleave = function () {
-      swiper4.autoplay.start();
-    };
+    observer4.observe(document.querySelector('.team_swiper_wap'));
 
-    $(".banner_swiper").hover(function () {
-      swiper1.autoplay.stop();
-    }, function () {
-      swiper1.autoplay.start();
-    })
+    $("#year").text(new Date().getFullYear());
 
-    $("#next").click(function () {
-      $(".cg1-swiper-button-next").click()
+    $(document).on("click", ".show_fixed", function () {
+      $("html,body").animate({ scrollTop: 0 }, 500);
     })
-    $("#next2").click(function () {
-      $(".cg2-swiper-button-next").click()
-    })
-    $("#prev").click(function () {
-      $(".cg1-swiper-button-prev").click()
-    })
-    $("#prev2").click(function () {
-      $(".cg2-swiper-button-prev").click()
-    })
-    // $("#next3").click(function () {
-    //   $(".team1-swiper-button-next").click()
-    // })
-    $("#next4").click(function () {
-      $(".team2-swiper-button-next").click()
-    })
-    // $("#prev3").click(function () {
-    //   $(".team1-swiper-button-prev").click()
-    // })
-    $("#prev4").click(function () {
-      $(".team2-swiper-button-prev").click()
-    })
-
-    $("menu").on("click", "a", function () {
-      const ids = $(this).attr("class")
-      if (ids) {
-        const scrollTop = $(`#${ids}`).offset().top - 30
-        $("html,body").animate({
-          scrollTop
-        }, 500)
-      }
-    })
-
     $(window).scroll(function () {
+      $(".top_menu").removeClass("show")
       if ($(window).scrollTop() > $(window).height()) {
-        $("#gotop").show();
+        $(".fixed_menu").addClass("show_fixed");
       }
       else {
-        $("#gotop").hide();
+        $(".fixed_menu").removeClass("show_fixed");
       }
     });
-    $("#gotop").on("click", function () {
-      $("html,body").animate({ scrollTop: 0 }, 500);
-    });
-
+    function setMenuActive() {
+      $.each($(".banner_swiper_wap").siblings("[id]"), function (index, item) {
+        if ($(item).offset().top - $(window).scrollTop() + $(item).height() - $(window).height() / 2 > 0) {
+          $(`a[href='#${$(item).attr("id")}']`).parent().addClass("active").siblings().removeClass("active")
+          return false
+        }
+      })
+    }
     $('select').change(function () {
       $(this).css('color', '#333')
     })
@@ -651,7 +583,11 @@ onMounted(() => {
         return errors[0]
       }, '')
       if (msg) {
-        layer.msg(msg)
+        layer.open({
+          content: msg,
+          skin: "msg",
+          time: 2
+        })
       }
       else {
         $.ajax({
@@ -662,64 +598,132 @@ onMounted(() => {
           success(res) {
             if (res.status === 1) {
               $('#mask').removeClass('show')
-              layer.msg('您已报名成功，谢谢您的参与！')
+              layer.open({
+                content: '您已报名成功，谢谢您的参与！',
+                skin: "msg",
+                time: 2
+              })
               form[0].reset()
             }
             else {
-              layer.msg(res.info)
+              layer.open({
+                content: res.info,
+                skin: "msg",
+                time: 2
+              })
             }
           },
           error() {
-            layer.msg('报名失败，请稍后再试')
+            layer.open({
+              content: "报名失败，请稍后再试",
+              skin: "msg",
+              time: 2
+            })
           },
         })
       }
       return false
     })
+
+    $(document).on("click", ".menu_btn", function () {
+      setMenuActive()
+      $(".top_menu").addClass("show")
+    })
+    $(document).on("click", ".top_menu.show", function (e) {
+      if ($(e.target).hasClass("show")) {
+        $(".top_menu").removeClass("show")
+      }
+    })
   })
 })
+
 useHead({
   script: [
-    // {
-    //   innerHTML: `
-    //   /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)&&(window.location.href="/m/topic/2025/shengxue/");
-    //   `
-    // },
     {
-      src: 'https://www.ieduchina.com/statics/js/jquery-3.2.1.min.js',
-      type: 'text/javascript',
-      body: true
+      innerHTML: `
+      (function () {
+            function onResize() {
+                var width = document.documentElement.clientWidth;
+                var style = document.createElement("style");
+                style.setAttribute('id', 'style')
+                var html = '';
+                if (/Android|webOS|iPhone|iPod|BlackBerry|OpenHarmony/i.test(navigator.userAgent)) {
+                    html = "html{font-size: " + width / 375 + "px !important;}";
+                } else {
+                    html = "html{font-size: " + 2 + "px !important;width:750px !important;margin:0 auto !important;}";
+                }
+                if (document.getElementById('style')) {
+                    document.getElementById('style').innerHTML = html
+                } else {
+                    style.innerHTML = html;
+                    document.head.appendChild(style);
+                }
+            }
+            window.addEventListener('resize', onResize);
+            onResize()
+        })();
+      `
     },
     {
-      src: 'https://www.ieduchina.com/statics/pcc/js/swiper.min.js',
+      src: 'https://m.ieduchina.com/statics/js/jquery-3.7.1.min.js',
       type: 'text/javascript',
-      body: true
+      body: true,
     },
     {
-      src: 'https://www.ieduchina.com/statics/js/layer.js',
+      src: 'https://www.ieduchina.com/statics/common/js/swiper.min.js',
       type: 'text/javascript',
-      body: true
+      body: true,
     },
     {
-      src: 'https://www.ieduchina.com/topic/tgFrom.js',
+      src: 'https://m.ieduchina.com/statics/m/js/layer.js',
+      type: 'text/javascript',
+      body: true,
+    },
+    {
+      src: 'https://res2.wx.qq.com/open/js/jweixin-1.6.0.js',
+      type: 'text/javascript',
+      body: true,
+    },
+    {
+      src: 'https://m.ieduchina.com/statics/w/js/tgFrom.js',
+      type: 'text/javascript',
+      body: true,
+    },
+    {
+      src: 'https://m.ieduchina.com/topic/weixinShare.js?t=2025',
       type: 'text/javascript',
       defer: true,
-      body: true
     },
   ],
   link: [
     {
-      rel: 'shortcut icon',
-      type: 'image/x-icon',
-      href: '//www.ieduchina.com/statics/pcc/img/favicon.ico',
+      rel: 'stylesheet',
+      href: 'https://www.ieduchina.com/statics/common/css/swiper.min.css',
     },
     {
-      rel: 'stylesheet',
-      href: 'https://www.ieduchina.com/statics/pc/css/swiper.min.css',
+      itemprop: 'image',
+      content: "https://m.ieduchina.com/statics/share.jpg",
     },
+    {
+      rel: 'apple-touch-icon',
+      href: "https://m.ieduchina.com/statics/share.jpg",
+    },
+    {
+      rel: 'shortcut icon',
+      type: 'image/x-icon',
+      href: '//m.ieduchina.com/favicon.ico',
+    }
   ],
   title: '国际学校入学备考-香港学校升学规划与备考 - 国际教育网升学中心',
   meta: [
+    {
+      name: 'viewport',
+      content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover',
+    },
+    {
+      name: 'applicable-device',
+      content: 'mobile',
+    },
     {
       name: 'keywords',
       content: '国际学校入学备考,香港学校升学规划',
@@ -728,45 +732,30 @@ useHead({
       name: 'description',
       content: '国际教育网升学中心提供国际学校和香港学校升学规划与备考服务,国际学校升学规划与备考涵盖了英系、美系和港系的名校,香港学校升学规划与备考主要涵盖了香港本地名校及顶尖国际学校,以及香港身份咨询与规划服务.',
     },
-    {
-      name: 'applicable-device',
-      content: 'pc',
-    },
   ],
 })
 </script>
-
 <template>
   <header :class="$style.header">
-    <div :class="$style.con">
-      <a href="">
-        <img :src="logo" alt=""></img>
-      </a>
-      <menu>
-        <a class="ywjs">业务介绍</a>
-        <a class="jxtd">教学团队</a>
-        <a class="fwlc">服务流程</a>
-        <a class="xqhj">校区环境及地址</a>
-        <a class="lxwm">联系我们</a>
-      </menu>
-    </div>
+    <div :class="$style.menu_btn" class="menu_btn"><i></i></div>
+    <h1><img :src="logo" alt="国际教育网升学中心"></h1>
   </header>
-  <section>
-    <div :class="$style.banner" class="banner_swiper">
+  <section :class="$style.section">
+    <div :class="$style.banner" class="banner_swiper_wap">
       <div class="swiper-wrapper">
         <div v-for="(item, index) in banner" class="swiper-slide" :class="$style.slide">
           <img :src="item.image" :alt="item.title">
         </div>
       </div>
-      <div :class="$style.pagination" class="banner_swiper_pagination"></div>
+      <div :class="$style.pagination" class="banner_swiper_wap_pagination"></div>
     </div>
-    <div :class="$style.yw" id="ywjs">
+    <div :class="$style.ywjs" id="ywjs">
       <component :is="Title" en="SERVICE" cn="业务介绍" />
       <ul :class="$style.title">
         <li v-for="(item, index) in ywtext1" :key="index">
           <img :src="item.icon" :alt="item.title">
-          <div :class="$style.desc">
-            <span>{{ item.title }}</span>
+          <span>{{ item.title }}</span>
+          <div :class="$style.desc_wrap">
             <p v-for="it in item.text">
               <i>{{ it.title }}</i>：{{ it.text }}
             </p>
@@ -774,35 +763,20 @@ useHead({
         </li>
       </ul>
       <div :class="$style.cgzs">
-        <h2>升学备考成果展示（部分）</h2>
+        <h2>成果展示（部分）</h2>
         <div :class="$style.cg" class="cg cg1">
           <div class="swiper-wrapper" :class="$style.wrap">
             <div v-for="item in offers1" class="swiper-slide" :key="item">
               <img :class="$style.img" :src="item" alt="" height="440" width="340"></img>
             </div>
           </div>
-          <div class="cg1-swiper-button-prev"></div>
-          <div class="cg1-swiper-button-next"></div>
         </div>
-        <div id="prev" :class="$style.prev"></div>
-        <div id="next" :class="$style.next"></div>
       </div>
-      <ul :class="[$style.title, $style.title2]">
+      <ul :class="$style.title">
         <li v-for="(item, index) in ywtext2" :key="index">
           <img :src="item.icon" :alt="item.title">
-          <div :class="$style.desc">
-            <span>{{ item.title }}</span>
-            <p v-for="it in item.text">
-              <i>{{ it.title }}</i>：{{ it.text }}
-            </p>
-          </div>
-        </li>
-      </ul>
-      <ul :class="[$style.title, $style.title3]">
-        <li v-for="(item, index) in ywtext3" :key="index">
-          <img :src="item.icon" :alt="item.title">
-          <div :class="$style.desc">
-            <span>{{ item.title }}</span>
+          <span>{{ item.title }}</span>
+          <div :class="$style.desc_wrap">
             <p v-for="it in item.text">
               <i>{{ it.title }}</i>：{{ it.text }}
             </p>
@@ -820,37 +794,14 @@ useHead({
               <img :class="$style.img" :src="item" loading="lazy" alt="" height="440" width="340"></img>
             </div>
           </div>
-          <div class="cg2-swiper-button-prev"></div>
-          <div class="cg2-swiper-button-next"></div>
         </div>
-        <div id="prev2" :class="$style.prev"></div>
-        <div id="next2" :class="$style.next"></div>
       </div>
     </div>
-    <!-- <div :class="$style.td" id="gwtd">
-      <div :class="$style.con">
-        <component :is="Title" en="team" cn="顾问团队" tip="24小时为您提供咨询服务，个性化制定升学方案" />
-      </div>
-      <div :class="$style.team_swiper" class="team_swiper team_swiper1">
-        <div class="swiper-wrapper">
-          <div v-for="(item, index) in gw" class="swiper-slide" :class="$style.slide">
-            <img :src="item.image" :alt="item.name">
-            <span><i>{{ item.name }}</i></span>
-            <p>
-              {{ item.desc }}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="prev3" :class="$style.prev" class="team1-swiper-button-prev"></div>
-      <div id="prev3" :class="$style.next" class="team1-swiper-button-next"></div>
-      <div :class="$style.bg"><span></span></div>
-    </div> -->
-    <div :class="$style.td" id="jxtd">
+    <div :class="$style.jxtd" id="jxtd">
       <div :class="$style.con">
         <component :is="Title" en="team" cn="教学团队" tip="24小时为您提供咨询服务，个性化制定升学方案" />
       </div>
-      <div :class="$style.team_swiper" class="team_swiper team_swiper2">
+      <div :class="$style.team_swiper" class="team_swiper_wap">
         <div class="swiper-wrapper">
           <div v-for="(item, index) in teacher" class="swiper-slide" :class="$style.slide">
             <div :class="$style.wrap" class="_wrap_50jo0_117">
@@ -863,66 +814,50 @@ useHead({
           </div>
         </div>
       </div>
-      <div id="prev4" :class="$style.prev" class="team2-swiper-button-prev"></div>
-      <div id="prev4" :class="$style.next" class="team2-swiper-button-next"></div>
       <div :class="$style.bg"><span></span></div>
     </div>
-    <div :class="$style.fw" id="fwlc">
+    <div :class="$style.fwlc" id="fwlc">
       <div :class="$style.con">
         <component :is="Title" en="SERVICE" cn="服务流程" />
-        <img :src="fwlc" alt="服务流程">
       </div>
+      <img :src="fwlc" alt="服务流程">
     </div>
-    <div :class="$style.environment" id="xqhj">
+    <div :class="$style.fwlc" id="xqhj">
       <div :class="$style.con">
         <component :is="Title" en="environment" cn="校区环境及地址" />
-        <img :class="$style.img" :src="xqdz" alt="校区环境及地址">
-        <div :class="$style.top">
-          <div :class="$style.title">深港六大校区 CAMPUS</div>
-          <div :class="$style.tel">
-            <img :src="telicon" alt="">
-            咨询热线：400-168-1016
-          </div>
+      </div>
+      <img :src="environment" alt="校区环境及地址">
+    </div>
+    <div :class="$style.address" id="lxwm">
+      <p :class="$style.title">深港六大校区 CAMPUS</p>
+      <ul>
+        <li v-for="item in address"><img :src="addressicon" :alt="item.title">{{ item.title }}</li>
+      </ul>
+      <div :class="$style.tel">
+        <a href="tel:400-168-1016"><img :src="mobileicon" alt="">咨询热线: 400-168-1016</a>
+      </div>
+      <div :class="$style.ewm_wrap">
+        <div :class="$style.ewm">
+          <img :src="ewm1" alt="扫码关注官方公众号">
+          <p>扫码关注官方公众号</p>
         </div>
-        <div :class="$style.bottom">
-          <ul>
-            <li v-for="item in address">
-              <span><img :src="addressicon" :alt="item.title">{{ item.title }}</span>
-            </li>
-          </ul>
-          <div :class="$style.ewm">
-            <div v-for="item in ewm" :class="$style.e">
-              <img :src="item.image" alt="">
-              <p>{{ item.title }}</p>
-            </div>
-          </div>
+        <div :class="$style.ewm">
+          <img :src="ewm2" alt="扫码咨询升学小助手">
+          <p>扫码咨询升学小助手</p>
         </div>
       </div>
     </div>
   </section>
-  <component :is="Footer" :ewm1 :ewm2 />
-  <div :class="$style.right_fixed">
-    <ul>
-      <li id="open"><img :src="fixed4" alt="预约报名"> <img :src="fixed4_" alt="预约报名">
-        <p>预约报名</p>
-      </li>
-      <li><img :src="fixed1" alt="咨询我们"> <img :src="fixed1_" alt="咨询我们">
-        <p>咨询我们</p>
-        <div :class="$style.in"><img :src="ewm2" alt="ada"></div>
-      </li>
-      <li><img :src="fixed2" alt="电话咨询"> <img :src="fixed2_" alt="电话咨询">
-        <p>电话咨询</p>
-        <div :class="[$style.in, $style.tel]">
-          <p>电话咨询：</p>
-          <p>400-168-1016</p>
-        </div>
-      </li>
-      <li id="gotop">
-        <img :src="fixed3" alt="置頂">
-        <img :src="fixed3_" alt="置顶">
-        <p>置顶</p>
-      </li>
-    </ul>
+  <footer :class="$style.footer">Copyright © <span id="year">2025</span> 国际教育网 版权所有</footer>
+  <div :class="$style.fixed_menu">
+    <div :class="$style.in" id="open">
+      <img :src="yyicon" alt="预约报名">
+      <p>预约报名</p>
+    </div>
+    <div :class="$style.in" class="fixed_menu">
+      <img :src="zdicon" alt="置顶">
+      <p>置顶</p>
+    </div>
   </div>
   <div :class="$style.mask" id="mask">
     <div :class="$style.con">
@@ -932,13 +867,12 @@ useHead({
           <input name="mark" type="hidden" value="国际教育网PC版_升学">
           <h4>请您填写信息，专业老师将尽快联系您</h4>
           <label for="">
-            <span>孩子姓名</span>
             <input name="name" type="text" required placeholder="请输入孩子姓名" autocomplete="off" :class="$style.name">
           </label>
-          <label for=""><span>电话号码 </span>
+          <label for="">
             <input name="mobile" type="text" required placeholder="请输入电话号码" autocomplete="off"
               :class="$style.mobile"></label>
-          <label for=""><span>在读年級</span>
+          <label for="">
             <select class="grade" name="grade" required placeholder="请选择年级">
               <option value="">请选择年级</option>
               <option value="幼儿园">幼儿园</option>
@@ -961,57 +895,104 @@ useHead({
               <option value="已毕业">已毕业</option>
             </select>
           </label>
-          <label for=""><span>意向学校</span> <input name="want_school" type="text" required placeholder="请输入意向学校"
-              autocomplete="off" :class="$style.want"></label>
+          <label for="">
+            <input name="want_school" type="text" required placeholder="请输入意向学校" autocomplete="off"
+              :class="$style.want"></label>
           <div :class="$style.btn"><button type="submit">确认提交</button></div>
         </form>
       </div>
     </div>
   </div>
+  <div :class="$style.top_menu" class="top_menu">
+    <div :class="$style.content">
+      <h2>
+        <img :src="logo" alt="国际教育网 升学中心">
+      </h2>
+      <ul>
+        <li class="active"><a href="#ywjs">业务介绍</a></li>
+        <li><a href="#jxtd">教学团队</a></li>
+        <li><a href="#fwlc">服务流程</a></li>
+        <li><a href="#xqhj">校区环境及地址</a></li>
+        <li><a href="#lxwm">联系我们</a></li>
+      </ul>
+    </div>
+  </div>
 </template>
-<style lang="less" module scoped>
+
+<style lang="less" scoped module>
 .header {
   position: fixed;
   top: 0;
-  z-index: 20;
+  z-index: 100;
+  max-width: 750px;
   width: 100%;
+  height: 50rem;
   background-color: #083A83;
-  display: flex;
-  justify-content: center;
 
-  .con {
-    width: 1200px;
-    height: 96px;
+  .menu_btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
+    height: 15rem;
+    padding: 0 13rem;
+    cursor: pointer;
 
-    img {
-      width: 138px;
-      height: 56px;
-      object-fit: contain;
-      object-position: center;
-    }
+    i {
+      pointer-events: none;
+      position: relative;
+      display: block;
+      width: 20rem;
+      height: 2.5rem;
+      border-radius: 2rem;
+      background-color: white;
 
-    menu {
-      a {
-        font-size: 18px;
-        font-weight: bold;
-        color: #FFFFFF;
-        margin-right: 26px;
-        cursor: pointer;
+      &::before,
+      &::after {
+        position: absolute;
+        left: 0;
+        top: -6rem;
+        content: "";
+        display: block;
+        width: 20rem;
+        height: 2.5rem;
+        border-radius: 2rem;
+        background-color: white;
+      }
+
+      &::before {
+        top: 6rem;
       }
     }
   }
+
+  h1 {
+    width: 80rem;
+    margin: 0 auto;
+    text-align: center;
+
+    img {
+      height: 50rem;
+      width: 80rem;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  .menu_btn {
+    height: 50rem;
+  }
 }
 
-section {
-  padding-top: 96px;
+.section {
+  padding-top: 50rem;
 
   .banner {
-    min-width: 1200px;
     width: 100%;
-    // height: 70vh;
     object-fit: cover;
     object-position: center;
 
@@ -1024,69 +1005,37 @@ section {
     }
   }
 
-  .yw {
-    width: 1200px;
-    margin: 0 auto;
-    padding-top: 82px;
+  .ywjs {
+    padding: 36rem 15rem 0;
 
     .title {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 60px;
-
-      &.title2 {
-
-        li {
-          padding-top: 30px;
-
-          &:last-of-type {
-            margin-left: 100px;
-            flex: 1;
-          }
-        }
-      }
-
-      &.title3 {
-        justify-content: center;
-
-        li {
-          padding-top: 0;
-        }
-      }
-
       li {
-        padding-top: 30px;
-        display: flex;
-        justify-content: space-between;
+        text-align: center;
+        margin-top: 26rem;
 
         img {
-          width: 90px;
-          height: 90px;
-          object-fit: contain;
-          margin-right: 18px;
+          width: 92rem;
         }
 
-        .desc {
-          span {
-            display: block;
-            font-size: 20px;
-            font-weight: bold;
-            line-height: 36px;
-            letter-spacing: 0em;
-            color: #083A83;
-            letter-spacing: -1.5px;
-            border-bottom: solid 1px #D6D6D6;
-          }
+        span {
+          display: block;
+          font-size: 20rem;
+          font-weight: bold;
+          color: #083A83;
+          margin: 0 12rem;
+          padding-bottom: 8rem;
+        }
+
+        .desc_wrap {
+          border-top: 1rem solid #D8D8D8;
+          padding-top: 6rem;
 
           p {
-            font-size: 16px;
-            font-weight: normal;
-            line-height: 180%;
+            font-weight: 400;
+            font-size: 16rem;
+            text-align: left;
+            line-height: 1.8;
             color: #3D3D3D;
-
-            &:first-of-type {
-              margin-top: 10px;
-            }
 
             i {
               font-weight: bold;
@@ -1098,70 +1047,31 @@ section {
     }
 
     .cgzs {
-      margin-top: 86px;
+      margin-top: 43rem;
       position: relative;
 
       h2 {
         text-align: center;
-        font-size: 32px;
+        font-size: 16rem;
         font-weight: bold;
         color: #3D3D3D;
-        padding-bottom: 30px;
+        padding-bottom: 15rem;
       }
 
       .cg {
         overflow: hidden;
-        width: 944px;
+        width: 100%;
         margin: 0 auto;
 
         .wrap {
 
           .img {
-            width: 340px;
-            height: 440px;
+            width: 136rem;
+            height: 177rem;
             object-fit: contain;
           }
         }
 
-      }
-
-      .prev,
-      .next {
-        position: absolute;
-        top: 260px;
-        z-index: 10;
-        width: 48px;
-        height: 48px;
-        border: solid 2px #C3AA72;
-        border-radius: 50%;
-        cursor: pointer;
-
-        &::after {
-          position: absolute;
-          content: "";
-          left: 40%;
-          top: 30%;
-          width: 16px;
-          height: 16px;
-          border-style: solid;
-          border-width: 0 2px 2px 0;
-          border-color: #C3AA72;
-          transform: rotateZ(135deg);
-          pointer-events: none;
-        }
-      }
-
-      .prev {
-        left: 0;
-      }
-
-      .next {
-        right: 0;
-
-        &::after {
-          transform: rotateZ(-45deg);
-          left: 10px;
-        }
       }
     }
 
@@ -1174,56 +1084,40 @@ section {
         position: absolute;
         z-index: -1;
         right: 0;
-        bottom: -172px;
-        width: 957px;
+        bottom: -86rem;
+        width: 100%;
         opacity: 0.12;
       }
     }
   }
 
-  .fw {
-    padding: 80px 0 95px;
-
-    .con {
-      width: 1200px;
-      margin: 0 auto;
-
-      img {
-        width: 100%;
-        height: 345px;
-        object-fit: contain;
-        margin-top: 73px;
-      }
-    }
-  }
-
-  .td {
-    padding: 80px 0 0;
+  .jxtd {
+    padding: 36rem 0 0;
     position: relative;
 
     .con {
-      width: 1200px;
-      margin: 0 auto;
+      margin: 0 15rem;
     }
 
     .team_swiper {
-      width: 1200px;
+      width: 100%;
       margin: 0 auto;
       overflow: hidden;
-      height: 628px;
+      height: 550rem;
+      padding-top: 43rem;
 
       .slide {
         text-align: center;
-        padding-top: 110px;
+        padding-top: 46rem;
 
         .wrap {
-          width: 174px;
-          height: 174px;
+          width: 82rem;
+          height: 82rem;
           object-fit: cover;
           border-radius: 50%;
           object-position: top;
           user-select: none;
-          border: solid 4px #083A83;
+          border: solid 2rem #083A83;
           background-color: white;
           overflow: hidden;
           margin: 0 auto;
@@ -1234,318 +1128,223 @@ section {
             object-fit: cover;
 
             &.t2 {
-              object-position: 0 -3px;
+              object-position: 0 -2rem;
             }
 
             &.t3 {
               width: 73%;
-              object-position: 0 -5px;
+              object-position: 0 -2rem;
             }
 
             &.t4 {
-              object-position: -23px -12px;
+              object-position: -12rem -6rem;
               width: 128%;
             }
 
             &.t6 {
-              object-position: 0 -8px;
+              object-position: 0 -4rem;
             }
 
             &.t12 {
-              object-position: -12px 5px;
+              object-position: -6rem 3rem;
             }
 
             &.t13 {
-              object-position: 0 5px;
+              object-position: 0 3rem;
             }
           }
         }
 
         p {
-          margin-top: 30px;
-          width: 1100px;
+          margin-top: 0rem;
           position: absolute;
-          left: -180%;
           display: none;
-          font-size: 14px;
+          font-size: 7rem;
           font-weight: 400;
           color: #FFFFFF;
-          line-height: 26px;
+          line-height: 13rem;
         }
 
         span {
           display: block;
-          font-size: 24px;
+          font-size: 12rem;
           font-weight: bold;
           color: #FFFFFF;
-          line-height: 26px;
-          padding-top: 20px;
+          line-height: 13rem;
+          padding-top: 10rem;
           text-align: center;
 
           i {
             font-style: initial;
+            text-transform: capitalize;
           }
         }
       }
     }
 
-    .prev,
-    .next {
-      position: absolute;
-      top: 610px;
-      z-index: 10;
-      width: 48px;
-      height: 48px;
-      border: solid 2px #C3AA72;
-      border-radius: 50%;
-      cursor: pointer;
-
-      &::after {
-        position: absolute;
-        content: "";
-        left: 40%;
-        top: 30%;
-        width: 16px;
-        height: 16px;
-        border-style: solid;
-        border-width: 0 2px 2px 0;
-        border-color: #C3AA72;
-        transform: rotateZ(135deg);
-        pointer-events: none;
-      }
-    }
-
-    .prev {
-      left: 50%;
-      margin-left: -696px;
-    }
-
-    .next {
-      right: 50%;
-      margin-right: -696px;
-
-      &::after {
-        transform: rotateZ(-45deg);
-        left: 25%;
-      }
+    .bg {
+      background-color: #083A83;
+      height: 410rem;
+      margin-top: -420rem;
     }
   }
 
-  .environment {
-    background-color: #FAFAFA;
+  .fwlc {
+    padding: 36rem 15rem 0;
 
-    .con {
-      width: 1200px;
-      padding: 100px 0;
-      margin: 0 auto;
-
-      .img {
-        margin-top: 54px;
-        width: 100%;
-      }
-
-      .top {
-        display: flex;
-        justify-content: space-between;
-        padding: 46px 0 21px;
-        border-bottom: solid 1px #D6D6D6;
-
-        .title {
-          font-size: 30px;
-          font-weight: bold;
-          line-height: 150%;
-          text-transform: uppercase;
-          color: #3D3D3D;
-
-        }
-
-        .tel {
-          font-size: 24px;
-          font-weight: bold;
-          color: #083A83;
-
-          img {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
-            vertical-align: -6px;
-          }
-        }
-      }
-
-      .bottom {
-        display: flex;
-        justify-content: space-between;
-
-        ul {
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          width: 740px;
-          padding-top: 21px;
-
-          li {
-            margin-top: 15px;
-            text-align: left;
-            width: 33.33%;
-
-            span {
-              color: #3D3D3D;
-              font-weight: bold;
-              font-size: 24px;
-
-              img {
-                width: 18px;
-                height: 18px;
-                object-fit: contain;
-                margin-right: 4px;
-                vertical-align: 1px;
-              }
-            }
-          }
-        }
-
-        .ewm {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 21px;
-
-          .e {
-            margin-left: 17px;
-            text-align: center;
-
-            img {
-              width: 100px;
-              height: 100px;
-              object-fit: cover;
-            }
-
-            p {
-              font-size: 14px;
-              line-height: 24px;
-              text-align: center;
-              color: #1A1A1A;
-            }
-          }
-        }
-      }
+    img {
+      margin: 35rem 0 0;
+      width: 100%;
     }
   }
 
-  .bg {
-    width: 100%;
-    min-width: 1200px;
-    height: 380px;
-    margin-top: -433px;
-    background-color: #083A83;
-    text-align: center;
+  .address {
+    padding: 26rem 15rem 0;
+
+    .title {
+      font-size: 18rem;
+      font-weight: bold;
+      line-height: 150%;
+      text-transform: uppercase;
+      color: #3D3D3D;
+      padding-bottom: 6rem;
+      border-bottom: solid 1rem #D6D6D6;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-top: 14rem;
+
+      li {
+        font-size: 14rem;
+        font-weight: bold;
+        line-height: 150%;
+        text-transform: uppercase;
+        color: #3D3D3D;
+        text-align: left;
+        margin-bottom: 9rem;
+
+        img {
+          width: 14rem;
+          height: 14rem;
+          object-fit: contain;
+          margin-right: 1rem;
+          vertical-align: -2rem;
+        }
+
+        &:nth-of-type(3n+1) {
+          width: 35%;
+        }
+
+        &:nth-of-type(3n+2) {
+          width: 35%;
+        }
+
+        &:nth-of-type(3n) {
+          width: 30%;
+        }
+      }
+    }
+
+    .tel {
+      text-align: center;
+
+      a {
+        font-size: 16rem;
+        font-weight: bold;
+        color: #083A83;
+        line-height: 30rem;
+
+        img {
+          width: 18rem;
+          height: 18rem;
+          object-fit: contain;
+          margin-right: 4rem;
+          vertical-align: -3.5rem;
+        }
+      }
+    }
+
+    .ewm_wrap {
+      display: flex;
+      justify-content: space-between;
+      margin: 20rem 42rem 24rem;
+
+      .ewm {
+        text-align: center;
+
+        img {
+          width: 100rem;
+          height: 100rem;
+        }
+
+        p {
+          font-size: 14rem;
+          line-height: 24rem;
+          text-align: center;
+          color: #1A1A1A;
+        }
+      }
+    }
   }
 }
 
-.right_fixed {
+.footer {
+  background: #083A83;
+  text-align: center;
+  line-height: 53rem;
+  font-size: 12rem;
+  color: #FFFFFF;
+}
+
+.fixed_menu {
   position: fixed;
-  bottom: 100px;
-  right: 30px;
-  width: 85px;
-  z-index: 50;
-  cursor: pointer;
-  transition: all 300ms;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0px 0px 20px 1px rgba(135, 135, 135, 0.1608);
+  z-index: 100;
+  right: 15rem;
+  bottom: 80rem;
+  width: 56rem;
 
-  ul {
-    li {
-      width: 85px;
-      height: 85px;
-      border-radius: 10px;
-      text-align: center;
-      position: relative;
-      margin-top: 15px;
+  .in {
+    width: 56rem;
+    height: 56rem;
+    margin-bottom: 11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    border-radius: 8rem;
+    background-color: white;
+    box-shadow: 0 0 8rem 1rem rgba(0, 0, 0, 0.1);
 
-      &:first-of-type {
-        margin-top: 0;
-      }
-
-      img {
-        width: 50px;
-        height: 50px;
-        margin-top: 6px;
-
-        &:nth-of-type(2) {
-          display: none;
-        }
-      }
+    &:last-of-type {
+      background-color: #083A83;
+      box-shadow: 0 0 8rem 1rem rgba(8, 58, 131, 0.1);
+      pointer-events: none;
+      opacity: 0;
 
       p {
-        font-size: 14px;
-        font-weight: 400;
-        color: #333333;
-        line-height: 24px;
-      }
-
-      .in {
-        display: none;
-        position: absolute;
-        right: 85px;
-        top: 0;
-        border-radius: 0;
-        padding: 5px;
-        background-color: white;
-        -webkit-box-shadow: 0px 0px 20px 1px rgba(135, 135, 135, 0.1608);
-        box-shadow: 0px 0px 20px 1px rgba(135, 135, 135, 0.1608);
-
-        &.tel {
-          padding: 24px 13px;
-
-          p {
-            font-size: 18px;
-            font-weight: 400;
-            color: #333333;
-            line-height: 24px;
-            white-space: nowrap;
-
-            &:first-of-type {
-              font-size: 14px;
-              padding-bottom: 8px;
-            }
-          }
-        }
-
-        img {
-          width: 120px;
-          height: 120px;
-        }
-      }
-
-      &:hover {
-        background-color: #083A83;
-
-        &>img {
-          &:nth-of-type(1) {
-            display: none;
-          }
-
-          &:nth-of-type(2) {
-            display: inline-block;
-          }
-        }
-
-        .in {
-          display: block;
-        }
-
-        &>p {
-          color: white;
-        }
-      }
-
-      &#gotop {
-        cursor: pointer;
-        display: none;
+        color: white;
       }
     }
+
+    img {
+      width: 24rem;
+      height: 24rem;
+    }
+
+    p {
+      font-size: 10rem;
+      font-weight: 350;
+      line-height: 20rem;
+      color: #333333;
+      width: 100%;
+      margin-top: -16rem;
+    }
   }
+
 }
 
 .mask {
@@ -1565,45 +1364,45 @@ section {
 
     .form {
       background: #FFFFFF;
-      border-radius: 8px;
+      border-radius: 4rem;
       position: relative;
-      padding-bottom: 40px;
+      padding-bottom: 20rem;
 
       h3 {
         width: 100%;
-        height: 67px;
+        height: 34rem;
         background: #083A83;
-        font-size: 24px;
+        font-size: 16rem;
         font-weight: 400;
         color: #FFFFFF;
-        line-height: 67px;
+        line-height: 34rem;
         text-align: center;
-        border-radius: 8px 8px 0 0;
+        border-radius: 4rem 4rem 0 0;
       }
 
       .close {
         display: block;
         position: absolute;
-        width: 30px;
-        height: 30px;
-        right: 10px;
-        top: 10px;
+        width: 20rem;
+        height: 20rem;
+        right: 5rem;
+        top: 5rem;
         z-index: 10;
-        width: 30px;
-        height: 30px;
-        padding: 12px;
+        width: 15rem;
+        height: 15rem;
+        padding: 6rem;
         cursor: pointer;
 
         &::before,
         &::after {
           pointer-events: none;
-          top: 10px;
-          left: 10px;
+          top: 5rem;
+          left: 5rem;
           content: "";
           position: absolute;
-          width: 20px;
-          height: 20px;
-          border-top: solid 2px white;
+          width: 15rem;
+          height: 15rem;
+          border-top: solid 1rem white;
           transform: rotateZ(45deg) translate(-48%, 45%);
           transform-origin: center center;
         }
@@ -1614,19 +1413,19 @@ section {
       }
 
       form {
-        padding: 10px 40px 0;
+        padding: 5rem 30rem 0;
         font-size: 0;
 
         h4 {
-          font-size: 16px;
+          font-size: 12rem;
           font-weight: 400;
           color: #083A83;
-          padding: 20px 0 10px;
+          padding: 10rem 0 5rem;
           text-align: center;
         }
 
         label {
-          margin-top: 20px;
+          margin-top: 10rem;
           display: block;
           width: 100%;
 
@@ -1638,11 +1437,11 @@ section {
               position: absolute;
               right: 0;
               top: 55%;
-              width: 10px;
-              height: 10px;
+              width: 8rem;
+              height: 8rem;
               border-style: solid;
               border-color: #333;
-              border-width: 0 2px 2px 0;
+              border-width: 0 1rem 1rem 0;
               transform: translate(-100%, -100%) rotateZ(45deg);
               pointer-events: none;
             }
@@ -1650,33 +1449,30 @@ section {
 
           span {
             display: inline-block;
-            font-size: 16px;
+            font-size: 12rem;
             font-weight: 400;
             color: #333333;
             text-align: right;
-            padding-right: 21px;
+            padding-right: 10rem;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
           }
 
           input,
           select {
-            -webkit-box-sizing: border-box;
             box-sizing: border-box;
-            width: 323px;
-            height: 40px;
-            line-height: 40px;
+            width: 240rem;
+            height: 38rem;
+            line-height: 20rem;
             background: #FFFFFF;
-            border-radius: 4px;
-            border: 1px solid #C8C8C8;
-            font-size: 16px;
+            border-radius: 4rem;
+            border: 1rem solid #C8C8C8;
+            font-size: 12rem;
             font-weight: 400;
             color: #333333;
-            padding: 0 10px;
+            padding: 0 5rem;
             outline: none;
             appearance: none;
-            -moz-appearance: none;
-            -webkit-appearance: none;
           }
 
           select {
@@ -1690,15 +1486,15 @@ section {
           text-align: center;
           -webkit-box-sizing: border-box;
           box-sizing: border-box;
-          padding-top: 35px;
+          padding-top: 18rem;
 
           button {
             cursor: pointer;
-            width: 271px;
-            height: 45px;
+            width: 135rem;
+            height: 38rem;
             background: #083A83;
-            border-radius: 4px;
-            font-size: 18px;
+            border-radius: 4rem;
+            font-size: 12rem;
             font-weight: 400;
             color: #FFFFFF;
             border: none;
@@ -1709,88 +1505,112 @@ section {
     }
   }
 }
-</style>
-<style lang="less" scoped>
-.team_swiper {
-  .swiper-slide-active {
-    &+.swiper-slide {
-      transform: translateX(-20px);
-      transition: all 0.3s ease-in-out;
 
-      &+.swiper-slide {
-        ._wrap_50jo0_117 {
-          transform: scale(1.5);
-          transition: all 0.3s ease-in-out;
-          border: solid 8px #083A83;
-          background-color: white;
-        }
+.top_menu {
+  position: fixed;
+  top: 0;
+  width: 0;
+  max-width: 750px;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 
-        p {
-          display: block !important;
-          padding: 10px 182px;
-        }
+  .content {
+    width: 226rem;
+    height: 100vh;
+    background-color: #083A83;
 
-        span {
-          margin-top: 40px;
+    h2 {
+      width: 100%;
+      height: 82rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-          i {
-            position: relative;
+      img {
+        width: 80rem;
+      }
+    }
 
-            &::after {
-              left: 50%;
-              transform: translateX(-50%);
-              bottom: -21px;
-              content: "";
-              position: absolute;
-              width: 50px;
-              height: 2px;
-              background: #C3AA72;
-
-            }
-          }
-        }
-
-        &+.swiper-slide {
-          transform: translateX(20px);
-          transition: all 0.3s ease-in-out;
+    ul {
+      li {
+        a {
+          display: block;
+          color: #FFFFFF;
+          height: 50rem;
+          line-height: 50rem;
+          font-size: 16rem;
+          color: #FFFFFF;
+          padding-left: 33rem;
         }
       }
     }
   }
 }
+</style>
 
-.banner_swiper {
+<style lang="less" scoped>
+.banner_swiper_wap {
   width: 100%;
   overflow: hidden;
   position: relative;
 
-  .banner_swiper_pagination {
-    bottom: 30px;
+  .banner_swiper_wap_pagination {
+    bottom: 18rem;
     position: absolute;
     z-index: 10;
     text-align: center;
   }
 }
 
-#mask {
-  &.show {
-    display: block;
-  }
-}
-</style>
-<style lang="less">
-body .footer_nav {
-  min-width: 1200px;
-  background-color: #083A83;
+.team_swiper_wap {
 
-  .con {
-    width: 1200px;
+  .swiper-slide-active {
+    transform: translateX(-10rem);
+    transition: all 0.3s ease-in-out;
+
+    &+.swiper-slide {
+      transform: scale(1.7) translateY(68rem);
+      transition: all 0.3s ease-in-out;
+
+      p {
+        position: absolute;
+        display: block !important;
+        padding: 20rem 0;
+        margin: 0 -32rem 0;
+      }
+
+      span {
+        margin-top: -8rem;
+
+        i {
+          position: relative;
+
+          &::after {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10rem;
+            content: "";
+            position: absolute;
+            width: 25rem;
+            height: 1rem;
+            background: #C3AA72;
+          }
+        }
+      }
+
+      &+.swiper-slide {
+        transform: translateX(10rem);
+        transition: all 0.3s ease-in-out;
+      }
+    }
   }
 }
 
 .swiper-pagination-bullet {
-  width: 9px;
-  height: 9px;
+  width: 6rem;
+  height: 6rem;
   border-radius: 0;
   background-color: white;
   opacity: 1;
@@ -1798,7 +1618,38 @@ body .footer_nav {
 
 .swiper-pagination-bullet-active {
   background-color: #F6B756;
-  width: 32px;
+  width: 21rem;
   border-radius: 0;
+}
+
+.show_fixed {
+  opacity: 1 !important;
+  pointer-events: initial !important;
+}
+
+#mask.show {
+  display: block;
+}
+
+.layui-m-layer-msg {
+  pointer-events: none;
+}
+
+.top_menu {
+  animation: all 2s;
+
+  &.show {
+    width: 100vw;
+
+    ul {
+      li {
+        &.active {
+          a {
+            background: #082D63;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

@@ -145,28 +145,23 @@ onMounted(() => {
     showMenu();
   });
   showMenu();
-  $('.parentMenu').hover(function () {
-    $(this).find('.submenu').show()
-  }, function () {
-    $(this).find('.submenu').hide()
-  })
 })
 
 </script>
 <template>
-  <div :class="$style.iedu_menu_wrap">
-    <div :class="$style.iedu_menu_box" id="iedu_menu_box">
-      <ul :class="$style.iedu_menu">
+  <div :class="$style.menu">
+    <div :class="$style.wrap" id="iedu_menu_box">
+      <ul :class="$style.iedu">
         <li>
           <NuxtLink to="/">
             <span>首页</span>
           </NuxtLink>
         </li>
-        <li class="parentMenu" :class="$style.parent_menu">
+        <li :class="$style.parent">
           <NuxtLink to="/school">
             <span>教育资讯</span>
           </NuxtLink>
-          <ul :class="$style.submenu" class="submenu">
+          <ul :class="$style.submenu">
             <li>
               <NuxtLink to="/school">
                 <span>校园资讯</span>
@@ -189,9 +184,9 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu" :class="$style.parent_menu">
+        <li :class="$style.parent">
           <a href="//schoollist.ieduchina.com"><span>学校大全</span></a>
-          <ul :class="$style.submenu" class="submenu">
+          <ul :class="$style.submenu">
             <li><a href="//schoollist.ieduchina.com"><span>内地学校</span></a></li>
             <li><a href="/hongkong" target="_blank"><span>香港学校</span></a></li>
             <li><a href="//www.ieduchina.com/singapore/index.html" target="_blank"><span>新加坡学校</span></a></li>
@@ -202,9 +197,9 @@ onMounted(() => {
         <li>
           <a href="//www.ieduchina.com/camps/index.html"><span>夏/冬令营</span></a>
         </li>
-        <li class="parentMenu" :class="$style.parent_menu">
+        <li :class="$style.parent">
           <a href="//www.ieduchina.com/zwhb/"><span>合办大学</span></a>
-          <ul :class="$style.submenu" class="submenu">
+          <ul :class="$style.submenu">
             <li>
               <NuxtLink to="/zwhb/">
                 <span>中外合办大学</span>
@@ -218,11 +213,11 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu" :class="$style.parent_menu">
+        <li :class="$style.parent">
           <NuxtLink to="/huodong">
             <span>学校活动</span>
           </NuxtLink>
-          <ul :class="$style.submenu" class="submenu">
+          <ul :class="$style.submenu">
             <!-- <li><a href="//www.ieduchina.com/huodong/?type=9"><span>家长学院</span></a></li> -->
             <li>
               <a href="//www.ieduchina.com/huodong/?type=6"><span>学校开放日</span></a>
@@ -260,11 +255,11 @@ onMounted(() => {
             </li>
           </ul>
         </li>
-        <li class="parentMenu" :class="$style.parent_menu">
+        <li :class="$style.parent">
           <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
             <span>备考学习</span>
           </NuxtLink>
-          <ul :class="$style.submenu" class="submenu">
+          <ul :class="$style.submenu">
             <li>
               <NuxtLink to="/xuexi?tgfrom=guanwang" rel="nofollow">
                 <span>官方考试</span>
@@ -353,178 +348,197 @@ onMounted(() => {
             </li>
           </ul>
         </li>
+        <li>
+          <NuxtLink to="/topic/2025/shengxue" rel="nofollow"><span>国际教育网升学中心</span></NuxtLink>
+        </li>
         <li><a href="//www.ieduchina.com/service/aboutus.html" rel="nofollow"><span>关于我们</span></a></li>
       </ul>
     </div>
   </div>
 </template>
-<style lang="less" module>
-.iedu_menu_wrap {
+<style lang="less" module scoped>
+.menu {
   width: 1280px;
   margin: 0 auto;
   height: 48px;
-}
 
-.iedu_menu_wrap .iedu_menu_box {
-  background-color: #ffffff;
-  width: 100%;
-  height: 48px;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
+  .wrap {
+    background-color: #ffffff;
+    width: 100%;
+    height: 48px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu {
-  width: 1280px;
-  height: 48px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
+    .iedu {
+      width: 1280px;
+      height: 48px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li {
-  cursor: pointer;
-  flex: 1;
-  line-height: 48px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  color: #ffffff;
-}
+      li {
+        cursor: pointer;
+        line-height: 48px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        color: #ffffff;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li a {
-  color: #303030;
-  width: 100%;
-}
+        a {
+          color: #303030;
+          width: 100%;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li.parent_menu {
-  position: relative;
-}
+          span {
+            white-space: nowrap;
+          }
+        }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li.parent_menu>a span {
-  position: relative;
-}
+        .submenu {
+          display: none;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          min-width: 100%;
+          top: 48px;
+          z-index: 800;
+          background: #ffffff;
+          box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li.parent_menu>a span::after {
-  content: '';
-  position: absolute;
-  right: -16px;
-  top: 0;
-  width: 8px;
-  height: 8px;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  transform: rotateZ(45deg);
-}
+          li {
+            padding: 0 20px;
+            line-height: 48px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+            position: relative;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu {
-  display: none;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: 48px;
-  z-index: 800;
-  background: #ffffff;
-  box-shadow: 0px 2px 4px 0px rgba(104, 104, 104, 0.6);
-}
+            a {
+              width: 100%;
+              height: 100%;
+              color: #212121;
+            }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li {
-  line-height: 48px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-}
+            .box {
+              display: none;
+              max-height: 80vh;
+              overflow-y: auto;
+              position: absolute;
+              left: 100%;
+              top: 0;
+              background: #fff;
+              box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, .302);
+              border-radius: 0px 0px 0px 0px;
+              box-sizing: border-box;
+              padding: 0 16px 0;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li:hover .box {
-  display: block;
-}
+              .box_lis {
+                border-bottom: solid 1px #cecece;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li a {
-  width: 100%;
-  height: 100%;
-  color: #212121;
-}
+                .box_title {
+                  text-align: left;
+                  font-size: 16px;
+                  font-weight: 500;
+                  color: #333333;
+                  line-height: 1;
+                  padding-top: 14px;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li:hover a {
-  color: #338eff;
-}
+                  &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 5px;
+                    height: 18px;
+                    background-color: #338eff;
+                    vertical-align: -3px;
+                    margin-right: 6px;
+                  }
+                }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box {
-  display: none;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: absolute;
-  left: 142px;
-  top: 0;
-  background: #fff;
-  box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, .302);
-  border-radius: 0px 0px 0px 0px;
-  box-sizing: border-box;
-  padding: 0 16px 0
-}
+                .box_con {
+                  flex: 1;
+                  flex-wrap: wrap;
+                  display: flex;
+                  padding-bottom: 12px;
+                  padding-top: 10px;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis {
-  border-bottom: solid 1px #cecece
-}
+                  a {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: #666666;
+                    display: block;
+                    text-align: left;
+                    white-space: nowrap;
+                    line-height: 38px;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis:last-of-type {
-  border-bottom: none;
-}
+                    &.ing {
+                      width: 100%
+                    }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_title {
-  text-align: left;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333333;
-  line-height: 1;
-  padding-top: 14px
-}
+                    &:hover {
+                      color: #338eff
+                    }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_title::before {
-  content: "";
-  display: inline-block;
-  width: 5px;
-  height: 18px;
-  background-color: #338eff;
-  vertical-align: -3px;
-  margin-right: 6px;
-}
+                    &:nth-of-type(3n) {
+                      width: 30%
+                    }
+                  }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con {
-  flex: 1;
-  flex-wrap: wrap;
-  display: flex;
-  padding-bottom: 12px;
-  padding-top: 10px
-}
+                  &.center {
+                    a {
+                      text-align: center;
+                      width: 100% !important;
+                    }
+                  }
+                }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con a {
-  font-size: 16px;
-  font-weight: 400;
-  color: #666666;
-  display: block;
-  text-align: left;
-  white-space: nowrap;
-  line-height: 38px;
-}
+                &:last-of-type {
+                  border-bottom: none;
+                }
+              }
+            }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con.center a {
-  text-align: center;
-  width: 100% !important;
-}
+            &:hover {
+              .box {
+                display: block;
+              }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con a:nth-of-type(3n) {
-  width: 30%
-}
+              a {
+                color: #338eff;
+              }
+            }
+          }
+        }
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con a.ing {
-  width: 100%
-}
+        &.parent {
+          position: relative;
+          padding-right: 18px;
 
-.iedu_menu_wrap .iedu_menu_box .iedu_menu li .submenu li .box .box_lis .box_con a:hover {
-  color: #338eff
+          &:hover {
+            .submenu {
+              display: block;
+            }
+          }
+
+          &>a {
+            span {
+              position: relative;
+
+              &::after {
+                content: '';
+                position: absolute;
+                right: -16px;
+                top: 0;
+                width: 8px;
+                height: 8px;
+                border-style: solid;
+                border-width: 0 2px 2px 0;
+                transform: rotateZ(45deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 </style>
