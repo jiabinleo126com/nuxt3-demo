@@ -1012,7 +1012,7 @@ useHead({
         position: absolute;
         display: block !important;
         padding: 5rem 0;
-        margin: 0 -30rem 0;
+        margin: 0 -32rem 0;
       }
 
       span {
