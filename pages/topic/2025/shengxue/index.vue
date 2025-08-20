@@ -118,7 +118,7 @@ import offer_48 from '~/assets/topic/2025/shengxue/25.05-25.07香港学校录取
 import offer_49 from '~/assets/topic/2025/shengxue/25.05-25.07香港学校录取海报/2025.7.13-香島中學-深圳香港培僑書院龍華信義學校-在讀G9.png'
 import offer_50 from '~/assets/topic/2025/shengxue/25.05-25.07香港学校录取海报/2025.7.13-香港威雅學校录取-德萃小學-在讀G5.png'
 import offer_51 from '~/assets/topic/2025/shengxue/25.05-25.07香港学校录取海报/2025.7.17-順德聯誼總會翁祐中學录取-深圳市蛇口育才教育集團育才三中-在讀G9.png'
-import offer_52 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/25-南山中英文港籍班-G7录取.jpg'
+// import offer_52 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/25-南山中英文港籍班-G7录取.jpg'
 import offer_53 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/2025.1.24-方方乐趣-G5录取.jpg'
 import offer_54 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/2025.03-广州暨大录取-谭世华.jpg'
 import offer_55 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/2025.3.19-广州暨大港澳子弟学校（ASJ）-中山民办国际化学校在读G7录取.jpg'
@@ -403,7 +403,7 @@ const offers1 = [offer26, offer1, offer2, offer3, offer4, offer5, offer6, offer7
 
 const offers2 = [
   _offer_24, _offer_23, _offer_22, _offer_21, _offer_20, _offer_19, _offer_18, _offer_17, _offer_16, _offer_15, _offer_14, _offer_13, _offer_12, _offer_11, _offer_10, _offer_9, _offer_8, _offer_7, _offer_6, _offer_5, _offer_4, _offer_3, _offer_2, _offer_1,
-  offer_1, offer_2, offer_3, offer_4, offer_5, offer_6, offer_7, offer_8, offer_9, offer_10, offer_11, offer_12, offer_13, offer_14, offer_15, offer_16, offer_17, offer_18, offer_19, offer_20, offer_21, offer_22, offer_23, offer_24, offer_25, offer_26, offer_27, offer_28, offer_29, offer_30, offer_31, offer_32, offer_33, offer_34, offer_35, offer_36, offer_37, offer_38, offer_39, offer_40, offer_41, offer_42, offer_43, offer_44, offer_45, offer_46, offer_47, offer_48, offer_49, offer_50, offer_51, offer_52, offer_53, offer_54, offer_55, offer_56, offer_57, offer_58, offer_59, offer_60, offer_61]
+  offer_1, offer_2, offer_3, offer_4, offer_5, offer_6, offer_7, offer_8, offer_9, offer_10, offer_11, offer_12, offer_13, offer_14, offer_15, offer_16, offer_17, offer_18, offer_19, offer_20, offer_21, offer_22, offer_23, offer_24, offer_25, offer_26, offer_27, offer_28, offer_29, offer_30, offer_31, offer_32, offer_33, offer_34, offer_35, offer_36, offer_37, offer_38, offer_39, offer_40, offer_41, offer_42, offer_43, offer_44, offer_45, offer_46, offer_47, offer_48, offer_49, offer_50, offer_51, offer_53, offer_54, offer_55, offer_56, offer_57, offer_58, offer_59, offer_60, offer_61]
 
 const banner = [
   {
