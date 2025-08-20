@@ -127,6 +127,8 @@ import offer_60 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/
 import offer_61 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/2025-深圳外国语湾区学校-中六录取.jpg'
 
 import fwlc from '~/assets/m/topic/2025/shengxue/资源 2@2x.png'
+import environment from '~/assets/m/topic/2025/shengxue/资源 1@2x.png'
+import mobileicon from '~/assets/m/topic/2025/shengxue/路径@2x.png'
 
 import teacher1 from '~/assets/topic/2025/shengxue/teacher/图片1.png'
 import teacher2 from '~/assets/topic/2025/shengxue/teacher/图片2.png'
@@ -147,7 +149,7 @@ import teacher16 from '~/assets/topic/2025/shengxue/teacher/图片16.png'
 import teacher17 from '~/assets/topic/2025/shengxue/teacher/图片17.png'
 import teacher18 from '~/assets/topic/2025/shengxue/teacher/图片18.png'
 
-import addressicon from '~/assets/topic/2025/shengxue/map-pin-fill@1x.png'
+import addressicon from '~/assets/m/topic/2025/shengxue/map-pin-fill@2x.png'
 import telicon from '~/assets/topic/2025/shengxue/容器@1x (5).png'
 
 import fixed1 from '~/assets/topic/2025/shengxue/37cfcae2.png'
@@ -161,8 +163,8 @@ import fixed4_ from '~/assets/topic/2025/shengxue/yueyue@1x.png'
 
 import xqdz from '~/assets/topic/2025/shengxue/资源 1@1x.png'
 
-import ewm1 from '~/assets/topic/2025/shengxue/image@1x.png'
-import ewm2 from '~/assets/topic/2025/shengxue/image@1x (1).png'
+import ewm1 from '~/assets/m/topic/2025/shengxue/image@2x.png'
+import ewm2 from '~/assets/m/topic/2025/shengxue/蒙版组 121@2x.png'
 
 import bg from '~/assets/topic/2025/shengxue/bg.png'
 
@@ -432,10 +434,10 @@ onMounted(() => {
   $(() => {
     const swiper1 = new Swiper('.banner_swiper_wap', {
       loop: true,
-      // autoplay: {
-      //   pauseOnMouseEnter: true,
-      //   disableOnInteraction: false,
-      // },
+      autoplay: {
+        pauseOnMouseEnter: true,
+        disableOnInteraction: false,
+      },
       pagination: {
         el: '.banner_swiper_wap_pagination',
         clickable: true,
@@ -480,11 +482,11 @@ onMounted(() => {
     const swiper4 = new Swiper('.team_swiper_wap', {
       slidesPerView: 3,
       loop: true,
-      autoplay: false
-      // autoplay: {
-      //   pauseOnMouseEnter: true,
-      //   disableOnInteraction: false,
-      // }
+      autoplay: false,
+      autoplay: {
+        pauseOnMouseEnter: true,
+        disableOnInteraction: false,
+      }
     });
 
     const observer1 = new IntersectionObserver((entries) => {
@@ -520,21 +522,23 @@ onMounted(() => {
     }, {
       threshold: 0.5
     });
-    // const observer4 = new IntersectionObserver((entries) => {
-    //   entries.forEach(entry => {
-    //     if (entry.isIntersecting) {
-    //       swiper4.autoplay.start();
-    //     } else {
-    //       swiper4.autoplay.stop();
-    //     }
-    //   });
-    // }, {
-    //   threshold: 0.5
-    // });
+    const observer4 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          swiper4.autoplay.start();
+        } else {
+          swiper4.autoplay.stop();
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
     observer1.observe(document.querySelector('.banner_swiper_wap'));
     observer2.observe(document.querySelector('.cg1'));
     observer3.observe(document.querySelector('.cg2'));
-    // observer4.observe(document.querySelector('.team_swiper_wap'));
+    observer4.observe(document.querySelector('.team_swiper_wap'));
+
+    $("#year").text(new Date().getFullYear())
   })
 })
 
@@ -613,16 +617,20 @@ useHead({
   title: '国际学校入学备考-香港学校升学规划与备考 - 国际教育网升学中心',
   meta: [
     {
+      name: 'viewport',
+      content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no',
+    },
+    {
+      name: 'applicable-device',
+      content: 'mobile',
+    },
+    {
       name: 'keywords',
       content: '国际学校入学备考,香港学校升学规划',
     },
     {
       name: 'description',
       content: '国际教育网升学中心提供国际学校和香港学校升学规划与备考服务,国际学校升学规划与备考涵盖了英系、美系和港系的名校,香港学校升学规划与备考主要涵盖了香港本地名校及顶尖国际学校,以及香港身份咨询与规划服务.',
-    },
-    {
-      name: 'applicable-device',
-      content: 'wap',
     },
   ],
 })
@@ -710,12 +718,39 @@ useHead({
     </div>
     <div :class="$style.fwlc" id="fwlc">
       <div :class="$style.con">
-        <component :is="Title" en="SERVICE" cn="服务流程"/>
+        <component :is="Title" en="SERVICE" cn="服务流程" />
       </div>
       <img :src="fwlc" alt="服务流程">
     </div>
-  </section>
+    <div :class="$style.fwlc">
+      <div :class="$style.con">
+        <component :is="Title" en="environment" cn="校区环境及地址" />
+      </div>
+      <img :src="environment" alt="校区环境及地址">
+    </div>
+    <div :class="$style.address">
+      <p :class="$style.title">深港六大校区 CAMPUS</p>
+      <ul>
+        <li v-for="item in address"><img :src="addressicon" :alt="item.title">{{ item.title }}</li>
+      </ul>
+      <div :class="$style.tel">
+        <a href="tel:400-168-1016"><img :src="mobileicon" alt="">咨询热线: 400-168-1016</a>
+      </div>
+      <div :class="$style.ewm_wrap">
+        <div :class="$style.ewm">
+          <img :src="ewm1" alt="扫码关注官方公众号">
+          <p>扫码关注官方公众号</p>
+        </div>
+        <div :class="$style.ewm">
+          <img :src="ewm2" alt="扫码咨询升学小助手">
+          <p>扫码咨询升学小助手</p>
+        </div>
 
+      </div>
+    </div>
+
+  </section>
+  <footer :class="$style.footer">Copyright © <span id="year">2025</span> 国际教育网 版权所有</footer>
 </template>
 
 <style lang="less" module>
@@ -903,12 +938,12 @@ useHead({
       width: 100%;
       margin: 0 auto;
       overflow: hidden;
-      height: 540rem;
+      height: 550rem;
       padding-top: 43rem;
 
       .slide {
         text-align: center;
-        padding-top: 55rem;
+        padding-top: 46rem;
 
         .wrap {
           width: 82rem;
@@ -956,7 +991,7 @@ useHead({
         }
 
         p {
-          margin-top: 15rem;
+          margin-top: 0rem;
           position: absolute;
           display: none;
           font-size: 7rem;
@@ -984,20 +1019,123 @@ useHead({
     .bg {
       background-color: #083A83;
       height: 410rem;
-      margin-top: -404rem;
+      margin-top: -420rem;
     }
   }
-  .fwlc{
+
+  .fwlc {
     padding: 36rem 15rem 0;
-    img{
+
+    img {
       margin: 35rem 0 0;
       width: 100%;
     }
   }
+
+  .address {
+    padding: 26rem 15rem 0;
+
+    .title {
+      font-size: 18rem;
+      font-weight: bold;
+      line-height: 150%;
+      text-transform: uppercase;
+      color: #3D3D3D;
+      padding-bottom: 6rem;
+      border-bottom: solid 1rem #D6D6D6;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-top: 14rem;
+
+      li {
+        font-size: 14rem;
+        font-weight: bold;
+        line-height: 150%;
+        text-transform: uppercase;
+        color: #3D3D3D;
+        text-align: left;
+        margin-bottom: 9rem;
+
+        img {
+          width: 14rem;
+          height: 14rem;
+          object-fit: contain;
+          margin-right: 1rem;
+          vertical-align: -2rem;
+        }
+
+        &:nth-of-type(3n+1) {
+          width: 35%;
+        }
+
+        &:nth-of-type(3n+2) {
+          width: 35%;
+        }
+
+        &:nth-of-type(3n) {
+          width: 30%;
+        }
+      }
+    }
+
+    .tel {
+      text-align: center;
+
+      a {
+        font-size: 16rem;
+        font-weight: bold;
+        color: #083A83;
+        line-height: 30rem;
+
+        img {
+          width: 18rem;
+          height: 18rem;
+          object-fit: contain;
+          margin-right: 4rem;
+          vertical-align: -3.5rem;
+        }
+      }
+    }
+
+    .ewm_wrap {
+      display: flex;
+      justify-content: space-between;
+      margin: 20rem 24rem 24rem;
+
+      .ewm {
+        text-align: center;
+
+        img {
+          width: 100rem;
+          height: 100rem;
+        }
+
+        p {
+          font-size: 14rem;
+          line-height: 24rem;
+          text-align: center;
+          color: #1A1A1A;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background: #083A83;
+  text-align: center;
+  line-height: 53rem;
+  font-size: 12rem;
+  color: #FFFFFF;
+
 }
 </style>
 
-<style lang="less" scoped>
+<style lang="less">
 .banner_swiper_wap {
   width: 100%;
   overflow: hidden;
@@ -1018,7 +1156,7 @@ useHead({
     transition: all 0.3s ease-in-out;
 
     &+.swiper-slide {
-      transform: scale(1.7) translateY(57rem);
+      transform: scale(1.7) translateY(68rem);
       transition: all 0.3s ease-in-out;
 
       p {
