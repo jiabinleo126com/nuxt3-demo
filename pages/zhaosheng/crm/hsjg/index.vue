@@ -126,7 +126,7 @@ onMounted(() => {
       });
     })
     $(".close_oa").on("click", function () {
-      $(".mask_s15").removeClass("show")
+      $(".mask_s15,.mask_s16").removeClass("show")
     })
     let flag = true;
     if ($(".list_n").length) {
@@ -156,6 +156,11 @@ onMounted(() => {
         })
       }
     }
+
+    $(document).on("click", ".show_detail", function () {
+      var ids = $(this).closest("li").attr(".ids");
+      $(".mask_s16").addClass("show")
+    })
   })
 })
 </script>
@@ -172,9 +177,13 @@ onMounted(() => {
         <button>搜索</button>
       </form>
     </div>
+    <div class="tab_parent">
+      <a href="/zsmanager/wstudent/index.html?check=1">报废审批(<span>25</span>)</a>
+      <a class="active" href="/zsmanager/wstudent/index.html?check=2">回收价格审批(<span class='red'>10</span>)</a>
+    </div>
     <div class="tab">
-      <a href="/zsmanager/wstudent/index.html?check=1">待审批(<span class='red'>25</span>)</a>
-      <a href="/zsmanager/wstudent/index.html?check=2">已审批(10)</a>
+      <a class="actives" href="/zsmanager/wstudent/index.html?check=1">待审批(<span class='red'>25</span>)</a>
+      <a href="/zsmanager/wstudent/index.html?check=2">已审批(<span>10</span>)</a>
     </div>
   </header>
   <section>
@@ -211,6 +220,19 @@ onMounted(() => {
                   </p>
                 </li>
               </ul>
+              <div class="price">
+                <span>回收价格（元）</span>
+                <span class="red">120</span>
+                <span class="show_detail">查看详情</span>
+              </div>
+              <ul>
+                <li><span>回收状态</span>
+                  <p>已回收</p>
+                </li>
+                <li><span>财务审核</span>
+                  <p>已到账</p>
+                </li>
+              </ul>
               <div class="status_z true">
                 <span>审核通过</span>
                 <span>2025-08-07 11:04</span>
@@ -242,14 +264,117 @@ onMounted(() => {
       <button type="submit">提交</button>
     </form>
   </div>
+  <div class="mask_s16 mask">
+    <div class="mask_con">
+      <div class="close_oa"></div>
+      <p>设备ID：12</p>
+      <p>回收公司：深圳环保回收公司</p>
+      <p>联系人：张小明</p>
+      <p>联系电话：13320561231</p>
+      <p>联系微信：13320561231</p>
+    </div>
+  </div>
 </template>
 <style lang="less">
 @rem: 750/16rem;
 
+header.menu {
+  .search {
+    padding-bottom: (10/@rem);
+  }
+
+  .tab_parent {
+    display: flex;
+    justify-content: space-between;
+    padding: (10/@rem) 0 (10/@rem);
+    border-bottom: solid (2/@rem) #E5E6EB;
+    margin: 0 0.64rem;
+
+    a {
+      text-align: center;
+      flex: 1;
+      font-weight: 400;
+      font-size: (30/@rem);
+      color: #4e5969;
+      padding: (20/@rem) (10/@rem);
+      font-weight: bold;
+
+      &.active {
+        position: relative;
+        color: #252525;
+
+        &::after {
+          position: absolute;
+          content: "";
+          bottom: (-12/@rem);
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          height: (6/@rem);
+          background-color: var(--blue);
+          border-radius: (3/@rem);
+        }
+      }
+    }
+  }
+}
+
+header.menu {
+  .tab {
+    padding: 0.512rem (160/@rem);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+    a {
+      font-size: (28/@rem);
+      background-color: #F2F3F5;
+      padding: (10/@rem) (20/@rem);
+      border-radius: (8/@rem);
+      color: #4e5969;
+
+      &.actives {
+        background-color: rgba(52, 168, 255, 0.1);
+        color: var(--blue);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
 section .list_n {
+  padding-top: (416/@rem);
+
   ul li a .con {
     ul li span {
       min-width: 3rem;
+    }
+
+    .price {
+      margin: (30/@rem) 0;
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-size: (36/@rem);
+
+        &:first-of-type {
+          font-weight: bold;
+          color: #333;
+        }
+
+        &.red {
+          font-weight: bold;
+          color: red;
+          flex: 1;
+          font-size: (40/@rem);
+        }
+
+        &.show_detail {
+          color: var(--blue);
+          border-bottom: solid (2/@rem) var(--blue);
+          font-weight: bold;
+          padding-bottom: (2/@rem);
+        }
+      }
     }
 
     .status_z {
@@ -424,6 +549,89 @@ section .list ul li .sb_sh {
       background-color: var(--blue);
       border-radius: 0.704rem;
       font-size: 0.68266667rem;
+    }
+  }
+}
+
+.mask_s16 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  max-width: 16rem;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transition: background-color 0.1s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+
+  &.show {
+    display: flex;
+  }
+
+  .mask_con {
+    width: 86vw;
+    max-width: 86%;
+    background-color: white;
+    border-radius: (16/@rem);
+    padding: (40/@rem) (24/@rem) (40/@rem);
+    text-align: center;
+    position: relative;
+
+    .close_oa {
+      position: absolute;
+      right: (10/@rem);
+      top: (20/@rem);
+      padding: (10/@rem);
+      box-sizing: content-box;
+      width: (48/@rem);
+      height: (48/@rem);
+      transform: rotateZ(45deg);
+
+
+      &::before {
+        position: absolute;
+        left: (16/@rem);
+        top: (16/@rem);
+        content: "";
+        width: (14/@rem);
+        height: (14/@rem);
+        border-style: solid;
+        border-color: #333;
+        border-width: 0 (4/@rem) (4/@rem) 0;
+      }
+
+      &::after {
+        position: absolute;
+        left: (30/@rem);
+        top: (30/@rem);
+        content: "";
+        width: (14/@rem);
+        height: (14/@rem);
+        border-style: solid;
+        border-color: #333;
+        border-width: (4/@rem) 0 0 (4/@rem);
+      }
+    }
+
+    p {
+      text-align: left;
+      font-size: (36/@rem);
+      padding-bottom: (20/@rem);
+      font-weight: bold;
+
+      &:first-of-type {
+        margin-bottom: (20/@rem);
+      }
+
+      &:nth-of-type(n+2) {
+        font-size: (28/@rem);
+        font-weight: initial;
+        padding: (14/@rem) (20/@rem);
+      }
     }
   }
 }
