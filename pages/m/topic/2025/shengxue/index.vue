@@ -126,7 +126,7 @@ import offer_59 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/
 import offer_60 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/2025.5.26-深圳培侨信义-G7录取offer.jpg'
 import offer_61 from '~/assets/topic/2025/shengxue/2025内地国际学校录取/2025-深圳外国语湾区学校-中六录取.jpg'
 
-import fwlc from '~/assets/topic/2025/shengxue/资源 2@1x.png'
+import fwlc from '~/assets/m/topic/2025/shengxue/资源 2@2x.png'
 
 import teacher1 from '~/assets/topic/2025/shengxue/teacher/图片1.png'
 import teacher2 from '~/assets/topic/2025/shengxue/teacher/图片2.png'
@@ -708,6 +708,12 @@ useHead({
       </div>
       <div :class="$style.bg"><span></span></div>
     </div>
+    <div :class="$style.fwlc" id="fwlc">
+      <div :class="$style.con">
+        <component :is="Title" en="SERVICE" cn="服务流程"/>
+      </div>
+      <img :src="fwlc" alt="服务流程">
+    </div>
   </section>
 
 </template>
@@ -981,6 +987,13 @@ useHead({
       margin-top: -404rem;
     }
   }
+  .fwlc{
+    padding: 36rem 15rem 0;
+    img{
+      margin: 35rem 0 0;
+      width: 100%;
+    }
+  }
 }
 </style>
 
@@ -1011,12 +1024,12 @@ useHead({
       p {
         position: absolute;
         display: block !important;
-        padding: 5rem 0;
+        padding: 20rem 0;
         margin: 0 -32rem 0;
       }
 
       span {
-        margin-top: 4rem;
+        margin-top: -8rem;
 
         i {
           position: relative;
