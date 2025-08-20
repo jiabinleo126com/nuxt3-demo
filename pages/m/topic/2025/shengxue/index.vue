@@ -886,19 +886,18 @@ useHead({
   }
 
   .jxtd {
-    padding: 36rem 15rem 0;
+    padding: 36rem 0 0;
     position: relative;
 
     .con {
-      width: 100%;
-      margin: 0 auto;
+      margin: 0 15rem;
     }
 
     .team_swiper {
       width: 100%;
       margin: 0 auto;
       overflow: hidden;
-      height: 314rem;
+      height: 540rem;
       padding-top: 43rem;
 
       .slide {
@@ -952,7 +951,6 @@ useHead({
 
         p {
           margin-top: 15rem;
-          width: 100%;
           position: absolute;
           display: none;
           font-size: 7rem;
@@ -979,8 +977,8 @@ useHead({
 
     .bg {
       background-color: #083A83;
-      height: 391rem;
-      margin-top: -218rem;
+      height: 410rem;
+      margin-top: -404rem;
     }
   }
 }
@@ -1001,18 +999,20 @@ useHead({
 }
 
 .team_swiper_wap {
+
   .swiper-slide-active {
     transform: translateX(-10rem);
     transition: all 0.3s ease-in-out;
 
     &+.swiper-slide {
-      transform: scale(1.7) translateY(18rem);
+      transform: scale(1.7) translateY(57rem);
       transition: all 0.3s ease-in-out;
 
       p {
+        position: absolute;
         display: block !important;
         padding: 5rem 0;
-        margin: 0 -50rem 0;
+        margin: 0 -30rem 0;
       }
 
       span {
