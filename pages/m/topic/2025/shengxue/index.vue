@@ -714,7 +714,7 @@ useHead({
       href: '//m.ieduchina.com/favicon.ico',
     }
   ],
-  title: '国际学校入学备考-香港学校升学规划与备考 - 国际教育网升学中心',
+  title: '国际教育网升学中心',
   meta: [
     {
       name: 'viewport',

@@ -4400,8 +4400,6 @@ body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
   border-bottom: 1px solid #fff;
   position: relative;
   top: -2px;
-  *top: -1px;
-  _top: 1px;
 }
 
 .stock-title li.active {
@@ -5108,8 +5106,6 @@ body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
   margin-right: 6px;
   position: relative;
   top: 0px;
-  *top: -3px;
-  _top: 0;
 }
 
 .sclive {
@@ -5120,8 +5116,6 @@ body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
   margin-right: 6px;
   position: relative;
   top: 0px;
-  *top: -3px;
-  _top: 0;
 }
 
 .sccaij {
@@ -5132,8 +5126,6 @@ body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
   margin-right: 6px;
   position: relative;
   top: 0px;
-  *top: -3px;
-  _top: 0;
 }
 
 .ks {
@@ -5144,8 +5136,6 @@ body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
   margin-right: 6px;
   position: relative;
   top: 0px;
-  *top: -3px;
-  _top: 0;
 }
 
 .scwar {
@@ -5156,8 +5146,6 @@ body .iedu-menu-wrap .iedu-menu-box .iedu-menu li.parentMenu>a span::after {
   margin-right: 6px;
   position: relative;
   top: 0px;
-  *top: -3px;
-  _top: 0;
 }
 
 .page-nav .line {
