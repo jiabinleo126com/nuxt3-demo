@@ -1,6 +1,8 @@
 import process from 'node:process' // 内置模块
 import { defineNuxtConfig } from 'nuxt/config'
 // import forceLowercaseAssets from './scripts/force-lowercase-assets.cjs'
+// eslint-disable-next-line
+const routes = eval(process.env.ROUTE);
 export default defineNuxtConfig({
   // modules: ['@nuxt/image'],
   compatibilityDate: '2025-05-15',
@@ -29,7 +31,7 @@ export default defineNuxtConfig({
   },
   devServer: {
     host: '192.168.6.121', // Listen on all network interfaces
-    port: 3000, // Optional: Change port if needed
+    port: 80, // Optional: Change port if needed
   },
   vite: {
     base: '', // ✅ 设置资源和入口文件的基础路径为相对路径
@@ -98,7 +100,8 @@ export default defineNuxtConfig({
     prerender: {
       assets: true, // 关键配置
       crawlLinks: false, // 爬取链接进行预渲染
-      routes: [process.env.ROUTE], // 预渲染首页
+      // routes: process.env.ROUTE, // 预渲染首页
+      routes, // 预渲染首页
       ignore: ['200', '404'], // 忽略路由
     } as any,
     devProxy: {

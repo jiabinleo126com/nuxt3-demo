@@ -48,7 +48,7 @@ const data = reactive([
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 .links {
   width: 1280px;
   margin: 30px auto 30px;

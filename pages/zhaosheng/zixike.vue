@@ -245,15 +245,15 @@ onMounted(() => {
             return Math.sqrt((loc1.x - loc2.x) * (loc1.x - loc2.x) + (loc1.y - loc2.y) * (loc1.y - loc2.y))
           }
           function calcLineWidth(t, s) {
-            var v = s / t
-            var resultLineWidth
+            let v = s / t
+            let resultLineWidth
             if (v <= minV)
               resultLineWidth = maxLineWidth
             else if (v >= maxV)
               resultLineWidth = minLineWidth
             else
               resultLineWidth = maxLineWidth - (v - minV) / (maxV - minV) * (maxLineWidth - minLineWidth)
-            if (lastLineWidth == -1)
+            if (lastLineWidth === -1)
               return resultLineWidth
             else
               return lastLineWidth * 2 / 3 + resultLineWidth * 1 / 3
@@ -264,7 +264,7 @@ onMounted(() => {
             return image
           }
           function myRotate(base64) {
-            var img = new Image()
+            const img = new Image()
             img.src = base64
             img.onload = function () {
               $('.inner').eq(qmindex).css('background-image', 'url(' + base64 + ')')
@@ -277,17 +277,17 @@ onMounted(() => {
         })
       }
     }
-    var inputs = []
-    $.each($('form').find('[name]'), function (index, ele) {
+    const inputs = []
+    $.each($('form').find('[name]'), (index, ele) => {
       if ($(ele).attr('placeholder')) {
         inputs.push(ele)
       }
     })
     $('button[type=submit]').on('click', function () {
-      var form = $(this).closest('form')
-      var msgs = []
-      var _this = this
-      inputs.reduce(function (_acc, ele) {
+      const form = $(this).closest('form')
+      const msgs = []
+      let _this = this
+      inputs.reduce((_acc, ele) => {
         if (!$(ele).val()) {
           msgs.push($(ele).attr('placeholder'))
         }
@@ -297,7 +297,7 @@ onMounted(() => {
         layer.open({
           content: msgs[0],
           skin: 'msg',
-          time: 3
+          time: 3,
         })
         return false
       }
@@ -313,7 +313,7 @@ onMounted(() => {
               layer.open({
                 content: '提交成功',
                 skin: 'msg',
-                time: 3
+                time: 3,
               })
               time = 2000
             }

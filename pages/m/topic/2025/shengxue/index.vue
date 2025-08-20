@@ -864,7 +864,7 @@ useHead({
       <div :class="$style.form">
         <h3>学校咨询表单填写</h3><i id="close" :class="$style.close"></i>
         <form action="/index.php?m=college&amp;c=index&amp;a=collegereg" method="post">
-          <input name="mark" type="hidden" value="国际教育网PC版_升学">
+          <input name="mark" type="hidden" value="市场部_升学中心-官网专题页_选校砖家WAP版">
           <h4>请您填写信息，专业老师将尽快联系您</h4>
           <label for="">
             <input name="name" type="text" required placeholder="请输入孩子姓名" autocomplete="off" :class="$style.name">

@@ -1,3 +1,10 @@
+<script setup>
+import liuxuexuanxiaozhuanjia from '~/assets/index/留学选校专家.png'
+import guangshenzexiaomamaquan from '~/assets/index/广深择校妈妈圈.jpg'
+import alettabasic from '~/assets/index/Aletta聊贝赛思.jpg'
+import aidudawanquzexiaoliuxue from '~/assets/index/爱读大湾区择校留学.png'
+
+</script>
 <template>
   <footer class="footer_nav">
     <div class="con">
@@ -32,25 +39,39 @@
         <div class="right">
           <p>
             <span>小红书</span>
-            <span><a>爱读国际择校说</a><a class="img-wrap"><img src="//www.ieduchina.com/statics/pcc/img/db240701.jpg" alt="爱读国际择校说"></a></span>
-            <span><a>国际择校说</a><a class="img-wrap"><img src="//www.ieduchina.com/statics/pcc/img/cf005a47.jpg" alt="国际择校说"></a></span>
-            <span><a>爱读选校君</a><a class="img-wrap"><img src="//www.ieduchina.com/statics/pcc/img/ae66ed27.jpg" alt="爱读选校君"></a></span>
-            <span><a>小鹏</a><a class="img-wrap"><img src="//www.ieduchina.com/statics/pcc/img/c0651e2d.jpg" alt="小鹏"></a></span>
+            <span><a>爱读国际择校说</a><a class="img-wrap"><img src="//www.ieduchina.com/statics/pcc/img/db240701.jpg"
+                  alt="爱读国际择校说"></a></span>
+            <span><a>爱读国际教育说</a><a class="img-wrap"><img src="//www.ieduchina.com/statics/pcc/img/cf005a47.jpg"
+                  alt="爱读国际教育说"></a></span>
+            <span><a>爱读选校君</a><a class="img-wrap"><img src="//www.ieduchina.com/statics/pcc/img/ae66ed27.jpg"
+                  alt="爱读选校君"></a></span>
+            <span><a>小鹏</a><a class="img-wrap"><img src="//www.ieduchina.com/statics/pcc/img/c0651e2d.jpg"
+                  alt="小鹏"></a></span>
+          </p>
+          <p>
+            <span></span>
+            <span><a>Aletta聊贝赛思</a><a class="img-wrap"><img :src="alettabasic" alt="Aletta聊贝赛思"></a></span>
+            <span><a>爱读大湾区择校留学</a><a class="img-wrap"><img :src="aidudawanquzexiaoliuxue" alt="爱读大湾区择校留学"></a></span>
           </p>
 
           <p>
             <span>视频号</span>
-            <span><a>选校砖家</a><a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/181e94a0.png" alt="选校砖家"> </a></span>
+            <span><a>国际选校专家</a><a class="img-wrap"><img :src="liuxuexuanxiaozhuanjia" alt="国际选校专家"> </a></span>
           </p>
           <p>
             <span>微信公众号</span>
-            <span><a>选校砖家</a> <a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/1a98d522.png" alt="选校砖家"></a></span>
-            <span><a>香港名校通</a> <a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/b3130733.png" alt="香港名校通"></a></span>
-            <span><a>爱读教育</a> <a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/2a8a129a.png" alt="爱读教育"></a></span>
+            <span><a>选校砖家</a> <a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/1a98d522.png"
+                  alt="选校砖家"></a></span>
+            <span><a>香港名校通</a> <a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/b3130733.png"
+                  alt="香港名校通"></a></span>
+            <span><a>爱读教育</a> <a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/2a8a129a.png"
+                  alt="爱读教育"></a></span>
+            <span><a>广深择校妈妈圈</a> <a class="img-wrap"><img :src="guangshenzexiaomamaquan" alt="广深择校妈妈圈"></a></span>
           </p>
           <p>
             <span>小程序</span>
-            <span><a>探校小管家</a> <a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/25eb8325.png" alt="探校小管家"></a></span>
+            <span><a>探校小管家</a> <a class="img-wrap"><img src="https://www.ieduchina.com/statics/pcc/img/25eb8325.png"
+                  alt="探校小管家"></a></span>
           </p>
         </div>
       </div>
@@ -61,7 +82,8 @@
         <p>
           <a href="http://beian.miit.gov.cn/" rel="nofollow">粤ICP备2021064228号-2</a>
           <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502002588" rel="nofollow">
-            <img src="//www.ieduchina.com/statics/pcc/img/police.png?v=1" style="display: inline-block;vertical-align: middle;">粤公网安备 44030502002588号</a>
+            <img src="//www.ieduchina.com/statics/pcc/img/police.png?v=1"
+              style="display: inline-block;vertical-align: middle;">粤公网安备 44030502002588号</a>
         </p>
         <p>网站所有图片、文字未经许可不得拷贝、复制</p>
       </div>
