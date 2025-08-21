@@ -48,13 +48,12 @@ defineProps({
           <li v-for="item in focustodayImgData" :key="item.id">
             <div class="box">
               <a href="//www.ieduchina.com/shenzhen/education/202506/129044.html">
-                <div class="img" :style="`background-image: url(${item.cover});`">
-                </div>
+                <img :src="item.cover" alt="item.title">
                 <p>{{ item.title }}</p>
               </a>
               <div class="author">
                 <a :href="`/home/${item.user.id}`" target="_blank">
-                  <i :style="`background-image: url(${item.user.image})`"></i>
+                  <img :src="item.user.image" alt="item.user.name">
                   {{ item.user.name }}
                 </a>
                 <span>{{ item.time }}</span>
