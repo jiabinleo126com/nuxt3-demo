@@ -92,12 +92,12 @@ useHead({
     }, {
       src: "//www.ieduchina.com/statics/xg/js/index.js",
       type: "text/javascript"
-    }, {
-      src: "//www.ieduchina.com/statics/common/js/hk2s1.js",
-      type: "text/javascript"
-    }, {
-      src: "//www.ieduchina.com/statics/js/foot.js",
-      type: "text/javascript"
+    // }, {
+    //   src: "//www.ieduchina.com/statics/common/js/hk2s1.js",
+    //   type: "text/javascript"
+    // }, {
+    //   src: "//www.ieduchina.com/statics/js/foot.js",
+    //   type: "text/javascript"
     }, {
       src: "//www.ieduchina.com/statics/xg/js/form.js",
       type: "text/javascript"
@@ -115,11 +115,11 @@ useHead({
 </script>
 <template>
   <component :is="Header" active="幼稚园" />
-  <section>
+  <section :class="$style.section">
     <main>
-      <div class="school-8226626">
-        <h3 class="title">全方位搜寻 全港幼儿学校</h3>
-        <form action="" method="GET" class="form-8971908">
+      <div :class="$style.school">
+        <h3 :class="$style.title">全方位搜寻 全港幼儿学校</h3>
+        <form action="" method="GET" :class="$style.form">
           <div>
             <select name="city">
               <option value="">地区</option>
@@ -195,12 +195,12 @@ useHead({
             <button type="submit">搜索</button>
           </div>
         </form>
-        <table class="table-0242347">
+        <table :class="$style.table">
           <tbody>
             <tr>
               <td>幼稚园名称</td>
               <td>
-                <div class="table-links">
+                <div :class="$style.tablelinks">
                   <a href="/hongkong/child.html?nature=0&city=0">地区</a>
                   <img src="//www.ieduchina.com/statics/xg/images/e74729ad.png" alt="">
                   <ul>
@@ -262,7 +262,7 @@ useHead({
                 </div>
               </td>
               <td>
-                <div class="table-links">
+                <div :class="$style.tablelinks">
                   <a href="/hongkong/child.html?nature=0&city=0">类别</a>
                   <img src="//www.ieduchina.com/statics/xg/images/e74729ad.png" alt="">
                   <ul>
@@ -484,7 +484,7 @@ useHead({
             </tr>
           </tbody>
         </table>
-        <div class="pages">
+        <div :class="$style.pages">
           <a href="//www.ieduchina.com/hongkong/child.html?page=0">上一页</a>
           <span>1</span>
           <a href="//www.ieduchina.com/hongkong/child.html?page=2">2</a>
@@ -500,18 +500,18 @@ useHead({
           <a href="//www.ieduchina.com/hongkong/child.html?page=2">下一页</a>
         </div>
       </div>
-      <div class="gaikuang-2251708">
-        <h3 class="title">香港幼稚園教育概況</h3>
-        <div class="con">
+      <div :class="$style.gaikuang">
+        <h3 :class="$style.title">香港幼稚園教育概況</h3>
+        <div :class="$style.con">
           <img src="//www.ieduchina.com/statics/xg/images/ec8e11f7.png" alt="香港幼稚園教育概況">
           <p>香港的幼稚園教育雖非強制性，但在二零二一至二二學年，本地三至五歲兒童幾乎全部就讀幼稚園，人數約為 156,000
             人。自二零一七至一八年起，參與幼稚園教育計劃的本地非牟利幼稚園均可獲足夠資助，為所有三至六歲的合資格兒童提供半日制優質幼稚園教育服務。政府通過多項支援措施提升幼稚園教育的質素。在二零二一至二二年度，全港約有
             1,040 所幼稚園，當中合資格參加及已參加計劃的幼稚園分別約有 790 所及 762 所。</p>
         </div>
       </div>
-      <div class="list-2815078">
-        <h3 class="title">瀏覽不同地區的幼稚園</h3>
-        <div class="lis">
+      <div :class="$style.list">
+        <h3 :class="$style.title">瀏覽不同地區的幼稚園</h3>
+        <div :class="$style.lis">
           <a href="?city=515">中西区（25）</a>
           <a href="?city=516">东区（24）</a>
           <a href="?city=517">南区（19）</a>
@@ -534,15 +534,12 @@ useHead({
       </div>
     </main>
     <aside>
-      <a href="//www.ieduchina.com/hk/" rel="nofollow" class="ad">
+      <a href="//www.ieduchina.com/hk/" rel="nofollow" :class="$style.ad">
         <img src="//www.ieduchina.com/statics/xg/images/2f0ae22f.png" alt="香港升学">
       </a>
-      <div class="activily-3074171">
-        <div id="activity_hot_hk" class="wrap">
-          <component :is="Active" />
-        </div>
-      </div>
-      <div class="zhinan">
+
+      <component :is="Active" />
+      <div :class="$style.zhinan">
         <h3>選擇幼稚園指南</h3>
         <ul>
           <li>
@@ -587,291 +584,254 @@ useHead({
   </section>
   <component :is="Footer" />
 </template>
-<style lang="less" scoped>
+<style lang="less" module>
+h3.title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #0770D1;
+  height: 24px;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 24px;
+    background: #0770D1;
+    margin-right: 10px;
+    vertical-align: -4px;
+  }
+}
+
 section {
   width: 1280px;
   margin: 0 auto 50px;
   display: flex;
   justify-content: space-between;
+
+  main {
+    width: 900px;
+
+    .school {
+      width: 900px;
+      background: #FFFFFF;
+      border-radius: 10px;
+      box-sizing: border-box;
+      padding: 20px;
+      margin-top: 30px;
+
+      .form {
+        justify-content: space-between;
+        margin: 30px 0;
+        display: flex;
+
+        &>div {
+          position: relative;
+          flex: 1;
+          margin-left: 20px;
+          background: #FFFFFF;
+          border-radius: 4px;
+          border: 1px solid #BFBFBF;
+
+          &:first-of-type {
+            margin-left: 0;
+          }
+
+          &:nth-of-type(4)::after {
+            content: initial;
+          }
+
+          &::after {
+            position: absolute;
+            content: "";
+            right: 11px;
+            top: 10px;
+            z-index: 10;
+            pointer-events: none;
+            width: 0;
+            height: 0;
+            border-width: 0 8px 8px 0;
+            border-color: transparent #b1b1b1 transparent transparent;
+            border-style: solid;
+            transform: rotateZ(135deg);
+          }
+
+          select,
+          input {
+            height: 35px;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 10px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            overflow: hidden;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333333;
+          }
+
+          input {
+            padding-right: 80px;
+
+            &:placeholder {
+              color: #999999;
+              font-size: 14px;
+              font-weight: 400;
+            }
+          }
+
+          button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 69px;
+            height: 35px;
+            background: #0770D1;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            color: #FFFFFF;
+          }
+        }
+      }
+
+      .table {
+        width: 100%;
+        text-align: center;
+
+        tbody {
+          tr {
+            height: 40px;
+            background: #FFFFFF;
+            line-height: 40px;
+
+            td {
+              font-size: 14px;
+              font-weight: 400;
+              color: #333333;
+              min-width: 70px;
+
+              &:first-of-type {
+                color: #0770D1;
+
+                a {
+                  color: #0770D1;
+                }
+              }
+            }
+
+            &:first-of-type {
+              background: #0770D1;
+
+              td {
+                color: white;
+
+                &:first-of-type {
+                  color: white;
+                }
+              }
+            }
+
+            &:nth-of-type(even) {
+              background-color: #F8F8F8;
+            }
+          }
+        }
+      }
+
+      .pages {
+        text-align: center;
+        margin: 30px auto 10px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+
+        span {
+          height: 35px;
+          background: #338eff;
+          border-radius: 2px;
+          line-height: 35px;
+          font-size: 14px;
+          letter-spacing: -1px;
+          border: 1px solid #338eff;
+          display: inline-block;
+          padding: 0 10px;
+          color: #fff
+        }
+
+        a {
+          height: 35px;
+          border: 1px solid #ebebeb;
+          border-radius: 2px;
+          padding: 0 10px;
+          color: #999;
+          line-height: 35px;
+          font-size: 14px;
+          letter-spacing: -1px;
+          display: inline-block;
+          background-color: #fff;
+
+          &:hover {
+            background: #f1f1f1;
+            color: #000;
+            text-decoration: none
+          }
+        }
+      }
+    }
+
+    .gaikuang {
+      width: 900px;
+      background: #FFFFFF;
+      border-radius: 10px;
+      margin-top: 20px;
+      padding: 20px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+
+      .con {
+        padding-top: 20px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        img {
+          width: 163px;
+          height: 110px;
+          -o-object-fit: cover;
+          object-fit: cover;
+          -o-object-position: center;
+          object-position: center;
+          margin-right: 20px;
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          color: #333333;
+          line-height: 22px;
+          margin-top: -3px;
+          text-align: justify;
+        }
+      }
+    }
+  }
 }
 
-section h3.title {
-  font-size: 24px;
-  font-weight: 500;
-  color: #0770D1;
-  height: 24px;
-}
 
-section h3.title::before {
-  content: "";
-  display: inline-block;
-  width: 4px;
-  height: 24px;
-  background: #0770D1;
-  margin-right: 10px;
-  vertical-align: -4px;
-}
 
-section main {
-  width: 900px;
-}
-
-.school-8226626 {
-  width: 900px;
-  background: #FFFFFF;
-  border-radius: 10px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 20px;
-  margin-top: 30px;
-}
-
-.form-8971908 {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin: 30px 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.form-8971908>div {
-  position: relative;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  margin-left: 20px;
-  height: 35px;
-  background: #FFFFFF;
-  border-radius: 4px;
-  border: 1px solid #BFBFBF;
-}
-
-.form-8971908>div:first-of-type {
-  margin-left: 0;
-}
-
-.form-8971908>div:nth-of-type(4)::after {
-  content: initial;
-}
-
-.form-8971908>div::after {
-  position: absolute;
-  content: "";
-  right: 10px;
-  top: 14px;
-  z-index: 10;
-  pointer-events: none;
-  width: 11px;
-  height: 6px;
-  background: url(https://www.ieduchina.com/statics/xg/images/da83319e.png) center center / 11px 6px;
-}
-
-.form-8971908>div select,
-.form-8971908>div input {
-  height: 35px;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0 10px;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  overflow: hidden;
-  font-size: 14px;
-  font-weight: 400;
-  color: #333333;
-}
-
-.form-8971908>div select:-internal-autofill-previewed,
-.form-8971908>div input:-internal-autofill-previewed,
-.form-8971908>div select:-internal-autofill-selected,
-.form-8971908>div input:-internal-autofill-selected {
-  -webkit-text-fill-color: #000000;
-  -webkit-transition: background-color 5000s ease-out 0.5s;
-  transition: background-color 5000s ease-out 0.5s;
-}
-
-.form-8971908>div input {
-  padding-right: 80px;
-}
-
-.form-8971908>div input::-webkit-input-placeholder {
-  color: #999999;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.form-8971908>div input::-moz-placeholder {
-  color: #999999;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.form-8971908>div input:-ms-input-placeholder {
-  color: #999999;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.form-8971908>div input::-ms-input-placeholder {
-  color: #999999;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.form-8971908>div input::placeholder {
-  color: #999999;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.form-8971908>div button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 69px;
-  height: 35px;
-  background: #0770D1;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 400;
-  color: #FFFFFF;
-}
-
-.table-0242347 {
-  width: 100%;
-  text-align: center;
-}
-
-.table-0242347 tbody tr {
-  height: 40px;
-  background: #FFFFFF;
-  line-height: 40px;
-}
-
-.table-0242347 tbody tr:first-of-type {
-  background: #0770D1;
-}
-
-.table-0242347 tbody tr:first-of-type td {
-  color: white;
-}
-
-.table-0242347 tbody tr:first-of-type td:first-of-type {
-  color: white;
-}
-
-.table-0242347 tbody tr:nth-of-type(even) {
-  background-color: #F8F8F8;
-}
-
-.table-0242347 tbody tr td {
-  font-size: 14px;
-  font-weight: 400;
-  color: #333333;
-  min-width: 70px;
-}
-
-.table-0242347 tbody tr td:first-of-type {
-  color: #0770D1;
-}
-
-.table-0242347 tbody tr td:first-of-type a {
-  color: #0770D1;
-}
-
-.pages {
-  text-align: center;
-  margin: 30px auto 10px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box
-}
-
-.pages span {
-  height: 35px;
-  background: #338eff;
-  border-radius: 2px;
-  line-height: 35px;
-  font-size: 14px;
-  letter-spacing: -1px;
-  border: 1px solid #338eff;
-  display: inline-block;
-  padding: 0 10px;
-  color: #fff
-}
-
-.pages a {
-  height: 35px;
-  border: 1px solid #ebebeb;
-  border-radius: 2px;
-  padding: 0 10px;
-  color: #999;
-  line-height: 35px;
-  font-size: 14px;
-  letter-spacing: -1px;
-  display: inline-block;
-  background-color: #fff
-}
-
-.pages a:hover {
-  background: #f1f1f1;
-  color: #000;
-  text-decoration: none
-}
-
-.gaikuang-2251708 {
-  width: 900px;
-  background: #FFFFFF;
-  border-radius: 10px;
-  margin-top: 20px;
-  padding: 20px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.gaikuang-2251708 .con {
-  padding-top: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.gaikuang-2251708 .con img {
-  width: 163px;
-  height: 110px;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-  margin-right: 20px;
-}
-
-.gaikuang-2251708 .con p {
-  font-size: 14px;
-  font-weight: 400;
-  color: #333333;
-  line-height: 22px;
-  margin-top: -3px;
-  text-align: justify;
-}
-
-.list-2815078 {
+.list {
   width: 900px;
   background: #FFFFFF;
   border-radius: 10px;
@@ -882,11 +842,11 @@ section main {
   padding-right: 0;
 }
 
-.list-2815078 .lis {
+.list .lis {
   margin-top: 5px;
 }
 
-.list-2815078 .lis a {
+.list .lis a {
   background: url(https://www.ieduchina.com/statics/xg/images/e47fed32.png) left center / 10px 13px no-repeat;
   padding-left: 15px;
   -webkit-box-sizing: border-box;
@@ -899,36 +859,24 @@ section main {
   display: inline-block;
 }
 
-.list-2815078 .lis a:hover {
+.list .lis a:hover {
   color: #0770D1;
 }
 
 aside {
   width: 360px;
   margin-top: 30px;
-}
 
-aside .ad {
-  width: 360px;
-}
+  .ad {
+    width: 360px;
+    margin-bottom: 20px;
+    display: block;
 
-aside .ad img {
-  width: 360px;
-  cursor: pointer;
-}
-
-aside .activily-3074171 {
-  margin-top: 20px;
-}
-
-aside .activily-3074171 h3 {
-  padding-top: 20px;
-  font-size: 20px;
-  height: 20px;
-}
-
-aside .activily-3074171 h3::before {
-  height: 20px;
+    img {
+      width: 360px;
+      cursor: pointer;
+    }
+  }
 }
 
 aside .zhinan {
@@ -983,5 +931,86 @@ aside .zhinan ul li a {
 
 aside .zhinan ul li a:hover {
   color: #0770D1;
+}
+
+
+
+.tablelinks {
+  font-size: 14px;
+  font-weight: 400;
+  min-width: 70px;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff
+  }
+
+  ul {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: #0770d1;
+
+    li {
+      text-align: left;
+      padding: 0 15px;
+      line-height: 36px;
+      height: 36px;
+      text-align: center;
+
+      a {
+        white-space: nowrap;
+        line-height: 36px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #fff
+      }
+
+      &:hover,
+      &.active {
+        a {
+          color: #fff834
+        }
+      }
+    }
+  }
+
+  &:hover {
+    ul {
+      animation: table-links .3s ease-in-out;
+      display: block;
+      opacity: 1
+    }
+  }
+
+  img {
+    width: 11px;
+    margin-left: 3px;
+    vertical-align: 0
+  }
+}
+
+@keyframes table-links {
+  0% {
+    top: 42px;
+    opacity: 0
+  }
+
+  100% {
+    top: 40px;
+    opacity: 1
+  }
 }
 </style>

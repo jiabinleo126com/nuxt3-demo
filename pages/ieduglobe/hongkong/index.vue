@@ -7,10 +7,13 @@ const Footer = defineAsyncComponent(() => import('~/components/ieduglobe/hongkon
 const Active = defineAsyncComponent(() => import('~/components/ieduglobe/hongkong/Active.vue'));
 
 useHead({
+  bodyAttrs: {
+    style: "background-color: #F3F3F7;"
+  },
   meta: [
     {
       content: "text/html; charset=utf-8",
-      httpEquiv: "Content-Type"
+      httpEquiv: "Content-Type",
     },
     {
       content: "IE=Edge,chrome=1",
@@ -89,12 +92,12 @@ useHead({
     }, {
       src: "//www.ieduchina.com/statics/xg/js/index.js",
       type: "text/javascript"
-    }, {
-      src: "//www.ieduchina.com/statics/common/js/hk2s1.js",
-      type: "text/javascript"
-    }, {
-      src: "//www.ieduchina.com/statics/js/foot.js",
-      type: "text/javascript"
+      // }, {
+      //   src: "//www.ieduchina.com/statics/common/js/hk2s1.js",
+      //   type: "text/javascript"
+      // }, {
+      //   src: "//www.ieduchina.com/statics/js/foot.js",
+      //   type: "text/javascript"
     }, {
       src: "//www.ieduchina.com/statics/xg/js/form.js",
       type: "text/javascript"
@@ -408,57 +411,55 @@ const hot = [
     ]
   }
 ]
+
 </script>
+
 <template>
-  <component :is="Header" active="首页"/>
+  <component :is="Header" active="首页" />
   <section>
-    <div class="kpm">
+    <div :class="$style.kpm">
       <ul>
         <li v-for="item in kpm">
           <a :href="item.href">
             <img :src="item.image" :alt="item.title"></a>
           <h3>{{ item.title }}</h3>
-          <div class="lis">
+          <div :class="$style.lis">
             <a v-for="it in item.list" :href="it.href">{{ it.title }}</a>
           </div>
         </li>
       </ul>
     </div>
-    <div class="io">
+    <div :class="$style.io">
       <a v-for="item in io" :href="item.href"><img :src="item.image" alt=""></a>
     </div>
-    <div class="bottom_2018886">
-      <div class="hot_1683600683069">
+    <div :class="$style.bottom_2018886">
+      <div :class="$style.hot_1683600683069">
         <ul>
           <li v-for="item in hot">
-            <div class="wrap">
+            <div :class="$style.wrap">
               <h3>{{ item.title }}</h3>
-              <div class="lis">
+              <div :class="$style.lis">
                 <a v-for="it in item.list" :href="it.href">{{ it.title }}</a>
               </div>
             </div>
           </li>
         </ul>
       </div>
-      <div class="activily-3074171">
-        <div id="activity_hot_hk" class="wrap">
-          <component :is="Active" />
-        </div>
-      </div>
+      <component :is="Active" />
     </div>
   </section>
-  <div class="form_1f8c60f5">
-    <div class="box">
+  <div :class="$style.form_1f8c60f5">
+    <div :class="$style.box">
       <img src="https://www.ieduchina.com/statics/xg/images/8e599d7e.png" alt="">
-      <div class="form_con">
-        <img src="https://www.ieduchina.com/statics/xg/images/4b1cd002.png" class="close" />
-        <form class="f8c60f5" action="/index.php?m=college&c=index&a=collegereg&dopost=reg" method="post">
+      <div :class="$style.form_con">
+        <img src="https://www.ieduchina.com/statics/xg/images/4b1cd002.png" :class="$style.close" />
+        <form :class="$style.f8c60f5" action="/index.php?m=college&c=index&a=collegereg&dopost=reg" method="post">
           <input type="hidden" id="_href">
-          <input type="hidden" class="mark" name="mark" value="国际教育网院校库PC版_香港学校" />
+          <input type="hidden" :class="$style.mark" name="mark" value="国际教育网院校库PC版_香港学校" />
           <h3>登錄國際教育網</h3>
           <p>您有3次免費查看的機會，登錄即可查看詳情</p>
           <input type="text" name="name" _placeholder="請輸入孩子姓名" required placeholder="孩子姓名">
-          <div class="select">
+          <div :class="$style.select">
             <select name="grade" placeholder="請選擇在讀年級" required>
               <option value="">在讀年級</option>
               <option value="幼儿园">幼兒園</option>
@@ -481,11 +482,11 @@ const hot = [
           </div>
           <input type="text" name="mobile" _placeholder="請輸入手機號碼" required placeholder="手機號碼">
           <input type="text" name="email" _placeholder="請輸入電子郵箱" required placeholder="電子郵箱">
-          <div class="code">
+          <div :class="$style.code">
             <input type="text" name="emailcode" _placeholder="請輸入郵箱驗證碼" required placeholder="郵箱驗證碼">
-            <button type="button" class="getcode">獲取驗證碼</button>
+            <button type="button" :class="$style.getcode">獲取驗證碼</button>
           </div>
-          <div class="xy">
+          <div :class="$style.xy">
             <label>
               <input type="checkbox" name="xy" _placeholder="請閲讀並同意《國際教育網用户協議》" required value="1">
               <span></span>
@@ -493,28 +494,19 @@ const hot = [
             </label>
             <a href="https://www.ieduchina.com/service/protocol.html" target="_blank">《國際教育網用户協議》</a>
           </div>
-          <button class="f8c60f" type="submit">登錄</button>
+          <button :class="$style.f8c60f" type="submit">登錄</button>
         </form>
       </div>
     </div>
   </div>
   <component :is="Footer" />
 </template>
-<style lang="less" scoped>
-html body {
-  background-color: #F3F3F7;
-}
 
-html body .bottom_2018886 {
+<style lang="less" scoped module>
+.bottom_2018886 {
   width: 1280px;
   margin: 25px auto 22px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -525,13 +517,7 @@ html body .bottom_2018886 {
 .kpm ul {
   width: 1280px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -569,9 +555,7 @@ html body .bottom_2018886 {
 .kpm ul li a img {
   width: 100%;
   height: 150px;
-  -o-object-fit: cover;
   object-fit: cover;
-  -o-object-position: top;
   object-position: top;
 }
 
@@ -610,7 +594,6 @@ html body .bottom_2018886 {
   margin-top: 14px;
   background: url(https://www.ieduchina.com/statics/xg/images/images/e47fed32.png) left center / 10px 13px no-repeat;
   padding-left: 15px;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -624,13 +607,7 @@ html body .bottom_2018886 {
 .io {
   width: 1280px;
   margin: 25px auto 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -644,9 +621,6 @@ html body .bottom_2018886 {
 }
 
 .hot_1683600683069 ul {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -656,7 +630,6 @@ html body .bottom_2018886 {
 
 .hot_1683600683069 ul li {
   width: 442px;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -701,7 +674,6 @@ html body .bottom_2018886 {
   margin-top: 15px;
   background: url(https://www.ieduchina.com/statics/xg/images/images/e47fed32.png) left center / 10px 13px no-repeat;
   padding-left: 15px;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -721,7 +693,6 @@ html body .bottom_2018886 {
   z-index: 100;
   min-width: 1200px;
   background: #FFFFFF;
-  -webkit-box-shadow: 0px -5px 6px 1px rgba(103, 103, 103, 0.1608);
   box-shadow: 0px -5px 6px 1px rgba(103, 103, 103, 0.1608);
   text-align: center;
 }
@@ -733,13 +704,11 @@ html body .bottom_2018886 {
   left: 0;
   top: -40px;
   background: #FFFFFF;
-  -webkit-box-shadow: 0px -5px 6px 1px rgba(103, 103, 103, 0.1608);
   box-shadow: 0px -5px 6px 1px rgba(103, 103, 103, 0.1608);
   border-radius: 13px 13px 0px 0px;
 }
 
 .ad_0900>.close_0914.up img {
-  -webkit-transform: rotateZ(180deg);
   transform: rotateZ(180deg);
 }
 
@@ -747,7 +716,6 @@ html body .bottom_2018886 {
   width: 20px;
   height: 20px;
   padding: 15px 30px;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   cursor: pointer;
   background-color: white;
@@ -774,135 +742,14 @@ html body .bottom_2018886 {
   height: 20px;
   border-radius: 50%;
   padding: 8px;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
 .ad_0900>a>img {
   width: 1280px;
   height: 100px;
-  -o-object-fit: contain;
   object-fit: contain;
-  -o-object-position: bottom;
   object-position: bottom;
-}
-
-
-
-
-body .bar .menu-5062847 {
-  height: 60px
-}
-
-body .bar .menu-5062847 menu {
-  width: 100%;
-  height: 60px;
-  background: #0770d1;
-  top: 0;
-  z-index: 999
-}
-
-body .bar .menu-5062847 menu .c {
-  width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  overflow: initial
-}
-
-body .bar .menu-5062847 menu .c .con {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: initial
-}
-
-body .bar .menu-5062847 menu .c .con.left a {
-  width: auto;
-  margin-left: 43px
-}
-
-body .bar .menu-5062847 menu .c .con.left a.active,
-body .bar .menu-5062847 menu .c .con.left a:hover {
-  background: initial
-}
-
-body .bar .menu-5062847 menu .c .con a {
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
-  width: 100px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  display: block;
-}
-
-body .bar .menu-5062847 menu .c .con a.active,
-body .bar .menu-5062847 menu .c .con a:hover {
-  background: #0054a2
-}
-
-body .bar .menu-5062847 menu .c .con .links {
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
-  width: 100px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  cursor: pointer
-}
-
-body .bar .menu-5062847 menu .c .con .links img {
-  width: 11px;
-  margin-left: 3px;
-  vertical-align: 2px
-}
-
-body .bar .menu-5062847 menu .c .con .links:hover,
-body .bar .menu-5062847 menu .c .con .links.active {
-  background: #0054a2
-}
-
-body .bar .menu-5062847 menu .c .con .links:hover ul {
-  animation: ans .3s ease-in-out;
-  display: block;
-  opacity: 1;
-  top: 60px
-}
-
-body .bar .menu-5062847 menu .c .con .links ul {
-  display: none;
-  opacity: 0;
-  position: absolute;
-  top: 62px;
-  right: 0;
-  z-index: 10;
-  background: #0054a2;
-  padding: 10px 0
-}
-
-body .bar .menu-5062847 menu .c .con .links ul li {
-  text-align: left;
-  padding: 0 15px;
-  line-height: 36px;
-  height: 36px
-}
-
-body .bar .menu-5062847 menu .c .con .links ul li:hover a {
-  color: #fff834
-}
-
-body .bar .menu-5062847 menu .c .con .links ul li a {
-  white-space: nowrap;
-  line-height: 36px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #fff;
-  display: inline;
 }
 
 .form_1f8c60f5 {
