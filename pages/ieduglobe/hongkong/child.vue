@@ -92,12 +92,12 @@ useHead({
     }, {
       src: "//www.ieduchina.com/statics/xg/js/index.js",
       type: "text/javascript"
-    // }, {
-    //   src: "//www.ieduchina.com/statics/common/js/hk2s1.js",
-    //   type: "text/javascript"
-    // }, {
-    //   src: "//www.ieduchina.com/statics/js/foot.js",
-    //   type: "text/javascript"
+      // }, {
+      //   src: "//www.ieduchina.com/statics/common/js/hk2s1.js",
+      //   type: "text/javascript"
+      // }, {
+      //   src: "//www.ieduchina.com/statics/js/foot.js",
+      //   type: "text/javascript"
     }, {
       src: "//www.ieduchina.com/statics/xg/js/form.js",
       type: "text/javascript"
@@ -879,61 +879,61 @@ aside {
   }
 }
 
-aside .zhinan {
-  background: #FFFFFF;
-  border-radius: 10px;
-  margin-top: 20px;
-  padding: 20px 20px 0 20px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+aside {
+  .zhinan {
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px 20px 0 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+      color: #0770D1;
+      height: 20px;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 20px;
+        background: #0770D1;
+        margin-right: 10px;
+        vertical-align: -4px;
+      }
+    }
+
+    ul {
+      margin-top: 5px;
+
+      li {
+        height: 46px;
+        line-height: 46px;
+        border-bottom: solid 1px #DEDEDE;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+
+        a {
+          font-size: 16px;
+          font-weight: 400;
+          color: #666666;
+          padding-left: 14px;
+
+          &:hover {
+            color: #0770D1;
+          }
+        }
+      }
+    }
+  }
 }
-
-aside .zhinan h3 {
-  font-size: 20px;
-  font-weight: 500;
-  color: #0770D1;
-  height: 20px;
-}
-
-aside .zhinan h3::before {
-  content: "";
-  display: inline-block;
-  width: 4px;
-  height: 20px;
-  background: #0770D1;
-  margin-right: 10px;
-  vertical-align: -4px;
-}
-
-aside .zhinan ul {
-  margin-top: 5px;
-}
-
-aside .zhinan ul li {
-  height: 46px;
-  line-height: 46px;
-  border-bottom: solid 1px #DEDEDE;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-aside .zhinan ul li:last-of-type {
-  border-bottom: none;
-}
-
-aside .zhinan ul li a {
-  font-size: 16px;
-  font-weight: 400;
-  color: #666666;
-  padding-left: 14px;
-}
-
-aside .zhinan ul li a:hover {
-  color: #0770D1;
-}
-
-
 
 .tablelinks {
   font-size: 14px;
