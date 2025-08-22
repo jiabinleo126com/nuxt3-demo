@@ -114,15 +114,15 @@ useHead({
 
 </script>
 <template>
-  <component :is="Header" active="幼稚园"/>
+  <component :is="Header" active="幼稚园" />
   <section>
     <main>
       <div class="school-8226626">
-        <h3 class="title">全方位搜尋 全港幼兒學校</h3>
+        <h3 class="title">全方位搜寻 全港幼儿学校</h3>
         <form action="" method="GET" class="form-8971908">
           <div>
             <select name="city">
-              <option value="">地區</option>
+              <option value="">地区</option>
               <option value="515">中西区</option>
               <option value="516">东区</option>
               <option value="517">南区</option>
@@ -145,7 +145,7 @@ useHead({
           </div>
           <div>
             <select name="nature">
-              <option value="">類別</option>
+              <option value="">类别</option>
               <option value="20">公办专科(副学士)</option>
               <option value="3">私立学校</option>
               <option value="21">民办专科(副学士)</option>
@@ -167,7 +167,7 @@ useHead({
           </div>
           <div>
             <select name="tx">
-              <option value="">課程體系</option>
+              <option value="">课程体系</option>
               <option value="112">香港DSE</option>
               <option value="101">IB</option>
               <option value="102">AP</option>
@@ -191,7 +191,7 @@ useHead({
             </select>
           </div>
           <div>
-            <input name="searchkey" value="" type="text" placeholder="幼稚园名稱">
+            <input name="searchkey" value="" type="text" placeholder="幼儿园名称">
             <button type="submit">搜索</button>
           </div>
         </form>
@@ -201,7 +201,7 @@ useHead({
               <td>幼稚园名称</td>
               <td>
                 <div class="table-links">
-                  <a href="/hongkong/child.html?nature=0&city=0">地區</a>
+                  <a href="/hongkong/child.html?nature=0&city=0">地区</a>
                   <img src="//www.ieduchina.com/statics/xg/images/e74729ad.png" alt="">
                   <ul>
                     <li>
@@ -263,7 +263,7 @@ useHead({
               </td>
               <td>
                 <div class="table-links">
-                  <a href="/hongkong/child.html?nature=0&city=0">類別</a>
+                  <a href="/hongkong/child.html?nature=0&city=0">类别</a>
                   <img src="//www.ieduchina.com/statics/xg/images/e74729ad.png" alt="">
                   <ul>
                     <li>
@@ -320,7 +320,7 @@ useHead({
                   </ul>
                 </div>
               </td>
-              <td>學費</td>
+              <td>学费</td>
             </tr>
             <tr>
               <td>
@@ -588,28 +588,21 @@ useHead({
   <component :is="Footer" />
 </template>
 <style lang="less" scoped>
-
-html body section {
+section {
   width: 1280px;
   margin: 0 auto 50px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
-html body section h3.title {
+section h3.title {
   font-size: 24px;
   font-weight: 500;
   color: #0770D1;
   height: 24px;
 }
 
-html body section h3.title::before {
+section h3.title::before {
   content: "";
   display: inline-block;
   width: 4px;
@@ -619,7 +612,7 @@ html body section h3.title::before {
   vertical-align: -4px;
 }
 
-html body section main {
+section main {
   width: 900px;
 }
 
@@ -632,6 +625,7 @@ html body section main {
   padding: 20px;
   margin-top: 30px;
 }
+
 .form-8971908 {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -674,7 +668,7 @@ html body section main {
   pointer-events: none;
   width: 11px;
   height: 6px;
-  background: url(../images/da83319e.png) center center / 11px 6px;
+  background: url(https://www.ieduchina.com/statics/xg/images/da83319e.png) center center / 11px 6px;
 }
 
 .form-8971908>div select,
@@ -893,7 +887,7 @@ html body section main {
 }
 
 .list-2815078 .lis a {
-  background: url(../images/e47fed32.png) left center / 10px 13px no-repeat;
+  background: url(https://www.ieduchina.com/statics/xg/images/e47fed32.png) left center / 10px 13px no-repeat;
   padding-left: 15px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;

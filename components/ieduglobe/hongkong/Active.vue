@@ -151,7 +151,7 @@
   width: 58px;
   height: 52px;
   z-index: 10;
-  background: url(../images/9a943cd3.png) center / contain no-repeat;
+  background: url(https://www.ieduchina.com/statics/xg/images/9a943cd3.png) center / contain no-repeat;
 }
 
 .activily-3074171 .swiper .swiper-slide .con img {
