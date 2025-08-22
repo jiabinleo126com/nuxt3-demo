@@ -1655,7 +1655,6 @@ section {
             color: #333333;
             text-align: right;
             padding-right: 21px;
-            -webkit-box-sizing: border-box;
             box-sizing: border-box;
           }
 
@@ -1688,7 +1687,6 @@ section {
 
         .btn {
           text-align: center;
-          -webkit-box-sizing: border-box;
           box-sizing: border-box;
           padding-top: 35px;
 
