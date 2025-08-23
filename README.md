@@ -97,6 +97,14 @@ git push --force
 # 撤销最近一次提交，保留工作区和暂存区的修改
 git reset --soft HEAD~1
 
+# 在bash中设置git超时时间
+# 定义了 Git 认为网络连接“太慢”的最低速度阈值（单位是 字节/秒）。
+git config --global http.lowSpeedLimit 0
+# 设置定义将一个巨大的值（约 11.5 天）设置为超时时间。
+git config --global http.lowSpeedTime 999999
+# 向远程仓库传输数据（主要是 git push）时，所使用的内存缓冲区的大小。单位是字节（Byte）。 500 MiB
+git config --global http.postBuffer 524288000
+
 
 Navicat
 jiabinleo@237.com
