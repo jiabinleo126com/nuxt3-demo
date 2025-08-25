@@ -3,6 +3,7 @@ export default defineEventHandler(async () => {
     {
       icon: "ywtext_icon1",
       title: '国际学校升学规划与备考',
+      path: '/topic/2025/shengxue/beikao',
       text: [
         {
           title: "英系学校",

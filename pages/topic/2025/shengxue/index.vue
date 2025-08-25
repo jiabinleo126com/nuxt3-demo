@@ -487,7 +487,7 @@ useHead({
       <component :is="Title" en="SERVICE" cn="业务介绍" />
       <ul :class="$style.title">
         <li v-for="(item, index) in ywtext1" :key="index">
-          <a href="">
+          <NuxtLink :to="item.path">
             <img :src="images[item.icon]" :alt="item.title">
             <div :class="$style.desc">
               <span>{{ item.title }}</span>
@@ -495,7 +495,7 @@ useHead({
                 <i>{{ it.title }}</i>：{{ it.text }}
               </p>
             </div>
-          </a>
+          </NuxtLink>
         </li>
       </ul>
       <div :class="$style.cgzs">
@@ -514,7 +514,7 @@ useHead({
       </div>
       <ul :class="[$style.title, $style.title2]">
         <li v-for="(item, index) in ywtext2" :key="index">
-          <a href="">
+          <NuxtLink :to="item.path">
             <img :src="images[item.icon]" :alt="item.title">
             <div :class="$style.desc">
               <span>{{ item.title }}</span>
@@ -522,12 +522,12 @@ useHead({
                 <i>{{ it.title }}</i>：{{ it.text }}
               </p>
             </div>
-          </a>
+          </NuxtLink>
         </li>
       </ul>
       <ul :class="[$style.title, $style.title3]">
         <li v-for="(item, index) in ywtext3" :key="index">
-          <a href="">
+          <NuxtLink :to="item.path">
             <img :src="images[item.icon]" :alt="item.title">
             <div :class="$style.desc">
               <span>{{ item.title }}</span>
@@ -535,7 +535,7 @@ useHead({
                 <i>{{ it.title }}</i>：{{ it.text }}
               </p>
             </div>
-          </a>
+          </NuxtLink>
         </li>
       </ul>
       <div :class="$style.bgt">
