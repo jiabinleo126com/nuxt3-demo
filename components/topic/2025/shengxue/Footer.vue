@@ -1,21 +1,13 @@
 <script setup>
+import ewm1 from '~/assets/topic/2025/shengxue/image@1x.png'
+import ewm2 from '~/assets/topic/2025/shengxue/image@1x (1).png'
+
 import ewm_1 from '~/assets/topic/2025/shengxue/二维码/爱读号英美留学-公众号.jpg'
 import ewm_2 from '~/assets/topic/2025/shengxue/二维码/香港名校通_画板 公众号.jpg'
 import ewm_3 from '~/assets/topic/2025/shengxue/二维码/深港升学陈老师-视频号.png'
 import ewm_4 from '~/assets/topic/2025/shengxue/二维码/国际教育Niko老师-视频号.png'
 import ewm_5 from '~/assets/topic/2025/shengxue/二维码/爱读号英美留学-小红书.png'
 import ewm_6 from '~/assets/topic/2025/shengxue/二维码/贝赛思Basis有个圈.png'
-
-defineProps({
-  ewm1: {
-    type: String,
-    default: ""
-  },
-  ewm2: {
-    type: String,
-    default: ""
-  }
-})
 </script>
 <template>
   <footer :class="$style.footer" id="lxwm">
