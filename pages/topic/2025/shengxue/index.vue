@@ -500,13 +500,15 @@ useHead({
       <component :is="Title" en="SERVICE" cn="业务介绍" />
       <ul :class="$style.title">
         <li v-for="(item, index) in ywtext1" :key="index">
-          <img :src="images[item.icon]" :alt="item.title">
-          <div :class="$style.desc">
-            <span>{{ item.title }}</span>
-            <p v-for="it in item.text">
-              <i>{{ it.title }}</i>：{{ it.text }}
-            </p>
-          </div>
+          <a href="">
+            <img :src="images[item.icon]" :alt="item.title">
+            <div :class="$style.desc">
+              <span>{{ item.title }}</span>
+              <p v-for="it in item.text">
+                <i>{{ it.title }}</i>：{{ it.text }}
+              </p>
+            </div>
+          </a>
         </li>
       </ul>
       <div :class="$style.cgzs">
@@ -525,24 +527,28 @@ useHead({
       </div>
       <ul :class="[$style.title, $style.title2]">
         <li v-for="(item, index) in ywtext2" :key="index">
-          <img :src="images[item.icon]" :alt="item.title">
-          <div :class="$style.desc">
-            <span>{{ item.title }}</span>
-            <p v-for="it in item.text">
-              <i>{{ it.title }}</i>：{{ it.text }}
-            </p>
-          </div>
+          <a href="">
+            <img :src="images[item.icon]" :alt="item.title">
+            <div :class="$style.desc">
+              <span>{{ item.title }}</span>
+              <p v-for="it in item.text">
+                <i>{{ it.title }}</i>：{{ it.text }}
+              </p>
+            </div>
+          </a>
         </li>
       </ul>
       <ul :class="[$style.title, $style.title3]">
         <li v-for="(item, index) in ywtext3" :key="index">
-          <img :src="images[item.icon]" :alt="item.title">
-          <div :class="$style.desc">
-            <span>{{ item.title }}</span>
-            <p v-for="it in item.text">
-              <i>{{ it.title }}</i>：{{ it.text }}
-            </p>
-          </div>
+          <a href="">
+            <img :src="images[item.icon]" :alt="item.title">
+            <div :class="$style.desc">
+              <span>{{ item.title }}</span>
+              <p v-for="it in item.text">
+                <i>{{ it.title }}</i>：{{ it.text }}
+              </p>
+            </div>
+          </a>
         </li>
       </ul>
       <div :class="$style.bgt">
@@ -791,42 +797,44 @@ section {
       }
 
       li {
-        padding-top: 30px;
-        display: flex;
-        justify-content: space-between;
+        a {
+          padding-top: 30px;
+          display: flex;
+          justify-content: space-between;
 
-        img {
-          width: 90px;
-          height: 90px;
-          object-fit: contain;
-          margin-right: 18px;
-        }
-
-        .desc {
-          span {
-            display: block;
-            font-size: 20px;
-            font-weight: bold;
-            line-height: 36px;
-            letter-spacing: 0em;
-            color: #083A83;
-            letter-spacing: -1.5px;
-            border-bottom: solid 1px #D6D6D6;
+          img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-right: 18px;
           }
 
-          p {
-            font-size: 16px;
-            font-weight: normal;
-            line-height: 180%;
-            color: #3D3D3D;
-
-            &:first-of-type {
-              margin-top: 10px;
+          .desc {
+            span {
+              display: block;
+              font-size: 20px;
+              font-weight: bold;
+              line-height: 36px;
+              letter-spacing: 0em;
+              color: #083A83;
+              letter-spacing: -1.5px;
+              border-bottom: solid 1px #D6D6D6;
             }
 
-            i {
-              font-weight: bold;
-              font-style: initial;
+            p {
+              font-size: 16px;
+              font-weight: normal;
+              line-height: 180%;
+              color: #3D3D3D;
+
+              &:first-of-type {
+                margin-top: 10px;
+              }
+
+              i {
+                font-weight: bold;
+                font-style: initial;
+              }
             }
           }
         }

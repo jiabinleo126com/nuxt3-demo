@@ -489,13 +489,15 @@ useHead({
       <component :is="Title" en="SERVICE" cn="业务介绍" />
       <ul :class="$style.title">
         <li v-for="(item, index) in ywtext1" :key="index">
-          <img :src="images[item.icon]" :alt="item.title">
-          <span>{{ item.title }}</span>
-          <div :class="$style.desc_wrap">
-            <p v-for="it in item.text">
-              <i>{{ it.title }}</i>：{{ it.text }}
-            </p>
-          </div>
+          <a href="">
+            <img :src="images[item.icon]" :alt="item.title">
+            <span>{{ item.title }}</span>
+            <div :class="$style.desc_wrap">
+              <p v-for="it in item.text">
+                <i>{{ it.title }}</i>：{{ it.text }}
+              </p>
+            </div>
+          </a>
         </li>
       </ul>
       <div :class="$style.cgzs">
@@ -510,22 +512,26 @@ useHead({
       </div>
       <ul :class="$style.title">
         <li v-for="(item, index) in ywtext2" :key="index">
-          <img :src="images[item.icon]" :alt="item.title">
-          <span>{{ item.title }}</span>
-          <div :class="$style.desc_wrap">
-            <p v-for="it in item.text">
-              <i>{{ it.title }}</i>：{{ it.text }}
-            </p>
-          </div>
+          <a href="">
+            <img :src="images[item.icon]" :alt="item.title">
+            <span>{{ item.title }}</span>
+            <div :class="$style.desc_wrap">
+              <p v-for="it in item.text">
+                <i>{{ it.title }}</i>：{{ it.text }}
+              </p>
+            </div>
+          </a>
         </li>
         <li v-for="(item, index) in ywtext3" :key="index">
-          <img :src="images[item.icon]" :alt="item.title">
-          <span>{{ item.title }}</span>
-          <div :class="$style.desc_wrap">
-            <p v-for="it in item.text">
-              <i>{{ it.title }}</i>：{{ it.text }}
-            </p>
-          </div>
+          <a href="">
+            <img :src="images[item.icon]" :alt="item.title">
+            <span>{{ item.title }}</span>
+            <div :class="$style.desc_wrap">
+              <p v-for="it in item.text">
+                <i>{{ it.title }}</i>：{{ it.text }}
+              </p>
+            </div>
+          </a>
         </li>
       </ul>
       <div :class="$style.bgt">
