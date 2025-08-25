@@ -1,9 +1,9 @@
 <script setup>
-import logo from '~/assets/topic/2025/shengxue/logo@1x.png'
+
 import banner1 from '~/assets/topic/2025/shengxue/banner1.png'
 import banner2 from '~/assets/topic/2025/shengxue/banner2.png'
 import banner3 from '~/assets/topic/2025/shengxue/banner3.png'
-import banner4 from '~/assets/topic/2025/shengxue/banner4.jpg'
+import banner4 from '~/assets/topic/2025/shengxue/banner4.png'
 import banner5 from '~/assets/topic/2025/shengxue/banner5.png'
 import banner6 from '~/assets/topic/2025/shengxue/banner6.png'
 import ywtext_icon1 from '~/assets/topic/2025/shengxue/容器@1x.png'
@@ -163,7 +163,7 @@ const images = {
 const { data: { value: { teacher, address, ewm, ywtext1, ywtext2, ywtext3, offers1, offers2, banner } } } = await useFetch('/api/topic/2025/shengxue')
 
 import { defineAsyncComponent, onMounted } from 'vue';
-
+const Header = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Header.vue`))
 const Title = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Title.vue`))
 const Footer = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Footer.vue`))
 
@@ -473,20 +473,7 @@ useHead({
 </script>
 
 <template>
-  <header :class="$style.header">
-    <div :class="$style.con">
-      <a href="">
-        <img :src="logo" alt=""></img>
-      </a>
-      <menu>
-        <a class="ywjs">业务介绍</a>
-        <a class="jxtd">教学团队</a>
-        <a class="fwlc">服务流程</a>
-        <a class="xqhj">校区环境及地址</a>
-        <a class="lxwm">联系我们</a>
-      </menu>
-    </div>
-  </header>
+  <component :is="Header" />
   <section>
     <div :class="$style.banner" class="banner_swiper">
       <div class="swiper-wrapper">
@@ -642,7 +629,7 @@ useHead({
       </div>
     </div>
   </section>
-  <component :is="Footer" :ewm1 :ewm2 />
+  <component :is="Footer" />
   <div :class="$style.right_fixed">
     <ul>
       <li id="open"><img :src="fixed4" alt="预约报名"> <img :src="fixed4_" alt="预约报名">
@@ -712,41 +699,6 @@ useHead({
   </div>
 </template>
 <style lang="less" module scoped>
-.header {
-  position: fixed;
-  top: 0;
-  z-index: 20;
-  width: 100%;
-  background-color: #083A83;
-  display: flex;
-  justify-content: center;
-
-  .con {
-    width: 1200px;
-    height: 96px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    img {
-      width: 138px;
-      height: 56px;
-      object-fit: contain;
-      object-position: center;
-    }
-
-    menu {
-      a {
-        font-size: 18px;
-        font-weight: bold;
-        color: #FFFFFF;
-        margin-right: 26px;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
 section {
   padding-top: 96px;
 
