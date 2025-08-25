@@ -1,4 +1,27 @@
 export default defineEventHandler(async () => {
+  // 首页
+  const menu1 = [
+    {
+      title: "业务介绍",
+      id: "ywjs"
+    },
+    {
+      title: "教学团队",
+      id: "jxtd"
+    },
+    {
+      title: "服务流程",
+      id: "fwlc"
+    },
+    {
+      title: "校区环境及地址",
+      id: "xqhj"
+    },
+    {
+      title: "联系我们",
+      id: "lxwm"
+    }
+  ]
   const ywtext1 = [
     {
       icon: "ywtext_icon1",
@@ -251,5 +274,47 @@ export default defineEventHandler(async () => {
       title: "留学规划、背景提升"
     }
   ]
-  return { teacher, address, ewm, ywtext1, ywtext2, ywtext3, offers1, offers2, banner }
+
+  // 备考页面
+
+  const menu2 = [
+    {
+      title: "升学备考成果",
+      id: "sxbkcg"
+    },
+    {
+      title: "英系备考",
+      id: "yxbk"
+    },
+    {
+      title: "美系备考",
+      id: "mxbk"
+    },
+    {
+      title: "港系备考",
+      id: "gxbk"
+    },
+    {
+      title: "流程服务",
+      id: "lcfw"
+    },
+    {
+      title: "关于我们",
+      id: "gywm"
+    },
+    {
+      title: "联系我们",
+      id: "lxwm"
+    }
+  ]
+
+  const banner2 = [
+    {
+      image: "banner1",
+      title: "国际教育网升学中心"
+    }
+  ]
+
+
+  return { teacher, address, ewm, ywtext1, ywtext2, ywtext3, offers1, offers2, banner, banner2, menu1, menu2 }
 })
