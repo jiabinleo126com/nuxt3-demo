@@ -153,8 +153,12 @@ const images = {
   ywtext_icon1, ywtext_icon2, ywtext_icon3, ywtext_icon4, ywtext_icon5, _offer_1, _offer_2, _offer_3, _offer_4, _offer_5, _offer_6, _offer_7, _offer_8, _offer_9, _offer_10, _offer_11, _offer_12, _offer_13, _offer_14, _offer_15, _offer_16, _offer_17, _offer_18, _offer_19, _offer_20, _offer_21, _offer_22, _offer_23, _offer_24, offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10, offer11, offer12, offer13, offer14, offer15, offer16, offer17, offer18, offer19, offer20, offer21, offer22, offer23, offer24, offer25, offer26, offer_1, offer_2, offer_3, offer_4, offer_5, offer_6, offer_7, offer_8, offer_9, offer_10, offer_11, offer_12, offer_13, offer_14, offer_15, offer_16, offer_17, offer_18, offer_19, offer_20, offer_21, offer_22, offer_23, offer_24, offer_25, offer_26, offer_27, offer_28, offer_29, offer_30, offer_31, offer_32, offer_33, offer_34, offer_35, offer_36, offer_37, offer_38, offer_39, offer_40, offer_41, offer_42, offer_43, offer_44, offer_45, offer_46, offer_47, offer_48, offer_49, offer_50, offer_51, offer_53, offer_54, offer_55, offer_56, offer_57, offer_58, offer_59, offer_60, offer_61, fwlc, teacher1, teacher2, teacher3, teacher4, teacher5, teacher6, teacher7, teacher8, teacher9, teacher10, teacher11, teacher12, teacher13, teacher14, teacher15, teacher16, teacher17, teacher18, addressicon, telicon, fixed1, fixed2, fixed3, fixed4, fixed1_, fixed2_, fixed3_, fixed4_, xqdz, ewm1, ewm2, bg
 }
 
-const { data: { value: { teacher, address, ewm, ywtext1, ywtext2, ywtext3, offers1, offers2, banner, menu1 } } } = await useFetch('/api/topic/2025/shengxue')
-
+const { data: { value: { teacher, address, ewm, ywtext1, ywtext2, ywtext3, offers1, offers2, banner, menu } } } = await useFetch('/api/topic/2025/shengxue', {
+  method: "POST",
+  body: {
+    page: "index"
+  }
+})
 import { defineAsyncComponent, onMounted } from 'vue';
 const Header = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Header.vue`))
 const Title = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Title.vue`))
@@ -383,7 +387,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <component :is="Header" :data="menu1" />
+  <component :is="Header" :data="menu" />
   <section :class="$style.section">
     <component :is="Banner" :data="banner" />
     <div :class="$style.yw" id="ywjs">

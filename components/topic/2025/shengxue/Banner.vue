@@ -6,9 +6,11 @@ import banner3 from '~/assets/topic/2025/shengxue/banner3.png'
 import banner4 from '~/assets/topic/2025/shengxue/banner4.png'
 import banner5 from '~/assets/topic/2025/shengxue/banner5.png'
 import banner6 from '~/assets/topic/2025/shengxue/banner6.png'
+import banner7 from '~/assets/topic/2025/shengxue/banner7.png'
+import banner8 from '~/assets/topic/2025/shengxue/banner8.png'
 
 const images = {
-  banner1, banner2, banner3, banner4, banner5, banner6
+  banner1, banner2, banner3, banner4, banner5, banner6, banner7, banner8
 }
 defineProps({
   data: {

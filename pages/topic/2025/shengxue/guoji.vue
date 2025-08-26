@@ -5,12 +5,17 @@ const Title = defineAsyncComponent(() => import(`~/components/topic/2025/shengxu
 const Banner = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Banner.vue`))
 const Footer = defineAsyncComponent(() => import(`~/components/topic/2025/shengxue/Footer.vue`))
 
-const { data: { value: { banner2, menu2 } } } = await useFetch('/api/topic/2025/shengxue')
+const { data: { value: { banner, menu } } } = await useFetch('/api/topic/2025/shengxue', {
+  method: 'POST',
+  body: {
+    page: "guoji"
+  }
+})
 </script>
 <template>
-  <component :is="Header" :data="menu2" />
+  <component :is="Header" :data="menu" />
   <section :class="$style.section">
-    <component :is="Banner" :data="banner2" />
+    <component :is="Banner" :data="banner" />
   </section>
   <component :is="Footer" />
 </template>

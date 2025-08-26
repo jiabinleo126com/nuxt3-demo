@@ -68,9 +68,9 @@ useHead({
 <template>
   <header :class="$style.header">
     <div :class="$style.con">
-      <a href="">
-        <img :src="logo" alt=""></img>
-      </a>
+      <NuxtLink to="/topic/2025/shengxue">
+        <img :src="logo" alt="国际教育网·升学中心"></img>
+      </NuxtLink>
       <menu>
         <a v-for="value in data" :class="value.id">{{ value.title }}</a>
       </menu>

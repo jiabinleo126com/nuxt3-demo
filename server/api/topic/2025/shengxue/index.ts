@@ -1,4 +1,5 @@
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (event) => {
+  const body = await readBody(event)
   // 首页
   const menu1 = [
     {
@@ -310,11 +311,43 @@ export default defineEventHandler(async () => {
 
   const banner2 = [
     {
-      image: "banner1",
+      image: "banner7",
       title: "国际教育网升学中心"
     }
   ]
 
-
-  return { teacher, address, ewm, ywtext1, ywtext2, ywtext3, offers1, offers2, banner, banner2, menu1, menu2 }
+  // 备考页面
+  const menu3 = [
+    {
+      title: "升学备考成果",
+      id: "sxbkcg"
+    },
+    {
+      title: "入学申请服务",
+      id: "rxsqfw"
+    },
+    {
+      title: "国际教育服务",
+      id: "gjjyfw"
+    },
+    {
+      title: "服务流程",
+      id: "fwlc"
+    },
+    {
+      title: "联系我们",
+      id: "lxwm"
+    }
+  ]
+  const banner3 = [
+    {
+      image: "banner8",
+      title: "国际教育网升学中心"
+    }
+  ]
+  if (body.page == "index") {
+    return { teacher, address, ewm, ywtext1, ywtext2, ywtext3, offers1, offers2, banner, menu: menu1 }
+  } else if (body.page == "guoji") {
+    return { banner: banner2, menu: menu2 }
+  }
 })
